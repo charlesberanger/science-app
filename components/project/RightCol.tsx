@@ -1,6 +1,71 @@
-export default function RightCol() {
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+
+interface RightColProps {
+  isAuthenticated?: boolean;
+}
+
+export default function RightCol({ isAuthenticated = false }: RightColProps) {
+  const router = useRouter();
+  const [voted, setVoted] = useState(false);
+  const [voteCount, setVoteCount] = useState(284);
+
+  function handleVote() {
+    if (!isAuthenticated) {
+      router.push("/auth/sign-in?redirect=/project");
+      return;
+    }
+    if (voted) {
+      setVoted(false);
+      setVoteCount((n) => n - 1);
+    } else {
+      setVoted(true);
+      setVoteCount((n) => n + 1);
+    }
+  }
+
   return (
     <div className="flex flex-col gap-0 rounded border border-[#2a2a2a] bg-[#111]">
+      {/* Vote */}
+      <div className="p-5">
+        <span
+          className="text-[9px] tracking-widest text-[#555] uppercase"
+          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+        >
+          Community Vote
+        </span>
+        <button
+          onClick={handleVote}
+          className={`mt-3 flex w-full items-center justify-between rounded border px-4 py-2.5 transition-colors ${
+            voted
+              ? "border-[#4ade80] bg-[#4ade80]/10 text-[#4ade80]"
+              : "border-[#4ade80] bg-[#4ade80] text-black hover:bg-[#6ee7a0]"
+          }`}
+        >
+          <span
+            className="text-[11px] uppercase tracking-widest"
+            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+          >
+            {voted ? "▲ Voted" : "▲ Vote"}
+          </span>
+          <span
+            className="text-[11px]"
+            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+          >
+            {voteCount}
+          </span>
+        </button>
+        {!isAuthenticated && (
+          <p className="mt-2 text-[10px] text-[#333]">
+            Sign in to vote for this project
+          </p>
+        )}
+      </div>
+
+      <div className="border-t border-[#2a2a2a]" />
+
       {/* Challenge info */}
       <div className="p-5">
         <span

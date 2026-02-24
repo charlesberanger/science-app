@@ -25,7 +25,7 @@ export default function AppShell({
         />
       )}
 
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} isAuthenticated={isAuthenticated} />
       <TopBar
         onMenuClick={() => setSidebarOpen(true)}
         badgeLabel={badgeLabel}

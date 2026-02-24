@@ -4,9 +4,10 @@ import ProfileSection from "./ProfileSection";
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
+  isAuthenticated?: boolean;
 }
 
-export default function Sidebar({ isOpen, onClose }: SidebarProps) {
+export default function Sidebar({ isOpen, onClose, isAuthenticated = false }: SidebarProps) {
   return (
     <aside
       className={`
@@ -49,7 +50,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             Navigation
           </span>
           <NavItem label="Get Started" href="/get-started" icon="⊞" />
-          <NavItem label="My Profile" href="/profile" icon="◈" />
         </div>
 
         <div>
@@ -59,7 +59,11 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           >
             Challenge
           </span>
-          <NavItem label="Submit Project" href="/submit" icon="↑" />
+          <NavItem
+            label="Submit Project"
+            href={isAuthenticated ? "/submit" : "/auth/sign-in?redirect=/submit"}
+            icon="↑"
+          />
           <NavItem label="My Submission" href="/submission" icon="◐" />
         </div>
 
