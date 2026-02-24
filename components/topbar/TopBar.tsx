@@ -1,11 +1,14 @@
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 interface TopBarProps {
   onMenuClick: () => void;
   badgeLabel?: string;
+  isAuthenticated?: boolean;
 }
 
-export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
+export default function TopBar({ onMenuClick, badgeLabel, isAuthenticated = false }: TopBarProps) {
   return (
     <header className="fixed right-0 top-0 z-10 flex h-14 items-center justify-between border-b border-[#2a2a2a] bg-[#0a0a0a] px-4 sm:px-6 lg:left-[220px] left-0">
       {/* Hamburger — mobile only */}
@@ -28,8 +31,17 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
         Science
       </span>
 
-      {badgeLabel && (
-        <Badge variant="success">{badgeLabel}</Badge>
+      {isAuthenticated ? (
+        badgeLabel && <Badge variant="success">{badgeLabel}</Badge>
+      ) : (
+        <div className="flex items-center gap-2">
+          <Button variant="outline" size="sm" asChild>
+            <Link href="/auth/sign-in">Sign In</Link>
+          </Button>
+          <Button variant="default" size="sm" asChild className="hidden sm:inline-flex">
+            <Link href="/auth/sign-in?mode=register">Create Account</Link>
+          </Button>
+        </div>
       )}
     </header>
   );

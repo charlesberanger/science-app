@@ -1,0 +1,139 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense } from "react";
+import AuthLeftPanel from "@/components/auth/AuthLeftPanel";
+import { Button } from "@/components/ui/button";
+
+const STATS = [
+  { value: "312",   label: "SUBMISSIONS" },
+  { value: "18.4k", label: "TOTAL VOTES" },
+  { value: "187",   label: "APPROVED" },
+  { value: "Live",  label: "CHALLENGE", highlight: true },
+];
+
+function StatsFooter() {
+  return (
+    <div className="mx-14 border border-[#1c1c1c] bg-[#0a0a0a]">
+      <div className="grid grid-cols-4 divide-x divide-[#1c1c1c]">
+        {STATS.map((s) => (
+          <div key={s.label} className="flex flex-col gap-1 px-4 py-4">
+            <span className={`text-[22px] font-bold tracking-tight ${s.highlight ? "text-[#acffaf]" : "text-white"}`}>
+              {s.value}
+            </span>
+            <span className="font-mono text-[9px] tracking-[1.26px] text-[#555]">
+              {s.label}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SignInForm() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const mode = searchParams.get("mode");
+  const isRegister = mode === "register";
+
+  const [email, setEmail] = useState("");
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!email) return;
+    router.push(`/auth/verify?email=${encodeURIComponent(email)}`);
+  }
+
+  return (
+    <div className="flex min-h-screen bg-[#0a0a0a]">
+      <AuthLeftPanel
+        eyebrow="QUICK AUTHENTICATION"
+        headline={[
+          { text: "Sign",    style: "bold" },
+          { text: "in to",  style: "italic" },
+          { text: "Science", style: "bold" },
+        ]}
+        description="The Science platform brings together researchers, engineers, and innovators to compete and push boundaries."
+        footer={<StatsFooter />}
+      />
+
+      {/* Right — auth card */}
+      <div className="flex flex-1 items-center justify-center px-4">
+        <div className="relative w-full max-w-[440px] border border-[rgba(42,42,42,0.4)] bg-[#111] shadow-[0px_20px_56px_0px_rgba(0,0,0,0.5)]">
+          {/* Lime top accent */}
+          <div className="absolute left-0 top-0 h-px w-full bg-[rgba(172,255,175,0.4)]" />
+
+          <div className="px-9 pb-10 pt-7">
+            {/* Step label */}
+            <p className="font-mono text-[9px] tracking-[1.62px] text-[#3a3a3a]">
+              STEP 01 OF 05&nbsp;&nbsp;·&nbsp;&nbsp;AUTHENTICATION
+            </p>
+            <h2 className="mt-2 text-[20px] font-bold tracking-[-0.4px] text-white">
+              {isRegister ? "Create your account" : "Quick Authentication"}
+            </h2>
+          </div>
+
+          <div className="border-t border-[#1c1c1c]" />
+
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3 px-9 py-7">
+            <p className="text-[13px] font-normal leading-[1.55] text-[#777]">
+              {isRegister
+                ? "Create an account with your organisation email. No password required."
+                : "Sign in with your organisation account via SSO. No password required."}
+            </p>
+
+            {/* Email field */}
+            <div className="mt-2 flex flex-col gap-2">
+              <label className="font-mono text-[10px] tracking-[1.2px] text-[#777]">
+                YOUR EMAIL
+              </label>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@institution.edu"
+                className="h-11 border border-[#2a2a2a] bg-[#161616] px-3.5 text-[14px] text-white placeholder-[#3a3a3a] outline-none transition-colors focus:border-[#4ade80]"
+              />
+            </div>
+
+            {/* Primary CTA */}
+            <button
+              type="submit"
+              className="mt-1 flex h-12 w-full items-center justify-center bg-[#4ade80] font-mono text-[12px] font-medium uppercase tracking-[1.17px] text-black transition-opacity hover:opacity-90"
+            >
+              Continue with SSO →
+            </button>
+
+            {/* Divider */}
+            <div className="flex items-center gap-3">
+              <div className="h-px flex-1 bg-[#2a2a2a]" />
+              <span className="font-mono text-[9px] tracking-[1.08px] text-[#3a3a3a]">OR</span>
+              <div className="h-px flex-1 bg-[#2a2a2a]" />
+            </div>
+
+            {/* Google CTA */}
+            <Button variant="outline" className="h-12 w-full" type="button">
+              Continue with Google
+            </Button>
+          </form>
+
+          <div className="border-t border-[#1c1c1c]" />
+          <p className="px-9 py-4 text-center font-mono text-[9px] tracking-[0.36px] text-[#3a3a3a]">
+            By continuing you agree to the Terms of Use and Privacy Policy
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function SignInPage() {
+  return (
+    <Suspense>
+      <SignInForm />
+    </Suspense>
+  );
+}

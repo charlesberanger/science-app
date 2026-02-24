@@ -4,7 +4,7 @@ import ProfileForm from "@/components/profile/ProfileForm";
 
 export default function ProfileEditPage() {
   return (
-    <AppShell badgeLabel="CHALLENGE LIVE">
+    <AppShell badgeLabel="CHALLENGE LIVE" isAuthenticated>
       <ProfileHeader />
       <div className="max-w-3xl">
         <ProfileForm />
