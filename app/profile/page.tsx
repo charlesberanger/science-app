@@ -1,3 +1,4 @@
+import Link from "next/link";
 import AppShell from "@/components/layout/AppShell";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -108,8 +109,8 @@ export default function ProfilePage() {
             </Badge>
           </div>
         </div>
-        <Button variant="outline" className="w-full sm:w-auto">
-          Edit Profile
+        <Button variant="outline" className="w-full sm:w-auto" asChild>
+          <Link href="/profile/edit">Edit Profile</Link>
         </Button>
       </div>
 
