@@ -104,14 +104,11 @@ export default function PublicProfilePage({ params }: { params: { username: stri
 
   return (
     <AppShell>
-      {/* Header — name instead of "My Profile" */}
-      <div className="flex flex-col gap-1 border-b border-[#2a2a2a] pb-6">
+      {/* Header — project title */}
+      <div className="border-b border-[#2a2a2a] pb-6">
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          {user.name}
+          {submission.title}
         </h1>
-        <p className="font-mono text-[11px] tracking-[0.04em] text-[#555]">
-          {user.role}&nbsp;&nbsp;·&nbsp;&nbsp;{user.institution}
-        </p>
       </div>
 
       {/* User info card — no Edit Profile button */}
