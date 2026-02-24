@@ -1,10 +1,10 @@
+"use client";
+
 import Link from "next/link";
+import { useAuth } from "@/contexts/AuthContext";
 
-interface BrowseHeaderProps {
-  isAuthenticated?: boolean;
-}
-
-export default function BrowseHeader({ isAuthenticated = false }: BrowseHeaderProps) {
+export default function BrowseHeader() {
+  const { isAuthenticated } = useAuth();
   const submitHref = isAuthenticated ? "/submit" : "/auth/sign-in?redirect=/submit";
 
   return (

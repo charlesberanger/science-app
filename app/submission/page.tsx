@@ -19,7 +19,7 @@ const submission = {
 
 export default function MySubmissionPage() {
   return (
-    <AppShell badgeLabel="CHALLENGE LIVE" isAuthenticated>
+    <AppShell badgeLabel="CHALLENGE LIVE">
       {/* Page header */}
       <div className="flex flex-col gap-4 border-b border-[#2a2a2a] pb-8">
         <div className="flex flex-col gap-1">

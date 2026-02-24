@@ -77,7 +77,7 @@ function InfoCell({ label, value }: { label: string; value: string }) {
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function ProfilePage() {
   return (
-    <AppShell badgeLabel="CHALLENGE LIVE" isAuthenticated>
+    <AppShell badgeLabel="CHALLENGE LIVE">
       {/* Header */}
       <div className="flex flex-col gap-1 border-b border-[#2a2a2a] pb-6">
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">

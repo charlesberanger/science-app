@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import AuthLeftPanel from "@/components/auth/AuthLeftPanel";
+import { useAuth } from "@/contexts/AuthContext";
 
 const STEPS = [
   { n: "✓",  label: "Email submitted",       done: true,    active: false },
@@ -99,6 +100,7 @@ function OtpInput({ value, onChange }: { value: string[]; onChange: (v: string[]
 function VerifyForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { signIn } = useAuth();
   const email = searchParams.get("email") ?? "you@institution.edu";
   const redirect = searchParams.get("redirect") ?? "/get-started";
 
@@ -117,6 +119,7 @@ function VerifyForm() {
     e.preventDefault();
     if (!filled) return;
     // Mock: any 6-digit code is accepted
+    signIn();
     router.push(redirect);
   }
 

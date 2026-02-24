@@ -24,7 +24,7 @@ export default function ProjectPage() {
 
         {/* Right column — moves above comments on mobile via order */}
         <div className="order-first xl:order-none">
-          <RightCol isAuthenticated={false} />
+          <RightCol />
         </div>
       </div>
     </AppShell>

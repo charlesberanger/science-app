@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/AuthContext";
 
-interface RightColProps {
-  isAuthenticated?: boolean;
-}
-
-export default function RightCol({ isAuthenticated = false }: RightColProps) {
+export default function RightCol() {
   const router = useRouter();
+  const { isAuthenticated } = useAuth();
   const [voted, setVoted] = useState(false);
   const [voteCount, setVoteCount] = useState(284);
 

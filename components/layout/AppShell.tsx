@@ -3,16 +3,16 @@
 import { useState } from "react";
 import Sidebar from "@/components/sidebar/Sidebar";
 import TopBar from "@/components/topbar/TopBar";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function AppShell({
   children,
   badgeLabel,
-  isAuthenticated = false,
 }: {
   children: React.ReactNode;
   badgeLabel?: string;
-  isAuthenticated?: boolean;
 }) {
+  const { isAuthenticated } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
