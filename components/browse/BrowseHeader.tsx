@@ -17,7 +17,12 @@ export default function BrowseHeader() {
       <div className="flex items-center gap-2 border border-[#2a2a2a] bg-[#1c1c1c] px-3 py-2.5 sm:w-64 sm:shrink-0">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <circle cx="6" cy="6" r="4" stroke="#3a3a3a" strokeWidth="1.2" />
-          <path d="M9.5 9.5L12 12" stroke="#3a3a3a" strokeWidth="1.2" strokeLinecap="round" />
+          <path
+            d="M9.5 9.5L12 12"
+            stroke="#3a3a3a"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
         </svg>
         <input
           type="text"

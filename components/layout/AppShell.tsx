@@ -24,7 +24,10 @@ export default function AppShell({
       )}
 
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <TopBar onMenuClick={() => setSidebarOpen(true)} badgeLabel={badgeLabel} />
+      <TopBar
+        onMenuClick={() => setSidebarOpen(true)}
+        badgeLabel={badgeLabel}
+      />
 
       <main className="flex flex-col gap-5 p-4 pt-20 sm:p-6 sm:pt-20 lg:ml-[220px]">
         {children}

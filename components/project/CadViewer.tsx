@@ -56,7 +56,7 @@ function CADModel({
           opacity: viewMode === "wireframe" ? 0.3 : 0.85,
           wireframe: viewMode === "wireframe",
           shininess: 80,
-        })
+        }),
       );
       body.position.set(0, i * 2.2, 0);
       body.castShadow = true;
@@ -64,7 +64,7 @@ function CADModel({
 
       const cap = new THREE.Mesh(
         new THREE.CylinderGeometry(0.3, 0.3, 0.2, 16),
-        new THREE.MeshPhongMaterial({ color: 0x4ade80, shininess: 150 })
+        new THREE.MeshPhongMaterial({ color: 0x4ade80, shininess: 150 }),
       );
       cap.position.set(1.2, i * 2.2, 0);
       cap.rotation.z = Math.PI / 2;
@@ -92,7 +92,7 @@ function CADModel({
             transparent: true,
             opacity: 0.15,
             side: THREE.DoubleSide,
-          })
+          }),
         );
         plane.position.set(0, i * 2.2, 0);
         plane.rotation.x = Math.PI / 2;
@@ -121,7 +121,11 @@ function CADModel({
   );
 }
 
-function CameraController({ position }: { position: [number, number, number] }) {
+function CameraController({
+  position,
+}: {
+  position: [number, number, number];
+}) {
   const { camera } = useThree();
   useEffect(() => {
     camera.position.set(...position);
@@ -157,12 +161,20 @@ function ToolButton({
 
 export default function CadViewer({ height = 399 }: { height?: number }) {
   const [loading, setLoading] = useState(true);
-  const [viewMode, setViewMode] = useState<"solid" | "wireframe" | "exploded">("solid");
-  const [controlMode, setControlMode] = useState<"orbit" | "pan" | "zoom">("orbit");
+  const [viewMode, setViewMode] = useState<"solid" | "wireframe" | "exploded">(
+    "solid",
+  );
+  const [controlMode, setControlMode] = useState<"orbit" | "pan" | "zoom">(
+    "orbit",
+  );
   const [measurementMode, setMeasurementMode] = useState(false);
   const [sectionMode, setSectionMode] = useState(false);
-  const [cameraView, setCameraView] = useState<"isometric" | "front" | "side" | "top">("isometric");
-  const [cameraPosition, setCameraPosition] = useState<[number, number, number]>([5, 5, 5]);
+  const [cameraView, setCameraView] = useState<
+    "isometric" | "front" | "side" | "top"
+  >("isometric");
+  const [cameraPosition, setCameraPosition] = useState<
+    [number, number, number]
+  >([5, 5, 5]);
 
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 1200);
@@ -234,7 +246,11 @@ export default function CadViewer({ height = 399 }: { height?: number }) {
           {/* Top-left: interaction mode */}
           <div className="absolute left-3 top-3 flex gap-1">
             {(["orbit", "pan", "zoom"] as const).map((m) => (
-              <ToolButton key={m} active={controlMode === m} onClick={() => setControlMode(m)}>
+              <ToolButton
+                key={m}
+                active={controlMode === m}
+                onClick={() => setControlMode(m)}
+              >
                 {m}
               </ToolButton>
             ))}
@@ -244,13 +260,19 @@ export default function CadViewer({ height = 399 }: { height?: number }) {
           <div className="absolute right-3 top-3 flex gap-1">
             <ToolButton
               active={measurementMode}
-              onClick={() => { setMeasurementMode(!measurementMode); setSectionMode(false); }}
+              onClick={() => {
+                setMeasurementMode(!measurementMode);
+                setSectionMode(false);
+              }}
             >
               Measure
             </ToolButton>
             <ToolButton
               active={sectionMode}
-              onClick={() => { setSectionMode(!sectionMode); setMeasurementMode(false); }}
+              onClick={() => {
+                setSectionMode(!sectionMode);
+                setMeasurementMode(false);
+              }}
             >
               Section
             </ToolButton>
@@ -261,7 +283,9 @@ export default function CadViewer({ height = 399 }: { height?: number }) {
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               {(["isometric", "front", "side", "top"] as const).map((v) => (
-                <option key={v} value={v}>{v}</option>
+                <option key={v} value={v}>
+                  {v}
+                </option>
               ))}
             </select>
             <ToolButton onClick={reset}>Reset</ToolButton>
@@ -278,7 +302,11 @@ export default function CadViewer({ height = 399 }: { height?: number }) {
           {/* Bottom-right: view mode */}
           <div className="absolute bottom-3 right-3 flex gap-1">
             {(["solid", "wireframe", "exploded"] as const).map((m) => (
-              <ToolButton key={m} active={viewMode === m} onClick={() => setViewMode(m)}>
+              <ToolButton
+                key={m}
+                active={viewMode === m}
+                onClick={() => setViewMode(m)}
+              >
                 {m}
               </ToolButton>
             ))}

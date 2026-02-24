@@ -9,20 +9,70 @@ const THUMBNAIL =
 
 const browseStats: StatItem[] = [
   { label: "TOTAL SUBMISSIONS", value: "312", trend: "↑ +14 this week" },
-  { label: "APPROVED PROJECTS", value: "187", trend: "/ 312", trendMuted: true },
+  {
+    label: "APPROVED PROJECTS",
+    value: "187",
+    trend: "/ 312",
+    trendMuted: true,
+  },
   { label: "TOTAL VOTES CAST", value: "18.4k", trend: "↑ +2.1k this week" },
-  { label: "DAYS REMAINING", value: "46", trend: "Closes Mar 31", trendMuted: true },
+  {
+    label: "DAYS REMAINING",
+    value: "46",
+    trend: "Closes Mar 31",
+    trendMuted: true,
+  },
 ];
 
 const projects = [
-  { title: "Fluid Dynamics in Microgravity", author: "C. Laurent", votes: 512, rank: 1 },
-  { title: "Fluid Dynamics in Microgravity", author: "C. Laurent", votes: 512, rank: 1 },
-  { title: "Fluid Dynamics in Microgravity", author: "C. Laurent", votes: 512, rank: 1 },
-  { title: "Fluid Dynamics in Microgravity", author: "C. Laurent", votes: 512, rank: 1 },
-  { title: "Fluid Dynamics in Microgravity", author: "C. Laurent", votes: 512, rank: 1 },
-  { title: "Fluid Dynamics in Microgravity", author: "C. Laurent", votes: 512, rank: 1 },
-  { title: "Fluid Dynamics in Microgravity", author: "C. Laurent", votes: 512, rank: 1 },
-  { title: "Fluid Dynamics in Microgravity", author: "C. Laurent", votes: 512, rank: 1 },
+  {
+    title: "Fluid Dynamics in Microgravity",
+    author: "C. Laurent",
+    votes: 512,
+    rank: 1,
+  },
+  {
+    title: "Fluid Dynamics in Microgravity",
+    author: "C. Laurent",
+    votes: 512,
+    rank: 1,
+  },
+  {
+    title: "Fluid Dynamics in Microgravity",
+    author: "C. Laurent",
+    votes: 512,
+    rank: 1,
+  },
+  {
+    title: "Fluid Dynamics in Microgravity",
+    author: "C. Laurent",
+    votes: 512,
+    rank: 1,
+  },
+  {
+    title: "Fluid Dynamics in Microgravity",
+    author: "C. Laurent",
+    votes: 512,
+    rank: 1,
+  },
+  {
+    title: "Fluid Dynamics in Microgravity",
+    author: "C. Laurent",
+    votes: 512,
+    rank: 1,
+  },
+  {
+    title: "Fluid Dynamics in Microgravity",
+    author: "C. Laurent",
+    votes: 512,
+    rank: 1,
+  },
+  {
+    title: "Fluid Dynamics in Microgravity",
+    author: "C. Laurent",
+    votes: 512,
+    rank: 1,
+  },
 ];
 
 export default function BrowseProjectsPage() {

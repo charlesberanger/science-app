@@ -9,7 +9,8 @@ export default function ProfileHeader() {
             Create your profile
           </h1>
           <p className="text-xs text-[#777]">
-            Your public profile is shown alongside your submission on the leaderboard.
+            Your public profile is shown alongside your submission on the
+            leaderboard.
           </p>
         </div>
         <Stepper currentStep={2} />
