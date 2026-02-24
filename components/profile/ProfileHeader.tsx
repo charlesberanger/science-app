@@ -13,7 +13,7 @@ export default function ProfileHeader() {
             leaderboard.
           </p>
         </div>
-        <Stepper currentStep={2} />
+        <Stepper currentStep={1} />
       </div>
     </div>
   );

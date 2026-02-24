@@ -143,7 +143,7 @@ function VerifyForm() {
 
           <div className="px-9 pb-6 pt-7">
             <p className="font-mono text-[9px] tracking-[1.62px] text-[#3a3a3a]">
-              STEP 02 OF 05&nbsp;&nbsp;·&nbsp;&nbsp;OTP VERIFICATION
+              STEP 01 OF 04&nbsp;&nbsp;·&nbsp;&nbsp;CREATE ACCOUNT
             </p>
             <h2 className="mt-2 text-[20px] font-bold tracking-[-0.4px] text-white">
               Enter your code

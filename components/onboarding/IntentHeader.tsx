@@ -12,7 +12,7 @@ export default function IntentHeader() {
             Choose your path to participate in the Fluid Dynamics Challenge
           </p>
         </div>
-        <Stepper />
+        <Stepper mode="preview" />
       </div>
     </div>
   );

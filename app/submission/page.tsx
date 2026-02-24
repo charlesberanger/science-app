@@ -39,7 +39,7 @@ export default function MySubmissionPage() {
           </p>
         </div>
 
-        {/* Progress stepper — currentStep=3 means SUBMIT is the active step */}
+        {/* Progress stepper — currentStep=3 = AWAIT REVIEW is active, all prior steps completed */}
         <div className="overflow-x-auto">
           <Stepper currentStep={3} />
         </div>
