@@ -1,10 +1,14 @@
+import Link from "next/link";
+
 export default function ChallengeHeader() {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
       <div>
         <h1 className="text-xl font-semibold text-white">Fluid Dynamics in Microgravity</h1>
         <p className="mt-1 text-xs text-[#555]">
-          <span className="text-[#999]">by C. Laurent</span>
+          <Link href="/profile/c-laurent" className="text-[#999] transition-colors hover:text-white hover:underline">
+            by C. Laurent
+          </Link>
           {" · "}
           <span style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
             Fluid Dynamics Challenge

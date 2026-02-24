@@ -71,7 +71,6 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
             Explore
           </span>
           <NavItem label="Browse Projects" href="/browse" icon="⊞" />
-          <NavItem label="Project Detail" href="/project" icon="◈" />
           <NavItem label="Leaderboard" href="/leaderboard" icon="▲" />
         </div>
       </div>

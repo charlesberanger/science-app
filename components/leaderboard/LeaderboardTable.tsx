@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface LeaderboardEntry {
   rank: number;
   project: string;
@@ -66,8 +68,9 @@ export default function LeaderboardTable() {
 
       {/* Rows */}
       {entries.map((entry) => (
-        <div
+        <Link
           key={entry.rank}
+          href="/project"
           className={`relative grid grid-cols-[40px_1fr_80px] border-b border-[#2a2a2a] bg-[#161616] transition-colors hover:bg-[#1c1c1c] sm:grid-cols-[60px_1fr_160px_160px_80px] ${
             entry.rank === 1 ? "border-l-2 border-l-[#4ade80]" : ""
           }`}
@@ -112,7 +115,7 @@ export default function LeaderboardTable() {
               {entry.votes}
             </span>
           </div>
-        </div>
+        </Link>
       ))}
 
       {/* Footer */}

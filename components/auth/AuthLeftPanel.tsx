@@ -23,7 +23,7 @@ export default function AuthLeftPanel({
   footer,
 }: AuthLeftPanelProps) {
   return (
-    <div className="relative hidden h-full w-[580px] shrink-0 flex-col overflow-hidden bg-[#111] lg:flex">
+    <div className="relative hidden min-h-screen w-[580px] shrink-0 flex-col overflow-hidden bg-[#111] lg:flex">
       {/* Lime top border */}
       <div className="absolute left-0 top-0 h-0.5 w-full bg-[#acffaf]" />
       {/* Right divider */}
