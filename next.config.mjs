@@ -14,9 +14,8 @@ const nextConfig = {
 };
 
 export default withSentryConfig(nextConfig, {
-  // Sentry org + project — set in .env or Vercel env vars
-  org: process.env.SENTRY_ORG,
-  project: process.env.SENTRY_PROJECT,
+  org: "sera-ro",
+  project: "science-mvp",
 
   // Only upload source maps in CI / production builds
   silent: !process.env.CI,
