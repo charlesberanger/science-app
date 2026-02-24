@@ -1,5 +1,6 @@
 import NavItem from "./NavItem";
 import ProfileSection from "./ProfileSection";
+import ScienceLogo from "@/components/icons/ScienceLogo";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -21,8 +22,8 @@ export default function Sidebar({ isOpen, onClose, isAuthenticated = false }: Si
       {/* Brand */}
       <div className="flex items-center justify-between border-b border-[#2a2a2a] px-4 py-4">
         <div className="flex items-center gap-2.5">
-          <div className="flex h-6 w-6 items-center justify-center rounded-sm border border-[#2a2a2a] bg-white">
-            <span className="text-[10px] font-bold text-black">S</span>
+          <div className="flex h-6 w-6 items-center justify-center rounded-sm border border-[#2a2a2a] bg-black">
+            <ScienceLogo className="h-3.5 w-3.5" />
           </div>
           <span
             className="text-xs uppercase tracking-widest text-white"

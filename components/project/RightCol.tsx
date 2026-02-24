@@ -120,12 +120,13 @@ export default function RightCol() {
         </span>
         <div className="mt-3 flex flex-col gap-2">
           {["Mesh refinement trade-offs", "Memory vs speed benchmarks", "NACA validation dataset"].map((t) => (
-            <div
+            <a
               key={t}
-              className="cursor-pointer text-xs text-[#555] transition-colors hover:text-[#999]"
+              href="#comments"
+              className="text-xs text-[#555] transition-colors hover:text-[#999]"
             >
               → {t}
-            </div>
+            </a>
           ))}
         </div>
       </div>

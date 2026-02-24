@@ -28,8 +28,9 @@ export default function LeaderboardHeader() {
         </svg>
         <input
           type="text"
-          placeholder="Search projects…"
-          className="w-full bg-transparent text-[13px] text-[#999] placeholder-[#3a3a3a] outline-none"
+          placeholder="Search coming soon…"
+          disabled
+          className="w-full bg-transparent text-[13px] text-[#999] placeholder-[#3a3a3a] outline-none cursor-not-allowed"
         />
       </div>
     </div>

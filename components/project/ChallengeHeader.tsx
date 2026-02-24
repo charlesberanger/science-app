@@ -23,8 +23,9 @@ export default function ChallengeHeader() {
         </svg>
         <input
           type="text"
-          placeholder="Search projects..."
-          className="w-full bg-transparent text-[11px] text-[#999] placeholder-[#333] outline-none sm:w-48"
+          placeholder="Search coming soon…"
+          disabled
+          className="w-full bg-transparent text-[11px] text-[#999] placeholder-[#333] outline-none sm:w-48 cursor-not-allowed"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         />
       </div>

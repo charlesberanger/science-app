@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 
 interface LeaderboardEntry {
@@ -9,15 +12,24 @@ interface LeaderboardEntry {
   votes: number;
 }
 
-const entries: LeaderboardEntry[] = [
-  { rank: 1, project: "Fluid Dynamics", author: "C. Laurent", category: "FLUID DYNAMICS", approval: 94, votes: 512 },
-  { rank: 2, project: "Thermodynamics", author: "A. Patel", category: "FLUID DYNAMICS", approval: 88, votes: 480 },
-  { rank: 3, project: "Quantum Mechanics", author: "J. Smith", category: "FLUID DYNAMICS", approval: 91, votes: 530 },
-  { rank: 4, project: "Electromagnetism", author: "D. Kim", category: "FLUID DYNAMICS", approval: 87, votes: 450 },
-  { rank: 5, project: "Statistical Mechanics", author: "S. Johnson", category: "FLUID DYNAMICS", approval: 80, votes: 470 },
-  { rank: 6, project: "Classical Mechanics", author: "F. Nguyen", category: "FLUID DYNAMICS", approval: 90, votes: 495 },
-  { rank: 7, project: "Optics", author: "B. Davis", category: "FLUID DYNAMICS", approval: 95, votes: 510 },
+const ALL_ENTRIES: LeaderboardEntry[] = [
+  { rank: 1,  project: "Fluid Dynamics in Microgravity",         author: "C. Laurent",  category: "FLUID DYNAMICS", approval: 94, votes: 512 },
+  { rank: 2,  project: "Thermodynamic Cycle Optimisation",        author: "A. Patel",    category: "THERMODYNAMICS", approval: 88, votes: 480 },
+  { rank: 3,  project: "Quantum Turbulence Simulation",           author: "J. Smith",    category: "FLUID DYNAMICS", approval: 91, votes: 467 },
+  { rank: 4,  project: "Electromagnetic Flow Control",            author: "D. Kim",      category: "FLUID DYNAMICS", approval: 87, votes: 450 },
+  { rank: 5,  project: "Statistical Mechanics of Vortex Sheets",  author: "S. Johnson",  category: "FLUID DYNAMICS", approval: 80, votes: 441 },
+  { rank: 6,  project: "Classical Shock Wave Interaction",        author: "F. Nguyen",   category: "FLUID DYNAMICS", approval: 90, votes: 428 },
+  { rank: 7,  project: "Optics-Based Flow Visualisation",         author: "B. Davis",    category: "EXPERIMENTAL",   approval: 95, votes: 415 },
+  { rank: 8,  project: "Adaptive Mesh Refinement for CFD",        author: "L. Chen",     category: "FLUID DYNAMICS", approval: 82, votes: 398 },
+  { rank: 9,  project: "Turbulent Boundary Layer Modelling",      author: "M. Okafor",   category: "FLUID DYNAMICS", approval: 89, votes: 374 },
+  { rank: 10, project: "Cavitation in Micro-channels",            author: "R. Müller",   category: "FLUID DYNAMICS", approval: 85, votes: 361 },
+  { rank: 11, project: "Reynolds-Averaged Navier-Stokes Study",   author: "T. Andersen", category: "FLUID DYNAMICS", approval: 78, votes: 342 },
+  { rank: 12, project: "Direct Numerical Simulation of Jets",     author: "Y. Tanaka",   category: "FLUID DYNAMICS", approval: 93, votes: 329 },
+  { rank: 13, project: "Passive Flow Separation Control",         author: "E. Rossi",    category: "EXPERIMENTAL",   approval: 86, votes: 314 },
+  { rank: 14, project: "Lattice Boltzmann Method for Droplets",   author: "P. Novak",    category: "FLUID DYNAMICS", approval: 81, votes: 298 },
 ];
+
+const PAGE_SIZE = 7;
 
 function RankBadge({ rank }: { rank: number }) {
   return (
@@ -35,10 +47,7 @@ function ApprovalBar({ value }: { value: number }) {
   return (
     <div className="flex items-center gap-2">
       <div className="h-1 w-20 rounded-full bg-[#555]">
-        <div
-          className="h-1 rounded-full bg-[#acffaf]"
-          style={{ width: `${value}%` }}
-        />
+        <div className="h-1 rounded-full bg-[#acffaf]" style={{ width: `${value}%` }} />
       </div>
       <span
         className="text-[9px] text-[#555] tracking-wider"
@@ -51,6 +60,10 @@ function ApprovalBar({ value }: { value: number }) {
 }
 
 export default function LeaderboardTable() {
+  const [visible, setVisible] = useState(PAGE_SIZE);
+  const shown = ALL_ENTRIES.slice(0, visible);
+  const hasMore = visible < ALL_ENTRIES.length;
+
   return (
     <div className="overflow-hidden border border-[#2a2a2a]">
       {/* Table header */}
@@ -67,7 +80,7 @@ export default function LeaderboardTable() {
       </div>
 
       {/* Rows */}
-      {entries.map((entry) => (
+      {shown.map((entry) => (
         <Link
           key={entry.rank}
           href="/project"
@@ -75,23 +88,16 @@ export default function LeaderboardTable() {
             entry.rank === 1 ? "border-l-2 border-l-[#4ade80]" : ""
           }`}
         >
-          {/* Rank */}
           <div className="flex items-center px-3 py-3 sm:px-4">
             <RankBadge rank={entry.rank} />
           </div>
-
-          {/* Project / Author */}
           <div className="flex items-center gap-3 py-3 pr-4">
             <div className="h-7 w-7 shrink-0 rounded-full bg-[#3a3a3a]" />
             <div className="flex min-w-0 flex-col">
-              <span className="truncate text-[13px] font-medium text-white">
-                {entry.project}
-              </span>
+              <span className="truncate text-[13px] font-medium text-white">{entry.project}</span>
               <span className="text-[11px] text-[#555]">{entry.author}</span>
             </div>
           </div>
-
-          {/* Category — hidden on mobile */}
           <div className="hidden items-center sm:flex">
             <span
               className="border border-[#2a2a2a] bg-[#1c1c1c] px-3 py-1.5 text-[9px] uppercase tracking-widest text-[#999]"
@@ -100,13 +106,9 @@ export default function LeaderboardTable() {
               {entry.category}
             </span>
           </div>
-
-          {/* Approval — hidden on mobile */}
           <div className="hidden items-center sm:flex">
             <ApprovalBar value={entry.approval} />
           </div>
-
-          {/* Votes */}
           <div className="flex items-center justify-end px-4">
             <span
               className="text-[14px] font-medium text-[#4ade80] tracking-wider"
@@ -124,11 +126,17 @@ export default function LeaderboardTable() {
           className="text-[10px] text-[#555] tracking-wider"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
-          Showing {entries.length} of 187 approved projects
+          Showing {shown.length} of {ALL_ENTRIES.length} approved projects
         </span>
-        <button className="border border-[#2a2a2a] bg-[#1c1c1c] px-4 py-1.5 text-[11px] text-[#777] transition-colors hover:text-white">
-          Load more →
-        </button>
+        {hasMore && (
+          <button
+            onClick={() => setVisible((v) => Math.min(v + PAGE_SIZE, ALL_ENTRIES.length))}
+            className="border border-[#2a2a2a] bg-[#1c1c1c] px-4 py-1.5 text-[11px] text-[#777] transition-colors hover:text-white"
+            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+          >
+            Load more →
+          </button>
+        )}
       </div>
     </div>
   );

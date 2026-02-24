@@ -5,35 +5,76 @@ import SubmissionStatusBanner from "@/components/submission/SubmissionStatusBann
 import SubmissionCard from "@/components/submission/SubmissionCard";
 
 // ── Mock — replace with real data fetch by username ──────────────────────────
-const getUser = (username: string) => ({
-  name: "Alice S.",
-  initials: "AS",
-  role: "Researcher",
-  institution: "MiT Applied Sciences",
-  email: "alice.s@mit.edu",
-  memberSince: "Jan 2026",
-  status: "approved" as const,
-  bio: "This project investigates passive turbulence suppression through micro-textured surface geometries inspired by shark-skin denticles. By optimising riblet geometry for varying Reynolds numbers, we demonstrate a 14.2% reduction in skin-friction drag.",
-  stats: [
-    { label: "Votes",    value: "512",  highlight: true },
-    { label: "Views",    value: "2.1k", highlight: false },
-    { label: "Comments", value: "24",   highlight: false },
-  ],
-});
-
-const submission = {
-  title: "Turbulence Mitigation via Adaptive Surface Geometry",
-  submittedAt: "Submitted Feb 13, 2026  ·  14:32 UTC",
-  status: "pending" as const,
-  meta: [
-    { label: "Category",    value: "Fluid Dynamics" },
-    { label: "Institution", value: "MiT Applied Sciences" },
-    { label: "Submitted",   value: "Feb 13, 2026" },
-    { label: "Assets",      value: "CAD File" },
-  ],
-  description:
-    "This project investigates passive turbulence suppression through micro-textured surface geometries inspired by shark-skin denticles. By optimising riblet geometry for varying Reynolds numbers, we demonstrate a 14.2% reduction in skin-friction drag.",
+const USERS: Record<string, {
+  name: string; initials: string; role: string; institution: string;
+  email: string; memberSince: string; status: "approved" | "pending";
+  bio: string; stats: { label: string; value: string; highlight: boolean }[];
+  submission: {
+    title: string; submittedAt: string; status: "pending" | "approved";
+    meta: { label: string; value: string }[]; description: string;
+  };
+}> = {
+  "c-laurent": {
+    name: "C. Laurent",
+    initials: "CL",
+    role: "PhD Candidate",
+    institution: "CNRS — Institut de Mécanique des Fluides",
+    email: "c.laurent@imft.fr",
+    memberSince: "Dec 2025",
+    status: "approved",
+    bio: "Research focus on microgravity fluid behaviour and capillary-driven flow regimes aboard orbital platforms. Currently developing a novel experimental rig for ISS deployment in collaboration with ESA's fluid physics team.",
+    stats: [
+      { label: "Votes",    value: "512", highlight: true },
+      { label: "Views",    value: "3.8k", highlight: false },
+      { label: "Comments", value: "41",  highlight: false },
+    ],
+    submission: {
+      title: "Fluid Dynamics in Microgravity",
+      submittedAt: "Submitted Jan 28, 2026  ·  09:14 UTC",
+      status: "approved",
+      meta: [
+        { label: "Category",    value: "Fluid Dynamics" },
+        { label: "Institution", value: "CNRS — IMFT" },
+        { label: "Submitted",   value: "Jan 28, 2026" },
+        { label: "Assets",      value: "CAD File + Report" },
+      ],
+      description:
+        "Investigation of capillary-dominated flow regimes under microgravity conditions, with applications to propellant management in orbital vehicles. Results validated against parabolic flight data from ESA's 74th campaign.",
+    },
+  },
+  "alice-s": {
+    name: "Alice S.",
+    initials: "AS",
+    role: "Researcher",
+    institution: "MiT Applied Sciences",
+    email: "alice.s@mit.edu",
+    memberSince: "Jan 2026",
+    status: "approved",
+    bio: "This project investigates passive turbulence suppression through micro-textured surface geometries inspired by shark-skin denticles. By optimising riblet geometry for varying Reynolds numbers, we demonstrate a 14.2% reduction in skin-friction drag.",
+    stats: [
+      { label: "Votes",    value: "284", highlight: true },
+      { label: "Views",    value: "2.1k", highlight: false },
+      { label: "Comments", value: "24",  highlight: false },
+    ],
+    submission: {
+      title: "Turbulence Mitigation via Adaptive Surface Geometry",
+      submittedAt: "Submitted Feb 13, 2026  ·  14:32 UTC",
+      status: "pending",
+      meta: [
+        { label: "Category",    value: "Fluid Dynamics" },
+        { label: "Institution", value: "MiT Applied Sciences" },
+        { label: "Submitted",   value: "Feb 13, 2026" },
+        { label: "Assets",      value: "CAD File" },
+      ],
+      description:
+        "Passive turbulence suppression through micro-textured surface geometries inspired by shark-skin denticles. Optimised riblet geometry for varying Reynolds numbers demonstrates a 14.2% reduction in skin-friction drag.",
+    },
+  },
 };
+
+const DEFAULT_USER = USERS["alice-s"];
+
+const getUser = (username: string) => USERS[username] ?? DEFAULT_USER;
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function MetricBlock({ value, label, highlight }: { value: string; label: string; highlight: boolean }) {
@@ -59,6 +100,7 @@ function InfoCell({ label, value }: { label: string; value: string }) {
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function PublicProfilePage({ params }: { params: { username: string } }) {
   const user = getUser(params.username);
+  const { submission } = user;
 
   return (
     <AppShell>

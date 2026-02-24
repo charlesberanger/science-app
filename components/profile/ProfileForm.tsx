@@ -41,6 +41,7 @@ export default function ProfileForm() {
   const [bio, setBio] = useState("");
   const [institution, setInstitution] = useState("");
   const [photo, setPhoto] = useState<string | null>(null);
+  const [saved, setSaved] = useState(false);
   const router = useRouter();
 
   function handlePhotoChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -146,12 +147,28 @@ export default function ProfileForm() {
           >
             * Required to submit a project
           </p>
-          <button
-            onClick={() => router.push("/profile")}
-            className="border border-[#4ade80] bg-transparent px-6 py-2.5 text-[12px] font-medium text-[#4ade80] tracking-wider transition-colors hover:bg-[#4ade80]/10"
-          >
-            Save →
-          </button>
+          <div className="flex items-center gap-3">
+            {saved && (
+              <span
+                className="text-[11px] text-[#4ade80]"
+                style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+              >
+                Saved ✓
+              </span>
+            )}
+            <button
+              onClick={() => {
+                setSaved(true);
+                setTimeout(() => {
+                  setSaved(false);
+                  router.push("/profile");
+                }, 1200);
+              }}
+              className="border border-[#4ade80] bg-transparent px-6 py-2.5 text-[12px] font-medium text-[#4ade80] tracking-wider transition-colors hover:bg-[#4ade80]/10"
+            >
+              Save →
+            </button>
+          </div>
         </div>
       </div>
     </div>
