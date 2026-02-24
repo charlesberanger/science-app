@@ -1,3 +1,5 @@
+import ScienceLogo from "@/components/icons/ScienceLogo";
+
 interface HeadlineLine {
   text: string;
   style: "bold" | "italic";
@@ -23,7 +25,7 @@ export default function AuthLeftPanel({
   footer,
 }: AuthLeftPanelProps) {
   return (
-    <div className="relative hidden min-h-screen w-[580px] shrink-0 flex-col overflow-hidden bg-[#111] lg:flex">
+    <div className="relative hidden min-h-screen flex-1 flex-col overflow-hidden bg-[#111] lg:flex">
       {/* Lime top border */}
       <div className="absolute left-0 top-0 h-0.5 w-full bg-[#acffaf]" />
       {/* Right divider */}
@@ -32,8 +34,8 @@ export default function AuthLeftPanel({
       {/* Brand row */}
       <div className="flex items-center justify-between px-14 pt-12">
         <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center bg-[#acffaf]">
-            <span className="text-[15px] font-bold text-black">S</span>
+          <div className="flex h-8 w-8 items-center justify-center bg-black">
+            <ScienceLogo className="h-5 w-5" />
           </div>
           <span className="font-mono text-[11px] tracking-[2.2px] text-[#777]">
             SCIENCE

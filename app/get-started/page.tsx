@@ -11,7 +11,7 @@ const paths = [
       "Explore all submissions, view CAD models, and discover innovative fluid dynamics solutions. Vote on your favorites.",
     cta: "View submissions →",
     note: "No sign-up required",
-    href: "/project",
+    href: "/browse",
   },
   {
     icon: "▲",

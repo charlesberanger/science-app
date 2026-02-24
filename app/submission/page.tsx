@@ -1,6 +1,5 @@
 import Link from "next/link";
 import AppShell from "@/components/layout/AppShell";
-import Stepper from "@/components/onboarding/Stepper";
 import SubmissionStatusBanner from "@/components/submission/SubmissionStatusBanner";
 import SubmissionCard from "@/components/submission/SubmissionCard";
 import { Button } from "@/components/ui/button";
@@ -37,11 +36,6 @@ export default function MySubmissionPage() {
           >
             312 submissions &nbsp;·&nbsp; Fluid Dynamics Challenge
           </p>
-        </div>
-
-        {/* Progress stepper — currentStep=3 means SUBMIT is the active step */}
-        <div className="overflow-x-auto">
-          <Stepper currentStep={3} />
         </div>
 
         <div className="flex items-center gap-2">

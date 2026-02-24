@@ -4,7 +4,7 @@ export default function ChallengeHeader() {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
       <div>
-        <h1 className="text-xl font-semibold text-white">Fluid Dynamics in Microgravity</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Fluid Dynamics in Microgravity</h1>
         <p className="mt-1 text-xs text-[#555]">
           <Link href="/profile/c-laurent" className="text-[#999] transition-colors hover:text-white hover:underline">
             by C. Laurent
