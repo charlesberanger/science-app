@@ -35,7 +35,7 @@ const paths = [
 
 export default function GetStartedPage() {
   return (
-    <AppShell badgeLabel="CHALLENGE LIVE">
+    <AppShell badgeLabel="CHALLENGE LIVE" isAuthenticated>
       <div className="-mx-4 -mt-5 flex flex-col sm:-mx-6">
         <div className="px-6 pt-6 pb-0">
           <IntentHeader />

@@ -7,9 +7,11 @@ import TopBar from "@/components/topbar/TopBar";
 export default function AppShell({
   children,
   badgeLabel,
+  isAuthenticated = false,
 }: {
   children: React.ReactNode;
   badgeLabel?: string;
+  isAuthenticated?: boolean;
 }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -27,6 +29,7 @@ export default function AppShell({
       <TopBar
         onMenuClick={() => setSidebarOpen(true)}
         badgeLabel={badgeLabel}
+        isAuthenticated={isAuthenticated}
       />
 
       <main className="flex flex-col gap-5 p-4 pt-20 sm:p-6 sm:pt-20 lg:ml-[220px]">
