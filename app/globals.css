@@ -2,22 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Science DS — shadcn/ui token mapping ──────────────────────────────────
+   All values are always-dark. The .dark class is applied on <html> so shadcn
+   components pick up these overrides automatically.
+   Radius is 0 throughout — sharp corners everywhere per the design system.
+────────────────────────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    /* Backgrounds */
+    --background:   0 0% 4%;      /* #0A0A0A  bg/default   */
+    --card:         0 0% 7%;      /* #111111  bg/surface   */
+    --popover:      0 0% 7%;      /* #111111  bg/surface   */
+
+    /* Text */
+    --foreground:         0 0% 100%;   /* #FFFFFF  text/primary   */
+    --card-foreground:    0 0% 100%;
+    --popover-foreground: 0 0% 100%;
+
+    /* Primary — white button / key action */
+    --primary:            0 0% 100%;   /* #FFFFFF  */
+    --primary-foreground: 0 0% 4%;     /* #0A0A0A  */
+
+    /* Secondary — elevated surface */
+    --secondary:            0 0% 11%;  /* #1C1C1C  bg/elevated  */
+    --secondary-foreground: 0 0% 60%;  /* #999999  text/secondary */
+
+    /* Muted */
+    --muted:            0 0% 11%;  /* #1C1C1C */
+    --muted-foreground: 0 0% 33%;  /* #555555  text/tertiary */
+
+    /* Accent — used for hover states */
+    --accent:            0 0% 16%;  /* #2A2A2A  border/default */
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive */
+    --destructive:            0 91% 71%;  /* #F87171  error */
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & inputs */
+    --border: 0 0% 16%;   /* #2A2A2A */
+    --input:  0 0% 11%;   /* #1C1C1C */
+    --ring:   122 100% 84%; /* #ACFFAF  lime accent — focus ring */
+
+    /* Sharp corners — design system uses 0px radius */
+    --radius: 0rem;
+  }
+
+  /* Mirror dark = root since we're always dark */
+  .dark {
+    --background:   0 0% 4%;
+    --card:         0 0% 7%;
+    --popover:      0 0% 7%;
+    --foreground:         0 0% 100%;
+    --card-foreground:    0 0% 100%;
+    --popover-foreground: 0 0% 100%;
+    --primary:            0 0% 100%;
+    --primary-foreground: 0 0% 4%;
+    --secondary:            0 0% 11%;
+    --secondary-foreground: 0 0% 60%;
+    --muted:            0 0% 11%;
+    --muted-foreground: 0 0% 33%;
+    --accent:            0 0% 16%;
+    --accent-foreground: 0 0% 100%;
+    --destructive:            0 91% 71%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 16%;
+    --input:  0 0% 11%;
+    --ring:   122 100% 84%;
+    --radius: 0rem;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ─── Science DS raw tokens (used directly in component classes) ─────────── */
 :root {
-  --bg-default: #0a0a0a;
-  --bg-surface: #111111;
-  --bg-elevated: #1c1c1c;
+  --bg-default:   #0a0a0a;
+  --bg-surface:   #111111;
+  --bg-elevated:  #1c1c1c;
   --border-default: #2a2a2a;
-  --text-primary: #ffffff;
+  --text-primary:   #ffffff;
   --text-secondary: #999999;
-  --text-tertiary: #555555;
+  --text-tertiary:  #555555;
+  --lime-400:       #acffaf;
   --feedback-success: #4ade80;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background-color: var(--bg-default);
-  color: var(--text-primary);
+  --feedback-error:   #f87171;
+  --feedback-warning: #fcd34d;
 }

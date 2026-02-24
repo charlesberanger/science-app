@@ -1,4 +1,4 @@
-import Badge from "@/components/ui/Badge";
+import { Badge } from "@/components/ui/badge";
 
 interface TopBarProps {
   onMenuClick: () => void;
@@ -19,22 +19,18 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
         <span className="h-px w-4 bg-[#555]" />
       </button>
 
-      <span
-        className="hidden text-[11px] tracking-widest text-[#555] lg:block"
-        style={{ fontFamily: "var(--font-dm-mono), monospace" }}
-      >
+      <span className="hidden font-mono text-[11px] tracking-widest text-[#555] lg:block">
         Science <span className="text-[#333]">/</span>{" "}
         <span className="text-[#999]">Dashboard</span>
       </span>
 
-      <span
-        className="absolute left-1/2 -translate-x-1/2 text-[11px] tracking-widest text-[#555] lg:hidden"
-        style={{ fontFamily: "var(--font-dm-mono), monospace" }}
-      >
+      <span className="absolute left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-widest text-[#555] lg:hidden">
         Science
       </span>
 
-      <Badge label={badgeLabel} />
+      {badgeLabel && (
+        <Badge variant="success">{badgeLabel}</Badge>
+      )}
     </header>
   );
 }
