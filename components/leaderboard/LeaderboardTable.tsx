@@ -91,7 +91,7 @@ export default function LeaderboardTable() {
           <div className="flex items-center px-3 py-3 sm:px-4">
             <RankBadge rank={entry.rank} />
           </div>
-          <div className="flex items-center gap-3 py-3 pr-4">
+          <div className="flex items-center gap-3 px-4 py-3">
             <div className="h-7 w-7 shrink-0 rounded-full bg-[#3a3a3a]" />
             <div className="flex min-w-0 flex-col">
               <span className="truncate text-[13px] font-medium text-white">{entry.project}</span>
