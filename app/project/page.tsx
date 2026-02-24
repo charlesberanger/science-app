@@ -1,11 +1,13 @@
+import dynamic from "next/dynamic";
 import AppShell from "@/components/layout/AppShell";
 import ChallengeHeader from "@/components/project/ChallengeHeader";
 import StatsBar from "@/components/project/StatsBar";
-import CadViewer from "@/components/project/CadViewer";
 import Description from "@/components/project/Description";
 import ShareLink from "@/components/project/ShareLink";
 import CommentsSection from "@/components/project/CommentsSection";
 import RightCol from "@/components/project/RightCol";
+
+const CadViewer = dynamic(() => import("@/components/project/CadViewer"), { ssr: false });
 
 export default function ProjectPage() {
   return (

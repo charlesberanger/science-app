@@ -1,14 +1,17 @@
+"use client";
+
 import NavItem from "./NavItem";
 import ProfileSection from "./ProfileSection";
 import ScienceLogo from "@/components/icons/ScienceLogo";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
-  isAuthenticated?: boolean;
 }
 
-export default function Sidebar({ isOpen, onClose, isAuthenticated = false }: SidebarProps) {
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
+  const { isAuthenticated } = useAuth();
   return (
     <aside
       className={`

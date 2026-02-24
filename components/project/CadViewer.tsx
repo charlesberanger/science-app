@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Grid, Environment } from "@react-three/drei";
 import * as THREE from "three";
@@ -40,7 +40,7 @@ function CADModel({
     }
   });
 
-  const buildScene = useCallback(() => {
+  useEffect(() => {
     const group = groupRef.current;
     if (!group) return;
     group.clear();
@@ -107,10 +107,6 @@ function CADModel({
       group.add(part);
     }
   }, [viewMode, measurementMode, sectionMode]);
-
-  useEffect(() => {
-    buildScene();
-  }, [buildScene]);
 
   return (
     <group

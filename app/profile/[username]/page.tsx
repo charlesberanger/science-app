@@ -3,6 +3,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import SubmissionStatusBanner from "@/components/submission/SubmissionStatusBanner";
 import SubmissionCard from "@/components/submission/SubmissionCard";
+import { MetricBlock, InfoCell } from "@/components/profile/ProfileMetrics";
 
 // ── Mock — replace with real data fetch by username ──────────────────────────
 const USERS: Record<string, {
@@ -75,27 +76,6 @@ const USERS: Record<string, {
 const DEFAULT_USER = USERS["alice-s"];
 
 const getUser = (username: string) => USERS[username] ?? DEFAULT_USER;
-
-// ── Helpers ───────────────────────────────────────────────────────────────────
-function MetricBlock({ value, label, highlight }: { value: string; label: string; highlight: boolean }) {
-  return (
-    <div className="flex flex-col gap-2 border border-[#1c1c1c] bg-[#111] px-4 py-3">
-      <p className={`text-2xl font-bold tracking-tight ${highlight ? "text-[#acffaf]" : "text-[#999]"}`}>
-        {value}
-      </p>
-      <p className="font-mono text-[8px] uppercase tracking-[0.12em] text-[#555]">{label}</p>
-    </div>
-  );
-}
-
-function InfoCell({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex h-16 flex-col justify-center gap-1 border border-[#2a2a2a] bg-[#0a0a0a] px-4">
-      <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#555]">{label}</span>
-      <span className="text-xs text-white">{value}</span>
-    </div>
-  );
-}
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 export default function PublicProfilePage({ params }: { params: { username: string } }) {

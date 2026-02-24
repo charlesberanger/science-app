@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Sidebar from "@/components/sidebar/Sidebar";
 import TopBar from "@/components/topbar/TopBar";
-import { useAuth } from "@/contexts/AuthContext";
 
 export default function AppShell({
   children,
@@ -12,7 +11,6 @@ export default function AppShell({
   children: React.ReactNode;
   badgeLabel?: string;
 }) {
-  const { isAuthenticated } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -25,11 +23,10 @@ export default function AppShell({
         />
       )}
 
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} isAuthenticated={isAuthenticated} />
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <TopBar
         onMenuClick={() => setSidebarOpen(true)}
         badgeLabel={badgeLabel}
-        isAuthenticated={isAuthenticated}
       />
 
       <main className="flex flex-col gap-5 p-4 pt-20 sm:p-6 sm:pt-20 lg:ml-[220px]">

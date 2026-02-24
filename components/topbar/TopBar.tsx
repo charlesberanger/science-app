@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
 
 const SECTION_LABELS: Record<string, string> = {
   "/get-started": "Get Started",
@@ -28,10 +29,10 @@ function useSectionLabel() {
 interface TopBarProps {
   onMenuClick: () => void;
   badgeLabel?: string;
-  isAuthenticated?: boolean;
 }
 
-export default function TopBar({ onMenuClick, badgeLabel, isAuthenticated = false }: TopBarProps) {
+export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
+  const { isAuthenticated } = useAuth();
   const section = useSectionLabel();
 
   return (
