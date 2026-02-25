@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import AppShell from "@/components/layout/AppShell";
 import { useFluidDynamicsForm } from "@/contexts/FluidDynamicsFormContext";
@@ -10,6 +11,14 @@ export default function ExperimentDetailsPage() {
   const router = useRouter();
   const { form } = useFluidDynamicsForm();
   const { register, watch, trigger, formState: { errors } } = form;
+
+  // Guard: redirect back if eligibility step was skipped
+  useEffect(() => {
+    const { citizenCheckbox, teamCheckbox } = form.getValues();
+    if (!citizenCheckbox || !teamCheckbox) {
+      router.replace("/submit/fluid-dynamics");
+    }
+  }, [form, router]);
 
   const designVal = watch("tubeDesignDifferences") ?? "";
   const rationaleVal = watch("technicalRationale") ?? "";

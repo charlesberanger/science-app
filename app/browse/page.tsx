@@ -4,8 +4,8 @@ import StatsBar from "@/components/project/StatsBar";
 import ProjectCard from "@/components/browse/ProjectCard";
 import type { StatItem } from "@/components/project/StatsBar";
 
-const THUMBNAIL =
-  "https://www.figma.com/api/mcp/asset/f145ebcc-6bae-4ef0-b09a-5f238f44cacf";
+// Stable local placeholder — swap per-card once real thumbnails are available
+const THUMBNAIL = "/placeholder-project.svg";
 
 const browseStats: StatItem[] = [
   { label: "TOTAL SUBMISSIONS", value: "312", trend: "↑ +14 this week" },

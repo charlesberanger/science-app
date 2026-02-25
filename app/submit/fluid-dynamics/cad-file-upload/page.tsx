@@ -1,19 +1,14 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import AppShell from "@/components/layout/AppShell";
 import { useFluidDynamicsForm } from "@/contexts/FluidDynamicsFormContext";
 import SubmitStepBar from "@/components/submit/SubmitStepBar";
+import { formatSize } from "@/components/submit/utils";
 
 const ACCEPTED = [".stl", ".obj", ".step", ".stp", ".iges", ".igs"];
 const MAX_MB = 100;
-
-function formatSize(bytes: number) {
-  if (bytes < 1024) return `${bytes} B`;
-  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
-  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-}
 
 export default function CadFileUploadPage() {
   const router = useRouter();
@@ -21,6 +16,12 @@ export default function CadFileUploadPage() {
   const { watch, setValue, trigger, formState: { errors } } = form;
   const inputRef = useRef<HTMLInputElement>(null);
   const files: File[] = watch("cadFiles") ?? [];
+
+  // Guard: redirect back if experiment details step was skipped
+  useEffect(() => {
+    const { title } = form.getValues();
+    if (!title) router.replace("/submit/fluid-dynamics/experiment-details");
+  }, [form, router]);
 
   function handleFiles(incoming: FileList | null) {
     if (!incoming) return;

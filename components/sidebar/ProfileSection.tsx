@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function ProfileSection() {
+  const { currentUser } = useAuth();
+
   return (
     <Link
       href="/profile"
@@ -9,12 +14,12 @@ export default function ProfileSection() {
     >
       <Avatar className="h-8 w-8 border border-[#3a3a3a]">
         <AvatarFallback className="bg-[#1c1c1c] text-[10px] font-medium text-white font-mono">
-          AS
+          {currentUser.initials}
         </AvatarFallback>
       </Avatar>
       <div className="flex flex-col">
-        <span className="text-xs font-medium text-white">Alice S.</span>
-        <span className="font-mono text-[10px] text-[#555]">Researcher</span>
+        <span className="text-xs font-medium text-white">{currentUser.name}</span>
+        <span className="font-mono text-[10px] text-[#555]">{currentUser.role}</span>
       </div>
     </Link>
   );

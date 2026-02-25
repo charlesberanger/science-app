@@ -5,11 +5,7 @@ import { useRouter } from "next/navigation";
 import AppShell from "@/components/layout/AppShell";
 import { useFluidDynamicsForm } from "@/contexts/FluidDynamicsFormContext";
 import SubmitStepBar from "@/components/submit/SubmitStepBar";
-
-function formatSize(bytes: number) {
-  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
-  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-}
+import { formatSize } from "@/components/submit/utils";
 
 function ReadonlyField({ label, value }: { label: string; value: string }) {
   return (
@@ -33,6 +29,14 @@ export default function ReviewSubmissionPage() {
   useEffect(() => {
     return () => { mountedRef.current = false; };
   }, []);
+
+  // Guard: redirect back if CAD upload step was skipped
+  useEffect(() => {
+    const { cadFiles } = form.getValues();
+    if (!cadFiles || cadFiles.length === 0) {
+      router.replace("/submit/fluid-dynamics/cad-file-upload");
+    }
+  }, [form, router]);
 
   const data = form.getValues();
   const files: File[] = data.cadFiles ?? [];

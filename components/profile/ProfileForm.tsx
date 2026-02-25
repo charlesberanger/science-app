@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-function Label({ children }: { children: React.ReactNode }) {
+function FieldLabel({ children }: { children: React.ReactNode }) {
   return (
     <span
       className="text-[10px] uppercase tracking-widest text-[#777]"
@@ -14,7 +14,7 @@ function Label({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Input({
+function FieldInput({
   placeholder,
   value,
   onChange,
@@ -103,16 +103,16 @@ export default function ProfileForm() {
         {/* First + Last name row */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div className="flex flex-col gap-1.5">
-            <Label>First Name</Label>
-            <Input
+            <FieldLabel>First Name</FieldLabel>
+            <FieldInput
               placeholder="e.g. Alice"
               value={firstName}
               onChange={setFirstName}
             />
           </div>
           <div className="flex flex-col gap-1.5">
-            <Label>Last Name</Label>
-            <Input
+            <FieldLabel>Last Name</FieldLabel>
+            <FieldInput
               placeholder="e.g. Smith"
               value={lastName}
               onChange={setLastName}
@@ -122,8 +122,8 @@ export default function ProfileForm() {
 
         {/* Title / Role */}
         <div className="flex flex-col gap-1.5">
-          <Label>Title / Role</Label>
-          <Input
+          <FieldLabel>Title / Role</FieldLabel>
+          <FieldInput
             placeholder="e.g. PhD Researcher"
             value={title}
             onChange={setTitle}
@@ -132,7 +132,7 @@ export default function ProfileForm() {
 
         {/* Bio */}
         <div className="flex flex-col gap-1.5">
-          <Label>Bio *</Label>
+          <FieldLabel>Bio *</FieldLabel>
           <textarea
             value={bio}
             onChange={(e) => setBio(e.target.value)}
@@ -144,8 +144,8 @@ export default function ProfileForm() {
 
         {/* Institution */}
         <div className="flex flex-col gap-1.5 sm:w-1/2">
-          <Label>Institution</Label>
-          <Input
+          <FieldLabel>Institution</FieldLabel>
+          <FieldInput
             placeholder="e.g. MIT"
             value={institution}
             onChange={setInstitution}
