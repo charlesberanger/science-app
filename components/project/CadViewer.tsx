@@ -1,6 +1,13 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+
+const CAMERA_POSITIONS: Record<"isometric" | "front" | "side" | "top", [number, number, number]> = {
+  isometric: [5, 5, 5],
+  front:     [0, 2, 8],
+  side:      [8, 2, 0],
+  top:       [0, 10, 0],
+};
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Grid, Environment } from "@react-three/drei";
 import * as THREE from "three";
@@ -179,13 +186,7 @@ export default function CadViewer({ height = 399 }: { height?: number }) {
 
   function changeView(view: typeof cameraView) {
     setCameraView(view);
-    const positions: Record<typeof view, [number, number, number]> = {
-      isometric: [5, 5, 5],
-      front: [0, 2, 8],
-      side: [8, 2, 0],
-      top: [0, 10, 0],
-    };
-    setCameraPosition(positions[view]);
+    setCameraPosition(CAMERA_POSITIONS[view]);
   }
 
   function reset() {

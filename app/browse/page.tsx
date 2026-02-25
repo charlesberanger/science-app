@@ -25,54 +25,14 @@ const browseStats: StatItem[] = [
 ];
 
 const projects = [
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
+  { id: "p1", title: "Fluid Dynamics in Microgravity",        author: "C. Laurent",  votes: 512, rank: 1 },
+  { id: "p2", title: "Thermodynamic Cycle Optimisation",       author: "A. Patel",    votes: 480, rank: 2 },
+  { id: "p3", title: "Quantum Turbulence Simulation",          author: "J. Smith",    votes: 467, rank: 3 },
+  { id: "p4", title: "Electromagnetic Flow Control",           author: "D. Kim",      votes: 450, rank: 4 },
+  { id: "p5", title: "Statistical Mechanics of Vortex Sheets", author: "S. Johnson",  votes: 441, rank: 5 },
+  { id: "p6", title: "Classical Shock Wave Interaction",       author: "F. Nguyen",   votes: 428, rank: 6 },
+  { id: "p7", title: "Optics-Based Flow Visualisation",        author: "B. Davis",    votes: 415, rank: 7 },
+  { id: "p8", title: "Adaptive Mesh Refinement for CFD",       author: "L. Chen",     votes: 398, rank: 8 },
 ];
 
 export default function BrowseProjectsPage() {
@@ -82,9 +42,9 @@ export default function BrowseProjectsPage() {
       <StatsBar stats={browseStats} />
 
       <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-3 xl:grid-cols-4">
-        {projects.map((project, i) => (
+        {projects.map((project) => (
           <ProjectCard
-            key={i}
+            key={project.id}
             {...project}
             href="/project"
             imageSrc={THUMBNAIL}

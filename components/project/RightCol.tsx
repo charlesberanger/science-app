@@ -4,6 +4,12 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 
+const DISCUSSION_TOPICS = [
+  "Mesh refinement trade-offs",
+  "Memory vs speed benchmarks",
+  "NACA validation dataset",
+];
+
 export default function RightCol() {
   const router = useRouter();
   const { isAuthenticated } = useAuth();
@@ -119,7 +125,7 @@ export default function RightCol() {
           Discussion (12)
         </span>
         <div className="mt-3 flex flex-col gap-2">
-          {["Mesh refinement trade-offs", "Memory vs speed benchmarks", "NACA validation dataset"].map((t) => (
+          {DISCUSSION_TOPICS.map((t) => (
             <a
               key={t}
               href="#comments"
