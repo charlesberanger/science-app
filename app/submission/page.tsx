@@ -31,7 +31,7 @@ export default function MySubmissionPage() {
             My Submission
           </h1>
           <p
-            className="text-xs text-[#555]"
+            className="text-xs text-[#888]"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             312 submissions &nbsp;·&nbsp; Fluid Dynamics Challenge

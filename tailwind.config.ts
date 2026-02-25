@@ -54,14 +54,12 @@ const config: Config = {
         },
         lime: {
           400: "#acffaf",
-          300: "#c8ffc9",
-          200: "#dfffdf",
         },
         feedback: {
-          success: "#4ade80",
-          error:   "#f87171",
-          warning: "#fcd34d",
-          info:    "#60a5fa",
+          success:        "#4ade80",
+          "success-hover": "#6ee7a0",
+          error:          "#f87171",
+          warning:        "#fcd34d",
         },
       },
 

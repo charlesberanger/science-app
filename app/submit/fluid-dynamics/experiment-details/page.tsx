@@ -36,7 +36,7 @@ export default function ExperimentDetailsPage() {
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           Experiment Details
         </h1>
-        <p className="font-mono text-label uppercase tracking-ui text-[#555]">
+        <p className="font-mono text-label uppercase tracking-ui text-[#888]">
           Step 3 of 4 · Fluid Dynamics
         </p>
       </div>
@@ -46,13 +46,14 @@ export default function ExperimentDetailsPage() {
       <div className="flex flex-col gap-6">
         {/* Tube Design Name */}
         <div className="flex flex-col gap-2">
-          <label className="font-mono text-label uppercase tracking-ui text-[#555]">
+          <label htmlFor="tube-design-name" className="font-mono text-label uppercase tracking-ui text-[#888]">
             Tube Design Name
           </label>
           <input
+            id="tube-design-name"
             {...register("title")}
             placeholder="Enter a name for your tube design"
-            className="border border-[#2a2a2a] bg-[#0a0a0a] px-3.5 py-3 text-[13px] text-white placeholder-[#3a3a3a] outline-none transition-colors focus:border-[#3a3a3a]"
+            className="border border-[#2a2a2a] bg-[#0a0a0a] px-3.5 py-3 text-[13px] text-white placeholder-[#555] outline-none transition-colors focus-visible:border-[#4ade80]"
           />
           {errors.title && (
             <p className="font-mono text-label text-red-400">{errors.title.message}</p>
@@ -86,13 +87,13 @@ export default function ExperimentDetailsPage() {
       <div className="flex justify-between">
         <button
           onClick={() => router.push("/submit/fluid-dynamics")}
-          className="border border-[#2a2a2a] bg-[#111] px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-[#555] transition-colors hover:text-white"
+          className="border border-[#2a2a2a] bg-[#111] px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-[#888] transition-colors hover:text-white"
         >
           ← Eligibility
         </button>
         <button
           onClick={handleNext}
-          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-[#6ee7a0]"
+          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
         >
           Next: CAD Upload →
         </button>

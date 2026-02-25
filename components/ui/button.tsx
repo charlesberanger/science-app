@@ -22,7 +22,7 @@ const buttonVariants = cva(
       variant: {
         // Gold — primary CTA (amber fill, dark text)
         gold:
-          "bg-[#f0b840] text-[#0a0a0a] hover:bg-[#f0b840]/90",
+          "bg-feedback-warning text-[#0a0a0a] hover:bg-feedback-warning/90",
         // Primary — white fill
         default:
           "bg-white text-[#0a0a0a] hover:bg-white/90",
@@ -31,7 +31,7 @@ const buttonVariants = cva(
           "border border-[#2a2a2a] bg-transparent text-white hover:bg-[#1c1c1c] hover:border-[#3a3a3a]",
         // Ghost — no border, subtle hover
         ghost:
-          "bg-transparent text-[#555] hover:text-white hover:bg-[#1c1c1c]",
+          "bg-transparent text-[#888] hover:text-white hover:bg-[#1c1c1c]",
         // Danger — red tint
         destructive:
           "border border-[#f87171]/30 bg-transparent text-[#f87171] hover:bg-[#f87171]/10",

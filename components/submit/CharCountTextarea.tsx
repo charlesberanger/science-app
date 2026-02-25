@@ -1,6 +1,7 @@
 "use client";
 
 interface Props {
+  id?: string;
   label: string;
   placeholder: string;
   value: string;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export default function CharCountTextarea({
+  id,
   label,
   placeholder,
   value,
@@ -23,11 +25,12 @@ export default function CharCountTextarea({
   const tooShort = count < minLength;
   const tooLong = count > maxLength;
   const inRange = !tooShort && !tooLong;
+  const inputId = id ?? label.toLowerCase().replace(/\s+/g, "-");
 
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-baseline justify-between">
-        <label className="font-mono text-label uppercase tracking-ui text-[#555]">
+        <label htmlFor={inputId} className="font-mono text-label uppercase tracking-ui text-[#888]">
           {label}
         </label>
         <span
@@ -36,7 +39,7 @@ export default function CharCountTextarea({
               ? "text-red-400"
               : inRange
               ? "text-[#4ade80]"
-              : "text-[#555]"
+              : "text-[#888]"
           }`}
         >
           {count.toLocaleString()} / {minLength.toLocaleString()}–{maxLength.toLocaleString()}
@@ -44,11 +47,12 @@ export default function CharCountTextarea({
       </div>
 
       <textarea
+        id={inputId}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         rows={10}
-        className={`w-full resize-y border bg-[#0a0a0a] px-3.5 py-3 text-[13px] leading-relaxed text-white placeholder-[#3a3a3a] outline-none transition-colors focus:border-[#3a3a3a] ${
+        className={`w-full resize-y border bg-[#0a0a0a] px-3.5 py-3 text-[13px] leading-relaxed text-white placeholder-[#555] outline-none transition-colors focus-visible:border-[#4ade80] ${
           error ? "border-red-500/50" : "border-[#2a2a2a]"
         }`}
       />
@@ -62,7 +66,7 @@ export default function CharCountTextarea({
             style={{ width: `${Math.min((count / maxLength) * 100, 100)}%` }}
           />
         </div>
-        <span className="ml-3 font-mono text-label text-[#333]">
+        <span className="ml-3 font-mono text-label text-[#888]">
           {tooShort ? `${minLength - count} chars to go` : tooLong ? `${count - maxLength} over limit` : "✓ Good length"}
         </span>
       </div>

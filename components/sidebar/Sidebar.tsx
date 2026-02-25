@@ -35,7 +35,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         </div>
         <button
           onClick={onClose}
-          className="flex h-6 w-6 items-center justify-center text-[#555] transition-colors hover:text-white lg:hidden"
+          className="flex h-6 w-6 items-center justify-center text-[#888] transition-colors hover:text-white lg:hidden"
           aria-label="Close menu"
         >
           ✕
@@ -46,7 +46,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       <div className="flex flex-1 flex-col gap-5 overflow-y-auto py-5">
         <div>
           <span
-            className="mb-1 block px-4 text-label uppercase tracking-ui text-[#333]"
+            className="mb-1 block px-4 text-label uppercase tracking-ui text-[#888]"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             Navigation
@@ -56,7 +56,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
         <div>
           <span
-            className="mb-1 block px-4 text-label uppercase tracking-ui text-[#333]"
+            className="mb-1 block px-4 text-label uppercase tracking-ui text-[#888]"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             Challenge
@@ -71,7 +71,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
         <div>
           <span
-            className="mb-1 block px-4 text-label uppercase tracking-ui text-[#333]"
+            className="mb-1 block px-4 text-label uppercase tracking-ui text-[#888]"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             Explore

@@ -25,7 +25,7 @@ export default function SubmitStepBar({ current }: { current: number }) {
                     ? "text-[#4ade80]"
                     : active
                       ? "text-white"
-                      : "text-[#333]"
+                      : "text-[#888]"
                 }`}
               >
                 {done ? "✓ " : `${idx < 10 ? "0" : ""}${idx} · `}

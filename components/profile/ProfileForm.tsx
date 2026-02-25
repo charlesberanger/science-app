@@ -3,33 +3,37 @@
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-function FieldLabel({ children }: { children: React.ReactNode }) {
+function FieldLabel({ htmlFor, children }: { htmlFor: string; children: React.ReactNode }) {
   return (
-    <span
-      className="text-label uppercase tracking-ui text-[#777]"
+    <label
+      htmlFor={htmlFor}
+      className="text-label uppercase tracking-ui text-[#999]"
       style={{ fontFamily: "var(--font-dm-mono), monospace" }}
     >
       {children}
-    </span>
+    </label>
   );
 }
 
 function FieldInput({
+  id,
   placeholder,
   value,
   onChange,
 }: {
+  id: string;
   placeholder?: string;
   value: string;
   onChange: (v: string) => void;
 }) {
   return (
     <input
+      id={id}
       type="text"
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="h-11 w-full border border-[#2a2a2a] bg-[#1c1c1c] px-3.5 text-[14px] text-white placeholder-[#3a3a3a] outline-none focus:border-[#3a3a3a] transition-colors"
+      className="h-11 w-full border border-[#2a2a2a] bg-[#1c1c1c] px-3.5 text-[14px] text-white placeholder-[#555] outline-none focus-visible:border-[#4ade80] transition-colors"
     />
   );
 }
@@ -103,16 +107,18 @@ export default function ProfileForm() {
         {/* First + Last name row */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           <div className="flex flex-col gap-1.5">
-            <FieldLabel>First Name</FieldLabel>
+            <FieldLabel htmlFor="profile-first-name">First Name</FieldLabel>
             <FieldInput
+              id="profile-first-name"
               placeholder="e.g. Alice"
               value={firstName}
               onChange={setFirstName}
             />
           </div>
           <div className="flex flex-col gap-1.5">
-            <FieldLabel>Last Name</FieldLabel>
+            <FieldLabel htmlFor="profile-last-name">Last Name</FieldLabel>
             <FieldInput
+              id="profile-last-name"
               placeholder="e.g. Smith"
               value={lastName}
               onChange={setLastName}
@@ -122,8 +128,9 @@ export default function ProfileForm() {
 
         {/* Title / Role */}
         <div className="flex flex-col gap-1.5">
-          <FieldLabel>Title / Role</FieldLabel>
+          <FieldLabel htmlFor="profile-title">Title / Role</FieldLabel>
           <FieldInput
+            id="profile-title"
             placeholder="e.g. PhD Researcher"
             value={title}
             onChange={setTitle}
@@ -132,20 +139,22 @@ export default function ProfileForm() {
 
         {/* Bio */}
         <div className="flex flex-col gap-1.5">
-          <FieldLabel>Bio *</FieldLabel>
+          <FieldLabel htmlFor="profile-bio">Bio *</FieldLabel>
           <textarea
+            id="profile-bio"
             value={bio}
             onChange={(e) => setBio(e.target.value)}
             placeholder="Describe your research or project focus…"
             rows={5}
-            className="w-full resize-none border border-[#2a2a2a] bg-[#161616] px-3.5 py-3 text-[13px] leading-relaxed text-white placeholder-[#3a3a3a] outline-none focus:border-[#3a3a3a] transition-colors"
+            className="w-full resize-none border border-[#2a2a2a] bg-[#1c1c1c] px-3.5 py-3 text-[13px] leading-relaxed text-white placeholder-[#555] outline-none focus-visible:border-[#4ade80] transition-colors"
           />
         </div>
 
         {/* Institution */}
         <div className="flex flex-col gap-1.5 sm:w-1/2">
-          <FieldLabel>Institution</FieldLabel>
+          <FieldLabel htmlFor="profile-institution">Institution</FieldLabel>
           <FieldInput
+            id="profile-institution"
             placeholder="e.g. MIT"
             value={institution}
             onChange={setInstitution}
@@ -155,7 +164,7 @@ export default function ProfileForm() {
         {/* Submit */}
         <div className="flex items-center justify-between border-t border-[#2a2a2a] pt-5">
           <p
-            className="text-label text-[#555] tracking-ui"
+            className="text-label text-[#888] tracking-ui"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             * Required to submit a project

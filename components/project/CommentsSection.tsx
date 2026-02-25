@@ -52,7 +52,7 @@ export default function CommentsSection() {
     <div id="comments" className="rounded border border-[#2a2a2a] bg-[#111]">
       <div className="border-b border-[#2a2a2a] px-5 py-3">
         <span
-          className="text-label tracking-ui text-[#555] uppercase"
+          className="text-label tracking-ui text-[#888] uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Comments ({comments.length})
@@ -74,12 +74,14 @@ export default function CommentsSection() {
 
       {isAuthenticated ? (
         <form onSubmit={handleSubmit} className="border-t border-[#2a2a2a] p-5">
+          <label htmlFor="comment-input" className="sr-only">Add a comment</label>
           <textarea
+            id="comment-input"
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
             placeholder="Add a comment…"
             rows={3}
-            className="w-full resize-none border border-[#2a2a2a] bg-[#0a0a0a] px-3.5 py-3 text-[13px] leading-relaxed text-white placeholder-[#3a3a3a] outline-none focus:border-[#3a3a3a] transition-colors"
+            className="w-full resize-none border border-[#2a2a2a] bg-[#0a0a0a] px-3.5 py-3 text-[13px] leading-relaxed text-white placeholder-[#555] outline-none focus-visible:border-[#4ade80] transition-colors"
           />
           <div className="mt-2 flex justify-end">
             <button
@@ -94,8 +96,8 @@ export default function CommentsSection() {
         </form>
       ) : (
         <div className="border-t border-[#2a2a2a] px-5 py-4">
-          <p className="text-[11px] text-[#333]" style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
-            <a href="/auth/sign-in" className="text-[#555] hover:text-[#999] transition-colors">Sign in</a>
+          <p className="text-[11px] text-[#888]" style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
+            <a href="/auth/sign-in" className="text-[#888] hover:text-[#999] transition-colors">Sign in</a>
             {" "}to leave a comment
           </p>
         </div>

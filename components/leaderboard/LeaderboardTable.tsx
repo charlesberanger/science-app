@@ -151,7 +151,7 @@ function ApprovalBar({ value }: { value: number }) {
         />
       </div>
       <span
-        className="text-label text-[#555] tracking-ui"
+        className="text-label text-[#888] tracking-ui"
         style={{ fontFamily: "var(--font-dm-mono), monospace" }}
       >
         {value}%
@@ -173,7 +173,7 @@ export default function LeaderboardTable() {
           (col) => (
             <div
               key={col}
-              className="px-4 py-2.5 text-label uppercase tracking-ui text-[#555]"
+              className="px-4 py-2.5 text-label uppercase tracking-ui text-[#888]"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               {col}
@@ -187,7 +187,7 @@ export default function LeaderboardTable() {
         <Link
           key={entry.rank}
           href="/project"
-          className={`relative grid grid-cols-[40px_1fr_80px] border-b border-[#2a2a2a] bg-[#161616] transition-colors hover:bg-[#1c1c1c] sm:grid-cols-[60px_1fr_160px_160px_80px] ${
+          className={`relative grid grid-cols-[40px_1fr_80px] border-b border-[#2a2a2a] bg-[#111] transition-colors hover:bg-[#1c1c1c] sm:grid-cols-[60px_1fr_160px_160px_80px] ${
             entry.rank === 1 ? "border-l-2 border-l-[#4ade80]" : ""
           }`}
         >
@@ -200,7 +200,7 @@ export default function LeaderboardTable() {
               <span className="truncate text-[13px] font-medium text-white">
                 {entry.project}
               </span>
-              <span className="text-[11px] text-[#555]">{entry.author}</span>
+              <span className="text-[11px] text-[#888]">{entry.author}</span>
             </div>
           </div>
           <div className="hidden items-center sm:flex">
@@ -228,7 +228,7 @@ export default function LeaderboardTable() {
       {/* Footer */}
       <div className="flex items-center justify-between bg-[#111] px-4 py-3">
         <span
-          className="text-label text-[#555] tracking-ui"
+          className="text-label text-[#888] tracking-ui"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Showing {shown.length} of {ALL_ENTRIES.length} approved projects
@@ -238,7 +238,7 @@ export default function LeaderboardTable() {
             onClick={() =>
               setVisible((v) => Math.min(v + PAGE_SIZE, ALL_ENTRIES.length))
             }
-            className="border border-[#2a2a2a] bg-[#1c1c1c] px-4 py-1.5 text-[11px] text-[#777] transition-colors hover:text-white"
+            className="border border-[#2a2a2a] bg-[#1c1c1c] px-4 py-1.5 text-[11px] text-[#999] transition-colors hover:text-white"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             Load more →

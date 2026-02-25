@@ -43,7 +43,7 @@ export default function SubmissionStatusBanner({ status = "pending" }: Submissio
       </div>
       <div className="flex flex-col gap-1">
         <p className="text-sm font-bold tracking-tight text-white">{c.title}</p>
-        <p className="text-xs leading-relaxed text-[#777]">{c.description}</p>
+        <p className="text-xs leading-relaxed text-[#999]">{c.description}</p>
       </div>
     </div>
   );

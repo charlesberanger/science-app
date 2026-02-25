@@ -44,7 +44,7 @@ export default function ProjectCard({
         {/* Votes badge — bottom right */}
         <div className="absolute bottom-2 right-2 flex items-center gap-1 border border-[#3a3a3a] bg-[rgba(17,17,17,0.8)] px-2.5 py-0.5">
           <span
-            className="text-label text-[#777]"
+            className="text-label text-[#999]"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             ▲ {votes.toLocaleString()}
@@ -59,7 +59,7 @@ export default function ProjectCard({
         </p>
         <div className="flex items-center gap-1.5">
           <div className="h-5 w-5 rounded-full bg-[#3a3a3a] shrink-0" />
-          <span className="text-[11px] text-[#777]">{author}</span>
+          <span className="text-[11px] text-[#999]">{author}</span>
         </div>
       </div>
     </Link>

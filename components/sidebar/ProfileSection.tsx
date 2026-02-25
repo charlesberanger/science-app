@@ -10,7 +10,7 @@ export default function ProfileSection() {
   return (
     <Link
       href="/profile"
-      className="flex items-center gap-3 border-t border-[#2a2a2a] px-4 py-3.5 transition-colors hover:bg-[#1a1a1a]"
+      className="flex items-center gap-3 border-t border-[#2a2a2a] px-4 py-3.5 transition-colors hover:bg-[#1c1c1c]"
     >
       <Avatar className="h-8 w-8 border border-[#3a3a3a]">
         <AvatarFallback className="bg-[#1c1c1c] text-label font-medium text-white font-mono">
@@ -19,7 +19,7 @@ export default function ProfileSection() {
       </Avatar>
       <div className="flex flex-col">
         <span className="text-xs font-medium text-white">{currentUser.name}</span>
-        <span className="font-mono text-label text-[#555]">{currentUser.role}</span>
+        <span className="font-mono text-label text-[#888]">{currentUser.role}</span>
       </div>
     </Link>
   );

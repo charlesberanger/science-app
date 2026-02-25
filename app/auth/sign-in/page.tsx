@@ -22,7 +22,7 @@ function StatsFooter() {
             <span className={`text-[22px] font-bold tracking-tight ${s.highlight ? "text-[#acffaf]" : "text-white"}`}>
               {s.value}
             </span>
-            <span className="font-mono text-label tracking-ui text-[#555]">
+            <span className="font-mono text-label tracking-ui text-[#888]">
               {s.label}
             </span>
           </div>
@@ -67,7 +67,7 @@ function SignInForm() {
 
           <div className="px-9 pb-10 pt-7">
             {/* Step label */}
-            <p className="font-mono text-label tracking-ui text-[#3a3a3a]">
+            <p className="font-mono text-label tracking-ui text-[#888]">
               STEP 01 OF 04&nbsp;&nbsp;·&nbsp;&nbsp;CREATE ACCOUNT
             </p>
             <h2 className="mt-2 text-[20px] font-bold tracking-tight text-white">
@@ -78,7 +78,7 @@ function SignInForm() {
           <div className="border-t border-[#1c1c1c]" />
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-3 px-9 py-7">
-            <p className="text-[13px] font-normal leading-[1.55] text-[#777]">
+            <p className="text-[13px] font-normal leading-[1.55] text-[#999]">
               {isRegister
                 ? "Create an account with your organisation email. No password required."
                 : "Sign in with your organisation account via SSO. No password required."}
@@ -86,7 +86,7 @@ function SignInForm() {
 
             {/* Email field */}
             <div className="mt-2 flex flex-col gap-2">
-              <label className="font-mono text-label tracking-ui text-[#777]">
+              <label className="font-mono text-label tracking-ui text-[#999]">
                 YOUR EMAIL
               </label>
               <input
@@ -95,7 +95,7 @@ function SignInForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@institution.edu"
-                className="h-11 border border-[#2a2a2a] bg-[#161616] px-3.5 text-[14px] text-white placeholder-[#3a3a3a] outline-none transition-colors focus:border-[#4ade80]"
+                className="h-11 border border-[#2a2a2a] bg-[#1c1c1c] px-3.5 text-[14px] text-white placeholder-[#555] outline-none transition-colors focus-visible:border-[#4ade80]"
               />
             </div>
 
@@ -110,7 +110,7 @@ function SignInForm() {
             {/* Divider */}
             <div className="flex items-center gap-3">
               <div className="h-px flex-1 bg-[#2a2a2a]" />
-              <span className="font-mono text-label tracking-ui text-[#3a3a3a]">OR</span>
+              <span className="font-mono text-label tracking-ui text-[#888]">OR</span>
               <div className="h-px flex-1 bg-[#2a2a2a]" />
             </div>
 
@@ -121,7 +121,7 @@ function SignInForm() {
           </form>
 
           <div className="border-t border-[#1c1c1c]" />
-          <p className="px-9 py-4 text-center font-mono text-label tracking-ui text-[#3a3a3a]">
+          <p className="px-9 py-4 text-center font-mono text-label tracking-ui text-[#888]">
             By continuing you agree to the Terms of Use and Privacy Policy
           </p>
         </div>

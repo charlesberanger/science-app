@@ -35,7 +35,7 @@ export default function RightCol() {
       {/* Vote */}
       <div className="p-5">
         <span
-          className="text-label tracking-ui text-[#555] uppercase"
+          className="text-label tracking-ui text-[#888] uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Community Vote
@@ -45,7 +45,7 @@ export default function RightCol() {
           className={`mt-3 flex w-full items-center justify-between rounded border px-4 py-2.5 transition-colors ${
             voted
               ? "border-[#4ade80] bg-[#4ade80]/10 text-[#4ade80]"
-              : "border-[#4ade80] bg-[#4ade80] text-black hover:bg-[#6ee7a0]"
+              : "border-[#4ade80] bg-[#4ade80] text-black hover:bg-feedback-success-hover"
           }`}
         >
           <span
@@ -62,7 +62,7 @@ export default function RightCol() {
           </span>
         </button>
         {!isAuthenticated && (
-          <p className="mt-2 text-label text-[#333]">
+          <p className="mt-2 text-label text-[#888]">
             Sign in to vote for this project
           </p>
         )}
@@ -73,7 +73,7 @@ export default function RightCol() {
       {/* Challenge info */}
       <div className="p-5">
         <span
-          className="text-label tracking-ui text-[#555] uppercase"
+          className="text-label tracking-ui text-[#888] uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Challenge
@@ -81,12 +81,12 @@ export default function RightCol() {
         <h2 className="mt-2 text-sm font-semibold leading-snug text-white">
           Fluid Dynamics Challenge
         </h2>
-        <p className="mt-1 text-xs text-[#555]">Turbulent Boundary Layer Modelling Track</p>
+        <p className="mt-1 text-xs text-[#888]">Turbulent Boundary Layer Modelling Track</p>
 
         <div className="mt-4 flex flex-col gap-3">
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-label tracking-ui text-[#333] uppercase"
+              className="text-label tracking-ui text-[#888] uppercase"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Prize Pool
@@ -95,7 +95,7 @@ export default function RightCol() {
           </div>
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-label tracking-ui text-[#333] uppercase"
+              className="text-label tracking-ui text-[#888] uppercase"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Deadline
@@ -104,7 +104,7 @@ export default function RightCol() {
           </div>
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-label tracking-ui text-[#333] uppercase"
+              className="text-label tracking-ui text-[#888] uppercase"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Submissions
@@ -119,7 +119,7 @@ export default function RightCol() {
       {/* Discussion */}
       <div className="p-5">
         <span
-          className="text-label tracking-ui text-[#555] uppercase"
+          className="text-label tracking-ui text-[#888] uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Discussion (12)
@@ -129,7 +129,7 @@ export default function RightCol() {
             <a
               key={t}
               href="#comments"
-              className="text-xs text-[#555] transition-colors hover:text-[#999]"
+              className="text-xs text-[#888] transition-colors hover:text-[#999]"
             >
               → {t}
             </a>

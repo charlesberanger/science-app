@@ -17,10 +17,10 @@ export default function GlobalError({
   return (
     <html lang="en" className="dark">
       <body className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[#0a0a0a] p-8 font-mono text-white">
-        <p className="text-label uppercase tracking-ui text-[#555]">
+        <p className="text-label uppercase tracking-ui text-[#888]">
           Something went wrong
         </p>
-        <p className="max-w-md text-center text-sm text-[#777]">
+        <p className="max-w-md text-center text-sm text-[#999]">
           {error.message ?? "An unexpected error occurred."}
         </p>
         <button

@@ -26,7 +26,7 @@ export default function CommentBlock({
         <div className="flex flex-1 flex-col gap-1.5">
           <div className="flex items-center gap-2">
             <span className="text-xs font-medium text-white">{author}</span>
-            <span className="font-mono text-label text-[#333]">{time}</span>
+            <span className="font-mono text-label text-[#888]">{time}</span>
           </div>
           <p className="text-xs leading-relaxed text-[#999]">{text}</p>
         </div>

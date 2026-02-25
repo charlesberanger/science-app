@@ -4,7 +4,7 @@ export default function ChallengeInfoBar() {
       <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col gap-1">
           <span
-            className="text-label uppercase tracking-ui text-[#555]"
+            className="text-label uppercase tracking-ui text-[#888]"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             Current Challenge
@@ -14,7 +14,7 @@ export default function ChallengeInfoBar() {
           </span>
         </div>
         <span
-          className="text-xs text-[#555]"
+          className="text-xs text-[#888]"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           $24,000 prize pool · 312 submissions · 46 days remaining

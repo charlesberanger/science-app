@@ -59,10 +59,10 @@ export default function ProfilePage() {
           </Avatar>
           <div className="flex flex-col gap-0.5">
             <p className="text-xl font-bold text-white">{user.name}</p>
-            <p className="font-mono text-label uppercase tracking-ui text-[#777]">
+            <p className="font-mono text-label uppercase tracking-ui text-[#999]">
               {user.role}
             </p>
-            <p className="font-mono text-label tracking-ui text-[#555]">
+            <p className="font-mono text-label tracking-ui text-[#888]">
               {user.institution}
             </p>
             <Badge variant="success" className="mt-1.5 w-fit">
@@ -84,12 +84,12 @@ export default function ProfilePage() {
 
       {/* About */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-label uppercase tracking-ui text-[#555]">
+        <p className="font-mono text-label uppercase tracking-ui text-[#888]">
           About
         </p>
         <div className="h-px bg-[#2a2a2a]" />
         <div className="border border-[#2a2a2a] bg-[#111] p-4">
-          <p className="text-xs leading-[1.6] text-[#777]">{user.bio}</p>
+          <p className="text-xs leading-[1.6] text-[#999]">{user.bio}</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3">
           <InfoCell label="Email" value={user.email} />
@@ -100,7 +100,7 @@ export default function ProfilePage() {
 
       {/* My Submission */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-label uppercase tracking-ui text-[#555]">
+        <p className="font-mono text-label uppercase tracking-ui text-[#888]">
           My Submission
         </p>
         <div className="h-px bg-[#2a2a2a]" />

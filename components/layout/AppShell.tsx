@@ -17,9 +17,12 @@ export default function AppShell({
     <div className="min-h-screen bg-[#0a0a0a]">
       {/* Mobile overlay */}
       {sidebarOpen && (
-        <div
-          className="fixed inset-0 z-20 bg-black/60 lg:hidden"
+        <button
+          type="button"
+          className="fixed inset-0 z-20 w-full cursor-default bg-black/60 lg:hidden"
           onClick={() => setSidebarOpen(false)}
+          aria-label="Close sidebar"
+          tabIndex={-1}
         />
       )}
 
@@ -29,7 +32,7 @@ export default function AppShell({
         badgeLabel={badgeLabel}
       />
 
-      <main className="flex flex-col gap-5 p-4 pt-20 sm:p-6 sm:pt-20 lg:ml-[220px]">
+      <main id="main-content" className="flex flex-col gap-5 p-4 pt-20 sm:p-6 sm:pt-20 lg:ml-[220px]">
         {children}
       </main>
     </div>

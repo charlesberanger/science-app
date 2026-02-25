@@ -37,7 +37,7 @@ export default function AuthLeftPanel({
           <div className="flex h-8 w-8 items-center justify-center bg-black">
             <ScienceLogo className="h-5 w-5" />
           </div>
-          <span className="font-mono text-[11px] tracking-ui text-[#777]">
+          <span className="font-mono text-[11px] tracking-ui text-[#999]">
             SCIENCE
           </span>
         </div>
@@ -51,7 +51,7 @@ export default function AuthLeftPanel({
       {/* Eyebrow */}
       <div className="mt-auto flex items-center gap-4 px-14 pb-4">
         <div className="h-px w-6 bg-[#acffaf]" />
-        <span className="font-mono text-label tracking-ui text-[#555]">
+        <span className="font-mono text-label tracking-ui text-[#888]">
           {eyebrow}
         </span>
       </div>
@@ -64,7 +64,7 @@ export default function AuthLeftPanel({
             className={`text-[72px] ${
               line.style === "bold"
                 ? "font-bold text-white"
-                : "font-light italic text-[#555]"
+                : "font-light italic text-[#888]"
             }`}
           >
             {line.text}
@@ -73,7 +73,7 @@ export default function AuthLeftPanel({
       </div>
 
       {/* Description */}
-      <p className="mt-6 px-14 text-[15px] font-light leading-[1.68] text-[#777]">
+      <p className="mt-6 px-14 text-[15px] font-light leading-[1.68] text-[#999]">
         {description}
       </p>
 
