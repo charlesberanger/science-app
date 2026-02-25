@@ -19,16 +19,28 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   // Rehydrate from localStorage on mount
   useEffect(() => {
-    setIsAuthenticated(localStorage.getItem("auth") === "true");
+    try {
+      setIsAuthenticated(localStorage.getItem("auth") === "true");
+    } catch {
+      // localStorage unavailable (e.g. Safari private mode)
+    }
   }, []);
 
   function signIn() {
-    localStorage.setItem("auth", "true");
+    try {
+      localStorage.setItem("auth", "true");
+    } catch {
+      // localStorage unavailable — auth still works in-memory for this session
+    }
     setIsAuthenticated(true);
   }
 
   function signOut() {
-    localStorage.removeItem("auth");
+    try {
+      localStorage.removeItem("auth");
+    } catch {
+      // localStorage unavailable
+    }
     setIsAuthenticated(false);
   }
 

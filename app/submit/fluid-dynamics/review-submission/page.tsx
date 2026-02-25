@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import AppShell from "@/components/layout/AppShell";
 import { useFluidDynamicsForm } from "@/contexts/FluidDynamicsFormContext";
@@ -28,14 +28,20 @@ export default function ReviewSubmissionPage() {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const mountedRef = useRef(true);
+
+  useEffect(() => {
+    return () => { mountedRef.current = false; };
+  }, []);
 
   const data = form.getValues();
   const files: File[] = data.cadFiles ?? [];
 
   async function handleSubmit() {
     setSubmitting(true);
-    // Mock API delay
+    // Mock API delay — guard against state updates if component unmounts
     await new Promise((r) => setTimeout(r, 1800));
+    if (!mountedRef.current) return;
     setSubmitting(false);
     setSubmitted(true);
   }

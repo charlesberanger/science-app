@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 function Label({ children }: { children: React.ReactNode }) {
@@ -43,11 +43,24 @@ export default function ProfileForm() {
   const [photo, setPhoto] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
   const router = useRouter();
+  const saveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const photoUrlRef = useRef<string | null>(null);
+
+  // Revoke object URL on unmount to prevent memory leak
+  useEffect(() => {
+    return () => {
+      if (photoUrlRef.current) URL.revokeObjectURL(photoUrlRef.current);
+      if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
+    };
+  }, []);
 
   function handlePhotoChange(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     if (!file) return;
+    // Revoke previous URL before creating a new one
+    if (photoUrlRef.current) URL.revokeObjectURL(photoUrlRef.current);
     const url = URL.createObjectURL(file);
+    photoUrlRef.current = url;
     setPhoto(url);
   }
 
@@ -159,7 +172,8 @@ export default function ProfileForm() {
             <button
               onClick={() => {
                 setSaved(true);
-                setTimeout(() => {
+                if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
+                saveTimerRef.current = setTimeout(() => {
                   setSaved(false);
                   router.push("/profile");
                 }, 1200);
