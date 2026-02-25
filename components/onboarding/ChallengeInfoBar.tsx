@@ -4,7 +4,7 @@ export default function ChallengeInfoBar() {
       <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col gap-1">
           <span
-            className="text-[9px] uppercase tracking-widest text-[#555]"
+            className="text-label uppercase tracking-ui text-[#555]"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             Current Challenge

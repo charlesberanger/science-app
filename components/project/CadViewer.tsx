@@ -18,7 +18,7 @@ function LoadingOverlay() {
       <div className="flex flex-col items-center gap-3">
         <div className="h-5 w-5 animate-spin rounded-full border border-[#2a2a2a] border-t-[#4ade80]" />
         <span
-          className="text-[10px] uppercase tracking-widest text-[#555]"
+          className="text-label uppercase tracking-ui text-[#555]"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Loading model…
@@ -150,7 +150,7 @@ function ToolButton({
   return (
     <button
       onClick={onClick}
-      className={`border px-2.5 py-1 text-[10px] uppercase tracking-widest transition-colors ${
+      className={`border px-2.5 py-1 text-label uppercase tracking-ui transition-colors ${
         active
           ? "border-[#4ade80] text-[#4ade80]"
           : "border-[#2a2a2a] text-[#555] hover:border-[#3a3a3a] hover:text-[#999]"
@@ -276,7 +276,7 @@ export default function CadViewer({ height = 399 }: { height?: number }) {
             <select
               value={cameraView}
               onChange={(e) => changeView(e.target.value as typeof cameraView)}
-              className="border border-[#2a2a2a] bg-[#111] px-2 py-1 text-[10px] uppercase tracking-widest text-[#555] outline-none"
+              className="border border-[#2a2a2a] bg-[#111] px-2 py-1 text-label uppercase tracking-ui text-[#555] outline-none"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               {(["isometric", "front", "side", "top"] as const).map((v) => (
@@ -290,7 +290,7 @@ export default function CadViewer({ height = 399 }: { height?: number }) {
 
           {/* Bottom-left: file info */}
           <div
-            className="absolute bottom-3 left-3 text-[9px] text-[#555] tracking-wider"
+            className="absolute bottom-3 left-3 text-label text-[#555] tracking-ui"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             sample.step · 2.3 MB

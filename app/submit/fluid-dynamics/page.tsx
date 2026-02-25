@@ -35,7 +35,7 @@ export default function FluidDynamicsEligibilityPage() {
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           Eligibility & Criteria
         </h1>
-        <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#555]">
+        <p className="font-mono text-label uppercase tracking-ui text-[#555]">
           Step 2 of 4 · Fluid Dynamics
         </p>
       </div>
@@ -44,7 +44,7 @@ export default function FluidDynamicsEligibilityPage() {
 
       {/* Eligibility checkboxes */}
       <div className="flex flex-col gap-3 border border-[#2a2a2a] bg-[#111] p-5">
-        <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#555]">Eligibility</p>
+        <p className="font-mono text-label uppercase tracking-ui text-[#555]">Eligibility</p>
         <div className="h-px bg-[#1c1c1c]" />
 
         {[
@@ -62,13 +62,13 @@ export default function FluidDynamicsEligibilityPage() {
         ))}
 
         {(errors.citizenCheckbox || errors.teamCheckbox) && (
-          <p className="font-mono text-[10px] text-red-400">Both confirmations are required to proceed.</p>
+          <p className="font-mono text-label text-red-400">Both confirmations are required to proceed.</p>
         )}
       </div>
 
       {/* Judging criteria accordion */}
       <div className="flex flex-col gap-1">
-        <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#555]">Judging Criteria — 100 pts total</p>
+        <p className="font-mono text-label uppercase tracking-ui text-[#555]">Judging Criteria — 100 pts total</p>
         <div className="h-px bg-[#2a2a2a]" />
         <div className="flex flex-col divide-y divide-[#1c1c1c] border border-[#2a2a2a]">
           {CRITERIA.map((c) => (
@@ -78,10 +78,10 @@ export default function FluidDynamicsEligibilityPage() {
                 className="flex w-full items-center justify-between bg-[#111] px-4 py-3 text-left transition-colors hover:bg-[#141414]"
               >
                 <div className="flex items-center gap-3">
-                  <span className="font-mono text-[10px] text-[#4ade80]">{c.points} pts</span>
+                  <span className="font-mono text-label text-[#4ade80]">{c.points} pts</span>
                   <span className="text-xs text-[#999]">{c.label}</span>
                 </div>
-                <span className="font-mono text-[10px] text-[#555]">{open === c.label ? "▲" : "▼"}</span>
+                <span className="font-mono text-label text-[#555]">{open === c.label ? "▲" : "▼"}</span>
               </button>
               {open === c.label && (
                 <div className="bg-[#0a0a0a] px-4 py-3">
@@ -97,14 +97,14 @@ export default function FluidDynamicsEligibilityPage() {
       <div className="flex justify-between">
         <button
           onClick={() => router.push("/submit")}
-          className="border border-[#2a2a2a] bg-[#111] px-5 py-2.5 font-mono text-[11px] uppercase tracking-widest text-[#555] transition-colors hover:text-white"
+          className="border border-[#2a2a2a] bg-[#111] px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-[#555] transition-colors hover:text-white"
         >
           ← Project Type
         </button>
         <button
           disabled={!canProceed}
           onClick={() => router.push("/submit/fluid-dynamics/experiment-details")}
-          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-widest text-black transition-colors hover:bg-[#6ee7a0] disabled:cursor-not-allowed disabled:opacity-30"
+          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-[#6ee7a0] disabled:cursor-not-allowed disabled:opacity-30"
         >
           Next: Experiment Details →
         </button>

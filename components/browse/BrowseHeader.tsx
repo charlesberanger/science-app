@@ -5,7 +5,9 @@ import { useAuth } from "@/contexts/AuthContext";
 
 export default function BrowseHeader() {
   const { isAuthenticated } = useAuth();
-  const submitHref = isAuthenticated ? "/submit" : "/auth/sign-in?redirect=/submit";
+  const submitHref = isAuthenticated
+    ? "/submit"
+    : "/auth/sign-in?redirect=/submit";
 
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -43,7 +45,7 @@ export default function BrowseHeader() {
 
         <Link
           href={submitHref}
-          className="shrink-0 bg-[#4ade80] px-4 py-2.5 text-[11px] font-semibold uppercase tracking-widest text-black transition-colors hover:bg-[#6ee7a0]"
+          className="shrink-0 bg-[#4ade80] px-4 py-2.5 text-[11px] font-semibold uppercase tracking-ui text-black transition-colors hover:bg-[#6ee7a0]"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Submit ↑

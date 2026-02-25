@@ -52,7 +52,7 @@ export default function CommentsSection() {
     <div id="comments" className="rounded border border-[#2a2a2a] bg-[#111]">
       <div className="border-b border-[#2a2a2a] px-5 py-3">
         <span
-          className="text-[9px] tracking-widest text-[#555] uppercase"
+          className="text-label tracking-ui text-[#555] uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Comments ({comments.length})

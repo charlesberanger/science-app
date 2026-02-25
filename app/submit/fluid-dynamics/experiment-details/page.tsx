@@ -36,7 +36,7 @@ export default function ExperimentDetailsPage() {
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           Experiment Details
         </h1>
-        <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#555]">
+        <p className="font-mono text-label uppercase tracking-ui text-[#555]">
           Step 3 of 4 · Fluid Dynamics
         </p>
       </div>
@@ -46,7 +46,7 @@ export default function ExperimentDetailsPage() {
       <div className="flex flex-col gap-6">
         {/* Tube Design Name */}
         <div className="flex flex-col gap-2">
-          <label className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#555]">
+          <label className="font-mono text-label uppercase tracking-ui text-[#555]">
             Tube Design Name
           </label>
           <input
@@ -55,7 +55,7 @@ export default function ExperimentDetailsPage() {
             className="border border-[#2a2a2a] bg-[#0a0a0a] px-3.5 py-3 text-[13px] text-white placeholder-[#3a3a3a] outline-none transition-colors focus:border-[#3a3a3a]"
           />
           {errors.title && (
-            <p className="font-mono text-[10px] text-red-400">{errors.title.message}</p>
+            <p className="font-mono text-label text-red-400">{errors.title.message}</p>
           )}
         </div>
 
@@ -86,13 +86,13 @@ export default function ExperimentDetailsPage() {
       <div className="flex justify-between">
         <button
           onClick={() => router.push("/submit/fluid-dynamics")}
-          className="border border-[#2a2a2a] bg-[#111] px-5 py-2.5 font-mono text-[11px] uppercase tracking-widest text-[#555] transition-colors hover:text-white"
+          className="border border-[#2a2a2a] bg-[#111] px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-[#555] transition-colors hover:text-white"
         >
           ← Eligibility
         </button>
         <button
           onClick={handleNext}
-          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-widest text-black transition-colors hover:bg-[#6ee7a0]"
+          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-[#6ee7a0]"
         >
           Next: CAD Upload →
         </button>

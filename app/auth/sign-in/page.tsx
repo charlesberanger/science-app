@@ -22,7 +22,7 @@ function StatsFooter() {
             <span className={`text-[22px] font-bold tracking-tight ${s.highlight ? "text-[#acffaf]" : "text-white"}`}>
               {s.value}
             </span>
-            <span className="font-mono text-[9px] tracking-[1.26px] text-[#555]">
+            <span className="font-mono text-label tracking-ui text-[#555]">
               {s.label}
             </span>
           </div>
@@ -67,10 +67,10 @@ function SignInForm() {
 
           <div className="px-9 pb-10 pt-7">
             {/* Step label */}
-            <p className="font-mono text-[9px] tracking-[1.62px] text-[#3a3a3a]">
+            <p className="font-mono text-label tracking-ui text-[#3a3a3a]">
               STEP 01 OF 04&nbsp;&nbsp;·&nbsp;&nbsp;CREATE ACCOUNT
             </p>
-            <h2 className="mt-2 text-[20px] font-bold tracking-[-0.4px] text-white">
+            <h2 className="mt-2 text-[20px] font-bold tracking-tight text-white">
               {isRegister ? "Create your account" : "Quick Authentication"}
             </h2>
           </div>
@@ -86,7 +86,7 @@ function SignInForm() {
 
             {/* Email field */}
             <div className="mt-2 flex flex-col gap-2">
-              <label className="font-mono text-[10px] tracking-[1.2px] text-[#777]">
+              <label className="font-mono text-label tracking-ui text-[#777]">
                 YOUR EMAIL
               </label>
               <input
@@ -102,7 +102,7 @@ function SignInForm() {
             {/* Primary CTA */}
             <button
               type="submit"
-              className="mt-1 flex h-12 w-full items-center justify-center bg-[#4ade80] font-mono text-[12px] font-medium uppercase tracking-[1.17px] text-black transition-opacity hover:opacity-90"
+              className="mt-1 flex h-12 w-full items-center justify-center bg-[#4ade80] font-mono text-[12px] font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90"
             >
               Continue with SSO →
             </button>
@@ -110,7 +110,7 @@ function SignInForm() {
             {/* Divider */}
             <div className="flex items-center gap-3">
               <div className="h-px flex-1 bg-[#2a2a2a]" />
-              <span className="font-mono text-[9px] tracking-[1.08px] text-[#3a3a3a]">OR</span>
+              <span className="font-mono text-label tracking-ui text-[#3a3a3a]">OR</span>
               <div className="h-px flex-1 bg-[#2a2a2a]" />
             </div>
 
@@ -121,7 +121,7 @@ function SignInForm() {
           </form>
 
           <div className="border-t border-[#1c1c1c]" />
-          <p className="px-9 py-4 text-center font-mono text-[9px] tracking-[0.36px] text-[#3a3a3a]">
+          <p className="px-9 py-4 text-center font-mono text-label tracking-ui text-[#3a3a3a]">
             By continuing you agree to the Terms of Use and Privacy Policy
           </p>
         </div>

@@ -27,11 +27,11 @@ export default function CharCountTextarea({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-baseline justify-between">
-        <label className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#555]">
+        <label className="font-mono text-label uppercase tracking-ui text-[#555]">
           {label}
         </label>
         <span
-          className={`font-mono text-[10px] tabular-nums ${
+          className={`font-mono text-label tabular-nums ${
             tooLong
               ? "text-red-400"
               : inRange
@@ -62,12 +62,12 @@ export default function CharCountTextarea({
             style={{ width: `${Math.min((count / maxLength) * 100, 100)}%` }}
           />
         </div>
-        <span className="ml-3 font-mono text-[9px] text-[#333]">
+        <span className="ml-3 font-mono text-label text-[#333]">
           {tooShort ? `${minLength - count} chars to go` : tooLong ? `${count - maxLength} over limit` : "✓ Good length"}
         </span>
       </div>
 
-      {error && <p className="font-mono text-[10px] text-red-400">{error}</p>}
+      {error && <p className="font-mono text-label text-red-400">{error}</p>}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 export default function Description() {
   return (
     <div className="rounded border border-[#2a2a2a] bg-[#111] p-5">
-      <h3 className="text-xs font-semibold uppercase tracking-widest text-white"
+      <h3 className="text-xs font-semibold uppercase tracking-ui text-white"
         style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
         Project Description
       </h3>

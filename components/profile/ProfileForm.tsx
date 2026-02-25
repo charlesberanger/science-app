@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 function FieldLabel({ children }: { children: React.ReactNode }) {
   return (
     <span
-      className="text-[10px] uppercase tracking-widest text-[#777]"
+      className="text-label uppercase tracking-ui text-[#777]"
       style={{ fontFamily: "var(--font-dm-mono), monospace" }}
     >
       {children}
@@ -155,7 +155,7 @@ export default function ProfileForm() {
         {/* Submit */}
         <div className="flex items-center justify-between border-t border-[#2a2a2a] pt-5">
           <p
-            className="text-[10px] text-[#555] tracking-wider"
+            className="text-label text-[#555] tracking-ui"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             * Required to submit a project
@@ -178,7 +178,7 @@ export default function ProfileForm() {
                   router.push("/profile");
                 }, 1200);
               }}
-              className="border border-[#4ade80] bg-transparent px-6 py-2.5 text-[12px] font-medium text-[#4ade80] tracking-wider transition-colors hover:bg-[#4ade80]/10"
+              className="border border-[#4ade80] bg-transparent px-6 py-2.5 text-[12px] font-medium text-[#4ade80] tracking-ui transition-colors hover:bg-[#4ade80]/10"
             >
               Save →
             </button>

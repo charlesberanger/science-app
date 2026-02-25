@@ -59,10 +59,10 @@ export default function ProfilePage() {
           </Avatar>
           <div className="flex flex-col gap-0.5">
             <p className="text-xl font-bold text-white">{user.name}</p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-[#777]">
+            <p className="font-mono text-label uppercase tracking-ui text-[#777]">
               {user.role}
             </p>
-            <p className="font-mono text-[10px] tracking-[0.06em] text-[#555]">
+            <p className="font-mono text-label tracking-ui text-[#555]">
               {user.institution}
             </p>
             <Badge variant="success" className="mt-1.5 w-fit">
@@ -84,7 +84,7 @@ export default function ProfilePage() {
 
       {/* About */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#555]">
+        <p className="font-mono text-label uppercase tracking-ui text-[#555]">
           About
         </p>
         <div className="h-px bg-[#2a2a2a]" />
@@ -100,7 +100,7 @@ export default function ProfilePage() {
 
       {/* My Submission */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#555]">
+        <p className="font-mono text-label uppercase tracking-ui text-[#555]">
           My Submission
         </p>
         <div className="h-px bg-[#2a2a2a]" />

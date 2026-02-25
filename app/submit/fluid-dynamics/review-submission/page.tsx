@@ -10,7 +10,7 @@ import { formatSize } from "@/components/submit/utils";
 function ReadonlyField({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-2">
-      <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#555]">{label}</span>
+      <span className="font-mono text-label uppercase tracking-ui text-[#555]">{label}</span>
       <div className="border border-[#2a2a2a] bg-[#0a0a0a] px-3.5 py-3 text-[13px] leading-relaxed text-[#999] whitespace-pre-wrap">
         {value || <span className="text-[#333]">—</span>}
       </div>
@@ -63,7 +63,7 @@ export default function ReviewSubmissionPage() {
           </div>
           <button
             onClick={() => router.push("/submission")}
-            className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-widest text-black transition-colors hover:bg-[#6ee7a0]"
+            className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-[#6ee7a0]"
           >
             View My Submission →
           </button>
@@ -80,7 +80,7 @@ export default function ReviewSubmissionPage() {
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           Review Submission
         </h1>
-        <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#555]">
+        <p className="font-mono text-label uppercase tracking-ui text-[#555]">
           Step 4 of 4 · Fluid Dynamics · Check everything before submitting
         </p>
       </div>
@@ -94,22 +94,22 @@ export default function ReviewSubmissionPage() {
 
         {/* CAD file */}
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#555]">CAD File</span>
+          <span className="font-mono text-label uppercase tracking-ui text-[#555]">CAD File</span>
           {files.length > 0 ? (
             <div className="flex items-center justify-between border border-[#2a2a2a] bg-[#0a0a0a] px-3.5 py-3">
               <div className="flex flex-col gap-0.5">
                 <span className="text-[13px] text-white">{files[0].name}</span>
-                <span className="font-mono text-[10px] text-[#555]">{formatSize(files[0].size)}</span>
+                <span className="font-mono text-label text-[#555]">{formatSize(files[0].size)}</span>
               </div>
               <button
                 onClick={() => router.push("/submit/fluid-dynamics/cad-file-upload")}
-                className="font-mono text-[10px] text-[#555] transition-colors hover:text-[#999]"
+                className="font-mono text-label text-[#555] transition-colors hover:text-[#999]"
               >
                 Update →
               </button>
             </div>
           ) : (
-            <p className="font-mono text-[10px] text-red-400">No file attached — go back and upload one.</p>
+            <p className="font-mono text-label text-red-400">No file attached — go back and upload one.</p>
           )}
         </div>
       </div>
@@ -118,13 +118,13 @@ export default function ReviewSubmissionPage() {
       <div className="flex justify-between">
         <button
           onClick={() => router.push("/submit/fluid-dynamics/cad-file-upload")}
-          className="border border-[#2a2a2a] bg-[#111] px-5 py-2.5 font-mono text-[11px] uppercase tracking-widest text-[#555] transition-colors hover:text-white"
+          className="border border-[#2a2a2a] bg-[#111] px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-[#555] transition-colors hover:text-white"
         >
           ← CAD Upload
         </button>
         <button
           onClick={() => setConfirmOpen(true)}
-          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-widest text-black transition-colors hover:bg-[#6ee7a0]"
+          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-[#6ee7a0]"
         >
           Submit Project →
         </button>
@@ -145,14 +145,14 @@ export default function ReviewSubmissionPage() {
               <button
                 onClick={handleSubmit}
                 disabled={submitting}
-                className="w-full bg-[#4ade80] py-2.5 font-mono text-[11px] uppercase tracking-widest text-black transition-opacity hover:opacity-90 disabled:opacity-50"
+                className="w-full bg-[#4ade80] py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-opacity hover:opacity-90 disabled:opacity-50"
               >
                 {submitting ? "Submitting…" : "Confirm & Submit"}
               </button>
               <button
                 onClick={() => setConfirmOpen(false)}
                 disabled={submitting}
-                className="w-full border border-[#2a2a2a] py-2.5 font-mono text-[11px] uppercase tracking-widest text-[#555] transition-colors hover:text-white disabled:opacity-30"
+                className="w-full border border-[#2a2a2a] py-2.5 font-mono text-[11px] uppercase tracking-ui text-[#555] transition-colors hover:text-white disabled:opacity-30"
               >
                 Cancel
               </button>

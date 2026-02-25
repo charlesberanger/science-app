@@ -28,7 +28,7 @@ export default function SubmitPage() {
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           Submit Project
         </h1>
-        <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#555]">
+        <p className="font-mono text-label uppercase tracking-ui text-[#555]">
           Step 1 of 4 · Select project type
         </p>
       </div>
@@ -55,7 +55,7 @@ export default function SubmitPage() {
               >
                 {t.label}
               </span>
-              <span className="font-mono text-[10px] text-[#555]">{t.description}</span>
+              <span className="font-mono text-label text-[#555]">{t.description}</span>
             </div>
             <div
               className={`mt-0.5 h-4 w-4 shrink-0 rounded-full border transition-colors ${
@@ -70,7 +70,7 @@ export default function SubmitPage() {
         <button
           disabled={!selected}
           onClick={() => router.push(`/submit/${selected}`)}
-          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-widest text-black transition-colors hover:bg-[#6ee7a0] disabled:cursor-not-allowed disabled:opacity-30"
+          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-[#6ee7a0] disabled:cursor-not-allowed disabled:opacity-30"
         >
           Next: Eligibility →
         </button>

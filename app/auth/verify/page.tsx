@@ -142,10 +142,10 @@ function VerifyForm() {
           <div className="absolute left-0 top-0 h-px w-full bg-[rgba(172,255,175,0.4)]" />
 
           <div className="px-9 pb-6 pt-7">
-            <p className="font-mono text-[9px] tracking-[1.62px] text-[#3a3a3a]">
+            <p className="font-mono text-label tracking-ui text-[#3a3a3a]">
               STEP 01 OF 04&nbsp;&nbsp;·&nbsp;&nbsp;CREATE ACCOUNT
             </p>
-            <h2 className="mt-2 text-[20px] font-bold tracking-[-0.4px] text-white">
+            <h2 className="mt-2 text-[20px] font-bold tracking-tight text-white">
               Enter your code
             </h2>
           </div>
@@ -175,20 +175,20 @@ function VerifyForm() {
             <button
               type="submit"
               disabled={!filled}
-              className="flex h-12 w-full items-center justify-center bg-[#acffaf] font-mono text-[12px] font-medium uppercase tracking-[0.96px] text-black transition-opacity hover:opacity-90 disabled:opacity-30"
+              className="flex h-12 w-full items-center justify-center bg-[#acffaf] font-mono text-[12px] font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90 disabled:opacity-30"
             >
               Verify Code →
             </button>
 
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[10px] tracking-[0.6px] text-[#555]">
+              <span className="font-mono text-label tracking-ui text-[#555]">
                 {timer > 0 ? `Resend available in 0:${String(timer).padStart(2, "0")}` : "Code expired"}
               </span>
               <button
                 type="button"
                 onClick={() => setTimer(42)}
                 disabled={timer > 0}
-                className="font-mono text-[10px] tracking-[0.6px] text-[#3a3a3a] transition-colors hover:text-[#777] disabled:pointer-events-none"
+                className="font-mono text-label tracking-ui text-[#3a3a3a] transition-colors hover:text-[#777] disabled:pointer-events-none"
               >
                 Resend code
               </button>
@@ -200,11 +200,11 @@ function VerifyForm() {
           <div className="flex items-center justify-between px-9 py-4">
             <Link
               href="/auth/sign-in"
-              className="font-mono text-[10px] tracking-[0.8px] text-[#555] transition-colors hover:text-[#777]"
+              className="font-mono text-label tracking-ui text-[#555] transition-colors hover:text-[#777]"
             >
               ← BACK TO SIGN-IN
             </Link>
-            <span className="font-mono text-[9px] tracking-[0.36px] text-[#3a3a3a]">
+            <span className="font-mono text-label tracking-ui text-[#3a3a3a]">
               Having trouble?{" "}
               <span className="cursor-pointer hover:text-[#555]">Contact support</span>
             </span>

@@ -21,7 +21,7 @@ export default function ShareLink() {
   return (
     <div className="rounded border border-[#2a2a2a] bg-[#111] p-5">
       <span
-        className="text-[9px] tracking-widest text-[#555] uppercase"
+        className="text-label tracking-ui text-[#555] uppercase"
         style={{ fontFamily: "var(--font-dm-mono), monospace" }}
       >
         Share Project
@@ -46,7 +46,7 @@ export default function ShareLink() {
           {copied ? "Copied ✓" : "Copy link"}
         </button>
       </div>
-      <p className="mt-2 text-[10px] text-[#333]" style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
+      <p className="mt-2 text-label text-[#333]" style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
         Anyone with this link can view this project submission
       </p>
     </div>

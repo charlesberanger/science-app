@@ -35,7 +35,7 @@ export default function RightCol() {
       {/* Vote */}
       <div className="p-5">
         <span
-          className="text-[9px] tracking-widest text-[#555] uppercase"
+          className="text-label tracking-ui text-[#555] uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Community Vote
@@ -49,7 +49,7 @@ export default function RightCol() {
           }`}
         >
           <span
-            className="text-[11px] uppercase tracking-widest"
+            className="text-[11px] uppercase tracking-ui"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             {voted ? "▲ Voted" : "▲ Vote"}
@@ -62,7 +62,7 @@ export default function RightCol() {
           </span>
         </button>
         {!isAuthenticated && (
-          <p className="mt-2 text-[10px] text-[#333]">
+          <p className="mt-2 text-label text-[#333]">
             Sign in to vote for this project
           </p>
         )}
@@ -73,7 +73,7 @@ export default function RightCol() {
       {/* Challenge info */}
       <div className="p-5">
         <span
-          className="text-[9px] tracking-widest text-[#555] uppercase"
+          className="text-label tracking-ui text-[#555] uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Challenge
@@ -86,7 +86,7 @@ export default function RightCol() {
         <div className="mt-4 flex flex-col gap-3">
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-[9px] tracking-widest text-[#333] uppercase"
+              className="text-label tracking-ui text-[#333] uppercase"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Prize Pool
@@ -95,7 +95,7 @@ export default function RightCol() {
           </div>
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-[9px] tracking-widest text-[#333] uppercase"
+              className="text-label tracking-ui text-[#333] uppercase"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Deadline
@@ -104,7 +104,7 @@ export default function RightCol() {
           </div>
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-[9px] tracking-widest text-[#333] uppercase"
+              className="text-label tracking-ui text-[#333] uppercase"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Submissions
@@ -119,7 +119,7 @@ export default function RightCol() {
       {/* Discussion */}
       <div className="p-5">
         <span
-          className="text-[9px] tracking-widest text-[#555] uppercase"
+          className="text-label tracking-ui text-[#555] uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Discussion (12)

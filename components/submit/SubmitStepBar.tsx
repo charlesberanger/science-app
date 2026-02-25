@@ -15,16 +15,21 @@ export default function SubmitStepBar({ current }: { current: number }) {
                 done
                   ? "border-[#4ade80]"
                   : active
-                  ? "border-[#acffaf]"
-                  : "border-[#2a2a2a]"
+                    ? "border-[#acffaf]"
+                    : "border-[#2a2a2a]"
               }`}
             >
               <span
-                className={`font-mono text-[9px] uppercase tracking-[0.14em] ${
-                  done ? "text-[#4ade80]" : active ? "text-white" : "text-[#333]"
+                className={`font-mono text-label uppercase tracking-ui ${
+                  done
+                    ? "text-[#4ade80]"
+                    : active
+                      ? "text-white"
+                      : "text-[#333]"
                 }`}
               >
-                {done ? "✓ " : `${idx < 10 ? "0" : ""}${idx} · `}{label}
+                {done ? "✓ " : `${idx < 10 ? "0" : ""}${idx} · `}
+                {label}
               </span>
             </div>
           </div>

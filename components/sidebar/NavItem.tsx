@@ -25,7 +25,7 @@ export default function NavItem({ label, href, icon }: NavItemProps) {
       )}
       {icon && <span className="shrink-0 text-sm opacity-60">{icon}</span>}
       <span
-        className="text-[11px] uppercase tracking-widest"
+        className="text-[11px] uppercase tracking-ui"
         style={{ fontFamily: "var(--font-dm-mono), monospace" }}
       >
         {label}

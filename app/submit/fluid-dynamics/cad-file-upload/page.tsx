@@ -51,7 +51,7 @@ export default function CadFileUploadPage() {
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           CAD File Upload
         </h1>
-        <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-[#555]">
+        <p className="font-mono text-label uppercase tracking-ui text-[#555]">
           Step 3 of 4 · Fluid Dynamics · Accepted: {ACCEPTED.join(", ")} · Max {MAX_MB} MB
         </p>
       </div>
@@ -77,7 +77,7 @@ export default function CadFileUploadPage() {
         <span className="text-3xl text-[#2a2a2a]">⬆</span>
         <div className="flex flex-col items-center gap-1 text-center">
           <p className="text-sm text-[#555]">Drop your CAD file here or click to browse</p>
-          <p className="font-mono text-[10px] text-[#333]">
+          <p className="font-mono text-label text-[#333]">
             {ACCEPTED.join("  ·  ").toUpperCase()}
           </p>
         </div>
@@ -88,11 +88,11 @@ export default function CadFileUploadPage() {
         <div className="flex items-center justify-between border border-[#4ade80]/30 bg-[#4ade80]/5 px-4 py-3">
           <div className="flex flex-col gap-0.5">
             <span className="text-sm font-medium text-white">{files[0].name}</span>
-            <span className="font-mono text-[10px] text-[#555]">{formatSize(files[0].size)}</span>
+            <span className="font-mono text-label text-[#555]">{formatSize(files[0].size)}</span>
           </div>
           <button
             onClick={(e) => { e.stopPropagation(); setValue("cadFiles", [], { shouldValidate: true }); }}
-            className="font-mono text-[10px] text-[#555] transition-colors hover:text-red-400"
+            className="font-mono text-label text-[#555] transition-colors hover:text-red-400"
           >
             Remove ✕
           </button>
@@ -100,20 +100,20 @@ export default function CadFileUploadPage() {
       )}
 
       {errors.cadFiles && (
-        <p className="font-mono text-[10px] text-red-400">{errors.cadFiles.message as string}</p>
+        <p className="font-mono text-label text-red-400">{errors.cadFiles.message as string}</p>
       )}
 
       {/* Nav */}
       <div className="flex justify-between">
         <button
           onClick={() => router.push("/submit/fluid-dynamics/experiment-details")}
-          className="border border-[#2a2a2a] bg-[#111] px-5 py-2.5 font-mono text-[11px] uppercase tracking-widest text-[#555] transition-colors hover:text-white"
+          className="border border-[#2a2a2a] bg-[#111] px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-[#555] transition-colors hover:text-white"
         >
           ← Experiment Details
         </button>
         <button
           onClick={handleNext}
-          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-widest text-black transition-colors hover:bg-[#6ee7a0]"
+          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-[#6ee7a0]"
         >
           Next: Review →
         </button>

@@ -82,6 +82,13 @@ const config: Config = {
         sans: ["var(--font-dm-sans)", "sans-serif"],
         mono: ["var(--font-dm-mono)", "monospace"],
       },
+      fontSize: {
+        label: ["11px", { lineHeight: "1.4" }],   // smallest UI text — min readable size
+        meta:  ["12px", { lineHeight: "1.5" }],   // secondary info, timestamps, helper text
+      },
+      letterSpacing: {
+        ui: "0.1em",  // all uppercase DM Mono labels — single source of truth
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
