@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils"
 const buttonVariants = cva(
   [
     "inline-flex items-center justify-center gap-2 whitespace-nowrap",
-    "font-mono text-[11px] uppercase tracking-widest",
+    "font-mono text-[11px] uppercase tracking-ui",
     "transition-colors duration-150",
     "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
     "disabled:pointer-events-none disabled:opacity-30",
@@ -22,7 +22,7 @@ const buttonVariants = cva(
       variant: {
         // Gold — primary CTA (amber fill, dark text)
         gold:
-          "bg-[#f0b840] text-[#0a0a0a] hover:bg-[#f0b840]/90",
+          "bg-feedback-warning text-[#0a0a0a] hover:bg-feedback-warning/90",
         // Primary — white fill
         default:
           "bg-white text-[#0a0a0a] hover:bg-white/90",
@@ -31,7 +31,7 @@ const buttonVariants = cva(
           "border border-[#2a2a2a] bg-transparent text-white hover:bg-[#1c1c1c] hover:border-[#3a3a3a]",
         // Ghost — no border, subtle hover
         ghost:
-          "bg-transparent text-[#555] hover:text-white hover:bg-[#1c1c1c]",
+          "bg-transparent text-[#888] hover:text-white hover:bg-[#1c1c1c]",
         // Danger — red tint
         destructive:
           "border border-[#f87171]/30 bg-transparent text-[#f87171] hover:bg-[#f87171]/10",
@@ -40,7 +40,7 @@ const buttonVariants = cva(
           "bg-transparent text-[#acffaf] underline-offset-4 hover:underline",
       },
       size: {
-        sm: "h-8 px-3 text-[10px]",
+        sm: "h-8 px-3 text-label",
         default: "h-9 px-4",
         lg: "h-11 px-6 text-[12px]",
         icon: "h-9 w-9",

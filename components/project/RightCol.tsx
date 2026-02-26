@@ -4,11 +4,18 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 
+const DISCUSSION_TOPICS = [
+  "Mesh refinement trade-offs",
+  "Memory vs speed benchmarks",
+  "NACA validation dataset",
+];
+
 export default function RightCol() {
   const router = useRouter();
   const { isAuthenticated } = useAuth();
   const [voted, setVoted] = useState(false);
   const [voteCount, setVoteCount] = useState(284);
+  const [bumped, setBumped] = useState(false);
 
   function handleVote() {
     if (!isAuthenticated) {
@@ -22,6 +29,8 @@ export default function RightCol() {
       setVoted(true);
       setVoteCount((n) => n + 1);
     }
+    setBumped(true);
+    setTimeout(() => setBumped(false), 300);
   }
 
   return (
@@ -29,34 +38,37 @@ export default function RightCol() {
       {/* Vote */}
       <div className="p-5">
         <span
-          className="text-[9px] tracking-widest text-[#555] uppercase"
+          className="text-label tracking-ui text-[#888] uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Community Vote
         </span>
         <button
           onClick={handleVote}
-          className={`mt-3 flex w-full items-center justify-between rounded border px-4 py-2.5 transition-colors ${
+          className={`mt-3 flex w-full items-center justify-between rounded border px-4 py-2.5 transition-all duration-150 active:scale-[0.97] ${
             voted
               ? "border-[#4ade80] bg-[#4ade80]/10 text-[#4ade80]"
-              : "border-[#4ade80] bg-[#4ade80] text-black hover:bg-[#6ee7a0]"
+              : "border-[#4ade80] bg-[#4ade80] text-black hover:bg-feedback-success-hover"
           }`}
         >
           <span
-            className="text-[11px] uppercase tracking-widest"
+            className="text-[11px] uppercase tracking-ui"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             {voted ? "▲ Voted" : "▲ Vote"}
           </span>
           <span
-            className="text-[11px]"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="text-[11px] transition-transform duration-150"
+            style={{
+              fontFamily: "var(--font-dm-mono), monospace",
+              transform: bumped ? "scale(1.3)" : "scale(1)",
+            }}
           >
             {voteCount}
           </span>
         </button>
         {!isAuthenticated && (
-          <p className="mt-2 text-[10px] text-[#333]">
+          <p className="mt-2 text-label text-[#888]">
             Sign in to vote for this project
           </p>
         )}
@@ -67,7 +79,7 @@ export default function RightCol() {
       {/* Challenge info */}
       <div className="p-5">
         <span
-          className="text-[9px] tracking-widest text-[#555] uppercase"
+          className="text-label tracking-ui text-[#888] uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Challenge
@@ -75,12 +87,12 @@ export default function RightCol() {
         <h2 className="mt-2 text-sm font-semibold leading-snug text-white">
           Fluid Dynamics Challenge
         </h2>
-        <p className="mt-1 text-xs text-[#555]">Turbulent Boundary Layer Modelling Track</p>
+        <p className="mt-1 text-xs text-[#888]">Turbulent Boundary Layer Modelling Track</p>
 
         <div className="mt-4 flex flex-col gap-3">
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-[9px] tracking-widest text-[#333] uppercase"
+              className="text-label tracking-ui text-[#888] uppercase"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Prize Pool
@@ -89,16 +101,16 @@ export default function RightCol() {
           </div>
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-[9px] tracking-widest text-[#333] uppercase"
+              className="text-label tracking-ui text-[#888] uppercase"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Deadline
             </span>
-            <span className="text-xs text-[#999]">April 12, 2025 — 23:59 UTC</span>
+            <span className="text-xs text-[#999]">April 12, 2026 — 23:59 UTC</span>
           </div>
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-[9px] tracking-widest text-[#333] uppercase"
+              className="text-label tracking-ui text-[#888] uppercase"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Submissions
@@ -113,17 +125,17 @@ export default function RightCol() {
       {/* Discussion */}
       <div className="p-5">
         <span
-          className="text-[9px] tracking-widest text-[#555] uppercase"
+          className="text-label tracking-ui text-[#888] uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Discussion (12)
         </span>
         <div className="mt-3 flex flex-col gap-2">
-          {["Mesh refinement trade-offs", "Memory vs speed benchmarks", "NACA validation dataset"].map((t) => (
+          {DISCUSSION_TOPICS.map((t) => (
             <a
               key={t}
               href="#comments"
-              className="text-xs text-[#555] transition-colors hover:text-[#999]"
+              className="text-xs text-[#888] transition-colors hover:text-[#999]"
             >
               → {t}
             </a>

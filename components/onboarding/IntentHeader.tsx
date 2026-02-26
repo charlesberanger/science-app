@@ -5,7 +5,7 @@ export default function IntentHeader() {
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           What do you want to do?
         </h1>
-        <p className="text-xs text-[#777]">
+        <p className="text-xs text-[#999]">
           Choose your path to participate in the Fluid Dynamics Challenge
         </p>
       </div>

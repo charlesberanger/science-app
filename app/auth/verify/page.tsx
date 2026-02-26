@@ -23,14 +23,14 @@ function StepsFooter() {
                 ? "border-[rgba(74,222,128,0.5)] bg-[rgba(4,18,8,0.7)] text-[#4ade80]"
                 : s.active
                 ? "border-[rgba(172,255,175,0.5)] bg-[rgba(7,18,9,0.7)] text-[#acffaf] shadow-[0_0_0_4px_rgba(172,255,175,0.2)]"
-                : "border-[rgba(42,42,42,0.5)] bg-[#1c1c1c] text-[#555]"
+                : "border-[rgba(42,42,42,0.5)] bg-[#1c1c1c] text-[#888]"
             }`}
           >
             {s.n}
           </div>
           <span
             className={`text-[13px] ${
-              s.done ? "text-[#777]" : s.active ? "font-medium text-white" : "text-[#3a3a3a]"
+              s.done ? "text-[#999]" : s.active ? "font-medium text-white" : "text-[#888]"
             }`}
           >
             {s.label}
@@ -83,11 +83,11 @@ function OtpInput({ value, onChange }: { value: string[]; onChange: (v: string[]
             onChange={(e) => handleChange(i, e.target.value)}
             onKeyDown={(e) => handleKeyDown(i, e)}
             onPaste={handlePaste}
-            className={`h-16 w-[54px] border bg-[#1c1c1c] text-center font-mono text-[24px] text-[#acffaf] outline-none transition-all ${
+            className={`h-16 w-[54px] border bg-[#1c1c1c] text-center font-mono text-[24px] text-[#acffaf] outline-none focus-visible:ring-1 focus-visible:ring-[#acffaf]/50 transition-all ${
               isCurrent
                 ? "border-[#acffaf] shadow-[0_0_0_3px_rgba(172,255,175,0.18)]"
                 : digit
-                ? "border-[#555]"
+                ? "border-[#888]"
                 : "border-[#2a2a2a]"
             }`}
           />
@@ -142,10 +142,10 @@ function VerifyForm() {
           <div className="absolute left-0 top-0 h-px w-full bg-[rgba(172,255,175,0.4)]" />
 
           <div className="px-9 pb-6 pt-7">
-            <p className="font-mono text-[9px] tracking-[1.62px] text-[#3a3a3a]">
+            <p className="font-mono text-label tracking-ui text-[#888]">
               STEP 01 OF 04&nbsp;&nbsp;·&nbsp;&nbsp;CREATE ACCOUNT
             </p>
-            <h2 className="mt-2 text-[20px] font-bold tracking-[-0.4px] text-white">
+            <h2 className="mt-2 text-[20px] font-bold tracking-tight text-white">
               Enter your code
             </h2>
           </div>
@@ -153,7 +153,7 @@ function VerifyForm() {
           <div className="border-t border-[#1c1c1c]" />
 
           <form onSubmit={handleVerify} className="flex flex-col gap-5 px-9 py-7">
-            <p className="text-[13px] font-normal leading-[1.55] text-[#777]">
+            <p className="text-[13px] font-normal leading-[1.55] text-[#999]">
               We sent a 6-digit code to{" "}
               <span className="text-white">{email}</span>. Expires in 09:42.
             </p>
@@ -175,20 +175,20 @@ function VerifyForm() {
             <button
               type="submit"
               disabled={!filled}
-              className="flex h-12 w-full items-center justify-center bg-[#acffaf] font-mono text-[12px] font-medium uppercase tracking-[0.96px] text-black transition-opacity hover:opacity-90 disabled:opacity-30"
+              className="flex h-12 w-full items-center justify-center bg-[#acffaf] font-mono text-[12px] font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90 disabled:opacity-30"
             >
               Verify Code →
             </button>
 
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[10px] tracking-[0.6px] text-[#555]">
+              <span className="font-mono text-label tracking-ui text-[#888]">
                 {timer > 0 ? `Resend available in 0:${String(timer).padStart(2, "0")}` : "Code expired"}
               </span>
               <button
                 type="button"
                 onClick={() => setTimer(42)}
                 disabled={timer > 0}
-                className="font-mono text-[10px] tracking-[0.6px] text-[#3a3a3a] transition-colors hover:text-[#777] disabled:pointer-events-none"
+                className="font-mono text-label tracking-ui text-[#888] transition-colors hover:text-[#999] disabled:pointer-events-none"
               >
                 Resend code
               </button>
@@ -200,13 +200,13 @@ function VerifyForm() {
           <div className="flex items-center justify-between px-9 py-4">
             <Link
               href="/auth/sign-in"
-              className="font-mono text-[10px] tracking-[0.8px] text-[#555] transition-colors hover:text-[#777]"
+              className="font-mono text-label tracking-ui text-[#888] transition-colors hover:text-[#999]"
             >
               ← BACK TO SIGN-IN
             </Link>
-            <span className="font-mono text-[9px] tracking-[0.36px] text-[#3a3a3a]">
+            <span className="font-mono text-label tracking-ui text-[#888]">
               Having trouble?{" "}
-              <span className="cursor-pointer hover:text-[#555]">Contact support</span>
+              <span className="cursor-pointer hover:text-white">Contact support</span>
             </span>
           </div>
         </div>

@@ -48,13 +48,14 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
         <span className="h-px w-4 bg-[#555]" />
       </button>
 
-      <span className="hidden font-mono text-[11px] tracking-widest text-[#555] lg:block">
-        Science <span className="text-[#333]">/</span>{" "}
+      <span className="hidden font-mono text-[11px] tracking-ui text-[#888] lg:block">
+        Science <span className="text-[#888]">/</span>{" "}
         <span className="text-[#999]">{section}</span>
       </span>
 
-      <span className="absolute left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-widest text-[#555] lg:hidden">
-        Science
+      <span className="absolute left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-ui text-[#888] lg:hidden">
+        Science <span className="text-[#888]">/</span>{" "}
+        <span className="text-[#999]">{section}</span>
       </span>
 
       {isAuthenticated ? (
@@ -64,7 +65,7 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
           <Button variant="outline" size="sm" asChild>
             <Link href="/auth/sign-in">Sign In</Link>
           </Button>
-          <Button variant="default" size="sm" asChild className="hidden sm:inline-flex">
+          <Button variant="default" size="sm" asChild className="hidden sm:inline-flex bg-[#4ade80] text-black hover:bg-feedback-success-hover">
             <Link href="/auth/sign-in?mode=register">Create Account</Link>
           </Button>
         </div>

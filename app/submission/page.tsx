@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "My Submission",
+  description: "Track the status of your Science Fluid Dynamics Challenge submission.",
+};
 import AppShell from "@/components/layout/AppShell";
 import SubmissionStatusBanner from "@/components/submission/SubmissionStatusBanner";
 import SubmissionCard from "@/components/submission/SubmissionCard";
@@ -31,7 +37,7 @@ export default function MySubmissionPage() {
             My Submission
           </h1>
           <p
-            className="text-xs text-[#555]"
+            className="text-xs text-[#888]"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             312 submissions &nbsp;·&nbsp; Fluid Dynamics Challenge
@@ -43,7 +49,7 @@ export default function MySubmissionPage() {
             <Link href="/leaderboard">View on Leaderboard</Link>
           </Button>
           <Button variant="outline" size="sm" asChild>
-            <Link href="/submit">Edit Submission</Link>
+            <Link href="/submit/fluid-dynamics/review-submission">Edit Submission</Link>
           </Button>
         </div>
       </div>

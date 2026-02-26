@@ -9,7 +9,7 @@ const defaultStats: StatItem[] = [
   { label: "TOTAL SUBMISSIONS", value: "312", trend: "↑ +14 this week" },
   { label: "ACTIVE TEAMS", value: "87", trend: "↑ +3 this week" },
   { label: "AVG SCORE", value: "74.2", trend: "↑ +1.8 this week" },
-  { label: "DAYS LEFT", value: "18", trend: "Deadline Apr 12", trendMuted: true },
+  { label: "DAYS LEFT", value: "45", trend: "Deadline Apr 12, 2026", trendMuted: true },
 ];
 
 export default function StatsBar({ stats = defaultStats }: { stats?: StatItem[] }) {
@@ -25,14 +25,14 @@ export default function StatsBar({ stats = defaultStats }: { stats?: StatItem[] 
           `}
         >
           <span
-            className="text-[9px] uppercase tracking-widest text-[#555]"
+            className="text-label uppercase tracking-ui text-[#888]"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             {stat.label}
           </span>
           <span className="text-2xl font-semibold text-white">{stat.value}</span>
           <span
-            className={`text-[10px] ${stat.trendMuted ? "text-[#555]" : "text-[#4ade80]"}`}
+            className={`text-label ${stat.trendMuted ? "text-[#888]" : "text-[#4ade80]"}`}
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             {stat.trend}

@@ -5,8 +5,9 @@ export default function ProfileHeader() {
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           Create your profile
         </h1>
-        <p className="text-xs text-[#777]">
-          Your public profile is shown alongside your submission on the leaderboard.
+        <p className="text-xs text-[#999]">
+          Your public profile is shown alongside your submission on the
+          leaderboard.
         </p>
       </div>
     </div>

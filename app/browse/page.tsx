@@ -1,11 +1,17 @@
+import type { Metadata } from "next";
 import AppShell from "@/components/layout/AppShell";
+
+export const metadata: Metadata = {
+  title: "Browse Projects",
+  description: "Explore all submissions to the Fluid Dynamics Challenge. View CAD models and vote for your favourites.",
+};
 import BrowseHeader from "@/components/browse/BrowseHeader";
 import StatsBar from "@/components/project/StatsBar";
 import ProjectCard from "@/components/browse/ProjectCard";
 import type { StatItem } from "@/components/project/StatsBar";
 
-const THUMBNAIL =
-  "https://www.figma.com/api/mcp/asset/f145ebcc-6bae-4ef0-b09a-5f238f44cacf";
+// Stable local placeholder — swap per-card once real thumbnails are available
+const THUMBNAIL = "/placeholder-project.svg";
 
 const browseStats: StatItem[] = [
   { label: "TOTAL SUBMISSIONS", value: "312", trend: "↑ +14 this week" },
@@ -25,54 +31,14 @@ const browseStats: StatItem[] = [
 ];
 
 const projects = [
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
-  {
-    title: "Fluid Dynamics in Microgravity",
-    author: "C. Laurent",
-    votes: 512,
-    rank: 1,
-  },
+  { id: "p1", title: "Fluid Dynamics in Microgravity",        author: "C. Laurent",  votes: 512, rank: 1 },
+  { id: "p2", title: "Thermodynamic Cycle Optimisation",       author: "A. Patel",    votes: 480, rank: 2 },
+  { id: "p3", title: "Quantum Turbulence Simulation",          author: "J. Smith",    votes: 467, rank: 3 },
+  { id: "p4", title: "Electromagnetic Flow Control",           author: "D. Kim",      votes: 450, rank: 4 },
+  { id: "p5", title: "Statistical Mechanics of Vortex Sheets", author: "S. Johnson",  votes: 441, rank: 5 },
+  { id: "p6", title: "Classical Shock Wave Interaction",       author: "F. Nguyen",   votes: 428, rank: 6 },
+  { id: "p7", title: "Optics-Based Flow Visualisation",        author: "B. Davis",    votes: 415, rank: 7 },
+  { id: "p8", title: "Adaptive Mesh Refinement for CFD",       author: "L. Chen",     votes: 398, rank: 8 },
 ];
 
 export default function BrowseProjectsPage() {
@@ -81,16 +47,26 @@ export default function BrowseProjectsPage() {
       <BrowseHeader />
       <StatsBar stats={browseStats} />
 
-      <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-3 xl:grid-cols-4">
-        {projects.map((project, i) => (
-          <ProjectCard
-            key={i}
-            {...project}
-            href="/project"
-            imageSrc={THUMBNAIL}
-          />
-        ))}
-      </div>
+      {projects.length === 0 ? (
+        <div className="flex flex-col items-center justify-center gap-4 border border-dashed border-[#2a2a2a] py-20 text-center">
+          <span className="font-mono text-3xl text-[#3a3a3a]">⊘</span>
+          <div className="flex flex-col gap-1">
+            <p className="text-sm font-medium text-[#888]">No projects found</p>
+            <p className="font-mono text-label text-[#555]">Try adjusting your filters or check back later.</p>
+          </div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-3 xl:grid-cols-4">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              {...project}
+              href="/project"
+              imageSrc={THUMBNAIL}
+            />
+          ))}
+        </div>
+      )}
     </AppShell>
   );
 }

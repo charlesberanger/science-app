@@ -54,14 +54,12 @@ const config: Config = {
         },
         lime: {
           400: "#acffaf",
-          300: "#c8ffc9",
-          200: "#dfffdf",
         },
         feedback: {
-          success: "#4ade80",
-          error:   "#f87171",
-          warning: "#fcd34d",
-          info:    "#60a5fa",
+          success:        "#4ade80",
+          "success-hover": "#6ee7a0",
+          error:          "#f87171",
+          warning:        "#fcd34d",
         },
       },
 
@@ -81,6 +79,13 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-dm-sans)", "sans-serif"],
         mono: ["var(--font-dm-mono)", "monospace"],
+      },
+      fontSize: {
+        label: ["11px", { lineHeight: "1.4" }],   // smallest UI text — min readable size
+        meta:  ["12px", { lineHeight: "1.5" }],   // secondary info, timestamps, helper text
+      },
+      letterSpacing: {
+        ui: "0.1em",  // all uppercase DM Mono labels — single source of truth
       },
     },
   },

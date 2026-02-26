@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "My Profile",
+  description: "View and manage your Science challenge profile and submission.",
+};
 import AppShell from "@/components/layout/AppShell";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SubmissionStatusBanner from "@/components/submission/SubmissionStatusBanner";
 import SubmissionCard from "@/components/submission/SubmissionCard";
@@ -59,15 +64,12 @@ export default function ProfilePage() {
           </Avatar>
           <div className="flex flex-col gap-0.5">
             <p className="text-xl font-bold text-white">{user.name}</p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-[#777]">
+            <p className="font-mono text-label uppercase tracking-ui text-[#999]">
               {user.role}
             </p>
-            <p className="font-mono text-[10px] tracking-[0.06em] text-[#555]">
+            <p className="font-mono text-label tracking-ui text-[#888]">
               {user.institution}
             </p>
-            <Badge variant="success" className="mt-1.5 w-fit">
-              APPROVED
-            </Badge>
           </div>
         </div>
         <Button variant="outline" className="w-full sm:w-auto" asChild>
@@ -84,12 +86,12 @@ export default function ProfilePage() {
 
       {/* About */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#555]">
+        <p className="font-mono text-label uppercase tracking-ui text-[#888]">
           About
         </p>
         <div className="h-px bg-[#2a2a2a]" />
         <div className="border border-[#2a2a2a] bg-[#111] p-4">
-          <p className="text-xs leading-[1.6] text-[#777]">{user.bio}</p>
+          <p className="text-xs leading-[1.6] text-[#999]">{user.bio}</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3">
           <InfoCell label="Email" value={user.email} />
@@ -100,7 +102,7 @@ export default function ProfilePage() {
 
       {/* My Submission */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-[9px] uppercase tracking-[0.16em] text-[#555]">
+        <p className="font-mono text-label uppercase tracking-ui text-[#888]">
           My Submission
         </p>
         <div className="h-px bg-[#2a2a2a]" />

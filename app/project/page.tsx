@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import AppShell from "@/components/layout/AppShell";
+
+export const metadata: Metadata = {
+  title: "Project Detail",
+  description: "View a submitted project in the Science Fluid Dynamics Challenge, including CAD model, description, and community votes.",
+};
 import ChallengeHeader from "@/components/project/ChallengeHeader";
 import StatsBar from "@/components/project/StatsBar";
 import CadViewerDynamic from "@/components/project/CadViewerDynamic";

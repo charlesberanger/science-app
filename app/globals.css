@@ -29,7 +29,7 @@
 
     /* Muted */
     --muted:            0 0% 11%;  /* #1C1C1C */
-    --muted-foreground: 0 0% 33%;  /* #555555  text/tertiary */
+    --muted-foreground: 0 0% 53%;  /* #888888  text/tertiary */
 
     /* Accent — used for hover states */
     --accent:            0 0% 16%;  /* #2A2A2A  border/default */
@@ -90,7 +90,7 @@
   --border-default: #2a2a2a;
   --text-primary:   #ffffff;
   --text-secondary: #999999;
-  --text-tertiary:  #555555;
+  --text-tertiary:  #888888;
   --lime-400:       #acffaf;
   --feedback-success: #4ade80;
   --feedback-error:   #f87171;
