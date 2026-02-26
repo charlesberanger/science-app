@@ -29,14 +29,14 @@ export default function FluidDynamicsEligibilityPage() {
 
   return (
     <AppShell>
-      <SubmitStepBar current={1} />
+      <SubmitStepBar current={2} />
 
       <div className="flex flex-col gap-1">
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           Eligibility & Criteria
         </h1>
         <p className="font-mono text-label uppercase tracking-ui text-[#888]">
-          Step 2 of 4 · Fluid Dynamics
+          Step 2 of 5 · Fluid Dynamics
         </p>
       </div>
 
@@ -71,25 +71,31 @@ export default function FluidDynamicsEligibilityPage() {
         <p className="font-mono text-label uppercase tracking-ui text-[#888]">Judging Criteria — 100 pts total</p>
         <div className="h-px bg-[#2a2a2a]" />
         <div className="flex flex-col divide-y divide-[#1c1c1c] border border-[#2a2a2a]">
-          {CRITERIA.map((c) => (
-            <div key={c.label}>
-              <button
-                onClick={() => setOpen(open === c.label ? null : c.label)}
-                className="flex w-full items-center justify-between bg-[#111] px-4 py-3 text-left transition-colors hover:bg-[#1c1c1c]"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-label text-[#4ade80]">{c.points} pts</span>
-                  <span className="text-xs text-[#999]">{c.label}</span>
-                </div>
-                <span className="font-mono text-label text-[#888]">{open === c.label ? "▲" : "▼"}</span>
-              </button>
-              {open === c.label && (
-                <div className="bg-[#0a0a0a] px-4 py-3">
-                  <p className="text-xs leading-relaxed text-[#888]">{c.description}</p>
-                </div>
-              )}
-            </div>
-          ))}
+          {CRITERIA.map((c) => {
+            const panelId = `criteria-panel-${c.label.toLowerCase().replace(/[\s—]+/g, "-")}`;
+            const isOpen = open === c.label;
+            return (
+              <div key={c.label}>
+                <button
+                  onClick={() => setOpen(isOpen ? null : c.label)}
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
+                  className="flex w-full items-center justify-between bg-[#111] px-4 py-3 text-left transition-colors hover:bg-[#1c1c1c]"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-label text-[#4ade80]">{c.points} pts</span>
+                    <span className="text-xs text-[#999]">{c.label}</span>
+                  </div>
+                  <span className="font-mono text-label text-[#888]" aria-hidden="true">{isOpen ? "▲" : "▼"}</span>
+                </button>
+                {isOpen && (
+                  <div id={panelId} role="region" aria-label={c.label} className="bg-[#0a0a0a] px-4 py-3">
+                    <p className="text-xs leading-relaxed text-[#888]">{c.description}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
 

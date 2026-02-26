@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import AppShell from "@/components/layout/AppShell";
+import SubmitStepBar from "@/components/submit/SubmitStepBar";
 
 const TYPES = [
   {
@@ -24,12 +25,14 @@ export default function SubmitPage() {
 
   return (
     <AppShell>
+      <SubmitStepBar current={1} />
+
       <div className="flex flex-col gap-3">
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           Submit Project
         </h1>
         <p className="font-mono text-label uppercase tracking-ui text-[#888]">
-          Step 1 of 4 · Select project type
+          Step 1 of 5 · Select project type
         </p>
       </div>
 

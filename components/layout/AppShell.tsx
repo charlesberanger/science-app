@@ -32,7 +32,10 @@ export default function AppShell({
         badgeLabel={badgeLabel}
       />
 
-      <main id="main-content" className="flex flex-col gap-5 p-4 pt-20 sm:p-6 sm:pt-20 lg:ml-[220px]">
+      <main
+        id="main-content"
+        className="flex flex-col gap-5 p-4 pt-20 sm:p-6 sm:pt-20 lg:ml-[220px]"
+      >
         {children}
       </main>
     </div>

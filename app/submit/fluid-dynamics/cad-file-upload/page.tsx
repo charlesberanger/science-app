@@ -45,14 +45,14 @@ export default function CadFileUploadPage() {
 
   return (
     <AppShell>
-      <SubmitStepBar current={3} />
+      <SubmitStepBar current={4} />
 
       <div className="flex flex-col gap-1">
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           CAD File Upload
         </h1>
         <p className="font-mono text-label uppercase tracking-ui text-[#888]">
-          Step 3 of 4 · Fluid Dynamics · Accepted: {ACCEPTED.join(", ")} · Max {MAX_MB} MB
+          Step 4 of 5 · Fluid Dynamics · Accepted: {ACCEPTED.join(", ")} · Max {MAX_MB} MB
         </p>
       </div>
 

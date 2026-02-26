@@ -74,14 +74,14 @@ export default function ReviewSubmissionPage() {
 
   return (
     <AppShell>
-      <SubmitStepBar current={4} />
+      <SubmitStepBar current={5} />
 
       <div className="flex flex-col gap-1">
         <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
           Review Submission
         </h1>
         <p className="font-mono text-label uppercase tracking-ui text-[#888]">
-          Step 4 of 4 · Fluid Dynamics · Check everything before submitting
+          Step 5 of 5 · Fluid Dynamics · Check everything before submitting
         </p>
       </div>
 

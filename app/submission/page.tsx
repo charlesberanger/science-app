@@ -43,7 +43,7 @@ export default function MySubmissionPage() {
             <Link href="/leaderboard">View on Leaderboard</Link>
           </Button>
           <Button variant="outline" size="sm" asChild>
-            <Link href="/submit">Edit Submission</Link>
+            <Link href="/submit/fluid-dynamics/review-submission">Edit Submission</Link>
           </Button>
         </div>
       </div>

@@ -1,4 +1,4 @@
-const STEPS = ["Eligibility", "Details", "CAD Upload", "Review"];
+const STEPS = ["Type", "Eligibility", "Details", "CAD Upload", "Review"];
 
 export default function SubmitStepBar({ current }: { current: number }) {
   // current is 1-indexed
