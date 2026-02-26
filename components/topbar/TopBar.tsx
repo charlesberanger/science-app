@@ -65,7 +65,7 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
           <Button variant="outline" size="sm" asChild>
             <Link href="/auth/sign-in">Sign In</Link>
           </Button>
-          <Button variant="default" size="sm" asChild className="hidden sm:inline-flex">
+          <Button variant="default" size="sm" asChild className="hidden sm:inline-flex bg-[#4ade80] text-black hover:bg-feedback-success-hover">
             <Link href="/auth/sign-in?mode=register">Create Account</Link>
           </Button>
         </div>
