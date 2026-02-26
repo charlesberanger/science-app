@@ -24,12 +24,21 @@ export default function ProjectCard({
     >
       {/* Thumbnail */}
       <div className="relative h-[112px] w-full overflow-hidden bg-[#1c1c1c]">
-        {imageSrc && (
+        {imageSrc ? (
           <img
             src={imageSrc}
             alt={title}
             className="h-full w-full object-cover"
           />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect x="8" y="14" width="16" height="12" rx="0" stroke="#3a3a3a" strokeWidth="1.2" />
+              <path d="M8 14L16 9L24 14" stroke="#3a3a3a" strokeWidth="1.2" strokeLinejoin="round" />
+              <path d="M16 9V21" stroke="#3a3a3a" strokeWidth="1.2" />
+              <path d="M8 14L16 19L24 14" stroke="#2a2a2a" strokeWidth="1.2" />
+            </svg>
+          </div>
         )}
         {/* Rank badge — bottom left */}
         <div className="absolute bottom-2 left-2 flex items-center gap-1 rounded-full border border-[rgba(74,222,128,0.5)] bg-[rgba(4,18,8,0.7)] px-2 py-0.5">

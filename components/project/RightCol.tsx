@@ -100,7 +100,7 @@ export default function RightCol() {
             >
               Deadline
             </span>
-            <span className="text-xs text-[#999]">April 12, 2025 — 23:59 UTC</span>
+            <span className="text-xs text-[#999]">April 12, 2026 — 23:59 UTC</span>
           </div>
           <div className="flex flex-col gap-0.5">
             <span

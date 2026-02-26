@@ -9,7 +9,7 @@ const defaultStats: StatItem[] = [
   { label: "TOTAL SUBMISSIONS", value: "312", trend: "↑ +14 this week" },
   { label: "ACTIVE TEAMS", value: "87", trend: "↑ +3 this week" },
   { label: "AVG SCORE", value: "74.2", trend: "↑ +1.8 this week" },
-  { label: "DAYS LEFT", value: "18", trend: "Deadline Apr 12", trendMuted: true },
+  { label: "DAYS LEFT", value: "45", trend: "Deadline Apr 12, 2026", trendMuted: true },
 ];
 
 export default function StatsBar({ stats = defaultStats }: { stats?: StatItem[] }) {

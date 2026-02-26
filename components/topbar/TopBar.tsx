@@ -54,7 +54,8 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
       </span>
 
       <span className="absolute left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-ui text-[#888] lg:hidden">
-        Science
+        Science <span className="text-[#888]">/</span>{" "}
+        <span className="text-[#999]">{section}</span>
       </span>
 
       {isAuthenticated ? (

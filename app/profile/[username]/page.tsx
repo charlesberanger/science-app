@@ -116,9 +116,11 @@ export default function PublicProfilePage({
             <p className="font-mono text-label tracking-ui text-[#888]">
               {user.institution}
             </p>
-            <Badge variant="success" className="mt-1.5 w-fit">
-              APPROVED
-            </Badge>
+            {user.status === "approved" ? (
+              <Badge variant="success" className="mt-1.5 w-fit">APPROVED</Badge>
+            ) : (
+              <Badge variant="warning" className="mt-1.5 w-fit">PENDING</Badge>
+            )}
           </div>
         </div>
       </div>
