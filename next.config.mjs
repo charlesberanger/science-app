@@ -7,7 +7,7 @@ const nextConfig = {
       {
         source: "/",
         destination: "/get-started",
-        permanent: false,
+        permanent: true,
       },
     ];
   },

@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import AppShell from "@/components/layout/AppShell";
+
+export const metadata: Metadata = {
+  title: "Leaderboard",
+  description: "Top-ranked projects in the Science Fluid Dynamics Challenge, sorted by community votes.",
+};
 import LeaderboardHeader from "@/components/leaderboard/LeaderboardHeader";
 import StatsBar from "@/components/project/StatsBar";
 import LeaderboardTable from "@/components/leaderboard/LeaderboardTable";

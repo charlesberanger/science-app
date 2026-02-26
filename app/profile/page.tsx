@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "My Profile",
+  description: "View and manage your Science challenge profile and submission.",
+};
 import AppShell from "@/components/layout/AppShell";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import SubmissionStatusBanner from "@/components/submission/SubmissionStatusBanner";
 import SubmissionCard from "@/components/submission/SubmissionCard";
@@ -65,9 +70,6 @@ export default function ProfilePage() {
             <p className="font-mono text-label tracking-ui text-[#888]">
               {user.institution}
             </p>
-            <Badge variant="success" className="mt-1.5 w-fit">
-              APPROVED
-            </Badge>
           </div>
         </div>
         <Button variant="outline" className="w-full sm:w-auto" asChild>

@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import AppShell from "@/components/layout/AppShell";
+
+export const metadata: Metadata = {
+  title: "Browse Projects",
+  description: "Explore all submissions to the Fluid Dynamics Challenge. View CAD models and vote for your favourites.",
+};
 import BrowseHeader from "@/components/browse/BrowseHeader";
 import StatsBar from "@/components/project/StatsBar";
 import ProjectCard from "@/components/browse/ProjectCard";

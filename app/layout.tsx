@@ -16,8 +16,12 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Science — Project Detail",
-  description: "Fluid Dynamics Challenge project detail",
+  title: {
+    template: "%s · Science",
+    default: "Science — Fluid Dynamics Challenge",
+  },
+  description:
+    "Compete in the Science Fluid Dynamics Challenge. Submit your microgravity tube design, track your ranking, and win from a $25,000 prize pool.",
 };
 
 export default function RootLayout({

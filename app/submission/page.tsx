@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "My Submission",
+  description: "Track the status of your Science Fluid Dynamics Challenge submission.",
+};
 import AppShell from "@/components/layout/AppShell";
 import SubmissionStatusBanner from "@/components/submission/SubmissionStatusBanner";
 import SubmissionCard from "@/components/submission/SubmissionCard";

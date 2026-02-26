@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProjectCardProps {
   title: string;
@@ -25,10 +26,12 @@ export default function ProjectCard({
       {/* Thumbnail */}
       <div className="relative h-[112px] w-full overflow-hidden bg-[#1c1c1c]">
         {imageSrc ? (
-          <img
+          <Image
             src={imageSrc}
             alt={title}
-            className="h-full w-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 50vw, (max-width: 1280px) 33vw, 25vw"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center">
