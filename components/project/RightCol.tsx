@@ -15,6 +15,7 @@ export default function RightCol() {
   const { isAuthenticated } = useAuth();
   const [voted, setVoted] = useState(false);
   const [voteCount, setVoteCount] = useState(284);
+  const [bumped, setBumped] = useState(false);
 
   function handleVote() {
     if (!isAuthenticated) {
@@ -28,6 +29,8 @@ export default function RightCol() {
       setVoted(true);
       setVoteCount((n) => n + 1);
     }
+    setBumped(true);
+    setTimeout(() => setBumped(false), 300);
   }
 
   return (
@@ -42,7 +45,7 @@ export default function RightCol() {
         </span>
         <button
           onClick={handleVote}
-          className={`mt-3 flex w-full items-center justify-between rounded border px-4 py-2.5 transition-colors ${
+          className={`mt-3 flex w-full items-center justify-between rounded border px-4 py-2.5 transition-all duration-150 active:scale-[0.97] ${
             voted
               ? "border-[#4ade80] bg-[#4ade80]/10 text-[#4ade80]"
               : "border-[#4ade80] bg-[#4ade80] text-black hover:bg-feedback-success-hover"
@@ -55,8 +58,11 @@ export default function RightCol() {
             {voted ? "▲ Voted" : "▲ Vote"}
           </span>
           <span
-            className="text-[11px]"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="text-[11px] transition-transform duration-150"
+            style={{
+              fontFamily: "var(--font-dm-mono), monospace",
+              transform: bumped ? "scale(1.3)" : "scale(1)",
+            }}
           >
             {voteCount}
           </span>

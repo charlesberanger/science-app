@@ -37,6 +37,7 @@ function SignInForm() {
   const searchParams = useSearchParams();
   const mode = searchParams.get("mode");
   const isRegister = mode === "register";
+  const signedOut = searchParams.get("signedOut") === "true";
 
   const [email, setEmail] = useState("");
 
@@ -64,6 +65,14 @@ function SignInForm() {
         <div className="relative w-full max-w-[440px] border border-[rgba(42,42,42,0.4)] bg-[#111] shadow-[0px_20px_56px_0px_rgba(0,0,0,0.5)]">
           {/* Lime top accent */}
           <div className="absolute left-0 top-0 h-px w-full bg-[rgba(172,255,175,0.4)]" />
+
+          {signedOut && (
+            <div className="border-b border-[#1c1c1c] bg-[#0f1f12] px-9 py-3">
+              <p className="font-mono text-label tracking-ui text-[#4ade80]">
+                ✓ You've been signed out
+              </p>
+            </div>
+          )}
 
           <div className="px-9 pb-10 pt-7">
             {/* Step label */}

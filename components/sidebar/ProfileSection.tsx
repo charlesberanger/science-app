@@ -11,7 +11,7 @@ export default function ProfileSection() {
 
   function handleSignOut() {
     signOut();
-    router.push("/auth/sign-in");
+    router.push("/auth/sign-in?signedOut=true");
   }
 
   if (!isAuthenticated) {

@@ -53,14 +53,37 @@ export default function ReviewSubmissionPage() {
   if (submitted) {
     return (
       <AppShell>
-        <div className="flex min-h-[60vh] flex-col items-center justify-center gap-6 text-center">
-          <div className="flex h-16 w-16 items-center justify-center border border-[#4ade80] text-3xl text-[#4ade80]">
-            ✓
+        <div className="flex min-h-[60vh] flex-col items-center justify-center gap-8 text-center">
+          {/* Animated check */}
+          <div className="relative flex items-center justify-center">
+            <span className="absolute h-16 w-16 animate-ping rounded-none border border-[#4ade80] opacity-20" />
+            <div className="relative flex h-16 w-16 items-center justify-center border border-[#4ade80] text-3xl text-[#4ade80]">
+              ✓
+            </div>
           </div>
+
           <div className="flex flex-col gap-2">
             <h1 className="text-3xl font-bold tracking-tight text-white">Submission received</h1>
-            <p className="text-sm text-[#888]">Your project is under review. You can track its status on your submission page.</p>
+            <p className="text-sm text-[#888]">Your project is queued for review by the Science team.</p>
           </div>
+
+          {/* What happens next */}
+          <div className="w-full max-w-sm border border-[#2a2a2a] bg-[#111] text-left">
+            <p className="border-b border-[#2a2a2a] px-5 py-3 font-mono text-label uppercase tracking-ui text-[#888]">
+              What happens next
+            </p>
+            {[
+              { step: "01", text: "Our team reviews your CAD file and written rationale." },
+              { step: "02", text: "Approved submissions go live on the leaderboard for community voting." },
+              { step: "03", text: "Winners are announced after the April 12 deadline." },
+            ].map(({ step, text }) => (
+              <div key={step} className="flex items-start gap-4 border-b border-[#1c1c1c] px-5 py-3 last:border-0">
+                <span className="font-mono text-label text-[#4ade80] shrink-0">{step}</span>
+                <p className="text-xs leading-relaxed text-[#999]">{text}</p>
+              </div>
+            ))}
+          </div>
+
           <button
             onClick={() => router.push("/submission")}
             className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"

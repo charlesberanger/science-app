@@ -41,16 +41,26 @@ export default function BrowseProjectsPage() {
       <BrowseHeader />
       <StatsBar stats={browseStats} />
 
-      <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-3 xl:grid-cols-4">
-        {projects.map((project) => (
-          <ProjectCard
-            key={project.id}
-            {...project}
-            href="/project"
-            imageSrc={THUMBNAIL}
-          />
-        ))}
-      </div>
+      {projects.length === 0 ? (
+        <div className="flex flex-col items-center justify-center gap-4 border border-dashed border-[#2a2a2a] py-20 text-center">
+          <span className="font-mono text-3xl text-[#3a3a3a]">⊘</span>
+          <div className="flex flex-col gap-1">
+            <p className="text-sm font-medium text-[#888]">No projects found</p>
+            <p className="font-mono text-label text-[#555]">Try adjusting your filters or check back later.</p>
+          </div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-2 gap-3.5 sm:grid-cols-3 xl:grid-cols-4">
+          {projects.map((project) => (
+            <ProjectCard
+              key={project.id}
+              {...project}
+              href="/project"
+              imageSrc={THUMBNAIL}
+            />
+          ))}
+        </div>
+      )}
     </AppShell>
   );
 }
