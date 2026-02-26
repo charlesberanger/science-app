@@ -1,6 +1,5 @@
 import AppShell from "@/components/layout/AppShell";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import SubmissionStatusBanner from "@/components/submission/SubmissionStatusBanner";
 import SubmissionCard from "@/components/submission/SubmissionCard";
 import { MetricBlock, InfoCell } from "@/components/profile/ProfileMetrics";
@@ -116,11 +115,6 @@ export default function PublicProfilePage({
             <p className="font-mono text-label tracking-ui text-[#888]">
               {user.institution}
             </p>
-            {user.status === "approved" ? (
-              <Badge variant="success" className="mt-1.5 w-fit">APPROVED</Badge>
-            ) : (
-              <Badge variant="warning" className="mt-1.5 w-fit">PENDING</Badge>
-            )}
           </div>
         </div>
       </div>
