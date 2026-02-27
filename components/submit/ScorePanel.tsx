@@ -54,7 +54,6 @@ export default function ScorePanel({
     setLoading(true);
     setError(null);
     setResult(null);
-    onCheck();
     setHasChecked(true);
 
     try {
@@ -70,6 +69,7 @@ export default function ScorePanel({
       }
 
       const data: ScoreResult = await res.json();
+      onCheck(); // only consume a check on success
       setResult(data);
       onScore?.(data.composite);
     } catch (err) {

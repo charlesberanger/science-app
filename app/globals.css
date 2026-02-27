@@ -1,6 +1,67 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* ─── Tailwind v4 theme — CSS-first config ──────────────────────────────────
+   @theme inline: generates utilities that reference the CSS variables defined
+   in :root / .dark below, without Tailwind creating its own copies of them.
+────────────────────────────────────────────────────────────────────────────── */
+@theme inline {
+  /* ── shadcn/ui semantic color tokens ── */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  /* ── Science DS tokens ── */
+  --color-science-bg: var(--bg-default);
+  --color-science-surface: var(--bg-surface);
+  --color-science-elevated: var(--bg-elevated);
+  --color-science-border: var(--border-default);
+  --color-lime-400: var(--lime-400);
+  --color-feedback-success: var(--feedback-success);
+  --color-feedback-success-hover: var(--feedback-success-hover);
+  --color-feedback-error: var(--feedback-error);
+  --color-feedback-warning: var(--feedback-warning);
+  --color-feedback-status-success: var(--status-bg-success);
+  --color-feedback-status-warning: var(--status-bg-warning);
+  --color-feedback-status-error: var(--status-bg-error);
+
+  /* ── Border radius — 0px everywhere, 9999px for pills ── */
+  --radius: 0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-full: 9999px;
+
+  /* ── Typography ── */
+  --font-sans: var(--font-dm-sans), sans-serif;
+  --font-mono: var(--font-dm-mono), monospace;
+
+  /* ── Custom font sizes ── */
+  --text-label: 11px;
+  --text-label--line-height: 1.4;
+  --text-meta: 12px;
+  --text-meta--line-height: 1.5;
+
+  /* ── Letter spacing ── */
+  --tracking-ui: 0.1em;
+}
 
 /* ─── Science DS — shadcn/ui token mapping ──────────────────────────────────
    :root  = light theme defaults
@@ -43,9 +104,6 @@
     --border: 228 8% 74%;         /* #BABDC6  border/default */
     --input: 228 11% 82%;         /* #D0D3DB  */
     --ring: 122 100% 84%;         /* #ACFFAF  lime accent — focus ring */
-
-    /* Sharp corners — design system uses 0px radius */
-    --radius: 0rem;
 
     /* Science DS raw tokens */
     --bg-default: #dddfe5;
@@ -104,8 +162,6 @@
     --border: 0 0% 16%;           /* #2A2A2A */
     --input: 0 0% 11%;            /* #1C1C1C */
     --ring: 122 100% 84%;         /* #ACFFAF  lime accent — focus ring */
-
-    --radius: 0rem;
 
     /* Science DS raw tokens */
     --bg-default: #0a0a0a;
