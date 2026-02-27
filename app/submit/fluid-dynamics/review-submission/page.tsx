@@ -128,7 +128,7 @@ export default function ReviewSubmissionPage() {
       <div className="h-px bg-secondary" />
 
       {/* Two-column layout on large screens: fields left, AI panel right */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,720px)_300px]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_300px]">
         {/* Left: submission fields + nav */}
         <div className="flex flex-col gap-5">
           <ReadonlyField label="Tube Design Name" value={data.title} />
