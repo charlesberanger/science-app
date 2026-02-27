@@ -28,15 +28,15 @@ export default function SubmitPage() {
       <SubmitStepBar current={1} />
 
       <div className="flex flex-col gap-3">
-        <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Submit Project
         </h1>
-        <p className="font-mono text-label uppercase tracking-ui text-[#888]">
+        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">
           Step 1 of 5 · Select project type
         </p>
       </div>
 
-      <div className="h-px bg-[#2a2a2a]" />
+      <div className="h-px bg-secondary" />
 
       <div className="flex flex-col gap-3">
         {TYPES.map((t) => (
@@ -46,23 +46,23 @@ export default function SubmitPage() {
             onClick={() => setSelected(t.id)}
             className={`flex items-start justify-between border p-5 text-left transition-colors disabled:cursor-not-allowed disabled:opacity-30 ${
               selected === t.id
-                ? "border-[#4ade80] bg-[#4ade80]/5"
-                : "border-[#2a2a2a] bg-[#111] hover:border-[#3a3a3a]"
+                ? "border-feedback-success bg-feedback-success/5"
+                : "border-border bg-card hover:border-border"
             }`}
           >
             <div className="flex flex-col gap-1">
               <span
                 className={`text-sm font-semibold ${
-                  selected === t.id ? "text-[#4ade80]" : "text-white"
+                  selected === t.id ? "text-feedback-success" : "text-foreground"
                 }`}
               >
                 {t.label}
               </span>
-              <span className="font-mono text-label text-[#888]">{t.description}</span>
+              <span className="font-mono text-label text-muted-foreground">{t.description}</span>
             </div>
             <div
               className={`mt-0.5 h-4 w-4 shrink-0 rounded-full border transition-colors ${
-                selected === t.id ? "border-[#4ade80] bg-[#4ade80]" : "border-[#3a3a3a]"
+                selected === t.id ? "border-feedback-success bg-feedback-success" : "border-border"
               }`}
             />
           </button>
@@ -73,7 +73,7 @@ export default function SubmitPage() {
         <button
           disabled={!selected}
           onClick={() => router.push(`/submit/${selected}`)}
-          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover disabled:cursor-not-allowed disabled:opacity-30"
+          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover disabled:cursor-not-allowed disabled:opacity-30"
         >
           Next: Eligibility →
         </button>

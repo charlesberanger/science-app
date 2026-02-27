@@ -15,14 +15,14 @@ const STATS = [
 
 function StatsFooter() {
   return (
-    <div className="mx-14 border border-[#1c1c1c] bg-[#0a0a0a]">
+    <div className="mx-14 border border-border bg-background">
       <div className="grid grid-cols-4 divide-x divide-[#1c1c1c]">
         {STATS.map((s) => (
           <div key={s.label} className="flex flex-col gap-1 px-4 py-4">
-            <span className={`text-[22px] font-bold tracking-tight ${s.highlight ? "text-[#acffaf]" : "text-white"}`}>
+            <span className={`text-[22px] font-bold tracking-tight ${s.highlight ? "text-lime-400" : "text-foreground"}`}>
               {s.value}
             </span>
-            <span className="font-mono text-label tracking-ui text-[#888]">
+            <span className="font-mono text-label tracking-ui text-muted-foreground">
               {s.label}
             </span>
           </div>
@@ -48,7 +48,7 @@ function SignInForm() {
   }
 
   return (
-    <div className="flex min-h-screen bg-[#0a0a0a]">
+    <div className="flex min-h-screen bg-background">
       <AuthLeftPanel
         eyebrow="QUICK AUTHENTICATION"
         headline={[
@@ -62,13 +62,13 @@ function SignInForm() {
 
       {/* Right — auth card */}
       <div className="flex flex-1 items-center justify-center px-4">
-        <div className="relative w-full max-w-[440px] border border-[rgba(42,42,42,0.4)] bg-[#111] shadow-[0px_20px_56px_0px_rgba(0,0,0,0.5)]">
+        <div className="relative w-full max-w-[440px] border border-[rgba(42,42,42,0.4)] bg-card shadow-[0px_20px_56px_0px_rgba(0,0,0,0.5)]">
           {/* Lime top accent */}
           <div className="absolute left-0 top-0 h-px w-full bg-[rgba(172,255,175,0.4)]" />
 
           {signedOut && (
-            <div className="border-b border-[#1c1c1c] bg-[#0f1f12] px-9 py-3">
-              <p className="font-mono text-label tracking-ui text-[#4ade80]">
+            <div className="border-b border-border bg-feedback-status-success px-9 py-3">
+              <p className="font-mono text-label tracking-ui text-feedback-success">
                 ✓ You've been signed out
               </p>
             </div>
@@ -76,18 +76,18 @@ function SignInForm() {
 
           <div className="px-9 pb-10 pt-7">
             {/* Step label */}
-            <p className="font-mono text-label tracking-ui text-[#888]">
+            <p className="font-mono text-label tracking-ui text-muted-foreground">
               STEP 01 OF 04&nbsp;&nbsp;·&nbsp;&nbsp;CREATE ACCOUNT
             </p>
-            <h2 className="mt-2 text-[20px] font-bold tracking-tight text-white">
+            <h2 className="mt-2 text-[20px] font-bold tracking-tight text-foreground">
               {isRegister ? "Create your account" : "Quick Authentication"}
             </h2>
           </div>
 
-          <div className="border-t border-[#1c1c1c]" />
+          <div className="border-t border-border" />
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-3 px-9 py-7">
-            <p className="text-[13px] font-normal leading-[1.55] text-[#999]">
+            <p className="text-[13px] font-normal leading-[1.55] text-secondary-foreground">
               {isRegister
                 ? "Create an account with your organisation email. No password required."
                 : "Sign in with your organisation account via SSO. No password required."}
@@ -95,7 +95,7 @@ function SignInForm() {
 
             {/* Email field */}
             <div className="mt-2 flex flex-col gap-2">
-              <label className="font-mono text-label tracking-ui text-[#999]">
+              <label className="font-mono text-label tracking-ui text-secondary-foreground">
                 YOUR EMAIL
               </label>
               <input
@@ -104,23 +104,23 @@ function SignInForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@institution.edu"
-                className="h-11 border border-[#2a2a2a] bg-[#1c1c1c] px-3.5 text-[14px] text-white placeholder-[#555] outline-none transition-colors focus-visible:border-[#4ade80]"
+                className="h-11 border border-border bg-secondary px-3.5 text-[14px] text-foreground placeholder:text-muted-foreground outline-none transition-colors focus-visible:border-feedback-success"
               />
             </div>
 
             {/* Primary CTA */}
             <button
               type="submit"
-              className="mt-1 flex h-12 w-full items-center justify-center bg-[#4ade80] font-mono text-[12px] font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90"
+              className="mt-1 flex h-12 w-full items-center justify-center bg-feedback-success font-mono text-[12px] font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90"
             >
               Continue with SSO →
             </button>
 
             {/* Divider */}
             <div className="flex items-center gap-3">
-              <div className="h-px flex-1 bg-[#2a2a2a]" />
-              <span className="font-mono text-label tracking-ui text-[#888]">OR</span>
-              <div className="h-px flex-1 bg-[#2a2a2a]" />
+              <div className="h-px flex-1 bg-secondary" />
+              <span className="font-mono text-label tracking-ui text-muted-foreground">OR</span>
+              <div className="h-px flex-1 bg-secondary" />
             </div>
 
             {/* Google CTA */}
@@ -129,8 +129,8 @@ function SignInForm() {
             </Button>
           </form>
 
-          <div className="border-t border-[#1c1c1c]" />
-          <p className="px-9 py-4 text-center font-mono text-label tracking-ui text-[#888]">
+          <div className="border-t border-border" />
+          <p className="px-9 py-4 text-center font-mono text-label tracking-ui text-muted-foreground">
             By continuing you agree to the Terms of Use and Privacy Policy
           </p>
         </div>

@@ -10,7 +10,12 @@ import CharCountTextarea from "@/components/submit/CharCountTextarea";
 export default function ExperimentDetailsPage() {
   const router = useRouter();
   const { form } = useFluidDynamicsForm();
-  const { register, watch, trigger, formState: { errors } } = form;
+  const {
+    register,
+    watch,
+    trigger,
+    formState: { errors },
+  } = form;
 
   // Guard: redirect back if eligibility step was skipped
   useEffect(() => {
@@ -24,7 +29,11 @@ export default function ExperimentDetailsPage() {
   const rationaleVal = watch("technicalRationale") ?? "";
 
   async function handleNext() {
-    const ok = await trigger(["title", "tubeDesignDifferences", "technicalRationale"]);
+    const ok = await trigger([
+      "title",
+      "tubeDesignDifferences",
+      "technicalRationale",
+    ]);
     if (ok) router.push("/submit/fluid-dynamics/cad-file-upload");
   }
 
@@ -33,30 +42,35 @@ export default function ExperimentDetailsPage() {
       <SubmitStepBar current={3} />
 
       <div className="flex flex-col gap-1">
-        <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Experiment Details
         </h1>
-        <p className="font-mono text-label uppercase tracking-ui text-[#888]">
+        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">
           Step 3 of 5 · Fluid Dynamics
         </p>
       </div>
 
-      <div className="h-px bg-[#2a2a2a]" />
+      <div className="h-px bg-secondary" />
 
       <div className="flex flex-col gap-6">
         {/* Tube Design Name */}
         <div className="flex flex-col gap-2">
-          <label htmlFor="tube-design-name" className="font-mono text-label uppercase tracking-ui text-[#888]">
+          <label
+            htmlFor="tube-design-name"
+            className="font-mono text-label uppercase tracking-ui text-muted-foreground"
+          >
             Tube Design Name
           </label>
           <input
             id="tube-design-name"
             {...register("title")}
             placeholder="Enter a name for your tube design"
-            className="border border-[#2a2a2a] bg-[#0a0a0a] px-3.5 py-3 text-[13px] text-white placeholder-[#555] outline-none transition-colors focus-visible:border-[#4ade80]"
+            className="border border-border bg-background px-3.5 py-3 text-[13px] text-foreground placeholder:text-muted-foreground outline-none transition-colors focus-visible:border-feedback-success"
           />
           {errors.title && (
-            <p className="font-mono text-label text-red-400">{errors.title.message}</p>
+            <p className="font-mono text-label text-red-400">
+              {errors.title.message}
+            </p>
           )}
         </div>
 
@@ -65,7 +79,9 @@ export default function ExperimentDetailsPage() {
           label="Tube Design Differences"
           placeholder="Explain how your test tube's shape and physical structure differ from a standard 1.5 mL microfuge tube. Highlight specific modifications (e.g., wall thickness, curvature, tip geometry, cap design) and why they were made."
           value={designVal}
-          onChange={(v) => form.setValue("tubeDesignDifferences", v, { shouldValidate: false })}
+          onChange={(v) =>
+            form.setValue("tubeDesignDifferences", v, { shouldValidate: false })
+          }
           minLength={1500}
           maxLength={2000}
           error={errors.tubeDesignDifferences?.message}
@@ -76,7 +92,9 @@ export default function ExperimentDetailsPage() {
           label="Technical Rationale & Physics Principles"
           placeholder="Describe the underlying rationale for your design. What physics principles (e.g., surface tension, capillary action, fluid inertia, bubble migration) informed your choices? Explain how your design addresses unique challenges of fluid handling in microgravity."
           value={rationaleVal}
-          onChange={(v) => form.setValue("technicalRationale", v, { shouldValidate: false })}
+          onChange={(v) =>
+            form.setValue("technicalRationale", v, { shouldValidate: false })
+          }
           minLength={1500}
           maxLength={2000}
           error={errors.technicalRationale?.message}
@@ -87,13 +105,13 @@ export default function ExperimentDetailsPage() {
       <div className="flex justify-between">
         <button
           onClick={() => router.push("/submit/fluid-dynamics")}
-          className="border border-[#2a2a2a] bg-[#111] px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-[#888] transition-colors hover:text-white"
+          className="border border-border bg-card px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
         >
           ← Eligibility
         </button>
         <button
           onClick={handleNext}
-          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
+          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
         >
           Next: CAD Upload →
         </button>

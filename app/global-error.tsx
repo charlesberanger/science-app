@@ -16,16 +16,16 @@ export default function GlobalError({
 
   return (
     <html lang="en" className="dark">
-      <body className="flex min-h-screen flex-col items-center justify-center gap-6 bg-[#0a0a0a] p-8 font-mono text-white">
-        <p className="text-label uppercase tracking-ui text-[#888]">
+      <body className="flex min-h-screen flex-col items-center justify-center gap-6 bg-background p-8 font-mono text-foreground">
+        <p className="text-label uppercase tracking-ui text-muted-foreground">
           Something went wrong
         </p>
-        <p className="max-w-md text-center text-sm text-[#999]">
+        <p className="max-w-md text-center text-sm text-secondary-foreground">
           {error.message ?? "An unexpected error occurred."}
         </p>
         <button
           onClick={reset}
-          className="border border-[#2a2a2a] px-4 py-2 text-label uppercase tracking-ui text-white transition-colors hover:bg-[#1c1c1c]"
+          className="border border-border px-4 py-2 text-label uppercase tracking-ui text-foreground transition-colors hover:bg-secondary"
         >
           Try again
         </button>

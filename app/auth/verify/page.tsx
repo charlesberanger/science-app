@@ -20,17 +20,17 @@ function StepsFooter() {
           <div
             className={`flex h-7 w-7 shrink-0 items-center justify-center border font-mono text-[11px] ${
               s.done
-                ? "border-[rgba(74,222,128,0.5)] bg-[rgba(4,18,8,0.7)] text-[#4ade80]"
+                ? "border-[rgba(74,222,128,0.5)] bg-[rgba(4,18,8,0.7)] text-feedback-success"
                 : s.active
-                ? "border-[rgba(172,255,175,0.5)] bg-[rgba(7,18,9,0.7)] text-[#acffaf] shadow-[0_0_0_4px_rgba(172,255,175,0.2)]"
-                : "border-[rgba(42,42,42,0.5)] bg-[#1c1c1c] text-[#888]"
+                ? "border-[rgba(172,255,175,0.5)] bg-[rgba(7,18,9,0.7)] text-lime-400 shadow-[0_0_0_4px_rgba(172,255,175,0.2)]"
+                : "border-[rgba(42,42,42,0.5)] bg-secondary text-muted-foreground"
             }`}
           >
             {s.n}
           </div>
           <span
             className={`text-[13px] ${
-              s.done ? "text-[#999]" : s.active ? "font-medium text-white" : "text-[#888]"
+              s.done ? "text-secondary-foreground" : s.active ? "font-medium text-foreground" : "text-muted-foreground"
             }`}
           >
             {s.label}
@@ -83,12 +83,12 @@ function OtpInput({ value, onChange }: { value: string[]; onChange: (v: string[]
             onChange={(e) => handleChange(i, e.target.value)}
             onKeyDown={(e) => handleKeyDown(i, e)}
             onPaste={handlePaste}
-            className={`h-16 w-[54px] border bg-[#1c1c1c] text-center font-mono text-[24px] text-[#acffaf] outline-none focus-visible:ring-1 focus-visible:ring-[#acffaf]/50 transition-all ${
+            className={`h-16 w-[54px] border bg-secondary text-center font-mono text-[24px] text-lime-400 outline-none focus-visible:ring-1 focus-visible:ring-ring/50 transition-all ${
               isCurrent
-                ? "border-[#acffaf] shadow-[0_0_0_3px_rgba(172,255,175,0.18)]"
+                ? "border-lime-400 shadow-[0_0_0_3px_rgba(172,255,175,0.18)]"
                 : digit
-                ? "border-[#888]"
-                : "border-[#2a2a2a]"
+                ? "border-muted-foreground"
+                : "border-border"
             }`}
           />
         );
@@ -124,7 +124,7 @@ function VerifyForm() {
   }
 
   return (
-    <div className="flex min-h-screen bg-[#0a0a0a]">
+    <div className="flex min-h-screen bg-background">
       <AuthLeftPanel
         eyebrow="IDENTITY VERIFICATION"
         headline={[
@@ -138,24 +138,24 @@ function VerifyForm() {
 
       {/* Right — OTP card */}
       <div className="flex flex-1 items-center justify-center px-4">
-        <div className="relative w-full max-w-[440px] border border-[rgba(42,42,42,0.4)] bg-[#111] shadow-[0px_20px_56px_0px_rgba(0,0,0,0.5)]">
+        <div className="relative w-full max-w-[440px] border border-[rgba(42,42,42,0.4)] bg-card shadow-[0px_20px_56px_0px_rgba(0,0,0,0.5)]">
           <div className="absolute left-0 top-0 h-px w-full bg-[rgba(172,255,175,0.4)]" />
 
           <div className="px-9 pb-6 pt-7">
-            <p className="font-mono text-label tracking-ui text-[#888]">
+            <p className="font-mono text-label tracking-ui text-muted-foreground">
               STEP 01 OF 04&nbsp;&nbsp;·&nbsp;&nbsp;CREATE ACCOUNT
             </p>
-            <h2 className="mt-2 text-[20px] font-bold tracking-tight text-white">
+            <h2 className="mt-2 text-[20px] font-bold tracking-tight text-foreground">
               Enter your code
             </h2>
           </div>
 
-          <div className="border-t border-[#1c1c1c]" />
+          <div className="border-t border-border" />
 
           <form onSubmit={handleVerify} className="flex flex-col gap-5 px-9 py-7">
-            <p className="text-[13px] font-normal leading-[1.55] text-[#999]">
+            <p className="text-[13px] font-normal leading-[1.55] text-secondary-foreground">
               We sent a 6-digit code to{" "}
-              <span className="text-white">{email}</span>. Expires in 09:42.
+              <span className="text-foreground">{email}</span>. Expires in 09:42.
             </p>
 
             <OtpInput value={digits} onChange={setDigits} />
@@ -166,7 +166,7 @@ function VerifyForm() {
                 <div
                   key={i}
                   className={`h-1.5 rounded-full transition-all ${
-                    d ? (i === digits.filter(Boolean).length - 1 ? "w-4 bg-[#acffaf]" : "w-1.5 bg-[#4ade80]") : "w-1.5 bg-[#2a2a2a]"
+                    d ? (i === digits.filter(Boolean).length - 1 ? "w-4 bg-lime-400" : "w-1.5 bg-feedback-success") : "w-1.5 bg-secondary"
                   }`}
                 />
               ))}
@@ -175,38 +175,38 @@ function VerifyForm() {
             <button
               type="submit"
               disabled={!filled}
-              className="flex h-12 w-full items-center justify-center bg-[#acffaf] font-mono text-[12px] font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90 disabled:opacity-30"
+              className="flex h-12 w-full items-center justify-center bg-lime-400 font-mono text-[12px] font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90 disabled:opacity-30"
             >
               Verify Code →
             </button>
 
             <div className="flex items-center justify-between">
-              <span className="font-mono text-label tracking-ui text-[#888]">
+              <span className="font-mono text-label tracking-ui text-muted-foreground">
                 {timer > 0 ? `Resend available in 0:${String(timer).padStart(2, "0")}` : "Code expired"}
               </span>
               <button
                 type="button"
                 onClick={() => setTimer(42)}
                 disabled={timer > 0}
-                className="font-mono text-label tracking-ui text-[#888] transition-colors hover:text-[#999] disabled:pointer-events-none"
+                className="font-mono text-label tracking-ui text-muted-foreground transition-colors hover:text-secondary-foreground disabled:pointer-events-none"
               >
                 Resend code
               </button>
             </div>
           </form>
 
-          <div className="border-t border-[#1c1c1c]" />
+          <div className="border-t border-border" />
 
           <div className="flex items-center justify-between px-9 py-4">
             <Link
               href="/auth/sign-in"
-              className="font-mono text-label tracking-ui text-[#888] transition-colors hover:text-[#999]"
+              className="font-mono text-label tracking-ui text-muted-foreground transition-colors hover:text-secondary-foreground"
             >
               ← BACK TO SIGN-IN
             </Link>
-            <span className="font-mono text-label tracking-ui text-[#888]">
+            <span className="font-mono text-label tracking-ui text-muted-foreground">
               Having trouble?{" "}
-              <span className="cursor-pointer hover:text-white">Contact support</span>
+              <span className="cursor-pointer hover:text-foreground">Contact support</span>
             </span>
           </div>
         </div>

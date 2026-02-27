@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Sidebar from "@/components/sidebar/Sidebar";
 import TopBar from "@/components/topbar/TopBar";
+import ThemeToggle from "@/components/theme/ThemeToggle";
 
 export default function AppShell({
   children,
@@ -14,7 +15,7 @@ export default function AppShell({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="min-h-screen bg-background">
       {/* Mobile overlay */}
       {sidebarOpen && (
         <button
@@ -38,6 +39,8 @@ export default function AppShell({
       >
         {children}
       </main>
+
+      <ThemeToggle />
     </div>
   );
 }

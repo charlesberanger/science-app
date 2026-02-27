@@ -16,18 +16,18 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
     <aside
       className={`
         fixed left-0 top-0 z-30 flex h-screen w-[220px] flex-col
-        border-r border-[#2a2a2a] bg-[#111]
+        border-r border-border bg-card
         transition-transform duration-200 ease-in-out
         lg:translate-x-0
         ${isOpen ? "translate-x-0" : "-translate-x-full"}
       `}
     >
       {/* Brand */}
-      <div className="flex items-center justify-between border-b border-[#2a2a2a] px-4 py-4">
+      <div className="flex items-center justify-between border-b border-border px-4 py-4">
         <div className="flex items-center gap-2.5">
           <ScienceLogo className="h-7 w-7" />
           <span
-            className="text-xs uppercase tracking-ui text-white"
+            className="text-xs uppercase tracking-ui text-foreground"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             Science
@@ -35,7 +35,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         </div>
         <button
           onClick={onClose}
-          className="flex h-6 w-6 items-center justify-center text-[#888] transition-colors hover:text-white lg:hidden"
+          className="flex h-6 w-6 items-center justify-center text-muted-foreground transition-colors hover:text-foreground lg:hidden"
           aria-label="Close menu"
         >
           ✕
@@ -46,7 +46,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       <div className="flex flex-1 flex-col gap-5 overflow-y-auto py-5">
         <div>
           <span
-            className="mb-1 block px-4 text-label uppercase tracking-ui text-[#888]"
+            className="mb-1 block px-4 text-label uppercase tracking-ui text-muted-foreground"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             Navigation
@@ -56,7 +56,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
         <div>
           <span
-            className="mb-1 block px-4 text-label uppercase tracking-ui text-[#888]"
+            className="mb-1 block px-4 text-label uppercase tracking-ui text-muted-foreground"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             Challenge
@@ -71,7 +71,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
         <div>
           <span
-            className="mb-1 block px-4 text-label uppercase tracking-ui text-[#888]"
+            className="mb-1 block px-4 text-label uppercase tracking-ui text-muted-foreground"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             Explore

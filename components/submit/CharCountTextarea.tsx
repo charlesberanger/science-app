@@ -30,7 +30,7 @@ export default function CharCountTextarea({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-baseline justify-between">
-        <label htmlFor={inputId} className="font-mono text-label uppercase tracking-ui text-[#888]">
+        <label htmlFor={inputId} className="font-mono text-label uppercase tracking-ui text-muted-foreground">
           {label}
         </label>
         <span
@@ -38,8 +38,8 @@ export default function CharCountTextarea({
             tooLong
               ? "text-red-400"
               : inRange
-              ? "text-[#4ade80]"
-              : "text-[#888]"
+              ? "text-feedback-success"
+              : "text-muted-foreground"
           }`}
         >
           {count.toLocaleString()} / {minLength.toLocaleString()}–{maxLength.toLocaleString()}
@@ -52,21 +52,21 @@ export default function CharCountTextarea({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         rows={10}
-        className={`w-full resize-y border bg-[#0a0a0a] px-3.5 py-3 text-[13px] leading-relaxed text-white placeholder-[#555] outline-none transition-colors focus-visible:border-[#4ade80] ${
-          error ? "border-red-500/50" : "border-[#2a2a2a]"
+        className={`w-full resize-y border bg-background px-3.5 py-3 text-[13px] leading-relaxed text-foreground placeholder:text-muted-foreground outline-none transition-colors focus-visible:border-feedback-success ${
+          error ? "border-red-500/50" : "border-border"
         }`}
       />
 
       <div className="flex items-center justify-between">
-        <div className="h-1 flex-1 rounded-full bg-[#1c1c1c]">
+        <div className="h-1 flex-1 rounded-full bg-secondary">
           <div
             className={`h-1 rounded-full transition-all ${
-              tooLong ? "bg-red-500" : inRange ? "bg-[#4ade80]" : "bg-[#2a2a2a]"
+              tooLong ? "bg-red-500" : inRange ? "bg-feedback-success" : "bg-secondary"
             }`}
             style={{ width: `${Math.min((count / maxLength) * 100, 100)}%` }}
           />
         </div>
-        <span className="ml-3 font-mono text-label text-[#888]">
+        <span className="ml-3 font-mono text-label text-muted-foreground">
           {tooShort ? `${minLength - count} chars to go` : tooLong ? `${count - maxLength} over limit` : "✓ Good length"}
         </span>
       </div>

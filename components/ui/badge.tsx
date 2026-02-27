@@ -17,11 +17,11 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default:     "border-[#2a2a2a] bg-transparent text-[#888]",
-        gold:        "border-[#fcd34d]/50 bg-[#1a1300]/60 text-[#fcd34d]",
-        success:     "border-[#4ade80]/30 bg-[#4ade80]/10 text-[#4ade80]",
-        warning:     "border-[#fcd34d]/30 bg-[#fcd34d]/10 text-[#fcd34d]",
-        destructive: "border-[#f87171]/30 bg-[#f87171]/10 text-[#f87171]",
+        default:     "border-border bg-transparent text-muted-foreground",
+        gold:        "border-feedback-warning/50 bg-feedback-status-warning/60 text-feedback-warning",
+        success:     "border-feedback-success/30 bg-feedback-success/10 text-feedback-success",
+        warning:     "border-feedback-warning/30 bg-feedback-warning/10 text-feedback-warning",
+        destructive: "border-destructive/30 bg-destructive/10 text-destructive",
       },
     },
     defaultVariants: {
@@ -38,11 +38,11 @@ export interface BadgeProps
 
 function Badge({ className, variant, dot = true, children, ...props }: BadgeProps) {
   const dotColor: Record<string, string> = {
-    default:     "bg-[#555]",
-    gold:        "bg-[#fcd34d]",
-    success:     "bg-[#4ade80]",
-    warning:     "bg-[#fcd34d]",
-    destructive: "bg-[#f87171]",
+    default:     "bg-muted-foreground",
+    gold:        "bg-feedback-warning",
+    success:     "bg-feedback-success",
+    warning:     "bg-feedback-warning",
+    destructive: "bg-destructive",
   }
   const v = (variant ?? "default") as string
 

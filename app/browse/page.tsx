@@ -48,11 +48,11 @@ export default function BrowseProjectsPage() {
       <StatsBar stats={browseStats} />
 
       {projects.length === 0 ? (
-        <div className="flex flex-col items-center justify-center gap-4 border border-dashed border-[#2a2a2a] py-20 text-center">
-          <span className="font-mono text-3xl text-[#3a3a3a]">⊘</span>
+        <div className="flex flex-col items-center justify-center gap-4 border border-dashed border-border py-20 text-center">
+          <span className="font-mono text-3xl text-muted-foreground">⊘</span>
           <div className="flex flex-col gap-1">
-            <p className="text-sm font-medium text-[#888]">No projects found</p>
-            <p className="font-mono text-label text-[#555]">Try adjusting your filters or check back later.</p>
+            <p className="text-sm font-medium text-muted-foreground">No projects found</p>
+            <p className="font-mono text-label text-muted-foreground">Try adjusting your filters or check back later.</p>
           </div>
         </div>
       ) : (

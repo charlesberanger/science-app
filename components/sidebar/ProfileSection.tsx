@@ -16,10 +16,10 @@ export default function ProfileSection() {
 
   if (!isAuthenticated) {
     return (
-      <div className="border-t border-[#2a2a2a]">
+      <div className="border-t border-border">
         <Link
           href="/auth/sign-in"
-          className="flex items-center gap-2 px-4 py-3 font-mono text-label uppercase tracking-ui text-[#888] transition-colors hover:bg-[#1c1c1c] hover:text-white"
+          className="flex items-center gap-2 px-4 py-3 font-mono text-label uppercase tracking-ui text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
         >
           <span aria-hidden="true">→</span>
           Sign in
@@ -29,25 +29,25 @@ export default function ProfileSection() {
   }
 
   return (
-    <div className="border-t border-[#2a2a2a]">
+    <div className="border-t border-border">
       <Link
         href="/profile"
-        className="flex items-center gap-3 px-4 py-3 transition-colors hover:bg-[#1c1c1c]"
+        className="flex items-center gap-3 px-4 py-3 transition-colors hover:bg-secondary"
       >
-        <Avatar className="h-8 w-8 shrink-0 border border-[#3a3a3a]">
-          <AvatarFallback className="bg-[#1c1c1c] text-label font-medium text-white font-mono">
+        <Avatar className="h-8 w-8 shrink-0 border border-border">
+          <AvatarFallback className="bg-secondary text-label font-medium text-foreground font-mono">
             {currentUser.initials}
           </AvatarFallback>
         </Avatar>
         <div className="flex min-w-0 flex-col">
-          <span className="truncate text-xs font-medium text-white">{currentUser.name}</span>
-          <span className="truncate font-mono text-label text-[#888]">{currentUser.role}</span>
+          <span className="truncate text-xs font-medium text-foreground">{currentUser.name}</span>
+          <span className="truncate font-mono text-label text-muted-foreground">{currentUser.role}</span>
         </div>
       </Link>
 
       <button
         onClick={handleSignOut}
-        className="flex w-full items-center gap-2 border-t border-[#2a2a2a] px-4 py-2.5 font-mono text-label uppercase tracking-ui text-[#888] transition-colors hover:bg-[#1c1c1c] hover:text-[#f87171]"
+        className="flex w-full items-center gap-2 border-t border-border px-4 py-2.5 font-mono text-label uppercase tracking-ui text-muted-foreground transition-colors hover:bg-secondary hover:text-destructive"
       >
         <span aria-hidden="true">→</span>
         Sign out

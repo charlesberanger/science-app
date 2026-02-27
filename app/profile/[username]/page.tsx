@@ -100,19 +100,19 @@ export default function PublicProfilePage({
   return (
     <AppShell>
       {/* User info card — no Edit Profile button */}
-      <div className="flex items-center border border-[#2a2a2a] bg-[#111] p-6">
+      <div className="flex items-center border border-border bg-card p-6">
         <div className="flex items-center gap-5">
           <Avatar className="h-[52px] w-[52px] rounded-none">
-            <AvatarFallback className="rounded-none bg-[#1c1c1c] font-mono text-base text-[#999]">
+            <AvatarFallback className="rounded-none bg-secondary font-mono text-base text-secondary-foreground">
               {user.initials}
             </AvatarFallback>
           </Avatar>
           <div className="flex flex-col gap-0.5">
-            <p className="text-xl font-bold text-white">{user.name}</p>
-            <p className="font-mono text-label uppercase tracking-ui text-[#999]">
+            <p className="text-xl font-bold text-foreground">{user.name}</p>
+            <p className="font-mono text-label uppercase tracking-ui text-secondary-foreground">
               {user.role}
             </p>
-            <p className="font-mono text-label tracking-ui text-[#888]">
+            <p className="font-mono text-label tracking-ui text-muted-foreground">
               {user.institution}
             </p>
           </div>
@@ -128,12 +128,12 @@ export default function PublicProfilePage({
 
       {/* About */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-label uppercase tracking-ui text-[#888]">
+        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">
           About
         </p>
-        <div className="h-px bg-[#2a2a2a]" />
-        <div className="border border-[#2a2a2a] bg-[#111] p-4">
-          <p className="text-xs leading-[1.6] text-[#999]">{user.bio}</p>
+        <div className="h-px bg-secondary" />
+        <div className="border border-border bg-card p-4">
+          <p className="text-xs leading-[1.6] text-secondary-foreground">{user.bio}</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3">
           <InfoCell label="Email" value={user.email} />
@@ -144,10 +144,10 @@ export default function PublicProfilePage({
 
       {/* Submission */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-label uppercase tracking-ui text-[#888]">
+        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">
           Submission
         </p>
-        <div className="h-px bg-[#2a2a2a]" />
+        <div className="h-px bg-secondary" />
         <SubmissionStatusBanner status={submission.status} />
         <SubmissionCard {...submission} />
       </div>

@@ -132,11 +132,11 @@ const PAGE_SIZE = 7;
 function RankBadge({ rank }: { rank: number }) {
   return (
     <span
-      className="inline-flex items-center gap-1 rounded-full border border-[#4ade80] px-2.5 py-0.5"
+      className="inline-flex items-center gap-1 rounded-full border border-feedback-success px-2.5 py-0.5"
       style={{ fontFamily: "var(--font-dm-mono), monospace" }}
     >
-      <span className="h-1 w-1 rounded-full bg-[#4ade80]" />
-      <span className="text-label text-[#4ade80] tracking-ui">#{rank}</span>
+      <span className="h-1 w-1 rounded-full bg-feedback-success" />
+      <span className="text-label text-feedback-success tracking-ui">#{rank}</span>
     </span>
   );
 }
@@ -144,14 +144,14 @@ function RankBadge({ rank }: { rank: number }) {
 function ApprovalBar({ value }: { value: number }) {
   return (
     <div className="flex items-center gap-2">
-      <div className="h-1 w-20 rounded-full bg-[#555]">
+      <div className="h-1 w-20 rounded-full bg-muted-foreground/30">
         <div
-          className="h-1 rounded-full bg-[#acffaf]"
+          className="h-1 rounded-full bg-lime-400"
           style={{ width: `${value}%` }}
         />
       </div>
       <span
-        className="text-label text-[#888] tracking-ui"
+        className="text-label text-muted-foreground tracking-ui"
         style={{ fontFamily: "var(--font-dm-mono), monospace" }}
       >
         {value}%
@@ -166,14 +166,14 @@ export default function LeaderboardTable() {
   const hasMore = visible < ALL_ENTRIES.length;
 
   return (
-    <div className="overflow-hidden border border-[#2a2a2a]">
+    <div className="overflow-hidden border border-border">
       {/* Table header */}
-      <div className="hidden border-b border-[#2a2a2a] sm:grid sm:grid-cols-[60px_1fr_160px_160px_80px]">
+      <div className="hidden border-b border-border sm:grid sm:grid-cols-[60px_1fr_160px_160px_80px]">
         {["RANK", "PROJECT / AUTHOR", "CATEGORY", "APPROVAL", "VOTES"].map(
           (col) => (
             <div
               key={col}
-              className="px-4 py-2.5 text-label uppercase tracking-ui text-[#888]"
+              className="px-4 py-2.5 text-label uppercase tracking-ui text-muted-foreground"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               {col}
@@ -187,25 +187,25 @@ export default function LeaderboardTable() {
         <Link
           key={entry.rank}
           href="/project"
-          className={`relative grid grid-cols-[40px_1fr_80px] border-b border-[#2a2a2a] bg-[#111] transition-colors hover:bg-[#1c1c1c] sm:grid-cols-[60px_1fr_160px_160px_80px] ${
-            entry.rank === 1 ? "border-l-2 border-l-[#4ade80]" : ""
+          className={`relative grid grid-cols-[40px_1fr_80px] border-b border-border bg-card transition-colors hover:bg-secondary sm:grid-cols-[60px_1fr_160px_160px_80px] ${
+            entry.rank === 1 ? "border-l-2 border-l-feedback-success" : ""
           }`}
         >
           <div className="flex items-center px-3 py-3 sm:px-4">
             <RankBadge rank={entry.rank} />
           </div>
           <div className="flex items-center gap-3 px-4 py-3">
-            <div className="h-7 w-7 shrink-0 rounded-full bg-[#3a3a3a]" />
+            <div className="h-7 w-7 shrink-0 rounded-full bg-secondary" />
             <div className="flex min-w-0 flex-col">
-              <span className="truncate text-[13px] font-medium text-white">
+              <span className="truncate text-[13px] font-medium text-foreground">
                 {entry.project}
               </span>
-              <span className="text-[11px] text-[#888]">{entry.author}</span>
+              <span className="text-[11px] text-muted-foreground">{entry.author}</span>
             </div>
           </div>
           <div className="hidden items-center sm:flex">
             <span
-              className="border border-[#2a2a2a] bg-[#1c1c1c] px-3 py-1.5 text-label uppercase tracking-ui text-[#999]"
+              className="border border-border bg-secondary px-3 py-1.5 text-label uppercase tracking-ui text-secondary-foreground"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               {entry.category}
@@ -216,7 +216,7 @@ export default function LeaderboardTable() {
           </div>
           <div className="flex items-center justify-end px-4">
             <span
-              className="text-[14px] font-medium text-[#4ade80] tracking-ui"
+              className="text-[14px] font-medium text-feedback-success tracking-ui"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               {entry.votes}
@@ -226,9 +226,9 @@ export default function LeaderboardTable() {
       ))}
 
       {/* Footer */}
-      <div className="flex items-center justify-between bg-[#111] px-4 py-3">
+      <div className="flex items-center justify-between bg-card px-4 py-3">
         <span
-          className="text-label text-[#888] tracking-ui"
+          className="text-label text-muted-foreground tracking-ui"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Showing {shown.length} of {ALL_ENTRIES.length} approved projects
@@ -238,7 +238,7 @@ export default function LeaderboardTable() {
             onClick={() =>
               setVisible((v) => Math.min(v + PAGE_SIZE, ALL_ENTRIES.length))
             }
-            className="border border-[#2a2a2a] bg-[#1c1c1c] px-4 py-1.5 text-[11px] text-[#999] transition-colors hover:text-white"
+            className="border border-border bg-secondary px-4 py-1.5 text-[11px] text-secondary-foreground transition-colors hover:text-foreground"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             Load more →

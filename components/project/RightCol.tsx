@@ -34,11 +34,11 @@ export default function RightCol() {
   }
 
   return (
-    <div className="flex flex-col gap-0 rounded border border-[#2a2a2a] bg-[#111]">
+    <div className="flex flex-col gap-0 rounded border border-border bg-card">
       {/* Vote */}
       <div className="p-5">
         <span
-          className="text-label tracking-ui text-[#888] uppercase"
+          className="text-label tracking-ui text-muted-foreground uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Community Vote
@@ -47,8 +47,8 @@ export default function RightCol() {
           onClick={handleVote}
           className={`mt-3 flex w-full items-center justify-between rounded border px-4 py-2.5 transition-all duration-150 active:scale-[0.97] ${
             voted
-              ? "border-[#4ade80] bg-[#4ade80]/10 text-[#4ade80]"
-              : "border-[#4ade80] bg-[#4ade80] text-black hover:bg-feedback-success-hover"
+              ? "border-feedback-success bg-feedback-success/10 text-feedback-success"
+              : "border-feedback-success bg-feedback-success text-black hover:bg-feedback-success-hover"
           }`}
         >
           <span
@@ -68,64 +68,64 @@ export default function RightCol() {
           </span>
         </button>
         {!isAuthenticated && (
-          <p className="mt-2 text-label text-[#888]">
+          <p className="mt-2 text-label text-muted-foreground">
             Sign in to vote for this project
           </p>
         )}
       </div>
 
-      <div className="border-t border-[#2a2a2a]" />
+      <div className="border-t border-border" />
 
       {/* Challenge info */}
       <div className="p-5">
         <span
-          className="text-label tracking-ui text-[#888] uppercase"
+          className="text-label tracking-ui text-muted-foreground uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Challenge
         </span>
-        <h2 className="mt-2 text-sm font-semibold leading-snug text-white">
+        <h2 className="mt-2 text-sm font-semibold leading-snug text-foreground">
           Fluid Dynamics Challenge
         </h2>
-        <p className="mt-1 text-xs text-[#888]">Turbulent Boundary Layer Modelling Track</p>
+        <p className="mt-1 text-xs text-muted-foreground">Turbulent Boundary Layer Modelling Track</p>
 
         <div className="mt-4 flex flex-col gap-3">
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-label tracking-ui text-[#888] uppercase"
+              className="text-label tracking-ui text-muted-foreground uppercase"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Prize Pool
             </span>
-            <span className="text-sm font-semibold text-[#4ade80]">$25,000</span>
+            <span className="text-sm font-semibold text-feedback-success">$25,000</span>
           </div>
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-label tracking-ui text-[#888] uppercase"
+              className="text-label tracking-ui text-muted-foreground uppercase"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Deadline
             </span>
-            <span className="text-xs text-[#999]">April 12, 2026 — 23:59 UTC</span>
+            <span className="text-xs text-secondary-foreground">April 12, 2026 — 23:59 UTC</span>
           </div>
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-label tracking-ui text-[#888] uppercase"
+              className="text-label tracking-ui text-muted-foreground uppercase"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Submissions
             </span>
-            <span className="text-xs text-[#999]">312 total · 87 active teams</span>
+            <span className="text-xs text-secondary-foreground">312 total · 87 active teams</span>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-[#2a2a2a]" />
+      <div className="border-t border-border" />
 
       {/* Discussion */}
       <div className="p-5">
         <span
-          className="text-label tracking-ui text-[#888] uppercase"
+          className="text-label tracking-ui text-muted-foreground uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Discussion (12)
@@ -135,7 +135,7 @@ export default function RightCol() {
             <a
               key={t}
               href="#comments"
-              className="text-xs text-[#888] transition-colors hover:text-[#999]"
+              className="text-xs text-muted-foreground transition-colors hover:text-secondary-foreground"
             >
               → {t}
             </a>

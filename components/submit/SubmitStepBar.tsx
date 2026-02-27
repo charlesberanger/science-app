@@ -13,19 +13,19 @@ export default function SubmitStepBar({ current }: { current: number }) {
             <div
               className={`flex flex-1 flex-col gap-1 border-t-2 pt-2 ${
                 done
-                  ? "border-[#4ade80]"
+                  ? "border-feedback-success"
                   : active
-                    ? "border-[#acffaf]"
-                    : "border-[#2a2a2a]"
+                    ? "border-lime-400"
+                    : "border-border"
               }`}
             >
               <span
                 className={`font-mono text-label uppercase tracking-ui ${
                   done
-                    ? "text-[#4ade80]"
+                    ? "text-feedback-success"
                     : active
-                      ? "text-white"
-                      : "text-[#888]"
+                      ? "text-foreground"
+                      : "text-muted-foreground"
                 }`}
               >
                 {done ? "✓ " : `${idx < 10 ? "0" : ""}${idx} · `}

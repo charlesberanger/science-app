@@ -25,11 +25,11 @@ export default function AuthLeftPanel({
   footer,
 }: AuthLeftPanelProps) {
   return (
-    <div className="relative hidden min-h-screen flex-1 flex-col overflow-hidden bg-[#111] lg:flex">
+    <div className="relative hidden min-h-screen flex-1 flex-col overflow-hidden bg-card lg:flex">
       {/* Lime top border */}
-      <div className="absolute left-0 top-0 h-0.5 w-full bg-[#acffaf]" />
+      <div className="absolute left-0 top-0 h-0.5 w-full bg-lime-400" />
       {/* Right divider */}
-      <div className="absolute right-0 top-0 h-full w-px bg-[#1c1c1c]" />
+      <div className="absolute right-0 top-0 h-full w-px bg-secondary" />
 
       {/* Brand row */}
       <div className="flex items-center justify-between px-14 pt-12">
@@ -37,12 +37,12 @@ export default function AuthLeftPanel({
           <div className="flex h-8 w-8 items-center justify-center bg-black">
             <ScienceLogo className="h-5 w-5" />
           </div>
-          <span className="font-mono text-[11px] tracking-ui text-[#999]">
+          <span className="font-mono text-[11px] tracking-ui text-secondary-foreground">
             SCIENCE
           </span>
         </div>
         <div className="border border-[rgba(31,92,34,0.5)] bg-[rgba(7,18,9,0.8)] px-3 py-1.5">
-          <span className="font-mono text-label tracking-ui text-[#acffaf]">
+          <span className="font-mono text-label tracking-ui text-lime-400">
             FLUID DYNAMICS CHALLENGE
           </span>
         </div>
@@ -50,8 +50,8 @@ export default function AuthLeftPanel({
 
       {/* Eyebrow */}
       <div className="mt-auto flex items-center gap-4 px-14 pb-4">
-        <div className="h-px w-6 bg-[#acffaf]" />
-        <span className="font-mono text-label tracking-ui text-[#888]">
+        <div className="h-px w-6 bg-lime-400" />
+        <span className="font-mono text-label tracking-ui text-muted-foreground">
           {eyebrow}
         </span>
       </div>
@@ -63,8 +63,8 @@ export default function AuthLeftPanel({
             key={i}
             className={`text-[72px] ${
               line.style === "bold"
-                ? "font-bold text-white"
-                : "font-light italic text-[#888]"
+                ? "font-bold text-foreground"
+                : "font-light italic text-muted-foreground"
             }`}
           >
             {line.text}
@@ -73,7 +73,7 @@ export default function AuthLeftPanel({
       </div>
 
       {/* Description */}
-      <p className="mt-6 px-14 text-[15px] font-light leading-[1.68] text-[#999]">
+      <p className="mt-6 px-14 text-[15px] font-light leading-[1.68] text-secondary-foreground">
         {description}
       </p>
 

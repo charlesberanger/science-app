@@ -1,20 +1,20 @@
 export default function ChallengeInfoBar() {
   return (
-    <div className="relative border-t border-[#2a2a2a] bg-[#111] px-8 py-5">
+    <div className="relative border-t border-border bg-card px-8 py-5">
       <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col gap-1">
           <span
-            className="text-label uppercase tracking-ui text-[#888]"
+            className="text-label uppercase tracking-ui text-muted-foreground"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             Current Challenge
           </span>
-          <span className="text-[15px] font-bold text-white">
+          <span className="text-[15px] font-bold text-foreground">
             Fluid Dynamics Challenge
           </span>
         </div>
         <span
-          className="text-xs text-[#888]"
+          className="text-xs text-muted-foreground"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           $24,000 prize pool · 312 submissions · 46 days remaining

@@ -28,16 +28,16 @@ export default function MySubmissionPage() {
   return (
     <AppShell badgeLabel="CHALLENGE LIVE">
       {/* Page header */}
-      <div className="flex flex-col gap-4 border-b border-[#2a2a2a] pb-8">
+      <div className="flex flex-col gap-4 border-b border-border pb-8">
         <div className="flex flex-col gap-1">
           <h1
-            className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
+            className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
             style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}
           >
             My Submission
           </h1>
           <p
-            className="text-xs text-[#888]"
+            className="text-xs text-muted-foreground"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             312 submissions &nbsp;·&nbsp; Fluid Dynamics Challenge

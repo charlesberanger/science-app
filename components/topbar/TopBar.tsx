@@ -36,26 +36,26 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
   const section = useSectionLabel();
 
   return (
-    <header className="fixed right-0 top-0 z-10 flex h-14 items-center justify-between border-b border-[#2a2a2a] bg-[#0a0a0a] px-4 sm:px-6 lg:left-[220px] left-0">
+    <header className="fixed right-0 top-0 z-10 flex h-14 items-center justify-between border-b border-border bg-background px-4 sm:px-6 lg:left-[220px] left-0">
       {/* Hamburger — mobile only */}
       <button
         onClick={onMenuClick}
         className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 lg:hidden"
         aria-label="Open menu"
       >
-        <span className="h-px w-4 bg-[#555]" />
-        <span className="h-px w-4 bg-[#555]" />
-        <span className="h-px w-4 bg-[#555]" />
+        <span className="h-px w-4 bg-muted-foreground" />
+        <span className="h-px w-4 bg-muted-foreground" />
+        <span className="h-px w-4 bg-muted-foreground" />
       </button>
 
-      <span className="hidden font-mono text-[11px] tracking-ui text-[#888] lg:block">
-        Science <span className="text-[#888]">/</span>{" "}
-        <span className="text-[#999]">{section}</span>
+      <span className="hidden font-mono text-[11px] tracking-ui text-muted-foreground lg:block">
+        Science <span className="text-muted-foreground">/</span>{" "}
+        <span className="text-secondary-foreground">{section}</span>
       </span>
 
-      <span className="absolute left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-ui text-[#888] lg:hidden">
-        Science <span className="text-[#888]">/</span>{" "}
-        <span className="text-[#999]">{section}</span>
+      <span className="absolute left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-ui text-muted-foreground lg:hidden">
+        Science <span className="text-muted-foreground">/</span>{" "}
+        <span className="text-secondary-foreground">{section}</span>
       </span>
 
       {isAuthenticated ? (
@@ -65,7 +65,7 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
           <Button variant="outline" size="sm" asChild>
             <Link href="/auth/sign-in">Sign In</Link>
           </Button>
-          <Button variant="default" size="sm" asChild className="hidden sm:inline-flex bg-[#4ade80] text-black hover:bg-feedback-success-hover">
+          <Button variant="default" size="sm" asChild className="hidden sm:inline-flex bg-feedback-success text-black hover:bg-feedback-success-hover">
             <Link href="/auth/sign-in?mode=register">Create Account</Link>
           </Button>
         </div>

@@ -14,11 +14,11 @@ import * as THREE from "three";
 
 function LoadingOverlay() {
   return (
-    <div className="absolute inset-0 flex items-center justify-center bg-[#111]">
+    <div className="absolute inset-0 flex items-center justify-center bg-card">
       <div className="flex flex-col items-center gap-3">
-        <div className="h-5 w-5 animate-spin rounded-full border border-[#2a2a2a] border-t-[#4ade80]" />
+        <div className="h-5 w-5 animate-spin rounded-full border border-border border-t-[#4ade80]" />
         <span
-          className="text-label uppercase tracking-ui text-[#888]"
+          className="text-label uppercase tracking-ui text-muted-foreground"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Loading model…
@@ -152,8 +152,8 @@ function ToolButton({
       onClick={onClick}
       className={`border px-2.5 py-1 text-label uppercase tracking-ui transition-colors ${
         active
-          ? "border-[#4ade80] text-[#4ade80]"
-          : "border-[#2a2a2a] text-[#888] hover:border-[#3a3a3a] hover:text-[#999]"
+          ? "border-feedback-success text-feedback-success"
+          : "border-border text-muted-foreground hover:border-border hover:text-secondary-foreground"
       }`}
       style={{ fontFamily: "var(--font-dm-mono), monospace" }}
     >
@@ -198,7 +198,7 @@ export default function CadViewer({ height = 399 }: { height?: number }) {
 
   return (
     <div
-      className="relative overflow-hidden border border-[#2a2a2a] bg-[#0a0a0a]"
+      className="relative overflow-hidden border border-border bg-background"
       style={{ height }}
     >
       {loading ? (
@@ -276,7 +276,7 @@ export default function CadViewer({ height = 399 }: { height?: number }) {
             <select
               value={cameraView}
               onChange={(e) => changeView(e.target.value as typeof cameraView)}
-              className="border border-[#2a2a2a] bg-[#111] px-2 py-1 text-label uppercase tracking-ui text-[#888] outline-none focus-visible:border-[#4ade80]"
+              className="border border-border bg-card px-2 py-1 text-label uppercase tracking-ui text-muted-foreground outline-none focus-visible:border-feedback-success"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               {(["isometric", "front", "side", "top"] as const).map((v) => (
@@ -290,7 +290,7 @@ export default function CadViewer({ height = 399 }: { height?: number }) {
 
           {/* Bottom-left: file info */}
           <div
-            className="absolute bottom-3 left-3 text-label text-[#888] tracking-ui"
+            className="absolute bottom-3 left-3 text-label text-muted-foreground tracking-ui"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             sample.step · 2.3 MB

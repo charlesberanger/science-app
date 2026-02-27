@@ -22,22 +22,22 @@ const buttonVariants = cva(
       variant: {
         // Gold — primary CTA (amber fill, dark text)
         gold:
-          "bg-feedback-warning text-[#0a0a0a] hover:bg-feedback-warning/90",
-        // Primary — white fill
+          "bg-feedback-warning text-black hover:bg-feedback-warning/90",
+        // Primary — inverts with theme (dark bg in light mode, white bg in dark mode)
         default:
-          "bg-white text-[#0a0a0a] hover:bg-white/90",
+          "bg-foreground text-background hover:bg-foreground/90",
         // Outline — border only, transparent bg
         outline:
-          "border border-[#2a2a2a] bg-transparent text-white hover:bg-[#1c1c1c] hover:border-[#3a3a3a]",
+          "border border-border bg-transparent text-foreground hover:bg-secondary hover:border-border",
         // Ghost — no border, subtle hover
         ghost:
-          "bg-transparent text-[#888] hover:text-white hover:bg-[#1c1c1c]",
+          "bg-transparent text-muted-foreground hover:text-foreground hover:bg-secondary",
         // Danger — red tint
         destructive:
-          "border border-[#f87171]/30 bg-transparent text-[#f87171] hover:bg-[#f87171]/10",
+          "border border-destructive/30 bg-transparent text-destructive hover:bg-destructive/10",
         // Link (utility)
         link:
-          "bg-transparent text-[#acffaf] underline-offset-4 hover:underline",
+          "bg-transparent text-lime-400 underline-offset-4 hover:underline",
       },
       size: {
         sm: "h-8 px-3 text-label",

@@ -17,7 +17,7 @@ export default function NavItem({ label, href, icon }: NavItemProps) {
     <Link
       href={href}
       className={`relative flex items-center gap-3 px-4 py-2 transition-colors ${
-        active ? "text-white" : "text-[#888] hover:text-[#999]"
+        active ? "text-foreground" : "text-muted-foreground hover:text-secondary-foreground"
       }`}
     >
       {active && (

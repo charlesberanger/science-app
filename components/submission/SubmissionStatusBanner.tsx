@@ -6,28 +6,28 @@ interface SubmissionStatusBannerProps {
 
 const CONFIG = {
   pending: {
-    bg: "bg-[#1f1a0a]",
-    border: "border-[#fcd34d]",
-    iconBorder: "border-[#fcd34d]",
-    iconColor: "text-[#fcd34d]",
+    bg: "bg-feedback-status-warning",
+    border: "border-feedback-warning",
+    iconBorder: "border-feedback-warning",
+    iconColor: "text-feedback-warning",
     icon: "⏳",
     title: "Awaiting Admin Approval",
     description: "Your submission is in the review queue. Review typically takes 24–48 hours.",
   },
   approved: {
-    bg: "bg-[#0a1f0a]",
-    border: "border-[#4ade80]",
-    iconBorder: "border-[#4ade80]",
-    iconColor: "text-[#4ade80]",
+    bg: "bg-feedback-status-success",
+    border: "border-feedback-success",
+    iconBorder: "border-feedback-success",
+    iconColor: "text-feedback-success",
     icon: "✓",
     title: "Approved — Project is live!",
     description: "Your submission has been approved and is now visible on the leaderboard.",
   },
   rejected: {
-    bg: "bg-[#1f0a0a]",
-    border: "border-[#f87171]",
-    iconBorder: "border-[#f87171]",
-    iconColor: "text-[#f87171]",
+    bg: "bg-feedback-status-error",
+    border: "border-destructive",
+    iconBorder: "border-destructive",
+    iconColor: "text-destructive",
     icon: "✕",
     title: "Submission Rejected",
     description: "Your project did not meet challenge criteria. Review feedback and resubmit.",
@@ -42,8 +42,8 @@ export default function SubmissionStatusBanner({ status = "pending" }: Submissio
         <span className={`text-2xl ${c.iconColor}`}>{c.icon}</span>
       </div>
       <div className="flex flex-col gap-1">
-        <p className="text-sm font-bold tracking-tight text-white">{c.title}</p>
-        <p className="text-xs leading-relaxed text-[#999]">{c.description}</p>
+        <p className="text-sm font-bold tracking-tight text-foreground">{c.title}</p>
+        <p className="text-xs leading-relaxed text-secondary-foreground">{c.description}</p>
       </div>
     </div>
   );

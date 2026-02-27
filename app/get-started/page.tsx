@@ -46,7 +46,7 @@ export default function GetStartedPage() {
           <IntentHeader />
         </div>
 
-        <div className="grid grid-cols-1 gap-px bg-[#2a2a2a] sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-px bg-secondary sm:grid-cols-3">
           {paths.map((path) => (
             <PathCard key={path.title} {...path} />
           ))}

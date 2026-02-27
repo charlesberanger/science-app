@@ -49,10 +49,10 @@ export default function CommentsSection() {
   }
 
   return (
-    <div id="comments" className="rounded border border-[#2a2a2a] bg-[#111]">
-      <div className="border-b border-[#2a2a2a] px-5 py-3">
+    <div id="comments" className="rounded border border-border bg-card">
+      <div className="border-b border-border px-5 py-3">
         <span
-          className="text-label tracking-ui text-[#888] uppercase"
+          className="text-label tracking-ui text-muted-foreground uppercase"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           Comments ({comments.length})
@@ -73,7 +73,7 @@ export default function CommentsSection() {
       </div>
 
       {isAuthenticated ? (
-        <form onSubmit={handleSubmit} className="border-t border-[#2a2a2a] p-5">
+        <form onSubmit={handleSubmit} className="border-t border-border p-5">
           <label htmlFor="comment-input" className="sr-only">Add a comment</label>
           <textarea
             id="comment-input"
@@ -81,13 +81,13 @@ export default function CommentsSection() {
             onChange={(e) => setDraft(e.target.value)}
             placeholder="Add a comment…"
             rows={3}
-            className="w-full resize-none border border-[#2a2a2a] bg-[#0a0a0a] px-3.5 py-3 text-[13px] leading-relaxed text-white placeholder-[#555] outline-none focus-visible:border-[#4ade80] transition-colors"
+            className="w-full resize-none border border-border bg-background px-3.5 py-3 text-[13px] leading-relaxed text-foreground placeholder:text-muted-foreground outline-none focus-visible:border-feedback-success transition-colors"
           />
           <div className="mt-2 flex justify-end">
             <button
               type="submit"
               disabled={!draft.trim()}
-              className="border border-[#2a2a2a] bg-[#1c1c1c] px-4 py-2 text-[11px] text-[#999] transition-colors hover:border-[#4ade80] hover:text-[#4ade80] disabled:opacity-30 disabled:pointer-events-none"
+              className="border border-border bg-secondary px-4 py-2 text-[11px] text-secondary-foreground transition-colors hover:border-feedback-success hover:text-feedback-success disabled:opacity-30 disabled:pointer-events-none"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Post →
@@ -95,9 +95,9 @@ export default function CommentsSection() {
           </div>
         </form>
       ) : (
-        <div className="border-t border-[#2a2a2a] px-5 py-4">
-          <p className="text-[11px] text-[#888]" style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
-            <a href="/auth/sign-in" className="text-[#888] hover:text-[#999] transition-colors">Sign in</a>
+        <div className="border-t border-border px-5 py-4">
+          <p className="text-[11px] text-muted-foreground" style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
+            <a href="/auth/sign-in" className="text-muted-foreground hover:text-secondary-foreground transition-colors">Sign in</a>
             {" "}to leave a comment
           </p>
         </div>

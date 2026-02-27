@@ -13,7 +13,12 @@ const MAX_MB = 100;
 export default function CadFileUploadPage() {
   const router = useRouter();
   const { form } = useFluidDynamicsForm();
-  const { watch, setValue, trigger, formState: { errors } } = form;
+  const {
+    watch,
+    setValue,
+    trigger,
+    formState: { errors },
+  } = form;
   const inputRef = useRef<HTMLInputElement>(null);
   const files: File[] = watch("cadFiles") ?? [];
 
@@ -48,15 +53,16 @@ export default function CadFileUploadPage() {
       <SubmitStepBar current={4} />
 
       <div className="flex flex-col gap-1">
-        <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           CAD File Upload
         </h1>
-        <p className="font-mono text-label uppercase tracking-ui text-[#888]">
-          Step 4 of 5 · Fluid Dynamics · Accepted: {ACCEPTED.join(", ")} · Max {MAX_MB} MB
+        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+          Step 4 of 5 · Fluid Dynamics · Accepted: {ACCEPTED.join(", ")} · Max{" "}
+          {MAX_MB} MB
         </p>
       </div>
 
-      <div className="h-px bg-[#2a2a2a]" />
+      <div className="h-px bg-secondary" />
 
       {/* Drop zone */}
       <div
@@ -64,7 +70,9 @@ export default function CadFileUploadPage() {
         onDragOver={(e) => e.preventDefault()}
         onClick={() => inputRef.current?.click()}
         className={`flex min-h-[220px] cursor-pointer flex-col items-center justify-center gap-4 border-2 border-dashed transition-colors ${
-          errors.cadFiles ? "border-red-500/40" : "border-[#2a2a2a] hover:border-[#3a3a3a]"
+          errors.cadFiles
+            ? "border-red-500/40"
+            : "border-border hover:border-border"
         }`}
       >
         <input
@@ -74,10 +82,14 @@ export default function CadFileUploadPage() {
           className="hidden"
           onChange={(e) => handleFiles(e.target.files)}
         />
-        <span className="text-3xl text-[#888]" aria-hidden="true">⬆</span>
+        <span className="text-3xl text-muted-foreground" aria-hidden="true">
+          ⬆
+        </span>
         <div className="flex flex-col items-center gap-1 text-center">
-          <p className="text-sm text-[#888]">Drop your CAD file here or click to browse</p>
-          <p className="font-mono text-label text-[#888]">
+          <p className="text-sm text-muted-foreground">
+            Drop your CAD file here or click to browse
+          </p>
+          <p className="font-mono text-label text-muted-foreground">
             {ACCEPTED.join("  ·  ").toUpperCase()}
           </p>
         </div>
@@ -85,14 +97,21 @@ export default function CadFileUploadPage() {
 
       {/* Attached file */}
       {files.length > 0 && (
-        <div className="flex items-center justify-between border border-[#4ade80]/30 bg-[#4ade80]/5 px-4 py-3">
+        <div className="flex items-center justify-between border border-feedback-success/30 bg-feedback-success/5 px-4 py-3">
           <div className="flex flex-col gap-0.5">
-            <span className="text-sm font-medium text-white">{files[0].name}</span>
-            <span className="font-mono text-label text-[#888]">{formatSize(files[0].size)}</span>
+            <span className="text-sm font-medium text-foreground">
+              {files[0].name}
+            </span>
+            <span className="font-mono text-label text-muted-foreground">
+              {formatSize(files[0].size)}
+            </span>
           </div>
           <button
-            onClick={(e) => { e.stopPropagation(); setValue("cadFiles", [], { shouldValidate: true }); }}
-            className="font-mono text-label text-[#888] transition-colors hover:text-red-400"
+            onClick={(e) => {
+              e.stopPropagation();
+              setValue("cadFiles", [], { shouldValidate: true });
+            }}
+            className="font-mono text-label text-muted-foreground transition-colors hover:text-red-400"
           >
             Remove ✕
           </button>
@@ -100,20 +119,24 @@ export default function CadFileUploadPage() {
       )}
 
       {errors.cadFiles && (
-        <p className="font-mono text-label text-red-400">{errors.cadFiles.message as string}</p>
+        <p className="font-mono text-label text-red-400">
+          {errors.cadFiles.message as string}
+        </p>
       )}
 
       {/* Nav */}
       <div className="flex justify-between">
         <button
-          onClick={() => router.push("/submit/fluid-dynamics/experiment-details")}
-          className="border border-[#2a2a2a] bg-[#111] px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-[#888] transition-colors hover:text-white"
+          onClick={() =>
+            router.push("/submit/fluid-dynamics/experiment-details")
+          }
+          className="border border-border bg-card px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
         >
           ← Experiment Details
         </button>
         <button
           onClick={handleNext}
-          className="border border-[#4ade80] bg-[#4ade80] px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
+          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
         >
           Next: Review →
         </button>

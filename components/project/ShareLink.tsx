@@ -19,9 +19,9 @@ export default function ShareLink() {
   }
 
   return (
-    <div className="rounded border border-[#2a2a2a] bg-[#111] p-5">
+    <div className="rounded border border-border bg-card p-5">
       <span
-        className="text-label tracking-ui text-[#888] uppercase"
+        className="text-label tracking-ui text-muted-foreground uppercase"
         style={{ fontFamily: "var(--font-dm-mono), monospace" }}
       >
         Share Project
@@ -31,22 +31,22 @@ export default function ShareLink() {
           type="text"
           readOnly
           value={SHARE_URL}
-          className="flex-1 rounded border border-[#2a2a2a] bg-[#0a0a0a] px-3 py-2 text-[11px] text-[#888] outline-none focus-visible:border-[#4ade80] sm:rounded-r-none"
+          className="flex-1 rounded border border-border bg-background px-3 py-2 text-[11px] text-muted-foreground outline-none focus-visible:border-feedback-success sm:rounded-r-none"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         />
         <button
           onClick={handleCopy}
           className={`rounded border px-4 py-2 text-[11px] transition-colors sm:rounded-l-none sm:border-l-0 ${
             copied
-              ? "border-[#4ade80] bg-[#4ade80]/10 text-[#4ade80]"
-              : "border-[#2a2a2a] bg-[#1c1c1c] text-[#999] hover:bg-[#2a2a2a] hover:text-white"
+              ? "border-feedback-success bg-feedback-success/10 text-feedback-success"
+              : "border-border bg-secondary text-secondary-foreground hover:bg-secondary hover:text-foreground"
           }`}
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           {copied ? "Copied ✓" : "Copy link"}
         </button>
       </div>
-      <p className="mt-2 text-label text-[#888]" style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
+      <p className="mt-2 text-label text-muted-foreground" style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
         Anyone with this link can view this project submission
       </p>
     </div>
