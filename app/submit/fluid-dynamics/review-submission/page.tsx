@@ -14,11 +14,44 @@ const SESSION_KEY = "ai_score_checks_used";
 function ReadonlyField({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-2">
-      <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">{label}</span>
+      <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+        {label}
+      </span>
       <div className="border border-border bg-background px-3.5 py-3 text-[13px] leading-relaxed text-secondary-foreground whitespace-pre-wrap">
         {value || <span className="text-muted-foreground">—</span>}
       </div>
     </div>
+  );
+}
+
+function SubmitSignal({ score }: { score: number }) {
+  if (score >= 75) {
+    return (
+      <p
+        className="text-xs text-feedback-success"
+        style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+      >
+        → Score looks strong — ready to submit.
+      </p>
+    );
+  }
+  if (score >= 50) {
+    return (
+      <p
+        className="text-xs text-feedback-warning"
+        style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+      >
+        → Score is borderline — consider revising weak areas before submitting.
+      </p>
+    );
+  }
+  return (
+    <p
+      className="text-xs text-destructive"
+      style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+    >
+      → Score is low — reviewers may request revisions.
+    </p>
   );
 }
 
@@ -28,9 +61,9 @@ export default function ReviewSubmissionPage() {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [lastScore, setLastScore] = useState<number | null>(null);
   const mountedRef = useRef(true);
 
-  // Rate-limit: track checks used in sessionStorage
   const [checksUsed, setChecksUsed] = useState<number>(() => {
     if (typeof window === "undefined") return 0;
     return parseInt(sessionStorage.getItem(SESSION_KEY) ?? "0", 10);
@@ -47,7 +80,6 @@ export default function ReviewSubmissionPage() {
     return () => { mountedRef.current = false; };
   }, []);
 
-  // Guard: redirect back if CAD upload step was skipped
   useEffect(() => {
     const { cadFiles } = form.getValues();
     if (!cadFiles || cadFiles.length === 0) {
@@ -60,7 +92,6 @@ export default function ReviewSubmissionPage() {
 
   async function handleSubmit() {
     setSubmitting(true);
-    // Mock API delay — guard against state updates if component unmounts
     await new Promise((r) => setTimeout(r, 1800));
     if (!mountedRef.current) return;
     setSubmitting(false);
@@ -71,7 +102,6 @@ export default function ReviewSubmissionPage() {
     return (
       <AppShell>
         <div className="flex min-h-[60vh] flex-col items-center justify-center gap-8 text-center">
-          {/* Animated check */}
           <div className="relative flex items-center justify-center">
             <span className="absolute h-16 w-16 animate-ping rounded-none border border-feedback-success opacity-20" />
             <div className="relative flex h-16 w-16 items-center justify-center border border-feedback-success text-3xl text-feedback-success">
@@ -84,7 +114,6 @@ export default function ReviewSubmissionPage() {
             <p className="text-sm text-muted-foreground">Your project is queued for review by the Science team.</p>
           </div>
 
-          {/* What happens next */}
           <div className="w-full max-w-sm border border-border bg-card text-left">
             <p className="border-b border-border px-5 py-3 font-mono text-label uppercase tracking-ui text-muted-foreground">
               What happens next
@@ -127,61 +156,66 @@ export default function ReviewSubmissionPage() {
 
       <div className="h-px bg-secondary" />
 
-      {/* Two-column layout on large screens: fields left, AI panel right */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_300px]">
-        {/* Left: submission fields + nav */}
-        <div className="flex flex-col gap-5">
-          <ReadonlyField label="Tube Design Name" value={data.title} />
-          <ReadonlyField label="Tube Design Differences" value={data.tubeDesignDifferences} />
-          <ReadonlyField label="Technical Rationale & Physics Principles" value={data.technicalRationale} />
+      {/* Submission fields */}
+      <div className="flex flex-col gap-5">
+        <ReadonlyField label="Tube Design Name" value={data.title} />
+        <ReadonlyField label="Tube Design Differences" value={data.tubeDesignDifferences} />
+        <ReadonlyField label="Technical Rationale & Physics Principles" value={data.technicalRationale} />
 
-          {/* CAD file */}
-          <div className="flex flex-col gap-2">
-            <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">CAD File</span>
-            {files.length > 0 ? (
-              <div className="flex items-center justify-between border border-border bg-background px-3.5 py-3">
-                <div className="flex flex-col gap-0.5">
-                  <span className="text-[13px] text-foreground">{files[0].name}</span>
-                  <span className="font-mono text-label text-muted-foreground">{formatSize(files[0].size)}</span>
-                </div>
-                <button
-                  onClick={() => router.push("/submit/fluid-dynamics/cad-file-upload")}
-                  className="font-mono text-label text-muted-foreground transition-colors hover:text-secondary-foreground"
-                >
-                  Update →
-                </button>
+        {/* CAD file */}
+        <div className="flex flex-col gap-2">
+          <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+            CAD File
+          </span>
+          {files.length > 0 ? (
+            <div className="flex items-center justify-between border border-border bg-background px-3.5 py-3">
+              <div className="flex flex-col gap-0.5">
+                <span className="text-[13px] text-foreground">{files[0].name}</span>
+                <span className="font-mono text-label text-muted-foreground">{formatSize(files[0].size)}</span>
               </div>
-            ) : (
-              <p className="font-mono text-label text-red-400">No file attached — go back and upload one.</p>
-            )}
-          </div>
-
-          {/* Nav — inside left column so it aligns with form content */}
-          <div className="flex justify-between pt-2">
-            <button
-              onClick={() => router.push("/submit/fluid-dynamics/cad-file-upload")}
-              className="border border-border bg-card px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
-            >
-              ← CAD Upload
-            </button>
-            <button
-              onClick={() => setConfirmOpen(true)}
-              className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
-            >
-              Submit Project →
-            </button>
-          </div>
+              <button
+                onClick={() => router.push("/submit/fluid-dynamics/cad-file-upload")}
+                className="font-mono text-label text-muted-foreground transition-colors hover:text-secondary-foreground"
+              >
+                Update →
+              </button>
+            </div>
+          ) : (
+            <p className="font-mono text-label text-destructive">
+              No file attached — go back and upload one.
+            </p>
+          )}
         </div>
+      </div>
 
-        {/* Right: AI pre-screen panel — sticky just below topbar */}
-        <div className="lg:sticky lg:top-[72px] lg:self-start">
-          <ScorePanel
-            title={data.title}
-            abstract={data.tubeDesignDifferences}
-            methodology={data.technicalRationale}
-            checksRemaining={checksRemaining}
-            onCheck={handleCheckConsumed}
-          />
+      {/* AI pre-screen — full width below fields */}
+      <div className="h-px bg-secondary" />
+
+      <ScorePanel
+        title={data.title}
+        abstract={data.tubeDesignDifferences}
+        methodology={data.technicalRationale}
+        checksRemaining={checksRemaining}
+        onCheck={handleCheckConsumed}
+        onScore={setLastScore}
+      />
+
+      {/* Nav */}
+      <div className="flex flex-col gap-3">
+        {lastScore !== null && <SubmitSignal score={lastScore} />}
+        <div className="flex justify-between">
+          <button
+            onClick={() => router.push("/submit/fluid-dynamics/cad-file-upload")}
+            className="border border-border bg-card px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
+          >
+            ← CAD Upload
+          </button>
+          <button
+            onClick={() => setConfirmOpen(true)}
+            className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
+          >
+            Submit Project →
+          </button>
         </div>
       </div>
 
