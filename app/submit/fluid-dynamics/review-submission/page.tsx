@@ -128,8 +128,8 @@ export default function ReviewSubmissionPage() {
       <div className="h-px bg-secondary" />
 
       {/* Two-column layout on large screens: fields left, AI panel right */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_300px]">
-        {/* Left: submission fields */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,720px)_300px]">
+        {/* Left: submission fields + nav */}
         <div className="flex flex-col gap-5">
           <ReadonlyField label="Tube Design Name" value={data.title} />
           <ReadonlyField label="Tube Design Differences" value={data.tubeDesignDifferences} />
@@ -155,10 +155,26 @@ export default function ReviewSubmissionPage() {
               <p className="font-mono text-label text-red-400">No file attached — go back and upload one.</p>
             )}
           </div>
+
+          {/* Nav — inside left column so it aligns with form content */}
+          <div className="flex justify-between pt-2">
+            <button
+              onClick={() => router.push("/submit/fluid-dynamics/cad-file-upload")}
+              className="border border-border bg-card px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
+            >
+              ← CAD Upload
+            </button>
+            <button
+              onClick={() => setConfirmOpen(true)}
+              className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
+            >
+              Submit Project →
+            </button>
+          </div>
         </div>
 
-        {/* Right: AI pre-screen panel */}
-        <div className="lg:sticky lg:top-20 lg:self-start">
+        {/* Right: AI pre-screen panel — sticky just below topbar */}
+        <div className="lg:sticky lg:top-[72px] lg:self-start">
           <ScorePanel
             title={data.title}
             abstract={data.tubeDesignDifferences}
@@ -167,22 +183,6 @@ export default function ReviewSubmissionPage() {
             onCheck={handleCheckConsumed}
           />
         </div>
-      </div>
-
-      {/* Nav */}
-      <div className="flex justify-between">
-        <button
-          onClick={() => router.push("/submit/fluid-dynamics/cad-file-upload")}
-          className="border border-border bg-card px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
-        >
-          ← CAD Upload
-        </button>
-        <button
-          onClick={() => setConfirmOpen(true)}
-          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
-        >
-          Submit Project →
-        </button>
       </div>
 
       {/* Confirm modal */}

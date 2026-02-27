@@ -80,7 +80,7 @@ export default function ScorePanel({
   const canCheck = checksRemaining > 0 && !loading && (title || abstract);
 
   return (
-    <div className="flex flex-col gap-4 border border-border bg-card p-5">
+    <div className="flex flex-col gap-4 border border-border border-t-2 border-t-feedback-success bg-card p-5">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex flex-col gap-0.5">
@@ -95,7 +95,7 @@ export default function ScorePanel({
           </p>
         </div>
         <span
-          className="text-label uppercase tracking-ui text-muted-foreground"
+          className={`text-label uppercase tracking-ui ${checksRemaining === 0 ? "text-destructive" : "text-muted-foreground"}`}
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           {checksRemaining} check{checksRemaining !== 1 ? "s" : ""} left
@@ -103,7 +103,7 @@ export default function ScorePanel({
       </div>
 
       {/* Rubric legend */}
-      <div className="grid grid-cols-1 gap-1 border border-border bg-background p-3 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-1 border border-border bg-background p-3">
         {(Object.keys(DIMENSION_WEIGHTS) as Array<keyof ScoreResult["dimensions"]>).map((key) => (
           <div key={key} className="flex items-center justify-between gap-2">
             <span
