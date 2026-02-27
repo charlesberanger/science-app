@@ -5,7 +5,11 @@ import { useRouter } from "next/navigation";
 import AppShell from "@/components/layout/AppShell";
 import { useFluidDynamicsForm } from "@/contexts/FluidDynamicsFormContext";
 import SubmitStepBar from "@/components/submit/SubmitStepBar";
+import ScorePanel from "@/components/submit/ScorePanel";
 import { formatSize } from "@/components/submit/utils";
+
+const MAX_CHECKS = 5;
+const SESSION_KEY = "ai_score_checks_used";
 
 function ReadonlyField({ label, value }: { label: string; value: string }) {
   return (
@@ -25,6 +29,19 @@ export default function ReviewSubmissionPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const mountedRef = useRef(true);
+
+  // Rate-limit: track checks used in sessionStorage
+  const [checksUsed, setChecksUsed] = useState<number>(() => {
+    if (typeof window === "undefined") return 0;
+    return parseInt(sessionStorage.getItem(SESSION_KEY) ?? "0", 10);
+  });
+  const checksRemaining = Math.max(0, MAX_CHECKS - checksUsed);
+
+  function handleCheckConsumed() {
+    const next = checksUsed + 1;
+    setChecksUsed(next);
+    sessionStorage.setItem(SESSION_KEY, String(next));
+  }
 
   useEffect(() => {
     return () => { mountedRef.current = false; };
@@ -110,30 +127,45 @@ export default function ReviewSubmissionPage() {
 
       <div className="h-px bg-secondary" />
 
-      <div className="flex flex-col gap-5">
-        <ReadonlyField label="Tube Design Name" value={data.title} />
-        <ReadonlyField label="Tube Design Differences" value={data.tubeDesignDifferences} />
-        <ReadonlyField label="Technical Rationale & Physics Principles" value={data.technicalRationale} />
+      {/* Two-column layout on large screens: fields left, AI panel right */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_300px]">
+        {/* Left: submission fields */}
+        <div className="flex flex-col gap-5">
+          <ReadonlyField label="Tube Design Name" value={data.title} />
+          <ReadonlyField label="Tube Design Differences" value={data.tubeDesignDifferences} />
+          <ReadonlyField label="Technical Rationale & Physics Principles" value={data.technicalRationale} />
 
-        {/* CAD file */}
-        <div className="flex flex-col gap-2">
-          <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">CAD File</span>
-          {files.length > 0 ? (
-            <div className="flex items-center justify-between border border-border bg-background px-3.5 py-3">
-              <div className="flex flex-col gap-0.5">
-                <span className="text-[13px] text-foreground">{files[0].name}</span>
-                <span className="font-mono text-label text-muted-foreground">{formatSize(files[0].size)}</span>
+          {/* CAD file */}
+          <div className="flex flex-col gap-2">
+            <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">CAD File</span>
+            {files.length > 0 ? (
+              <div className="flex items-center justify-between border border-border bg-background px-3.5 py-3">
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-[13px] text-foreground">{files[0].name}</span>
+                  <span className="font-mono text-label text-muted-foreground">{formatSize(files[0].size)}</span>
+                </div>
+                <button
+                  onClick={() => router.push("/submit/fluid-dynamics/cad-file-upload")}
+                  className="font-mono text-label text-muted-foreground transition-colors hover:text-secondary-foreground"
+                >
+                  Update →
+                </button>
               </div>
-              <button
-                onClick={() => router.push("/submit/fluid-dynamics/cad-file-upload")}
-                className="font-mono text-label text-muted-foreground transition-colors hover:text-secondary-foreground"
-              >
-                Update →
-              </button>
-            </div>
-          ) : (
-            <p className="font-mono text-label text-red-400">No file attached — go back and upload one.</p>
-          )}
+            ) : (
+              <p className="font-mono text-label text-red-400">No file attached — go back and upload one.</p>
+            )}
+          </div>
+        </div>
+
+        {/* Right: AI pre-screen panel */}
+        <div className="lg:sticky lg:top-20 lg:self-start">
+          <ScorePanel
+            title={data.title}
+            abstract={data.tubeDesignDifferences}
+            methodology={data.technicalRationale}
+            checksRemaining={checksRemaining}
+            onCheck={handleCheckConsumed}
+          />
         </div>
       </div>
 
