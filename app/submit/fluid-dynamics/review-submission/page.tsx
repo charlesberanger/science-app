@@ -8,6 +8,7 @@ import SubmitStepBar from "@/components/submit/SubmitStepBar";
 import ScorePanel from "@/components/submit/ScorePanel";
 import CharCountTextarea from "@/components/submit/CharCountTextarea";
 import { formatSize } from "@/components/submit/utils";
+import { Pencil } from "lucide-react";
 
 const MAX_CHECKS = 5;
 const SESSION_KEY = "ai_score_checks_used";
@@ -82,8 +83,9 @@ function EditableTextField({
         </span>
         <button
           onClick={handleEdit}
-          className="font-mono text-label text-muted-foreground transition-colors hover:text-foreground"
+          className="flex items-center gap-1 border border-border px-2 py-0.5 font-mono text-label text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
         >
+          <Pencil size={10} />
           Edit
         </button>
       </div>
@@ -168,8 +170,9 @@ function EditableLongField({
         </span>
         <button
           onClick={handleEdit}
-          className="font-mono text-label text-muted-foreground transition-colors hover:text-foreground"
+          className="flex items-center gap-1 border border-border px-2 py-0.5 font-mono text-label text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
         >
+          <Pencil size={10} />
           Edit
         </button>
       </div>
@@ -181,40 +184,72 @@ function EditableLongField({
 }
 
 function SubmitSignal({ score, checksRemaining }: { score: number | null; checksRemaining: number }) {
-  const mono = { fontFamily: "var(--font-dm-mono), monospace" };
-
   if (score === null) {
     return (
-      <p className="text-xs text-muted-foreground" style={mono}>
-        → Run the AI pre-screen check before submitting.
-      </p>
+      <div className="flex border border-feedback-warning/40 bg-feedback-status-warning">
+        <div className="w-1 shrink-0 bg-feedback-warning" />
+        <div className="flex flex-col gap-0.5 px-3.5 py-2.5">
+          <span className="font-mono text-label uppercase tracking-ui text-feedback-warning">
+            Pre-screen required
+          </span>
+          <p className="font-mono text-label text-feedback-warning/80">
+            Run the AI check above to unlock submission.
+          </p>
+        </div>
+      </div>
     );
   }
   if (score >= 75) {
     return (
-      <p className="text-xs text-feedback-success" style={mono}>
-        → Score looks strong — ready to submit.
-      </p>
+      <div className="flex border border-feedback-success/40 bg-feedback-status-success">
+        <div className="w-1 shrink-0 bg-feedback-success" />
+        <div className="px-3.5 py-2.5">
+          <p className="font-mono text-label text-feedback-success">
+            Score looks strong — ready to submit.
+          </p>
+        </div>
+      </div>
     );
   }
   if (score >= 50) {
     return (
-      <p className="text-xs text-feedback-warning" style={mono}>
-        → Score is borderline — consider revising weak areas before submitting.
-      </p>
+      <div className="flex border border-feedback-warning/40 bg-feedback-status-warning">
+        <div className="w-1 shrink-0 bg-feedback-warning" />
+        <div className="px-3.5 py-2.5">
+          <p className="font-mono text-label text-feedback-warning">
+            Score is borderline — consider revising weak areas before submitting.
+          </p>
+        </div>
+      </div>
     );
   }
   if (checksRemaining > 0) {
     return (
-      <p className="text-xs text-destructive" style={mono}>
-        → Score too low to submit — edit your submission above and re-check.
-      </p>
+      <div className="flex border border-feedback-error/40 bg-feedback-status-error">
+        <div className="w-1 shrink-0 bg-feedback-error" />
+        <div className="flex flex-col gap-0.5 px-3.5 py-2.5">
+          <span className="font-mono text-label uppercase tracking-ui text-feedback-error">
+            Submission blocked
+          </span>
+          <p className="font-mono text-label text-feedback-error/80">
+            Score too low — edit your submission above and re-check.
+          </p>
+        </div>
+      </div>
     );
   }
   return (
-    <p className="text-xs text-destructive" style={mono}>
-      → Score too low and no checks remaining — edit your submission and return in a new session to re-evaluate.
-    </p>
+    <div className="flex border border-feedback-error/40 bg-feedback-status-error">
+      <div className="w-1 shrink-0 bg-feedback-error" />
+      <div className="flex flex-col gap-0.5 px-3.5 py-2.5">
+        <span className="font-mono text-label uppercase tracking-ui text-feedback-error">
+          Submission blocked
+        </span>
+        <p className="font-mono text-label text-feedback-error/80">
+          Score too low and no checks remaining — edit your submission and return in a new session to re-evaluate.
+        </p>
+      </div>
+    </div>
   );
 }
 
