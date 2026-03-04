@@ -6,17 +6,87 @@ import AppShell from "@/components/layout/AppShell";
 import { useFluidDynamicsForm } from "@/contexts/FluidDynamicsFormContext";
 import SubmitStepBar from "@/components/submit/SubmitStepBar";
 import ScorePanel from "@/components/submit/ScorePanel";
+import CharCountTextarea from "@/components/submit/CharCountTextarea";
 import { formatSize } from "@/components/submit/utils";
 
 const MAX_CHECKS = 5;
 const SESSION_KEY = "ai_score_checks_used";
 
-function ReadonlyField({ label, value }: { label: string; value: string }) {
+function EditableTextField({
+  label,
+  fieldKey,
+  value,
+  onSave,
+}: {
+  label: string;
+  fieldKey: string;
+  value: string;
+  onSave: (v: string) => void;
+}) {
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState(value);
+
+  function handleEdit() {
+    setDraft(value);
+    setEditing(true);
+  }
+
+  function handleSave() {
+    onSave(draft);
+    setEditing(false);
+  }
+
+  function handleCancel() {
+    setDraft(value);
+    setEditing(false);
+  }
+
+  if (editing) {
+    return (
+      <div className="flex flex-col gap-2">
+        <div className="flex items-baseline justify-between">
+          <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+            {label}
+          </span>
+          <div className="flex gap-3">
+            <button
+              onClick={handleSave}
+              className="font-mono text-label text-feedback-success transition-colors hover:opacity-80"
+            >
+              Save
+            </button>
+            <button
+              onClick={handleCancel}
+              className="font-mono text-label text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+        <input
+          id={fieldKey}
+          value={draft}
+          onChange={(e) => setDraft(e.target.value)}
+          autoFocus
+          className="border border-feedback-success bg-background px-3.5 py-3 text-[13px] text-foreground outline-none"
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col gap-2">
-      <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
-        {label}
-      </span>
+      <div className="flex items-baseline justify-between">
+        <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+          {label}
+        </span>
+        <button
+          onClick={handleEdit}
+          className="font-mono text-label text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Edit
+        </button>
+      </div>
       <div className="border border-border bg-background px-3.5 py-3 text-[13px] leading-relaxed text-secondary-foreground whitespace-pre-wrap">
         {value || <span className="text-muted-foreground">—</span>}
       </div>
@@ -24,33 +94,126 @@ function ReadonlyField({ label, value }: { label: string; value: string }) {
   );
 }
 
-function SubmitSignal({ score }: { score: number }) {
+function EditableLongField({
+  label,
+  fieldKey,
+  placeholder,
+  value,
+  onSave,
+}: {
+  label: string;
+  fieldKey: string;
+  placeholder: string;
+  value: string;
+  onSave: (v: string) => void;
+}) {
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState(value);
+
+  function handleEdit() {
+    setDraft(value);
+    setEditing(true);
+  }
+
+  function handleSave() {
+    onSave(draft);
+    setEditing(false);
+  }
+
+  function handleCancel() {
+    setDraft(value);
+    setEditing(false);
+  }
+
+  if (editing) {
+    return (
+      <div className="flex flex-col gap-2">
+        <div className="flex items-baseline justify-between">
+          <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+            {label}
+          </span>
+          <div className="flex gap-3">
+            <button
+              onClick={handleSave}
+              className="font-mono text-label text-feedback-success transition-colors hover:opacity-80"
+            >
+              Save
+            </button>
+            <button
+              onClick={handleCancel}
+              className="font-mono text-label text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+        <CharCountTextarea
+          id={fieldKey}
+          label=""
+          placeholder={placeholder}
+          value={draft}
+          onChange={setDraft}
+          minLength={1500}
+          maxLength={2000}
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-2">
+      <div className="flex items-baseline justify-between">
+        <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+          {label}
+        </span>
+        <button
+          onClick={handleEdit}
+          className="font-mono text-label text-muted-foreground transition-colors hover:text-foreground"
+        >
+          Edit
+        </button>
+      </div>
+      <div className="border border-border bg-background px-3.5 py-3 text-[13px] leading-relaxed text-secondary-foreground whitespace-pre-wrap">
+        {value || <span className="text-muted-foreground">—</span>}
+      </div>
+    </div>
+  );
+}
+
+function SubmitSignal({ score, checksRemaining }: { score: number | null; checksRemaining: number }) {
+  const mono = { fontFamily: "var(--font-dm-mono), monospace" };
+
+  if (score === null) {
+    return (
+      <p className="text-xs text-muted-foreground" style={mono}>
+        → Run the AI pre-screen check before submitting.
+      </p>
+    );
+  }
   if (score >= 75) {
     return (
-      <p
-        className="text-xs text-feedback-success"
-        style={{ fontFamily: "var(--font-dm-mono), monospace" }}
-      >
+      <p className="text-xs text-feedback-success" style={mono}>
         → Score looks strong — ready to submit.
       </p>
     );
   }
   if (score >= 50) {
     return (
-      <p
-        className="text-xs text-feedback-warning"
-        style={{ fontFamily: "var(--font-dm-mono), monospace" }}
-      >
+      <p className="text-xs text-feedback-warning" style={mono}>
         → Score is borderline — consider revising weak areas before submitting.
       </p>
     );
   }
+  if (checksRemaining > 0) {
+    return (
+      <p className="text-xs text-destructive" style={mono}>
+        → Score too low to submit — edit your submission above and re-check.
+      </p>
+    );
+  }
   return (
-    <p
-      className="text-xs text-destructive"
-      style={{ fontFamily: "var(--font-dm-mono), monospace" }}
-    >
-      → Score is low — reviewers may request revisions.
+    <p className="text-xs text-destructive" style={mono}>
+      → Score too low and no checks remaining — edit your submission and return in a new session to re-evaluate.
     </p>
   );
 }
@@ -87,7 +250,7 @@ export default function ReviewSubmissionPage() {
     }
   }, [form, router]);
 
-  const data = form.getValues();
+  const data = form.watch();
   const files: File[] = data.cadFiles ?? [];
 
   async function handleSubmit() {
@@ -158,9 +321,26 @@ export default function ReviewSubmissionPage() {
 
       {/* Submission fields */}
       <div className="flex flex-col gap-5">
-        <ReadonlyField label="Tube Design Name" value={data.title} />
-        <ReadonlyField label="Tube Design Differences" value={data.tubeDesignDifferences} />
-        <ReadonlyField label="Technical Rationale & Physics Principles" value={data.technicalRationale} />
+        <EditableTextField
+          label="Tube Design Name"
+          fieldKey="title"
+          value={data.title}
+          onSave={(v) => form.setValue("title", v)}
+        />
+        <EditableLongField
+          label="Tube Design Differences"
+          fieldKey="tubeDesignDifferences"
+          placeholder="Explain how your test tube's shape and physical structure differ from a standard 1.5 mL microfuge tube."
+          value={data.tubeDesignDifferences}
+          onSave={(v) => form.setValue("tubeDesignDifferences", v)}
+        />
+        <EditableLongField
+          label="Technical Rationale & Physics Principles"
+          fieldKey="technicalRationale"
+          placeholder="Describe the underlying rationale for your design and the physics principles that informed your choices."
+          value={data.technicalRationale}
+          onSave={(v) => form.setValue("technicalRationale", v)}
+        />
 
         {/* CAD file */}
         <div className="flex flex-col gap-2">
@@ -202,7 +382,7 @@ export default function ReviewSubmissionPage() {
 
       {/* Nav */}
       <div className="flex flex-col gap-3">
-        {lastScore !== null && <SubmitSignal score={lastScore} />}
+        <SubmitSignal score={lastScore} checksRemaining={checksRemaining} />
         <div className="flex justify-between">
           <button
             onClick={() => router.push("/submit/fluid-dynamics/cad-file-upload")}
@@ -212,7 +392,8 @@ export default function ReviewSubmissionPage() {
           </button>
           <button
             onClick={() => setConfirmOpen(true)}
-            className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
+            disabled={lastScore === null || lastScore < 50}
+            className="border px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui transition-colors disabled:cursor-not-allowed disabled:border-border disabled:bg-card disabled:text-muted-foreground border-feedback-success bg-feedback-success text-black hover:bg-feedback-success-hover"
           >
             Submit Project →
           </button>
