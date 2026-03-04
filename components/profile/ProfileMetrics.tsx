@@ -14,7 +14,7 @@ export function MetricBlock({
       >
         {value}
       </p>
-      <p className="font-mono text-[8px] uppercase tracking-ui text-muted-foreground">
+      <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">
         {label}
       </p>
     </div>
@@ -27,7 +27,7 @@ export function InfoCell({ label, value }: { label: string; value: string }) {
       <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
         {label}
       </span>
-      <span className="text-xs text-foreground">{value}</span>
+      <span className="text-sm text-foreground">{value}</span>
     </div>
   );
 }

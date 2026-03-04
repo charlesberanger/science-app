@@ -5,7 +5,7 @@ export default function IntentHeader() {
         <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           What do you want to do?
         </h1>
-        <p className="text-xs text-secondary-foreground">
+        <p className="text-sm text-secondary-foreground">
           Choose your path to participate in the Fluid Dynamics Challenge
         </p>
       </div>

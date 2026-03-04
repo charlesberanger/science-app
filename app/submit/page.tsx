@@ -56,7 +56,7 @@ export default function SubmitPage() {
             disabled={t.disabled}
             onClick={() => !t.disabled && setSelected(t.id)}
             style={{ animationDelay: `${i * 80}ms` }}
-            className={`animate-enter group relative w-full flex flex-col border text-left transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
+            className={`animate-enter group relative w-full appearance-none flex flex-col border text-left transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
               selected === t.id
                 ? "border-feedback-success bg-feedback-success/5"
                 : "border-border bg-card"
@@ -90,7 +90,7 @@ export default function SubmitPage() {
                 >
                   {t.label}
                 </span>
-                <span className="font-mono text-label text-muted-foreground">
+                <span className="text-sm text-muted-foreground">
                   {t.description}
                 </span>
               </div>
@@ -111,7 +111,7 @@ export default function SubmitPage() {
                     <span className="w-16 shrink-0 font-mono text-label uppercase tracking-ui text-muted-foreground">
                       {spec.key}
                     </span>
-                    <span className="font-mono text-label text-foreground">
+                    <span className="text-sm text-foreground">
                       {spec.value}
                     </span>
                   </div>

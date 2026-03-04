@@ -91,7 +91,7 @@ export default function RightCol() {
         <h2 className="mt-2 text-sm font-semibold leading-snug text-foreground">
           Fluid Dynamics Challenge
         </h2>
-        <p className="mt-1 text-xs text-muted-foreground">Turbulent Boundary Layer Modelling Track</p>
+        <p className="mt-1 text-sm text-muted-foreground">Turbulent Boundary Layer Modelling Track</p>
 
         <div className="mt-4 flex flex-col gap-3">
           <div className="flex flex-col gap-0.5">
@@ -110,7 +110,7 @@ export default function RightCol() {
             >
               Deadline
             </span>
-            <span className="text-xs text-secondary-foreground">April 12, 2026 — 23:59 UTC</span>
+            <span className="text-sm text-secondary-foreground">April 12, 2026 — 23:59 UTC</span>
           </div>
           <div className="flex flex-col gap-0.5">
             <span
@@ -119,7 +119,7 @@ export default function RightCol() {
             >
               Submissions
             </span>
-            <span className="text-xs text-secondary-foreground">312 total · 87 active teams</span>
+            <span className="text-sm text-secondary-foreground">312 total · 87 active teams</span>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@ export default function RightCol() {
             <a
               key={t}
               href="#comments"
-              className="text-xs text-muted-foreground transition-colors hover:text-secondary-foreground"
+              className="text-sm text-muted-foreground transition-colors hover:text-secondary-foreground"
             >
               → {t}
             </a>

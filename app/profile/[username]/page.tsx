@@ -133,7 +133,7 @@ export default function PublicProfilePage({
         </p>
         <div className="h-px bg-secondary" />
         <div className="border border-border bg-card p-4">
-          <p className="text-xs leading-[1.6] text-secondary-foreground">{user.bio}</p>
+          <p className="text-sm leading-relaxed text-secondary-foreground">{user.bio}</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3">
           <InfoCell label="Email" value={user.email} />

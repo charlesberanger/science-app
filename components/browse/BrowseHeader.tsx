@@ -11,7 +11,7 @@ export default function BrowseHeader({ search, onSearchChange, count }: BrowseHe
         <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Browse Projects
         </h1>
-        <p className="text-xs text-muted-foreground">
+        <p className="text-sm text-muted-foreground">
           <span className="text-secondary-foreground">{count} submissions</span>
           {" · "}
           <span style={{ fontFamily: "var(--font-dm-mono), monospace" }}>

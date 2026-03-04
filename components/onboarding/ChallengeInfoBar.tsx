@@ -14,7 +14,7 @@ export default function ChallengeInfoBar() {
           </span>
         </div>
         <span
-          className="text-xs text-muted-foreground"
+          className="text-sm text-muted-foreground"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           $24,000 prize pool · 312 submissions · 46 days remaining

@@ -87,7 +87,7 @@ export default function ScorePanel({
       {/* Header */}
       <div className="flex items-center justify-between border-b border-border px-5 py-3">
         <span
-          className="text-label uppercase tracking-ui text-muted-foreground"
+          className="text-sm uppercase tracking-ui text-muted-foreground"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           AI Pre-Screen
@@ -105,7 +105,7 @@ export default function ScorePanel({
       {/* ── Idle state ── */}
       {!loading && !result && !error && (
         <div className="px-5 py-4">
-          <p className="text-xs text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             Scored on{" "}
             {DIMENSIONS.map((d, i) => (
               <span key={d.key}>
@@ -193,7 +193,7 @@ export default function ScorePanel({
                   <div key={key} className="flex flex-col gap-1">
                     <div className="flex items-center justify-between">
                       <span
-                        className="text-label text-muted-foreground"
+                        className="text-xs text-muted-foreground"
                         style={{ fontFamily: "var(--font-dm-mono), monospace" }}
                       >
                         {label}
@@ -220,7 +220,7 @@ export default function ScorePanel({
           {result.flags.length > 0 && (
             <div className="flex flex-col gap-2 px-5 py-4">
               <span
-                className="text-label uppercase tracking-ui text-muted-foreground"
+                className="text-sm uppercase tracking-ui text-muted-foreground"
                 style={{ fontFamily: "var(--font-dm-mono), monospace" }}
               >
                 Improve
@@ -229,7 +229,7 @@ export default function ScorePanel({
                 {result.flags.map((flag, i) => (
                   <div key={i} className="flex items-start gap-2">
                     <span className="mt-0.5 shrink-0 text-label text-feedback-warning">→</span>
-                    <span className="text-xs leading-relaxed text-secondary-foreground">
+                    <span className="text-sm leading-relaxed text-secondary-foreground">
                       {flag}
                     </span>
                   </div>

@@ -57,7 +57,7 @@ export default function FluidDynamicsEligibilityPage() {
               {...register(name)}
               className="mt-0.5 h-4 w-4 shrink-0 accent-[#4ade80]"
             />
-            <span className="text-xs leading-relaxed text-secondary-foreground">{label}</span>
+            <span className="text-sm leading-relaxed text-secondary-foreground">{label}</span>
           </label>
         ))}
 
@@ -84,13 +84,13 @@ export default function FluidDynamicsEligibilityPage() {
                 >
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-label text-feedback-success">{c.points} pts</span>
-                    <span className="text-xs text-secondary-foreground">{c.label}</span>
+                    <span className="text-sm text-secondary-foreground">{c.label}</span>
                   </div>
                   <span className="font-mono text-label text-muted-foreground" aria-hidden="true">{isOpen ? "▲" : "▼"}</span>
                 </button>
                 {isOpen && (
                   <div id={panelId} role="region" aria-label={c.label} className="bg-background px-4 py-3">
-                    <p className="text-xs leading-relaxed text-muted-foreground">{c.description}</p>
+                    <p className="text-sm leading-relaxed text-muted-foreground">{c.description}</p>
                   </div>
                 )}
               </div>
