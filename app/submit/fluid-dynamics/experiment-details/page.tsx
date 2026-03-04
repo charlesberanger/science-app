@@ -57,7 +57,7 @@ export default function ExperimentDetailsPage() {
         <div className="flex flex-col gap-2">
           <label
             htmlFor="tube-design-name"
-            className="font-mono text-label uppercase tracking-ui text-muted-foreground"
+            className="font-mono text-sm uppercase tracking-ui text-muted-foreground"
           >
             Tube Design Name
           </label>

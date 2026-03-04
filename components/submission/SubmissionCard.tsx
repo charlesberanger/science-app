@@ -48,7 +48,7 @@ export default function SubmissionCard({
             key={cell.label}
             className="flex h-16 flex-col justify-center gap-1 border border-border bg-background px-4"
           >
-            <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+            <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
               {cell.label}
             </span>
             <span className="text-xs text-foreground">{cell.value}</span>

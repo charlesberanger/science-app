@@ -128,7 +128,7 @@ export default function PublicProfilePage({
 
       {/* About */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+        <p className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
           About
         </p>
         <div className="h-px bg-secondary" />
@@ -144,7 +144,7 @@ export default function PublicProfilePage({
 
       {/* Submission */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+        <p className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
           Submission
         </p>
         <div className="h-px bg-secondary" />

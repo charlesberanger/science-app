@@ -46,7 +46,7 @@ function EditableTextField({
     return (
       <div className="flex flex-col gap-2">
         <div className="flex items-baseline justify-between">
-          <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+          <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
             {label}
           </span>
           <div className="flex gap-3">
@@ -131,7 +131,7 @@ function EditableLongField({
     return (
       <div className="flex flex-col gap-2">
         <div className="flex items-baseline justify-between">
-          <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+          <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
             {label}
           </span>
           <div className="flex gap-3">
@@ -379,7 +379,7 @@ export default function ReviewSubmissionPage() {
 
         {/* CAD file */}
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+          <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
             CAD File
           </span>
           {files.length > 0 ? (

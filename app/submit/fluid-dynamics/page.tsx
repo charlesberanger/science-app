@@ -44,7 +44,7 @@ export default function FluidDynamicsEligibilityPage() {
 
       {/* Eligibility checkboxes */}
       <div className="flex flex-col gap-3 border border-border bg-card p-5">
-        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">Eligibility</p>
+        <p className="font-mono text-sm uppercase tracking-ui text-muted-foreground">Eligibility</p>
         <div className="h-px bg-secondary" />
 
         {[
@@ -68,7 +68,7 @@ export default function FluidDynamicsEligibilityPage() {
 
       {/* Judging criteria accordion */}
       <div className="flex flex-col gap-1">
-        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">Judging Criteria — 100 pts total</p>
+        <p className="font-mono text-sm uppercase tracking-ui text-muted-foreground">Judging Criteria — 100 pts total</p>
         <div className="h-px bg-secondary" />
         <div className="flex flex-col divide-y divide-[#1c1c1c] border border-border">
           {CRITERIA.map((c) => {

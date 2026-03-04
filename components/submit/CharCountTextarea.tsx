@@ -30,7 +30,7 @@ export default function CharCountTextarea({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-baseline justify-between">
-        <label htmlFor={inputId} className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+        <label htmlFor={inputId} className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
           {label}
         </label>
         <span
