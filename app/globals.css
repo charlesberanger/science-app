@@ -53,12 +53,6 @@
   --font-sans: var(--font-dm-sans), sans-serif;
   --font-mono: var(--font-dm-mono), monospace;
 
-  /* ── Custom font sizes ── */
-  --text-ui: 11px;
-  --text-ui--line-height: 1.4;
-  --text-label: 12px;
-  --text-label--line-height: 1.4;
-
   /* ── Letter spacing ── */
   --tracking-ui: 0.1em;
 }
@@ -195,16 +189,42 @@
   }
 }
 
+/* ── Custom font-size utilities ─────────────────────────────────────────────── */
+/* Defined directly (not via @theme) so they are guaranteed to apply            */
+
+@layer utilities {
+  .text-ui {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .text-label {
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
 /* ── Animations ─────────────────────────────────────────────────────────────── */
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes toastIn {
-  from { opacity: 0; transform: translateX(12px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .animate-enter {
