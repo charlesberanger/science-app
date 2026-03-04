@@ -7,10 +7,10 @@ import AuthLeftPanel from "@/components/auth/AuthLeftPanel";
 import { Button } from "@/components/ui/button";
 
 const STATS = [
-  { value: "312",   label: "SUBMISSIONS" },
+  { value: "312", label: "SUBMISSIONS" },
   { value: "18.4k", label: "TOTAL VOTES" },
-  { value: "187",   label: "APPROVED" },
-  { value: "Live",  label: "CHALLENGE", highlight: true },
+  { value: "187", label: "APPROVED" },
+  { value: "Live", label: "CHALLENGE", highlight: true },
 ];
 
 function StatsFooter() {
@@ -19,7 +19,9 @@ function StatsFooter() {
       <div className="grid grid-cols-4 divide-x divide-[#1c1c1c]">
         {STATS.map((s) => (
           <div key={s.label} className="flex flex-col gap-1 px-4 py-4">
-            <span className={`text-[22px] font-bold tracking-tight ${s.highlight ? "text-lime-400" : "text-foreground"}`}>
+            <span
+              className={`text-[22px] font-bold tracking-tight ${s.highlight ? "text-lime-400" : "text-foreground"}`}
+            >
               {s.value}
             </span>
             <span className="font-mono text-label tracking-ui text-muted-foreground">
@@ -38,13 +40,16 @@ function SignInForm() {
   const mode = searchParams.get("mode");
   const isRegister = mode === "register";
   const signedOut = searchParams.get("signedOut") === "true";
+  const redirect = searchParams.get("redirect");
 
   const [email, setEmail] = useState("");
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email) return;
-    router.push(`/auth/verify?email=${encodeURIComponent(email)}`);
+    const params = new URLSearchParams({ email });
+    if (redirect) params.set("redirect", redirect);
+    router.push(`/auth/verify?${params.toString()}`);
   }
 
   return (
@@ -52,8 +57,8 @@ function SignInForm() {
       <AuthLeftPanel
         eyebrow="QUICK AUTHENTICATION"
         headline={[
-          { text: "Sign",    style: "bold" },
-          { text: "in to",  style: "italic" },
+          { text: "Sign", style: "bold" },
+          { text: "in to", style: "italic" },
           { text: "Science", style: "bold" },
         ]}
         description="The Science platform brings together researchers, engineers, and innovators to compete and push boundaries."
@@ -86,7 +91,10 @@ function SignInForm() {
 
           <div className="border-t border-border" />
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-3 px-9 py-7">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-3 px-9 py-7"
+          >
             <p className="text-[13px] font-normal leading-[1.55] text-secondary-foreground">
               {isRegister
                 ? "Create an account with your organisation email. No password required."
@@ -119,7 +127,9 @@ function SignInForm() {
             {/* Divider */}
             <div className="flex items-center gap-3">
               <div className="h-px flex-1 bg-secondary" />
-              <span className="font-mono text-label tracking-ui text-muted-foreground">OR</span>
+              <span className="font-mono text-label tracking-ui text-muted-foreground">
+                OR
+              </span>
               <div className="h-px flex-1 bg-secondary" />
             </div>
 

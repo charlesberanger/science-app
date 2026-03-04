@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import NavItem from "./NavItem";
 import ProfileSection from "./ProfileSection";
 import ScienceLogo from "@/components/icons/ScienceLogo";
@@ -23,8 +24,8 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       `}
     >
       {/* Brand */}
-      <div className="flex items-center justify-between border-b border-border px-4 py-4">
-        <div className="flex items-center gap-2.5">
+      <div className="flex h-14 items-center justify-between border-b border-border px-4">
+        <Link href="/get-started" className="flex items-center gap-2.5" onClick={onClose}>
           <ScienceLogo className="h-7 w-7" />
           <span
             className="text-xs uppercase tracking-ui text-foreground"
@@ -32,7 +33,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           >
             Science
           </span>
-        </div>
+        </Link>
         <button
           onClick={onClose}
           className="flex h-6 w-6 items-center justify-center text-muted-foreground transition-colors hover:text-foreground lg:hidden"
