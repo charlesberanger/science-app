@@ -246,7 +246,7 @@ export default function ScorePanel({
           <button
             onClick={handleCheck}
             disabled={!canCheck}
-            className="flex w-full items-center justify-center gap-2 border border-border bg-secondary py-3 font-mono text-ui uppercase tracking-ui text-secondary-foreground transition-colors hover:border-foreground/20 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
+            className="flex w-full items-center justify-center gap-2 border border-border bg-secondary py-3 font-mono text-label uppercase tracking-ui text-secondary-foreground transition-colors hover:border-foreground/20 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
           >
             {hasChecked ? "Re-evaluate submission" : "Check my submission"}
           </button>

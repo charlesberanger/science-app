@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils"
  */
 const badgeVariants = cva(
   [
-    "inline-flex items-center gap-1.5 rounded-full border",
-    "px-2.5 py-0.5",
+    "inline-flex items-center gap-1 rounded-full border",
+    "px-2 py-px",
     "font-mono text-ui uppercase tracking-ui",
     "transition-colors",
   ].join(" "),
@@ -49,7 +49,7 @@ function Badge({ className, variant, dot = true, children, ...props }: BadgeProp
   return (
     <div className={cn(badgeVariants({ variant }), className)} {...props}>
       {dot && (
-        <span className={cn("h-1.5 w-1.5 shrink-0 rounded-full", dotColor[v])} />
+        <span className={cn("h-1 w-1 shrink-0 rounded-full", dotColor[v])} />
       )}
       {children}
     </div>
