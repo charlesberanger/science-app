@@ -20,7 +20,7 @@ function StatsFooter() {
         {STATS.map((s) => (
           <div key={s.label} className="flex flex-col gap-1 px-4 py-4">
             <span
-              className={`text-[22px] font-bold tracking-tight ${s.highlight ? "text-lime-400" : "text-foreground"}`}
+              className={`text-2xl font-bold tracking-tight ${s.highlight ? "text-lime-400" : "text-foreground"}`}
             >
               {s.value}
             </span>
@@ -84,7 +84,7 @@ function SignInForm() {
             <p className="font-mono text-label tracking-ui text-muted-foreground">
               STEP 01 OF 04&nbsp;&nbsp;·&nbsp;&nbsp;CREATE ACCOUNT
             </p>
-            <h2 className="mt-2 text-[20px] font-bold tracking-tight text-foreground">
+            <h2 className="mt-2 text-xl font-bold tracking-tight text-foreground">
               {isRegister ? "Create your account" : "Quick Authentication"}
             </h2>
           </div>
@@ -95,7 +95,7 @@ function SignInForm() {
             onSubmit={handleSubmit}
             className="flex flex-col gap-3 px-9 py-7"
           >
-            <p className="text-[13px] font-normal leading-[1.55] text-secondary-foreground">
+            <p className="text-sm font-normal leading-[1.55] text-secondary-foreground">
               {isRegister
                 ? "Create an account with your organisation email. No password required."
                 : "Sign in with your organisation account via SSO. No password required."}
@@ -112,14 +112,14 @@ function SignInForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@institution.edu"
-                className="h-11 border border-border bg-secondary px-3.5 text-[14px] text-foreground placeholder:text-muted-foreground outline-none transition-colors focus-visible:border-feedback-success"
+                className="h-11 border border-border bg-secondary px-3.5 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-colors focus-visible:border-feedback-success"
               />
             </div>
 
             {/* Primary CTA */}
             <button
               type="submit"
-              className="mt-1 flex h-12 w-full items-center justify-center bg-feedback-success font-mono text-[12px] font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90"
+              className="mt-1 flex h-12 w-full items-center justify-center bg-feedback-success font-mono text-label font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90"
             >
               Continue with SSO →
             </button>

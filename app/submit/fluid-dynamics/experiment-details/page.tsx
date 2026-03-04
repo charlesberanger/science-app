@@ -65,7 +65,7 @@ export default function ExperimentDetailsPage() {
             id="tube-design-name"
             {...register("title")}
             placeholder="Enter a name for your tube design"
-            className="border border-border bg-background px-3.5 py-3 text-[13px] text-foreground placeholder:text-muted-foreground outline-none transition-colors focus-visible:border-feedback-success"
+            className="border border-border bg-background px-3.5 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-colors focus-visible:border-feedback-success"
           />
           {errors.title && (
             <p className="font-mono text-label text-red-400">
@@ -105,13 +105,13 @@ export default function ExperimentDetailsPage() {
       <div className="flex justify-between">
         <button
           onClick={() => router.push("/submit/fluid-dynamics")}
-          className="border border-border bg-card px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
+          className="border border-border bg-card px-5 py-2.5 font-mono text-ui uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
         >
           ← Eligibility
         </button>
         <button
           onClick={handleNext}
-          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
+          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
         >
           Next: CAD Upload →
         </button>

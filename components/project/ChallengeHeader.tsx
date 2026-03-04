@@ -26,7 +26,7 @@ export default function ChallengeHeader() {
           placeholder="Search coming soon…"
           disabled
           aria-label="Search (coming soon)"
-          className="w-full bg-transparent text-[11px] text-secondary-foreground placeholder:text-muted-foreground outline-none sm:w-48 cursor-not-allowed"
+          className="w-full bg-transparent text-ui text-secondary-foreground placeholder:text-muted-foreground outline-none sm:w-48 cursor-not-allowed"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         />
       </div>

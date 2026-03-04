@@ -48,12 +48,12 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
         <span className="h-px w-4 bg-muted-foreground" />
       </button>
 
-      <span className="hidden font-mono text-[11px] tracking-ui text-muted-foreground lg:block">
+      <span className="hidden font-mono text-ui tracking-ui text-muted-foreground lg:block">
         Science <span className="text-muted-foreground">/</span>{" "}
         <span className="text-secondary-foreground">{section}</span>
       </span>
 
-      <span className="absolute left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-ui text-muted-foreground lg:hidden">
+      <span className="absolute left-1/2 -translate-x-1/2 font-mono text-ui tracking-ui text-muted-foreground lg:hidden">
         Science <span className="text-muted-foreground">/</span>{" "}
         <span className="text-secondary-foreground">{section}</span>
       </span>

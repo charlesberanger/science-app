@@ -31,7 +31,7 @@ export default function BrowseHeader({ search, onSearchChange, count }: BrowseHe
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search projects…"
           aria-label="Search projects"
-          className="w-full bg-transparent text-[13px] text-secondary-foreground placeholder:text-muted-foreground outline-none"
+          className="w-full bg-transparent text-sm text-secondary-foreground placeholder:text-muted-foreground outline-none"
         />
         {search.length > 0 ? (
           <button

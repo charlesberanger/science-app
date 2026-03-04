@@ -24,13 +24,13 @@ export default function Error({
       <div className="flex items-center gap-3">
         <button
           onClick={reset}
-          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
+          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
         >
           Try again
         </button>
         <a
           href="/get-started"
-          className="border border-border bg-card px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
+          className="border border-border bg-card px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
         >
           ← Home
         </a>

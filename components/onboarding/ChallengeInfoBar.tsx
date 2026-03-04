@@ -9,12 +9,12 @@ export default function ChallengeInfoBar() {
           >
             Current Challenge
           </span>
-          <span className="text-[15px] font-bold text-foreground">
+          <span className="text-base font-bold text-foreground">
             Fluid Dynamics Challenge
           </span>
         </div>
         <span
-          className="text-sm text-muted-foreground"
+          className="text-sm text-feedback-success"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           $24,000 prize pool · 312 submissions · 46 days remaining

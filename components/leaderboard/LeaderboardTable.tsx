@@ -100,7 +100,7 @@ export default function LeaderboardTable() {
       {myEntry && (
         <div className="flex items-center gap-3 border border-feedback-warning/40 bg-feedback-warning/5 px-4 py-2.5">
           <span
-            className="font-mono text-[11px] uppercase tracking-[0.1em] text-feedback-warning"
+            className="font-mono text-ui uppercase tracking-[0.1em] text-feedback-warning"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             Your rank
@@ -114,10 +114,10 @@ export default function LeaderboardTable() {
               #{myEntry.rank}
             </span>
           </span>
-          <span className="text-[13px] font-medium text-foreground truncate">
+          <span className="text-sm font-medium text-foreground truncate">
             {myEntry.project}
           </span>
-          <span className="ml-auto font-mono text-[11px] text-feedback-success">
+          <span className="ml-auto font-mono text-ui text-feedback-success">
             ▲ {myEntry.votes}
           </span>
         </div>
@@ -165,14 +165,14 @@ export default function LeaderboardTable() {
                 <div className="flex items-center gap-3 px-4 py-3">
                   <div className="h-7 w-7 shrink-0 rounded-full bg-secondary" />
                   <div className="flex min-w-0 flex-col">
-                    <span className="truncate text-[13px] font-medium text-foreground">
+                    <span className="truncate text-sm font-medium text-foreground">
                       {entry.project}
                     </span>
-                    <span className="flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                    <span className="flex items-center gap-1.5 text-ui text-muted-foreground">
                       {entry.author}
                       {isMe && (
                         <span
-                          className="font-mono text-[10px] uppercase tracking-[0.08em] text-feedback-warning"
+                          className="font-mono text-ui uppercase tracking-[0.08em] text-feedback-warning"
                           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
                         >
                           · You
@@ -194,7 +194,7 @@ export default function LeaderboardTable() {
                 </div>
                 <div className="flex items-center justify-end px-4">
                   <span
-                    className="text-[14px] font-medium text-feedback-success tracking-ui"
+                    className="text-sm font-medium text-feedback-success tracking-ui"
                     style={{ fontFamily: "var(--font-dm-mono), monospace" }}
                   >
                     {entry.votes}
@@ -216,7 +216,7 @@ export default function LeaderboardTable() {
           {hasMore && (
             <button
               onClick={() => setVisible((v) => Math.min(v + PAGE_SIZE, filtered.length))}
-              className="border border-border bg-secondary px-4 py-1.5 text-[11px] text-secondary-foreground transition-colors hover:text-foreground"
+              className="border border-border bg-secondary px-4 py-1.5 text-ui text-secondary-foreground transition-colors hover:text-foreground"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Load more →

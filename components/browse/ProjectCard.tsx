@@ -49,7 +49,7 @@ export default function ProjectCard({
         {description && (
           <div className="absolute inset-0 flex items-end bg-linear-to-t from-black/80 via-black/30 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100">
             <p
-              className="px-3 pb-3 pt-6 text-[11px] leading-relaxed text-white/90"
+              className="px-3 pb-3 pt-6 text-ui leading-relaxed text-white/90"
               style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}
             >
               {description.length > 90 ? description.slice(0, 90) + "…" : description}
@@ -80,12 +80,12 @@ export default function ProjectCard({
 
       {/* Info */}
       <div className="flex flex-col gap-2 p-3">
-        <p className="text-[13px] font-medium leading-snug text-foreground group-hover:text-secondary-foreground">
+        <p className="text-sm font-medium leading-snug text-foreground group-hover:text-secondary-foreground">
           {title}
         </p>
         <div className="flex items-center gap-1.5">
           <div className="h-5 w-5 rounded-full bg-secondary shrink-0" />
-          <span className="text-[11px] text-secondary-foreground">{author}</span>
+          <span className="text-ui text-secondary-foreground">{author}</span>
         </div>
       </div>
     </Link>

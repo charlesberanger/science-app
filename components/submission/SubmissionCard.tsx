@@ -35,7 +35,7 @@ export default function SubmissionCard({
       {/* Header */}
       <div className="flex items-start justify-between gap-4 px-4">
         <div className="flex flex-col gap-1.5">
-          <p className="text-[15px] font-bold tracking-tight text-foreground">{title}</p>
+          <p className="text-base font-bold tracking-tight text-foreground">{title}</p>
           <p className="font-mono text-label tracking-ui text-muted-foreground">{submittedAt}</p>
         </div>
         <Badge variant={variant} className="shrink-0">{label}</Badge>
@@ -48,17 +48,17 @@ export default function SubmissionCard({
             key={cell.label}
             className="flex h-16 flex-col justify-center gap-1 border border-border bg-background px-4"
           >
-            <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+            <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
               {cell.label}
             </span>
-            <span className="text-xs text-foreground">{cell.value}</span>
+            <span className="text-sm text-foreground">{cell.value}</span>
           </div>
         ))}
       </div>
 
       {/* Description */}
       <div className="px-4">
-        <p className="text-[13px] leading-[1.65] text-muted-foreground">{description}</p>
+        <p className="text-sm leading-[1.65] text-muted-foreground">{description}</p>
       </div>
     </div>
   );

@@ -27,15 +27,15 @@ export default function PathCard({
           {icon}
         </span>
         <div className="flex flex-col gap-2">
-          <h2 className="text-[22px] font-normal leading-snug tracking-tight text-foreground">
+          <h2 className="text-2xl font-normal leading-snug tracking-tight text-foreground">
             {title}
           </h2>
-          <p className="text-[13px] leading-relaxed text-secondary-foreground">{description}</p>
+          <p className="text-sm leading-relaxed text-secondary-foreground">{description}</p>
         </div>
       </div>
 
       <div className="flex flex-col gap-1.5">
-        <span className="text-[13px] font-medium text-foreground">{cta}</span>
+        <span className="text-sm font-medium text-foreground">{cta}</span>
         <span
           className="text-label uppercase tracking-ui text-muted-foreground"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}

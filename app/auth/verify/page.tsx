@@ -18,7 +18,7 @@ function StepsFooter() {
       {STEPS.map((s) => (
         <div key={s.label} className="flex items-center gap-4">
           <div
-            className={`flex h-7 w-7 shrink-0 items-center justify-center border font-mono text-[11px] ${
+            className={`flex h-7 w-7 shrink-0 items-center justify-center border font-mono text-ui ${
               s.done
                 ? "border-[rgba(74,222,128,0.5)] bg-[rgba(4,18,8,0.7)] text-feedback-success"
                 : s.active
@@ -29,7 +29,7 @@ function StepsFooter() {
             {s.n}
           </div>
           <span
-            className={`text-[13px] ${
+            className={`text-sm ${
               s.done ? "text-secondary-foreground" : s.active ? "font-medium text-foreground" : "text-muted-foreground"
             }`}
           >
@@ -83,7 +83,7 @@ function OtpInput({ value, onChange }: { value: string[]; onChange: (v: string[]
             onChange={(e) => handleChange(i, e.target.value)}
             onKeyDown={(e) => handleKeyDown(i, e)}
             onPaste={handlePaste}
-            className={`h-16 w-[54px] border bg-secondary text-center font-mono text-[24px] text-lime-400 outline-none focus-visible:ring-1 focus-visible:ring-ring/50 transition-all ${
+            className={`h-16 w-[54px] border bg-secondary text-center font-mono text-2xl text-lime-400 outline-none focus-visible:ring-1 focus-visible:ring-ring/50 transition-all ${
               isCurrent
                 ? "border-lime-400 shadow-[0_0_0_3px_rgba(172,255,175,0.18)]"
                 : digit
@@ -145,7 +145,7 @@ function VerifyForm() {
             <p className="font-mono text-label tracking-ui text-muted-foreground">
               STEP 01 OF 04&nbsp;&nbsp;·&nbsp;&nbsp;CREATE ACCOUNT
             </p>
-            <h2 className="mt-2 text-[20px] font-bold tracking-tight text-foreground">
+            <h2 className="mt-2 text-xl font-bold tracking-tight text-foreground">
               Enter your code
             </h2>
           </div>
@@ -153,7 +153,7 @@ function VerifyForm() {
           <div className="border-t border-border" />
 
           <form onSubmit={handleVerify} className="flex flex-col gap-5 px-9 py-7">
-            <p className="text-[13px] font-normal leading-[1.55] text-secondary-foreground">
+            <p className="text-sm font-normal leading-[1.55] text-secondary-foreground">
               We sent a 6-digit code to{" "}
               <span className="text-foreground">{email}</span>. Expires in 09:42.
             </p>
@@ -175,7 +175,7 @@ function VerifyForm() {
             <button
               type="submit"
               disabled={!filled}
-              className="flex h-12 w-full items-center justify-center bg-lime-400 font-mono text-[12px] font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90 disabled:opacity-30"
+              className="flex h-12 w-full items-center justify-center bg-lime-400 font-mono text-label font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90 disabled:opacity-30"
             >
               Verify Code →
             </button>

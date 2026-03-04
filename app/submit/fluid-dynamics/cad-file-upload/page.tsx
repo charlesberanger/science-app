@@ -130,13 +130,13 @@ export default function CadFileUploadPage() {
           onClick={() =>
             router.push("/submit/fluid-dynamics/experiment-details")
           }
-          className="border border-border bg-card px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
+          className="border border-border bg-card px-5 py-2.5 font-mono text-ui uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
         >
           ← Experiment Details
         </button>
         <button
           onClick={handleNext}
-          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
+          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
         >
           Next: Review →
         </button>

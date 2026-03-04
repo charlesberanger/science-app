@@ -126,7 +126,7 @@ export default function SubmitPage() {
         <button
           disabled={!selected}
           onClick={() => router.push(`/submit/${selected}`)}
-          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover disabled:cursor-not-allowed disabled:opacity-30"
+          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover disabled:cursor-not-allowed disabled:opacity-30"
         >
           Next: Eligibility →
         </button>

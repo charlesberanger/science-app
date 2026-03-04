@@ -31,12 +31,12 @@ export default function ShareLink() {
           type="text"
           readOnly
           value={SHARE_URL}
-          className="flex-1 rounded border border-border bg-background px-3 py-2 text-[11px] text-muted-foreground outline-none focus-visible:border-feedback-success sm:rounded-r-none"
+          className="flex-1 rounded border border-border bg-background px-3 py-2 text-ui text-muted-foreground outline-none focus-visible:border-feedback-success sm:rounded-r-none"
           style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         />
         <button
           onClick={handleCopy}
-          className={`rounded border px-4 py-2 text-[11px] transition-colors sm:rounded-l-none sm:border-l-0 ${
+          className={`rounded border px-4 py-2 text-ui transition-colors sm:rounded-l-none sm:border-l-0 ${
             copied
               ? "border-feedback-success bg-feedback-success/10 text-feedback-success"
               : "border-border bg-secondary text-secondary-foreground hover:bg-secondary hover:text-foreground"

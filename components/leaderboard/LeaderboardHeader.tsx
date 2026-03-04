@@ -38,7 +38,7 @@ export default function LeaderboardHeader() {
           placeholder="Search coming soon…"
           disabled
           aria-label="Search (coming soon)"
-          className="w-full bg-transparent text-[13px] text-secondary-foreground placeholder:text-muted-foreground outline-none cursor-not-allowed"
+          className="w-full bg-transparent text-sm text-secondary-foreground placeholder:text-muted-foreground outline-none cursor-not-allowed"
         />
       </div>
     </div>

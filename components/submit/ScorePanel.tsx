@@ -166,7 +166,7 @@ export default function ScorePanel({
 
           {/* 1. Verdict — most actionable, leads */}
           <div className="px-5 py-4">
-            <p className="text-[13px] leading-relaxed text-foreground">{result.verdict}</p>
+            <p className="text-sm leading-relaxed text-foreground">{result.verdict}</p>
           </div>
 
           {/* 2. Composite score + dimension bars */}
@@ -246,7 +246,7 @@ export default function ScorePanel({
           <button
             onClick={handleCheck}
             disabled={!canCheck}
-            className="flex w-full items-center justify-center gap-2 border border-border bg-secondary py-3 font-mono text-[11px] uppercase tracking-ui text-secondary-foreground transition-colors hover:border-foreground/20 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
+            className="flex w-full items-center justify-center gap-2 border border-border bg-secondary py-3 font-mono text-ui uppercase tracking-ui text-secondary-foreground transition-colors hover:border-foreground/20 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
           >
             {hasChecked ? "Re-evaluate submission" : "Check my submission"}
           </button>

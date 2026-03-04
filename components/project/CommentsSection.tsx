@@ -81,13 +81,13 @@ export default function CommentsSection() {
             onChange={(e) => setDraft(e.target.value)}
             placeholder="Add a comment…"
             rows={3}
-            className="w-full resize-none border border-border bg-background px-3.5 py-3 text-[13px] leading-relaxed text-foreground placeholder:text-muted-foreground outline-none focus-visible:border-feedback-success transition-colors"
+            className="w-full resize-none border border-border bg-background px-3.5 py-3 text-sm leading-relaxed text-foreground placeholder:text-muted-foreground outline-none focus-visible:border-feedback-success transition-colors"
           />
           <div className="mt-2 flex justify-end">
             <button
               type="submit"
               disabled={!draft.trim()}
-              className="border border-border bg-secondary px-4 py-2 text-[11px] text-secondary-foreground transition-colors hover:border-feedback-success hover:text-feedback-success disabled:opacity-30 disabled:pointer-events-none"
+              className="border border-border bg-secondary px-4 py-2 text-ui text-secondary-foreground transition-colors hover:border-feedback-success hover:text-feedback-success disabled:opacity-30 disabled:pointer-events-none"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               Post →
@@ -96,7 +96,7 @@ export default function CommentsSection() {
         </form>
       ) : (
         <div className="border-t border-border px-5 py-4">
-          <p className="text-[11px] text-muted-foreground" style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
+          <p className="text-ui text-muted-foreground" style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
             <a href="/auth/sign-in" className="text-muted-foreground hover:text-secondary-foreground transition-colors">Sign in</a>
             {" "}to leave a comment
           </p>

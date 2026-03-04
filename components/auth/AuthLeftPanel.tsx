@@ -37,7 +37,7 @@ export default function AuthLeftPanel({
           <div className="flex h-8 w-8 items-center justify-center bg-black">
             <ScienceLogo className="h-5 w-5" />
           </div>
-          <span className="font-mono text-[11px] tracking-ui text-secondary-foreground">
+          <span className="font-mono text-ui tracking-ui text-secondary-foreground">
             SCIENCE
           </span>
         </div>
@@ -61,7 +61,7 @@ export default function AuthLeftPanel({
         {headline.map((line, i) => (
           <span
             key={i}
-            className={`text-[72px] ${
+            className={`text-7xl ${
               line.style === "bold"
                 ? "font-bold text-foreground"
                 : "font-light italic text-muted-foreground"
@@ -73,7 +73,7 @@ export default function AuthLeftPanel({
       </div>
 
       {/* Description */}
-      <p className="mt-6 px-14 text-[15px] font-light leading-[1.68] text-secondary-foreground">
+      <p className="mt-6 px-14 text-base font-light leading-[1.68] text-secondary-foreground">
         {description}
       </p>
 

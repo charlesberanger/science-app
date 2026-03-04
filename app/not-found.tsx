@@ -21,7 +21,7 @@ export default function NotFound() {
       </div>
       <Link
         href="/get-started"
-        className="border border-border bg-card px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
+        className="border border-border bg-card px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
       >
         ← Back to home
       </Link>

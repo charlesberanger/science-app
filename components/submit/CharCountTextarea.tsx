@@ -52,7 +52,7 @@ export default function CharCountTextarea({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         rows={10}
-        className={`w-full resize-y border bg-background px-3.5 py-3 text-[13px] leading-relaxed text-foreground placeholder:text-muted-foreground outline-none transition-colors focus-visible:border-feedback-success ${
+        className={`w-full resize-y border bg-background px-3.5 py-3 text-sm leading-relaxed text-foreground placeholder:text-muted-foreground outline-none transition-colors focus-visible:border-feedback-success ${
           error ? "border-red-500/50" : "border-border"
         }`}
       />

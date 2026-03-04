@@ -54,10 +54,10 @@
   --font-mono: var(--font-dm-mono), monospace;
 
   /* ── Custom font sizes ── */
-  --text-label: 11px;
+  --text-ui: 11px;
+  --text-ui--line-height: 1.4;
+  --text-label: 12px;
   --text-label--line-height: 1.4;
-  --text-meta: 12px;
-  --text-meta--line-height: 1.5;
 
   /* ── Letter spacing ── */
   --tracking-ui: 0.1em;

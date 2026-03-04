@@ -103,14 +103,14 @@ export default function FluidDynamicsEligibilityPage() {
       <div className="flex justify-between">
         <button
           onClick={() => router.push("/submit")}
-          className="border border-border bg-card px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
+          className="border border-border bg-card px-5 py-2.5 font-mono text-ui uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
         >
           ← Project Type
         </button>
         <button
           disabled={!canProceed}
           onClick={() => router.push("/submit/fluid-dynamics/experiment-details")}
-          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-[11px] uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover disabled:cursor-not-allowed disabled:opacity-30"
+          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover disabled:cursor-not-allowed disabled:opacity-30"
         >
           Next: Experiment Details →
         </button>

@@ -33,7 +33,7 @@ function FieldInput({
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
-      className="h-11 w-full border border-border bg-secondary px-3.5 text-[14px] text-foreground placeholder:text-muted-foreground outline-none focus-visible:border-feedback-success transition-colors"
+      className="h-11 w-full border border-border bg-secondary px-3.5 text-sm text-foreground placeholder:text-muted-foreground outline-none focus-visible:border-feedback-success transition-colors"
     />
   );
 }
@@ -90,14 +90,14 @@ export default function ProfileForm() {
             />
           ) : (
             <span
-              className="text-[22px] text-secondary-foreground"
+              className="text-2xl text-secondary-foreground"
               style={{ fontFamily: "var(--font-dm-mono), monospace" }}
             >
               {initials}
             </span>
           )}
         </div>
-        <label className="cursor-pointer border border-border px-3 py-1.5 text-[11px] text-foreground transition-colors hover:border-border hover:text-secondary-foreground">
+        <label className="cursor-pointer border border-border px-3 py-1.5 text-ui text-foreground transition-colors hover:border-border hover:text-secondary-foreground">
           Upload photo
           <input
             type="file"
@@ -152,7 +152,7 @@ export default function ProfileForm() {
             onChange={(e) => setBio(e.target.value)}
             placeholder="Describe your research or project focus…"
             rows={5}
-            className="w-full resize-none border border-border bg-secondary px-3.5 py-3 text-[13px] leading-relaxed text-foreground placeholder:text-muted-foreground outline-none focus-visible:border-feedback-success transition-colors"
+            className="w-full resize-none border border-border bg-secondary px-3.5 py-3 text-sm leading-relaxed text-foreground placeholder:text-muted-foreground outline-none focus-visible:border-feedback-success transition-colors"
           />
         </div>
 
@@ -202,7 +202,7 @@ export default function ProfileForm() {
           <div className="flex items-center gap-3">
             {saved && (
               <span
-                className="text-[11px] text-feedback-success"
+                className="text-ui text-feedback-success"
                 style={{ fontFamily: "var(--font-dm-mono), monospace" }}
               >
                 Saved ✓
@@ -217,7 +217,7 @@ export default function ProfileForm() {
                   router.push("/profile");
                 }, 1200);
               }}
-              className="border border-feedback-success bg-transparent px-6 py-2.5 text-[12px] font-medium text-feedback-success tracking-ui transition-colors hover:bg-feedback-success/10"
+              className="border border-feedback-success bg-transparent px-6 py-2.5 text-label font-medium text-feedback-success tracking-ui transition-colors hover:bg-feedback-success/10"
             >
               Save →
             </button>

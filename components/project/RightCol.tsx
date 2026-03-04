@@ -56,13 +56,13 @@ export default function RightCol() {
           }`}
         >
           <span
-            className="text-[11px] uppercase tracking-ui"
+            className="text-ui uppercase tracking-ui"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}
           >
             {voted ? "▲ Voted" : "▲ Vote"}
           </span>
           <span
-            className="text-[11px] transition-transform duration-150"
+            className="text-ui transition-transform duration-150"
             style={{
               fontFamily: "var(--font-dm-mono), monospace",
               transform: bumped ? "scale(1.3)" : "scale(1)",
