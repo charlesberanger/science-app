@@ -71,39 +71,39 @@
 @layer base {
   :root {
     /* Backgrounds */
-    --background: 228 11% 88%;    /* #DDDFE5  bg/default   */
-    --card: 228 11% 93%;          /* #ECEEF2  bg/surface   */
-    --popover: 228 11% 93%;       /* #ECEEF2  bg/surface   */
+    --background: 228 11% 88%; /* #DDDFE5  bg/default   */
+    --card: 228 11% 93%; /* #ECEEF2  bg/surface   */
+    --popover: 228 11% 93%; /* #ECEEF2  bg/surface   */
 
     /* Text */
-    --foreground: 0 0% 7%;        /* #111111  text/primary   */
+    --foreground: 0 0% 7%; /* #111111  text/primary   */
     --card-foreground: 0 0% 7%;
     --popover-foreground: 0 0% 7%;
 
     /* Primary — dark button / key action */
-    --primary: 0 0% 7%;           /* #111111  */
+    --primary: 0 0% 7%; /* #111111  */
     --primary-foreground: 0 0% 96%; /* #F5F5F5  */
 
     /* Secondary — elevated surface */
-    --secondary: 228 11% 82%;     /* #D0D3DB  bg/elevated  */
+    --secondary: 228 11% 82%; /* #D0D3DB  bg/elevated  */
     --secondary-foreground: 0 0% 25%; /* #404040  text/secondary */
 
     /* Muted */
-    --muted: 228 11% 82%;         /* #D0D3DB */
+    --muted: 228 11% 82%; /* #D0D3DB */
     --muted-foreground: 0 0% 40%; /* #666666  text/tertiary — 5.7:1 on #DDDFE5 */
 
     /* Accent — hover states */
-    --accent: 228 11% 78%;        /* #C6C9D3  border/default */
+    --accent: 228 11% 78%; /* #C6C9D3  border/default */
     --accent-foreground: 0 0% 7%;
 
     /* Destructive */
-    --destructive: 0 91% 71%;     /* #F87171  error */
+    --destructive: 0 91% 71%; /* #F87171  error */
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & inputs */
-    --border: 228 8% 74%;         /* #BABDC6  border/default */
-    --input: 228 11% 82%;         /* #D0D3DB  */
-    --ring: 122 100% 84%;         /* #ACFFAF  lime accent — focus ring */
+    --border: 228 8% 74%; /* #BABDC6  border/default */
+    --input: 228 11% 82%; /* #D0D3DB  */
+    --ring: 122 100% 84%; /* #ACFFAF  lime accent — focus ring */
 
     /* Science DS raw tokens */
     --bg-default: #dddfe5;
@@ -129,39 +129,39 @@
 
   .dark {
     /* Backgrounds */
-    --background: 0 0% 4%;        /* #0A0A0A  bg/default   */
-    --card: 0 0% 7%;              /* #111111  bg/surface   */
-    --popover: 0 0% 7%;           /* #111111  bg/surface   */
+    --background: 0 0% 4%; /* #0A0A0A  bg/default   */
+    --card: 0 0% 7%; /* #111111  bg/surface   */
+    --popover: 0 0% 7%; /* #111111  bg/surface   */
 
     /* Text */
-    --foreground: 0 0% 100%;      /* #FFFFFF  text/primary   */
+    --foreground: 0 0% 100%; /* #FFFFFF  text/primary   */
     --card-foreground: 0 0% 100%;
     --popover-foreground: 0 0% 100%;
 
     /* Primary — white button / key action */
-    --primary: 0 0% 100%;         /* #FFFFFF  */
+    --primary: 0 0% 100%; /* #FFFFFF  */
     --primary-foreground: 0 0% 4%; /* #0A0A0A  */
 
     /* Secondary — elevated surface */
-    --secondary: 0 0% 11%;        /* #1C1C1C  bg/elevated  */
+    --secondary: 0 0% 11%; /* #1C1C1C  bg/elevated  */
     --secondary-foreground: 0 0% 60%; /* #999999  text/secondary */
 
     /* Muted */
-    --muted: 0 0% 11%;            /* #1C1C1C */
+    --muted: 0 0% 11%; /* #1C1C1C */
     --muted-foreground: 0 0% 53%; /* #888888  text/tertiary — 5.3:1 on #111 */
 
     /* Accent — hover states */
-    --accent: 0 0% 16%;           /* #2A2A2A  border/default */
+    --accent: 0 0% 16%; /* #2A2A2A  border/default */
     --accent-foreground: 0 0% 100%;
 
     /* Destructive */
-    --destructive: 0 91% 71%;     /* #F87171  error */
+    --destructive: 0 91% 71%; /* #F87171  error */
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & inputs */
-    --border: 0 0% 16%;           /* #2A2A2A */
-    --input: 0 0% 11%;            /* #1C1C1C */
-    --ring: 122 100% 84%;         /* #ACFFAF  lime accent — focus ring */
+    --border: 0 0% 16%; /* #2A2A2A */
+    --input: 0 0% 11%; /* #1C1C1C */
+    --ring: 122 100% 84%; /* #ACFFAF  lime accent — focus ring */
 
     /* Science DS raw tokens */
     --bg-default: #0a0a0a;
@@ -193,4 +193,24 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ── Animations ─────────────────────────────────────────────────────────────── */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.animate-enter {
+  animation: fadeInUp 200ms ease-out both;
+}
+
+.animate-toast-in {
+  animation: toastIn 180ms ease-out both;
 }

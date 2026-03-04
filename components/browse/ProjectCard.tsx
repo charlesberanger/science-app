@@ -8,6 +8,7 @@ interface ProjectCardProps {
   rank: number;
   href: string;
   imageSrc?: string;
+  description?: string;
 }
 
 export default function ProjectCard({
@@ -17,6 +18,7 @@ export default function ProjectCard({
   rank,
   href,
   imageSrc,
+  description,
 }: ProjectCardProps) {
   return (
     <Link
@@ -43,8 +45,20 @@ export default function ProjectCard({
             </svg>
           </div>
         )}
-        {/* Rank badge — bottom left */}
-        <div className="absolute bottom-2 left-2 flex items-center gap-1 rounded-full border border-[rgba(74,222,128,0.5)] bg-[rgba(4,18,8,0.7)] px-2 py-0.5">
+        {/* Hover description overlay */}
+        {description && (
+          <div className="absolute inset-0 flex items-end bg-linear-to-t from-black/80 via-black/30 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+            <p
+              className="px-3 pb-3 pt-6 text-[11px] leading-relaxed text-white/90"
+              style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}
+            >
+              {description.length > 90 ? description.slice(0, 90) + "…" : description}
+            </p>
+          </div>
+        )}
+
+        {/* Rank badge — bottom left, fades on hover */}
+        <div className="absolute bottom-2 left-2 flex items-center gap-1 rounded-full border border-[rgba(74,222,128,0.5)] bg-[rgba(4,18,8,0.7)] px-2 py-0.5 transition-opacity duration-200 group-hover:opacity-0">
           <span className="h-1.5 w-1.5 rounded-full bg-feedback-success" />
           <span
             className="text-label tracking-ui text-feedback-success"
@@ -53,8 +67,8 @@ export default function ProjectCard({
             #{rank}
           </span>
         </div>
-        {/* Votes badge — bottom right */}
-        <div className="absolute bottom-2 right-2 flex items-center gap-1 border border-border bg-[rgba(17,17,17,0.8)] px-2.5 py-0.5">
+        {/* Votes badge — bottom right, fades on hover */}
+        <div className="absolute bottom-2 right-2 flex items-center gap-1 border border-border bg-[rgba(17,17,17,0.8)] px-2.5 py-0.5 transition-opacity duration-200 group-hover:opacity-0">
           <span
             className="text-label text-secondary-foreground"
             style={{ fontFamily: "var(--font-dm-mono), monospace" }}

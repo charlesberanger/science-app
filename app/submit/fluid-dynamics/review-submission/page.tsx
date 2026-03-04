@@ -9,6 +9,7 @@ import ScorePanel from "@/components/submit/ScorePanel";
 import CharCountTextarea from "@/components/submit/CharCountTextarea";
 import { formatSize } from "@/components/submit/utils";
 import { Pencil } from "lucide-react";
+import { useToast } from "@/components/ui/toast";
 
 const MAX_CHECKS = 5;
 const SESSION_KEY = "ai_score_checks_used";
@@ -78,7 +79,7 @@ function EditableTextField({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-baseline justify-between">
-        <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+        <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
           {label}
         </span>
         <button
@@ -165,7 +166,7 @@ function EditableLongField({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-baseline justify-between">
-        <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+        <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
           {label}
         </span>
         <button
@@ -183,7 +184,13 @@ function EditableLongField({
   );
 }
 
-function SubmitSignal({ score, checksRemaining }: { score: number | null; checksRemaining: number }) {
+function SubmitSignal({
+  score,
+  checksRemaining,
+}: {
+  score: number | null;
+  checksRemaining: number;
+}) {
   if (score === null) {
     return (
       <div className="flex border border-feedback-warning/40 bg-feedback-status-warning">
@@ -217,7 +224,8 @@ function SubmitSignal({ score, checksRemaining }: { score: number | null; checks
         <div className="w-1 shrink-0 bg-feedback-warning" />
         <div className="px-3.5 py-2.5">
           <p className="font-mono text-label text-feedback-warning">
-            Score is borderline — consider revising weak areas before submitting.
+            Score is borderline — consider revising weak areas before
+            submitting.
           </p>
         </div>
       </div>
@@ -246,7 +254,8 @@ function SubmitSignal({ score, checksRemaining }: { score: number | null; checks
           Submission blocked
         </span>
         <p className="font-mono text-label text-feedback-error/80">
-          Score too low and no checks remaining — edit your submission and return in a new session to re-evaluate.
+          Score too low and no checks remaining — edit your submission and
+          return in a new session to re-evaluate.
         </p>
       </div>
     </div>
@@ -256,6 +265,7 @@ function SubmitSignal({ score, checksRemaining }: { score: number | null; checks
 export default function ReviewSubmissionPage() {
   const router = useRouter();
   const { form } = useFluidDynamicsForm();
+  const { toast } = useToast();
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -275,7 +285,9 @@ export default function ReviewSubmissionPage() {
   }
 
   useEffect(() => {
-    return () => { mountedRef.current = false; };
+    return () => {
+      mountedRef.current = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -308,8 +320,12 @@ export default function ReviewSubmissionPage() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h1 className="text-3xl font-bold tracking-tight text-foreground">Submission received</h1>
-            <p className="text-sm text-muted-foreground">Your project is queued for review by the Science team.</p>
+            <h1 className="text-3xl font-bold tracking-tight text-foreground">
+              Submission received
+            </h1>
+            <p className="text-sm text-muted-foreground">
+              Your project is queued for review by the Science team.
+            </p>
           </div>
 
           <div className="w-full max-w-sm border border-border bg-card text-left">
@@ -317,13 +333,29 @@ export default function ReviewSubmissionPage() {
               What happens next
             </p>
             {[
-              { step: "01", text: "Our team reviews your CAD file and written rationale." },
-              { step: "02", text: "Approved submissions go live on the leaderboard for community voting." },
-              { step: "03", text: "Winners are announced after the April 12 deadline." },
+              {
+                step: "01",
+                text: "Our team reviews your CAD file and written rationale.",
+              },
+              {
+                step: "02",
+                text: "Approved submissions go live on the leaderboard for community voting.",
+              },
+              {
+                step: "03",
+                text: "Winners are announced after the April 12 deadline.",
+              },
             ].map(({ step, text }) => (
-              <div key={step} className="flex items-start gap-4 border-b border-border px-5 py-3 last:border-0">
-                <span className="font-mono text-label text-feedback-success shrink-0">{step}</span>
-                <p className="text-xs leading-relaxed text-secondary-foreground">{text}</p>
+              <div
+                key={step}
+                className="flex items-start gap-4 border-b border-border px-5 py-3 last:border-0"
+              >
+                <span className="font-mono text-label text-feedback-success shrink-0">
+                  {step}
+                </span>
+                <p className="text-xs leading-relaxed text-secondary-foreground">
+                  {text}
+                </p>
               </div>
             ))}
           </div>
@@ -360,21 +392,21 @@ export default function ReviewSubmissionPage() {
           label="Tube Design Name"
           fieldKey="title"
           value={data.title}
-          onSave={(v) => form.setValue("title", v)}
+          onSave={(v) => { form.setValue("title", v); toast({ message: "Changes saved ✓", variant: "success" }); }}
         />
         <EditableLongField
           label="Tube Design Differences"
           fieldKey="tubeDesignDifferences"
           placeholder="Explain how your test tube's shape and physical structure differ from a standard 1.5 mL microfuge tube."
           value={data.tubeDesignDifferences}
-          onSave={(v) => form.setValue("tubeDesignDifferences", v)}
+          onSave={(v) => { form.setValue("tubeDesignDifferences", v); toast({ message: "Changes saved ✓", variant: "success" }); }}
         />
         <EditableLongField
           label="Technical Rationale & Physics Principles"
           fieldKey="technicalRationale"
           placeholder="Describe the underlying rationale for your design and the physics principles that informed your choices."
           value={data.technicalRationale}
-          onSave={(v) => form.setValue("technicalRationale", v)}
+          onSave={(v) => { form.setValue("technicalRationale", v); toast({ message: "Changes saved ✓", variant: "success" }); }}
         />
 
         {/* CAD file */}
@@ -385,11 +417,17 @@ export default function ReviewSubmissionPage() {
           {files.length > 0 ? (
             <div className="flex items-center justify-between border border-border bg-background px-3.5 py-3">
               <div className="flex flex-col gap-0.5">
-                <span className="text-[13px] text-foreground">{files[0].name}</span>
-                <span className="font-mono text-label text-muted-foreground">{formatSize(files[0].size)}</span>
+                <span className="text-[13px] text-foreground">
+                  {files[0].name}
+                </span>
+                <span className="font-mono text-label text-muted-foreground">
+                  {formatSize(files[0].size)}
+                </span>
               </div>
               <button
-                onClick={() => router.push("/submit/fluid-dynamics/cad-file-upload")}
+                onClick={() =>
+                  router.push("/submit/fluid-dynamics/cad-file-upload")
+                }
                 className="font-mono text-label text-muted-foreground transition-colors hover:text-secondary-foreground"
               >
                 Update →
@@ -420,7 +458,9 @@ export default function ReviewSubmissionPage() {
         <SubmitSignal score={lastScore} checksRemaining={checksRemaining} />
         <div className="flex justify-between">
           <button
-            onClick={() => router.push("/submit/fluid-dynamics/cad-file-upload")}
+            onClick={() =>
+              router.push("/submit/fluid-dynamics/cad-file-upload")
+            }
             className="border border-border bg-card px-5 py-2.5 font-mono text-[11px] uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
           >
             ← CAD Upload
@@ -441,7 +481,9 @@ export default function ReviewSubmissionPage() {
           <div className="relative w-full max-w-sm border border-border bg-card">
             <div className="absolute left-0 top-0 h-px w-full bg-feedback-success/40" />
             <div className="px-7 py-6">
-              <h2 className="text-lg font-bold text-foreground">Confirm Submission</h2>
+              <h2 className="text-lg font-bold text-foreground">
+                Confirm Submission
+              </h2>
               <p className="mt-2 text-sm text-muted-foreground">
                 Once submitted, you won't be able to make changes. Are you sure?
               </p>

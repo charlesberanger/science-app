@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
+import { useToast } from "@/components/ui/toast";
 
 const DISCUSSION_TOPICS = [
   "Mesh refinement trade-offs",
@@ -13,6 +14,7 @@ const DISCUSSION_TOPICS = [
 export default function RightCol() {
   const router = useRouter();
   const { isAuthenticated } = useAuth();
+  const { toast } = useToast();
   const [voted, setVoted] = useState(false);
   const [voteCount, setVoteCount] = useState(284);
   const [bumped, setBumped] = useState(false);
@@ -25,9 +27,11 @@ export default function RightCol() {
     if (voted) {
       setVoted(false);
       setVoteCount((n) => n - 1);
+      toast({ message: "Vote removed", variant: "neutral" });
     } else {
       setVoted(true);
       setVoteCount((n) => n + 1);
+      toast({ message: "Vote recorded ✓", variant: "success" });
     }
     setBumped(true);
     setTimeout(() => setBumped(false), 300);

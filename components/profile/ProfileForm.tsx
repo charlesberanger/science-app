@@ -71,6 +71,12 @@ export default function ProfileForm() {
   const initials =
     [firstName[0], lastName[0]].filter(Boolean).join("").toUpperCase() || "AS";
 
+  const TOTAL_FIELDS = 6;
+  const completedFields = [firstName, lastName, title, bio, institution, photo ?? ""].filter(
+    (v) => v.trim().length > 0
+  ).length;
+  const completionPct = Math.round((completedFields / TOTAL_FIELDS) * 100);
+
   return (
     <div className="flex flex-col gap-8 sm:flex-row sm:gap-10">
       {/* Avatar column */}
@@ -159,6 +165,30 @@ export default function ProfileForm() {
             value={institution}
             onChange={setInstitution}
           />
+        </div>
+
+        {/* Completeness indicator */}
+        <div className="flex flex-col gap-1.5">
+          <div className="flex items-center justify-between">
+            <span
+              className="text-label uppercase tracking-ui text-muted-foreground"
+              style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            >
+              Profile completeness
+            </span>
+            <span
+              className={`text-label tracking-ui ${completedFields === TOTAL_FIELDS ? "text-feedback-success" : "text-muted-foreground"}`}
+              style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            >
+              {completedFields}/{TOTAL_FIELDS}
+            </span>
+          </div>
+          <div className="h-1 w-full bg-secondary">
+            <div
+              className="h-1 bg-feedback-success transition-all duration-300"
+              style={{ width: `${completionPct}%` }}
+            />
+          </div>
         </div>
 
         {/* Submit */}
