@@ -4,6 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useRef,
   useState,
 } from "react";
@@ -40,16 +41,29 @@ const MAX_TOASTS = 3;
 export function ToastProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<ToastItem[]>([]);
   const counter = useRef(0);
+  const timers = useRef<Map<number, ReturnType<typeof setTimeout>>>(new Map());
+
+  // Clear all pending timers on unmount
+  useEffect(() => {
+    return () => {
+      timers.current.forEach((id) => clearTimeout(id));
+    };
+  }, []);
+
+  const dismiss = useCallback((id: number) => {
+    clearTimeout(timers.current.get(id));
+    timers.current.delete(id);
+    setItems((prev) => prev.filter((t) => t.id !== id));
+  }, []);
 
   const toast = useCallback(
     ({ message, variant = "neutral" }: { message: string; variant?: ToastVariant }) => {
       const id = ++counter.current;
       setItems((prev) => [...prev.slice(-(MAX_TOASTS - 1)), { id, message, variant }]);
-      setTimeout(() => {
-        setItems((prev) => prev.filter((t) => t.id !== id));
-      }, DISMISS_MS);
+      const timer = setTimeout(() => dismiss(id), DISMISS_MS);
+      timers.current.set(id, timer);
     },
-    []
+    [dismiss]
   );
 
   return (
@@ -69,7 +83,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
           >
             <span>{item.message}</span>
             <button
-              onClick={() => setItems((prev) => prev.filter((t) => t.id !== item.id))}
+              onClick={() => dismiss(item.id)}
               className="text-muted-foreground transition-colors hover:text-foreground"
               aria-label="Dismiss"
             >

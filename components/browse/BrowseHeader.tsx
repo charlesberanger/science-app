@@ -33,7 +33,7 @@ export default function BrowseHeader({ search, onSearchChange, count }: BrowseHe
           aria-label="Search projects"
           className="w-full bg-transparent text-[13px] text-secondary-foreground placeholder:text-muted-foreground outline-none"
         />
-        {search && (
+        {search.length > 0 ? (
           <button
             onClick={() => onSearchChange("")}
             className="shrink-0 text-muted-foreground transition-colors hover:text-foreground"
@@ -43,7 +43,7 @@ export default function BrowseHeader({ search, onSearchChange, count }: BrowseHe
               <path d="M1 1l8 8M9 1L1 9" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
             </svg>
           </button>
-        )}
+        ) : null}
       </div>
     </div>
   );
