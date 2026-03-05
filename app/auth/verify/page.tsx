@@ -83,7 +83,7 @@ function OtpInput({ value, onChange }: { value: string[]; onChange: (v: string[]
             onChange={(e) => handleChange(i, e.target.value)}
             onKeyDown={(e) => handleKeyDown(i, e)}
             onPaste={handlePaste}
-            className={`h-16 w-[54px] border bg-secondary text-center font-mono text-2xl text-lime-400 outline-none focus-visible:ring-1 focus-visible:ring-ring/50 transition-all ${
+            className={`h-16 w-13.5 border bg-secondary text-center font-mono text-2xl text-lime-400 outline-none focus-visible:ring-1 focus-visible:ring-ring/50 transition-all ${
               isCurrent
                 ? "border-lime-400 shadow-[0_0_0_3px_rgba(172,255,175,0.18)]"
                 : digit
@@ -138,7 +138,7 @@ function VerifyForm() {
 
       {/* Right — OTP card */}
       <div className="flex flex-1 items-center justify-center px-4">
-        <div className="relative w-full max-w-[440px] border border-[rgba(42,42,42,0.4)] bg-card shadow-[0px_20px_56px_0px_rgba(0,0,0,0.5)]">
+        <div className="relative w-full max-w-110 border border-[rgba(42,42,42,0.4)] bg-card shadow-[0px_20px_56px_0px_rgba(0,0,0,0.5)]">
           <div className="absolute left-0 top-0 h-px w-full bg-[rgba(172,255,175,0.4)]" />
 
           <div className="px-9 pb-6 pt-7">

@@ -67,7 +67,7 @@ function SignInForm() {
 
       {/* Right — auth card */}
       <div className="flex flex-1 items-center justify-center px-4">
-        <div className="relative w-full max-w-[440px] border border-border/40 bg-card shadow-2xl">
+        <div className="relative w-full max-w-110 border border-border/40 bg-card shadow-2xl">
           {/* Lime top accent */}
           <div className="absolute left-0 top-0 h-px w-full bg-lime-400/40" />
 
@@ -103,7 +103,10 @@ function SignInForm() {
 
             {/* Email field */}
             <div className="mt-2 flex flex-col gap-2">
-              <label htmlFor="email" className="font-mono text-label tracking-ui text-secondary-foreground">
+              <label
+                htmlFor="email"
+                className="font-mono text-label tracking-ui text-secondary-foreground"
+              >
                 YOUR EMAIL
               </label>
               <input

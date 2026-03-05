@@ -12,9 +12,7 @@ export default function ProfileEditPage() {
   return (
     <AppShell badgeLabel="CHALLENGE LIVE">
       <ProfileHeader />
-      <div className="max-w-3xl">
-        <ProfileForm />
-      </div>
+      <ProfileForm />
     </AppShell>
   );
 }

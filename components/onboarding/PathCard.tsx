@@ -20,7 +20,7 @@ export default function PathCard({
   return (
     <Link
       href={href}
-      className="group flex min-h-[440px] flex-col justify-between border-t border-feedback-success bg-card p-10 transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+      className="group flex min-h-110 flex-col justify-between border-t border-feedback-success bg-card p-10 transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
     >
       <div className="flex flex-col gap-5">
         <span className="text-5xl text-muted-foreground transition-colors group-hover:text-feedback-success">

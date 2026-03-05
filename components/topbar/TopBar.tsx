@@ -36,7 +36,7 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
   const section = useSectionLabel();
 
   return (
-    <header className="fixed right-0 top-0 z-10 flex h-14 items-center justify-between border-b border-border bg-background px-4 sm:px-6 lg:left-[220px] left-0">
+    <header className="fixed right-0 top-0 z-10 flex h-14 items-center justify-between border-b border-border bg-background px-4 sm:px-6 lg:left-55 left-0">
       {/* Hamburger — mobile only */}
       <button
         onClick={onMenuClick}

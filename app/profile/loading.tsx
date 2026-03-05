@@ -11,7 +11,7 @@ export default function ProfileLoading() {
       {/* User info card */}
       <div className="flex flex-col gap-4 border border-border bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-5">
-          <div className="h-[52px] w-[52px] animate-pulse bg-secondary" />
+          <div className="h-13 w-13 animate-pulse bg-secondary" />
           <div className="flex flex-col gap-2">
             <div className="h-5 w-28 animate-pulse bg-secondary" />
             <div className="h-3 w-20 animate-pulse bg-secondary" />

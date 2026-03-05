@@ -102,7 +102,7 @@ export default function PublicProfilePage({
       {/* User info card — no Edit Profile button */}
       <div className="flex items-center border border-border bg-card p-6">
         <div className="flex items-center gap-5">
-          <Avatar className="h-[52px] w-[52px] rounded-none">
+          <Avatar className="h-13 w-13 rounded-none">
             <AvatarFallback className="rounded-none bg-secondary font-mono text-base text-secondary-foreground">
               {user.initials}
             </AvatarFallback>
@@ -133,7 +133,9 @@ export default function PublicProfilePage({
         </p>
         <div className="h-px bg-secondary" />
         <div className="border border-border bg-card p-4">
-          <p className="text-sm leading-relaxed text-secondary-foreground">{user.bio}</p>
+          <p className="text-sm leading-relaxed text-secondary-foreground">
+            {user.bio}
+          </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3">
           <InfoCell label="Email" value={user.email} />

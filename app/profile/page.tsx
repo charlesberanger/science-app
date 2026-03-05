@@ -57,7 +57,7 @@ export default function ProfilePage() {
       {/* User info card */}
       <div className="flex flex-col gap-4 border border-border bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-5">
-          <Avatar className="h-[52px] w-[52px] rounded-none">
+          <Avatar className="h-13 w-13 rounded-none">
             <AvatarFallback className="rounded-none bg-secondary font-mono text-base text-secondary-foreground">
               {user.initials}
             </AvatarFallback>

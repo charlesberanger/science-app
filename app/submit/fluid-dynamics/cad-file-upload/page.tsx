@@ -69,7 +69,7 @@ export default function CadFileUploadPage() {
         onDrop={handleDrop}
         onDragOver={(e) => e.preventDefault()}
         onClick={() => inputRef.current?.click()}
-        className={`flex min-h-[220px] cursor-pointer flex-col items-center justify-center gap-4 border-2 border-dashed transition-colors ${
+        className={`flex min-h-55 cursor-pointer flex-col items-center justify-center gap-4 border-2 border-dashed transition-colors ${
           errors.cadFiles
             ? "border-feedback-error/40"
             : "border-border hover:border-border"
