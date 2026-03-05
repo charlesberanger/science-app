@@ -6,9 +6,7 @@ export default function LeaderboardHeader() {
           Leaderboard
         </h1>
         <p className="text-xs text-muted-foreground">
-          <span className="font-mono">
-            Fluid Dynamics Challenge
-          </span>
+          <span className="font-mono">Fluid Dynamics Challenge</span>
           {" · "}
           <span className="text-secondary-foreground">187 approved</span>
           {" · "}

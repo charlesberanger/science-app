@@ -55,14 +55,14 @@ export default function FluidDynamicsEligibilityPage() {
             <input
               type="checkbox"
               {...register(name)}
-              className="mt-0.5 h-4 w-4 shrink-0 accent-[#4ade80]"
+              className="mt-0.5 h-4 w-4 shrink-0 accent-lime-400"
             />
             <span className="text-sm leading-relaxed text-secondary-foreground">{label}</span>
           </label>
         ))}
 
         {(errors.citizenCheckbox || errors.teamCheckbox) && (
-          <p className="font-mono text-label text-red-400">Both confirmations are required to proceed.</p>
+          <p className="font-mono text-label text-feedback-error">Both confirmations are required to proceed.</p>
         )}
       </div>
 
@@ -70,7 +70,7 @@ export default function FluidDynamicsEligibilityPage() {
       <div className="flex flex-col gap-1">
         <p className="font-mono text-sm uppercase tracking-ui text-muted-foreground">Judging Criteria — 100 pts total</p>
         <div className="h-px bg-secondary" />
-        <div className="flex flex-col divide-y divide-[#1c1c1c] border border-border">
+        <div className="flex flex-col divide-y divide-border border border-border">
           {CRITERIA.map((c) => {
             const panelId = `criteria-panel-${c.label.toLowerCase().replace(/[\s—]+/g, "-")}`;
             const isOpen = open === c.label;

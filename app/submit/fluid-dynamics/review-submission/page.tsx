@@ -477,11 +477,11 @@ export default function ReviewSubmissionPage() {
 
       {/* Confirm modal */}
       {confirmOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" role="dialog" aria-modal="true" aria-labelledby="confirm-dialog-title" onKeyDown={(e) => { if (e.key === "Escape" && !submitting) setConfirmOpen(false); }}>
           <div className="relative w-full max-w-sm border border-border bg-card">
             <div className="absolute left-0 top-0 h-px w-full bg-feedback-success/40" />
             <div className="px-7 py-6">
-              <h2 className="text-lg font-bold text-foreground">
+              <h2 id="confirm-dialog-title" className="text-lg font-bold text-foreground">
                 Confirm Submission
               </h2>
               <p className="mt-2 text-sm text-muted-foreground">

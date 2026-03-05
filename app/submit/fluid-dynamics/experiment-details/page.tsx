@@ -68,7 +68,7 @@ export default function ExperimentDetailsPage() {
             className="border border-border bg-background px-3.5 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-colors focus-visible:border-feedback-success"
           />
           {errors.title && (
-            <p className="font-mono text-label text-red-400">
+            <p className="font-mono text-label text-feedback-error">
               {errors.title.message}
             </p>
           )}

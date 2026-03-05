@@ -4,7 +4,11 @@ import { useState } from "react";
 import Sidebar from "@/components/sidebar/Sidebar";
 import TopBar from "@/components/topbar/TopBar";
 
-export default function SidebarController({ badgeLabel }: { badgeLabel?: string }) {
+export default function SidebarController({
+  badgeLabel,
+}: {
+  badgeLabel?: string;
+}) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -19,7 +23,10 @@ export default function SidebarController({ badgeLabel }: { badgeLabel?: string 
         />
       )}
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <TopBar onMenuClick={() => setSidebarOpen(true)} badgeLabel={badgeLabel} />
+      <TopBar
+        onMenuClick={() => setSidebarOpen(true)}
+        badgeLabel={badgeLabel}
+      />
     </>
   );
 }

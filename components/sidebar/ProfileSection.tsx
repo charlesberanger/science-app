@@ -19,7 +19,7 @@ export default function ProfileSection() {
       <div className="border-t border-border">
         <Link
           href="/auth/sign-in"
-          className="flex items-center gap-2 px-4 py-3 font-mono text-label uppercase tracking-ui text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+          className="flex items-center gap-2 px-4 py-3 font-mono text-label uppercase tracking-ui text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
         >
           <span aria-hidden="true">→</span>
           Sign in
@@ -32,7 +32,7 @@ export default function ProfileSection() {
     <div className="border-t border-border">
       <Link
         href="/profile"
-        className="flex items-center gap-3 px-4 py-3 transition-colors hover:bg-secondary"
+        className="flex items-center gap-3 px-4 py-3 transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
       >
         <Avatar className="h-8 w-8 shrink-0 border border-border">
           <AvatarFallback className="bg-secondary text-label font-medium text-foreground font-mono">

@@ -9,10 +9,10 @@ const DIMENSIONS: Array<{
   weight: number;
 }> = [
   { key: "scientific_clarity", label: "Scientific Clarity", weight: 20 },
-  { key: "methodology_rigor",  label: "Methodology Rigor",  weight: 25 },
-  { key: "feasibility",        label: "Feasibility",        weight: 20 },
-  { key: "relevance",          label: "Relevance",          weight: 25 },
-  { key: "completeness",       label: "Completeness",       weight: 10 },
+  { key: "methodology_rigor", label: "Methodology Rigor", weight: 25 },
+  { key: "feasibility", label: "Feasibility", weight: 20 },
+  { key: "relevance", label: "Relevance", weight: 25 },
+  { key: "completeness", label: "Completeness", weight: 10 },
 ];
 
 function compositeColor(score: number) {
@@ -22,8 +22,10 @@ function compositeColor(score: number) {
 }
 
 function dimColors(value: number) {
-  if (value >= 7) return { bar: "bg-feedback-success", text: "text-feedback-success" };
-  if (value >= 5) return { bar: "bg-feedback-warning", text: "text-feedback-warning" };
+  if (value >= 7)
+    return { bar: "bg-feedback-success", text: "text-feedback-success" };
+  if (value >= 5)
+    return { bar: "bg-feedback-warning", text: "text-feedback-warning" };
   return { bar: "bg-destructive", text: "text-destructive" };
 }
 
@@ -73,22 +75,24 @@ export default function ScorePanel({
       setResult(data);
       onScore?.(data.composite);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Scoring failed. Please try again.");
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Scoring failed. Please try again.",
+      );
     } finally {
       setLoading(false);
     }
   }
 
-  const canCheck = checksRemaining > 0 && !loading && Boolean(title || abstract);
+  const canCheck =
+    checksRemaining > 0 && !loading && Boolean(title || abstract);
 
   return (
     <div className="border border-t-2 border-border border-t-feedback-success bg-card">
-
       {/* Header */}
       <div className="flex items-center justify-between border-b border-border px-5 py-3">
-        <span
-          className="font-mono text-sm uppercase tracking-ui text-muted-foreground"
-        >
+        <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
           AI Pre-Screen
         </span>
         <span
@@ -113,7 +117,8 @@ export default function ScorePanel({
                 )}
               </span>
             ))}
-            . Up to {checksRemaining} evaluation{checksRemaining !== 1 ? "s" : ""} remaining.
+            . Up to {checksRemaining} evaluation
+            {checksRemaining !== 1 ? "s" : ""} remaining.
           </p>
         </div>
       )}
@@ -149,21 +154,18 @@ export default function ScorePanel({
       {/* ── Error state ── */}
       {!loading && error && (
         <div className="px-5 py-4">
-          <p
-            className="font-mono text-label text-destructive"
-          >
-            ✕ {error}
-          </p>
+          <p className="font-mono text-label text-destructive">✕ {error}</p>
         </div>
       )}
 
       {/* ── Results ── */}
       {!loading && result && (
         <div className="divide-y divide-border">
-
           {/* 1. Verdict — most actionable, leads */}
           <div className="px-5 py-4">
-            <p className="text-sm leading-relaxed text-foreground">{result.verdict}</p>
+            <p className="text-sm leading-relaxed text-foreground">
+              {result.verdict}
+            </p>
           </div>
 
           {/* 2. Composite score + dimension bars */}
@@ -174,9 +176,7 @@ export default function ScorePanel({
               >
                 {result.composite}
               </span>
-              <span
-                className="font-mono mb-1 text-label uppercase tracking-ui text-muted-foreground"
-              >
+              <span className="font-mono mb-1 text-label uppercase tracking-ui text-muted-foreground">
                 / 100
               </span>
             </div>
@@ -188,9 +188,7 @@ export default function ScorePanel({
                 return (
                   <div key={key} className="flex flex-col gap-1">
                     <div className="flex items-center justify-between">
-                      <span
-                        className="font-mono text-xs text-muted-foreground"
-                      >
+                      <span className="font-mono text-xs text-muted-foreground">
                         {label}
                       </span>
                       <span
@@ -214,15 +212,18 @@ export default function ScorePanel({
           {/* 3. Flags */}
           {result.flags.length > 0 && (
             <div className="flex flex-col gap-2 px-5 py-4">
-              <span
-                className="font-mono text-sm uppercase tracking-ui text-muted-foreground"
-              >
+              <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
                 Improve
               </span>
               <div className="flex flex-col gap-2">
                 {result.flags.map((flag) => (
                   <div key={flag} className="flex items-start gap-2">
-                    <span className="mt-0.5 shrink-0 text-label text-feedback-warning" aria-hidden="true">→</span>
+                    <span
+                      className="mt-0.5 shrink-0 text-label text-feedback-warning"
+                      aria-hidden="true"
+                    >
+                      →
+                    </span>
                     <span className="text-sm leading-relaxed text-secondary-foreground">
                       {flag}
                     </span>

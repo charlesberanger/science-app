@@ -71,7 +71,7 @@ export default function CadFileUploadPage() {
         onClick={() => inputRef.current?.click()}
         className={`flex min-h-[220px] cursor-pointer flex-col items-center justify-center gap-4 border-2 border-dashed transition-colors ${
           errors.cadFiles
-            ? "border-red-500/40"
+            ? "border-feedback-error/40"
             : "border-border hover:border-border"
         }`}
       >
@@ -111,7 +111,7 @@ export default function CadFileUploadPage() {
               e.stopPropagation();
               setValue("cadFiles", [], { shouldValidate: true });
             }}
-            className="font-mono text-label text-muted-foreground transition-colors hover:text-red-400"
+            className="font-mono text-label text-muted-foreground transition-colors hover:text-feedback-error"
           >
             Remove ✕
           </button>
@@ -119,7 +119,7 @@ export default function CadFileUploadPage() {
       )}
 
       {errors.cadFiles && (
-        <p className="font-mono text-label text-red-400">
+        <p className="font-mono text-label text-feedback-error">
           {errors.cadFiles.message as string}
         </p>
       )}

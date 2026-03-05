@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 
 export default function SubmitError({
   error,
@@ -29,12 +30,12 @@ export default function SubmitError({
         >
           Try again
         </button>
-        <a
+        <Link
           href="/submit"
           className="border border-border bg-card px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <span aria-hidden="true">←</span> Start over
-        </a>
+        </Link>
       </div>
     </div>
   );

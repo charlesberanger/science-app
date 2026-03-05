@@ -14,7 +14,7 @@ export default function AppShell({
 
       <main
         id="main-content"
-        className="flex flex-col gap-5 p-4 pt-20 sm:p-6 sm:pt-20 lg:ml-[220px]"
+        className="flex flex-col gap-5 p-4 pt-20 sm:p-6 sm:pt-20 lg:ml-55"
       >
         {children}
       </main>

@@ -21,7 +21,7 @@ export default function NavItem({ label, href, icon }: NavItemProps) {
       }`}
     >
       {active && (
-        <span className="absolute left-0 top-0 h-full w-0.5 rounded-r bg-white" />
+        <span className="absolute left-0 top-0 h-full w-0.5 rounded-r bg-foreground" />
       )}
       {icon && <span className="shrink-0 text-sm opacity-60" aria-hidden="true">{icon}</span>}
       <span
