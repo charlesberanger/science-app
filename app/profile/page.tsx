@@ -35,12 +35,14 @@ const submission = {
   status: "pending" as const,
   meta: [
     { label: "Category", value: "Fluid Dynamics" },
-    { label: "Institution", value: "MiT Applied Sciences" },
+    { label: "AI Score", value: "82 / 100" },
     { label: "Submitted", value: "Feb 13, 2026" },
     { label: "Assets", value: "CAD File" },
   ],
-  description:
-    "This project investigates passive turbulence suppression through micro-textured surface geometries inspired by shark-skin denticles. By optimising riblet geometry for varying Reynolds numbers, we demonstrate a 14.2% reduction in skin-friction drag.",
+  tubeDesignDifferences:
+    "This submission presents a modified 1.5 mL microfuge tube featuring a tapered internal wall geometry with 0.3 mm longitudinal riblets inspired by shark-skin denticles. The wall thickness is reduced from 0.8 mm to 0.55 mm in the lower third to accommodate the surface texturing without exceeding the standard outer envelope.",
+  technicalRationale:
+    "In microgravity, surface tension and capillary forces dominate over buoyancy-driven convection. The riblet geometry exploits this regime by creating preferential wetting paths that guide fluid toward the tube's centre-line during pipette extraction, reducing residual wall-film thickness by an estimated 14.2%.",
 };
 
 // ── Page ──────────────────────────────────────────────────────────────────────

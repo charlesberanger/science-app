@@ -7,12 +7,19 @@ interface MetaCell {
   value: string;
 }
 
+interface SubmissionSection {
+  number: string;
+  title: string;
+  text: string;
+}
+
 interface SubmissionCardProps {
   title: string;
   submittedAt: string;
   status?: SubmissionStatus;
   meta: MetaCell[];
-  description: string;
+  tubeDesignDifferences: string;
+  technicalRationale: string;
 }
 
 const STATUS_BADGE: Record<SubmissionStatus, { variant: "gold" | "success" | "destructive"; label: string }> = {
@@ -21,14 +28,25 @@ const STATUS_BADGE: Record<SubmissionStatus, { variant: "gold" | "success" | "de
   rejected: { variant: "destructive", label: "REJECTED" },
 };
 
+const SECTIONS: SubmissionSection[] = [
+  { number: "01", title: "Tube Design Differences", text: "" },
+  { number: "02", title: "Technical Rationale & Physics Principles", text: "" },
+];
+
 export default function SubmissionCard({
   title,
   submittedAt,
   status = "pending",
   meta,
-  description,
+  tubeDesignDifferences,
+  technicalRationale,
 }: SubmissionCardProps) {
   const { variant, label } = STATUS_BADGE[status];
+
+  const sections: SubmissionSection[] = [
+    { ...SECTIONS[0], text: tubeDesignDifferences },
+    { ...SECTIONS[1], text: technicalRationale },
+  ];
 
   return (
     <div className="flex flex-col gap-5 border border-border bg-card py-6">
@@ -56,9 +74,24 @@ export default function SubmissionCard({
         ))}
       </div>
 
-      {/* Description */}
-      <div className="px-4">
-        <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
+      {/* Submitted fields */}
+      <div className="flex flex-col gap-3 px-4">
+        {sections.map((section) => (
+          <div key={section.number} className="border border-border bg-background p-4">
+            <div className="flex items-baseline gap-2">
+              <span className="font-mono text-label text-feedback-success tracking-ui">
+                {section.number}
+              </span>
+              <span className="font-mono text-label font-semibold uppercase tracking-ui text-foreground">
+                {section.title}
+              </span>
+            </div>
+            <div className="mt-2 border-t border-border" />
+            <p className="mt-2 text-sm leading-relaxed text-secondary-foreground line-clamp-3">
+              {section.text}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
