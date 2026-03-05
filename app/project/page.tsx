@@ -7,17 +7,25 @@ export const metadata: Metadata = {
 };
 import ChallengeHeader from "@/components/project/ChallengeHeader";
 import StatsBar from "@/components/project/StatsBar";
+import CountdownTimer from "@/components/layout/CountdownTimer";
 import CadViewerDynamic from "@/components/project/CadViewerDynamic";
 import Description from "@/components/project/Description";
 import ShareLink from "@/components/project/ShareLink";
 import CommentsSection from "@/components/project/CommentsSection";
 import RightCol from "@/components/project/RightCol";
 
+const projectStats = [
+  { label: "VOTES", value: "512", trend: "↑ +38 this week" },
+  { label: "REVIEWER SCORE", value: "87", trend: "/ 100 pts" },
+  { label: "COMMENTS", value: "12", trend: "↑ +3 this week" },
+  { label: "DAYS LEFT", value: <CountdownTimer />, trend: "Closes Apr 12", trendMuted: true },
+];
+
 export default function ProjectPage() {
   return (
     <AppShell>
       <ChallengeHeader />
-      <StatsBar />
+      <StatsBar stats={projectStats} />
 
       <div className="grid grid-cols-1 gap-5 xl:grid-cols-[1fr_280px]">
         {/* Left column */}

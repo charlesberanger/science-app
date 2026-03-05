@@ -102,7 +102,7 @@ function VerifyForm() {
   const searchParams = useSearchParams();
   const { signIn } = useAuth();
   const email = searchParams.get("email") ?? "you@institution.edu";
-  const redirect = searchParams.get("redirect") ?? "/get-started";
+  const redirect = searchParams.get("redirect") ?? "/profile/edit?setup=true";
 
   const [digits, setDigits] = useState(["", "", "", "", "", ""]);
   const [timer, setTimer] = useState(42);

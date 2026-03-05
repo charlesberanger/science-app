@@ -7,16 +7,9 @@ export interface StatItem {
   trendMuted?: boolean;
 }
 
-const defaultStats: StatItem[] = [
-  { label: "TOTAL SUBMISSIONS", value: "312", trend: "↑ +14 this week" },
-  { label: "ACTIVE TEAMS", value: "87", trend: "↑ +3 this week" },
-  { label: "AVG SCORE", value: "74.2", trend: "↑ +1.8 this week" },
-  { label: "DAYS LEFT", value: "45", trend: "Deadline Apr 12, 2026", trendMuted: true },
-];
-
-export default function StatsBar({ stats = defaultStats }: { stats?: StatItem[] }) {
+export default function StatsBar({ stats }: { stats: StatItem[] }) {
   return (
-    <div className="grid grid-cols-2 overflow-hidden rounded border border-border sm:grid-cols-4">
+    <div className="grid grid-cols-2 overflow-hidden border border-border sm:grid-cols-4">
       {stats.map((stat, i) => (
         <div
           key={stat.label}
@@ -26,12 +19,12 @@ export default function StatsBar({ stats = defaultStats }: { stats?: StatItem[] 
             ${i === stats.length - 1 ? "sm:border-r-0" : ""}
           `}
         >
-          <span
-            className="font-mono text-label uppercase tracking-ui text-muted-foreground"
-          >
+          <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
             {stat.label}
           </span>
-          <span className="text-2xl font-semibold text-foreground">{stat.value}</span>
+          <span className="text-2xl font-semibold text-foreground">
+            {stat.value}
+          </span>
           <span
             className={`font-mono text-label ${stat.trendMuted ? "text-muted-foreground" : "text-feedback-success"}`}
           >
