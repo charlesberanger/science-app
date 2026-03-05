@@ -20,48 +20,53 @@ const THUMBNAIL = "/placeholder-project.svg";
 
 const CATEGORIES = ["All", "Fluid Dynamics", "Thermodynamics", "Materials"];
 
-const projects = [
+type ProjectStatus = "approved" | "pending" | "rejected";
+
+const allProjects = [
   {
     id: "p1", title: "Fluid Dynamics in Microgravity",        author: "C. Laurent",  votes: 512, rank: 1,
-    category: "Fluid Dynamics",
+    category: "Fluid Dynamics", status: "approved" as ProjectStatus,
     description: "Capillary-dominated flow regimes under microgravity conditions, with propellant management applications.",
   },
   {
     id: "p2", title: "Thermodynamic Cycle Optimisation",       author: "A. Patel",    votes: 480, rank: 2,
-    category: "Thermodynamics",
+    category: "Thermodynamics", status: "approved" as ProjectStatus,
     description: "Entropy-minimisation approach to closed-loop Brayton cycles for small satellite power systems.",
   },
   {
     id: "p3", title: "Quantum Turbulence Simulation",          author: "J. Smith",    votes: 467, rank: 3,
-    category: "Fluid Dynamics",
+    category: "Fluid Dynamics", status: "approved" as ProjectStatus,
     description: "Vortex tangle dynamics in superfluid helium-4, benchmarked against cryogenic pipe-flow experiments.",
   },
   {
     id: "p4", title: "Electromagnetic Flow Control",           author: "D. Kim",      votes: 450, rank: 4,
-    category: "Fluid Dynamics",
+    category: "Fluid Dynamics", status: "approved" as ProjectStatus,
     description: "Lorentz-force actuation for drag reduction in weakly conducting saltwater boundary layers.",
   },
   {
     id: "p5", title: "Statistical Mechanics of Vortex Sheets", author: "S. Johnson",  votes: 441, rank: 5,
-    category: "Fluid Dynamics",
+    category: "Fluid Dynamics", status: "approved" as ProjectStatus,
     description: "Point-vortex model predicting coherent structure formation in geophysical shear flows.",
   },
   {
     id: "p6", title: "Classical Shock Wave Interaction",       author: "F. Nguyen",   votes: 428, rank: 6,
-    category: "Fluid Dynamics",
+    category: "Fluid Dynamics", status: "approved" as ProjectStatus,
     description: "Mach reflection patterns at oblique shock intersections in supersonic wind tunnel tests.",
   },
   {
     id: "p7", title: "Optics-Based Flow Visualisation",        author: "B. Davis",    votes: 415, rank: 7,
-    category: "Materials",
+    category: "Materials", status: "approved" as ProjectStatus,
     description: "Schlieren and shadowgraph techniques adapted for high-speed reacting flow diagnostics.",
   },
   {
     id: "p8", title: "Adaptive Mesh Refinement for CFD",       author: "L. Chen",     votes: 398, rank: 8,
-    category: "Fluid Dynamics",
+    category: "Fluid Dynamics", status: "approved" as ProjectStatus,
     description: "Error-driven AMR strategy reducing compute cost by 40% on turbulent channel flow problems.",
   },
 ];
+
+// Only approved projects are visible on Browse
+const projects = allProjects.filter((p) => p.status === "approved");
 
 export default function BrowseProjectsPage() {
   const [search, setSearch]     = useState("");

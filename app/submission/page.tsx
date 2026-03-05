@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 const submission = {
   title: "Turbulence Mitigation via Adaptive Surface Geometry",
   submittedAt: "Submitted Feb 13, 2026  ·  14:32 UTC",
-  status: "pending" as const,
+  status: "pending" as "pending" | "approved" | "rejected",
   meta: [
     { label: "Category", value: "Fluid Dynamics" },
     { label: "Institution", value: "MiT Applied Sciences" },
@@ -31,24 +31,21 @@ export default function MySubmissionPage() {
       {/* Page header */}
       <div className="flex flex-col gap-4 border-b border-border pb-8">
         <div className="flex flex-col gap-1">
-          <h1
-            className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
-           
-          >
+          <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             My Submission
           </h1>
-          <p
-            className="font-mono text-xs text-muted-foreground"
-          >
+          <p className="font-mono text-xs text-muted-foreground">
             312 submissions &nbsp;·&nbsp; Fluid Dynamics Challenge
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" asChild>
-            <Link href="/leaderboard">View on Leaderboard</Link>
-          </Button>
-        </div>
+        {submission.status === "approved" ? (
+          <div className="flex items-center gap-2">
+            <Button variant="outline" size="sm" asChild>
+              <Link href="/leaderboard">View on Leaderboard</Link>
+            </Button>
+          </div>
+        ) : null}
       </div>
 
       {/* Status banner */}
