@@ -43,7 +43,7 @@ function RankBadge({ rank }: { rank: number }) {
     <span
       className="font-mono inline-flex items-center gap-1 rounded-full border border-feedback-success px-2.5 py-0.5"
     >
-      <span className="h-1 w-1 rounded-full bg-feedback-success" />
+      <span className="h-1 w-1 rounded-full bg-feedback-success" aria-hidden="true" />
       <span className="text-label text-feedback-success tracking-ui">#{rank}</span>
     </span>
   );
@@ -51,7 +51,7 @@ function RankBadge({ rank }: { rank: number }) {
 
 function ApprovalBar({ value }: { value: number }) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2" role="meter" aria-valuenow={value} aria-valuemin={0} aria-valuemax={100} aria-label={`${value}% approval`}>
       <div className="h-1 w-20 rounded-full bg-muted-foreground/30">
         <div className="h-1 rounded-full bg-lime-400" style={{ width: `${value}%` }} />
       </div>
@@ -105,7 +105,7 @@ export default function LeaderboardTable() {
           <span
             className="font-mono inline-flex items-center gap-1 rounded-full border border-feedback-warning px-2 py-0.5"
           >
-            <span className="h-1 w-1 rounded-full bg-feedback-warning" />
+            <span className="h-1 w-1 rounded-full bg-feedback-warning" aria-hidden="true" />
             <span className="text-label text-feedback-warning tracking-ui">
               #{myEntry.rank}
             </span>
@@ -114,88 +114,96 @@ export default function LeaderboardTable() {
             {myEntry.project}
           </span>
           <span className="ml-auto font-mono text-ui text-feedback-success">
-            ▲ {myEntry.votes}
+            <span aria-hidden="true">▲</span> {myEntry.votes}
           </span>
         </div>
       )}
 
       {/* Table */}
       <div className="overflow-hidden border border-border">
-        {/* Header */}
-        <div className="hidden border-b border-border sm:grid sm:grid-cols-[60px_1fr_160px_160px_80px]">
-          {["RANK", "PROJECT / AUTHOR", "CATEGORY", "APPROVAL", "VOTES"].map((col) => (
-            <div
-              key={col}
-              className="font-mono px-4 py-2.5 text-label uppercase tracking-ui text-muted-foreground"
-            >
-              {col}
-            </div>
-          ))}
-        </div>
+        <table className="w-full border-collapse">
+          <thead className="hidden sm:table-header-group">
+            <tr className="border-b border-border">
+              {["RANK", "PROJECT / AUTHOR", "CATEGORY", "APPROVAL", "VOTES"].map((col) => (
+                <th
+                  key={col}
+                  scope="col"
+                  className="font-mono px-4 py-2.5 text-left text-label font-normal uppercase tracking-ui text-muted-foreground"
+                >
+                  {col}
+                </th>
+              ))}
+            </tr>
+          </thead>
 
-        {/* Rows */}
-        {shown.length === 0 ? (
-          <div className="px-4 py-10 text-center font-mono text-label text-muted-foreground">
-            No entries in this category.
-          </div>
-        ) : (
-          shown.map((entry, i) => {
-            const isMe = isAuthenticated && entry.authorKey === MY_AUTHOR_KEY;
-            return (
-              <Link
-                key={entry.rank}
-                href="/project"
-                className={`animate-enter relative grid grid-cols-[40px_1fr_80px] border-b border-border transition-colors hover:bg-secondary sm:grid-cols-[60px_1fr_160px_160px_80px] ${
-                  isMe
-                    ? "border-l-2 border-l-feedback-warning bg-feedback-warning/5"
-                    : entry.rank === 1
-                    ? "border-l-2 border-l-feedback-success bg-card"
-                    : "bg-card"
-                }`}
-                style={{ animationDelay: `${i * 40}ms` }}
-              >
-                <div className="flex items-center px-3 py-3 sm:px-4">
-                  <RankBadge rank={entry.rank} />
-                </div>
-                <div className="flex items-center gap-3 px-4 py-3">
-                  <div className="h-7 w-7 shrink-0 rounded-full bg-secondary" />
-                  <div className="flex min-w-0 flex-col">
-                    <span className="truncate text-sm font-medium text-foreground">
-                      {entry.project}
-                    </span>
-                    <span className="flex items-center gap-1.5 text-ui text-muted-foreground">
-                      {entry.author}
-                      {isMe && (
-                        <span
-                          className="font-mono text-ui uppercase tracking-[0.08em] text-feedback-warning"
-                        >
-                          · You
-                        </span>
-                      )}
-                    </span>
-                  </div>
-                </div>
-                <div className="hidden items-center sm:flex">
-                  <span
-                    className="font-mono border border-border bg-secondary px-3 py-1.5 text-label uppercase tracking-ui text-secondary-foreground"
+          <tbody>
+            {shown.length === 0 ? (
+              <tr>
+                <td colSpan={5} className="px-4 py-10 text-center font-mono text-label text-muted-foreground">
+                  No entries in this category.
+                </td>
+              </tr>
+            ) : (
+              shown.map((entry, i) => {
+                const isMe = isAuthenticated && entry.authorKey === MY_AUTHOR_KEY;
+                return (
+                  <tr
+                    key={entry.rank}
+                    className={`animate-enter border-b border-border transition-colors hover:bg-secondary ${
+                      isMe
+                        ? "border-l-2 border-l-feedback-warning bg-feedback-warning/5"
+                        : entry.rank === 1
+                        ? "border-l-2 border-l-feedback-success bg-card"
+                        : "bg-card"
+                    }`}
+                    style={{ animationDelay: `${i * 40}ms` }}
                   >
-                    {entry.category}
-                  </span>
-                </div>
-                <div className="hidden items-center sm:flex">
-                  <ApprovalBar value={entry.approval} />
-                </div>
-                <div className="flex items-center justify-end px-4">
-                  <span
-                    className="font-mono text-sm font-medium text-feedback-success tracking-ui"
-                  >
-                    {entry.votes}
-                  </span>
-                </div>
-              </Link>
-            );
-          })
-        )}
+                    <td className="px-3 py-3 sm:px-4">
+                      <RankBadge rank={entry.rank} />
+                    </td>
+                    <td className="px-4 py-3">
+                      <Link href="/project" className="flex items-center gap-3">
+                        <div className="h-7 w-7 shrink-0 rounded-full bg-secondary" aria-hidden="true" />
+                        <div className="flex min-w-0 flex-col">
+                          <span className="truncate text-sm font-medium text-foreground">
+                            {entry.project}
+                          </span>
+                          <span className="flex items-center gap-1.5 text-ui text-muted-foreground">
+                            {entry.author}
+                            {isMe ? (
+                              <span
+                                className="font-mono text-ui uppercase tracking-ui text-feedback-warning"
+                              >
+                                · You
+                              </span>
+                            ) : null}
+                          </span>
+                        </div>
+                      </Link>
+                    </td>
+                    <td className="hidden sm:table-cell">
+                      <span
+                        className="font-mono border border-border bg-secondary px-3 py-1.5 text-label uppercase tracking-ui text-secondary-foreground"
+                      >
+                        {entry.category}
+                      </span>
+                    </td>
+                    <td className="hidden sm:table-cell">
+                      <ApprovalBar value={entry.approval} />
+                    </td>
+                    <td className="px-4 text-right">
+                      <span
+                        className="font-mono text-sm font-medium text-feedback-success tracking-ui"
+                      >
+                        {entry.votes}
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })
+            )}
+          </tbody>
+        </table>
 
         {/* Footer */}
         <div className="flex items-center justify-between bg-card px-4 py-3">
@@ -204,14 +212,14 @@ export default function LeaderboardTable() {
           >
             Showing {shown.length} of {filtered.length} approved projects
           </span>
-          {hasMore && (
+          {hasMore ? (
             <button
               onClick={() => setVisible((v) => Math.min(v + PAGE_SIZE, filtered.length))}
               className="font-mono border border-border bg-secondary px-4 py-1.5 text-ui text-secondary-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
-              Load more →
+              Load more <span aria-hidden="true">→</span>
             </button>
-          )}
+          ) : null}
         </div>
       </div>
     </div>

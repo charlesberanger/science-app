@@ -31,7 +31,10 @@ export default function SubmissionLoading() {
         </div>
         <div className="flex flex-col gap-2 p-5">
           {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="h-3 w-full animate-pulse bg-secondary last:w-3/4" />
+            <div
+              key={i}
+              className="h-3 w-full animate-pulse bg-secondary last:w-3/4"
+            />
           ))}
         </div>
       </div>
