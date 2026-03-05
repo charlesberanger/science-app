@@ -3,7 +3,8 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "My Submission",
-  description: "Track the status of your Science Fluid Dynamics Challenge submission.",
+  description:
+    "Track the status of your Science Fluid Dynamics Challenge submission.",
 };
 import AppShell from "@/components/layout/AppShell";
 import SubmissionStatusBanner from "@/components/submission/SubmissionStatusBanner";
@@ -32,13 +33,12 @@ export default function MySubmissionPage() {
         <div className="flex flex-col gap-1">
           <h1
             className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
-            style={{ fontFamily: "var(--font-dm-sans), sans-serif" }}
+           
           >
             My Submission
           </h1>
           <p
-            className="text-xs text-muted-foreground"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono text-xs text-muted-foreground"
           >
             312 submissions &nbsp;·&nbsp; Fluid Dynamics Challenge
           </p>

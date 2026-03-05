@@ -41,8 +41,7 @@ const MY_AUTHOR_KEY = "alice-s";
 function RankBadge({ rank }: { rank: number }) {
   return (
     <span
-      className="inline-flex items-center gap-1 rounded-full border border-feedback-success px-2.5 py-0.5"
-      style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+      className="font-mono inline-flex items-center gap-1 rounded-full border border-feedback-success px-2.5 py-0.5"
     >
       <span className="h-1 w-1 rounded-full bg-feedback-success" />
       <span className="text-label text-feedback-success tracking-ui">#{rank}</span>
@@ -57,8 +56,7 @@ function ApprovalBar({ value }: { value: number }) {
         <div className="h-1 rounded-full bg-lime-400" style={{ width: `${value}%` }} />
       </div>
       <span
-        className="text-label text-muted-foreground tracking-ui"
-        style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+        className="font-mono text-label text-muted-foreground tracking-ui"
       >
         {value}%
       </span>
@@ -100,14 +98,12 @@ export default function LeaderboardTable() {
       {myEntry && (
         <div className="flex items-center gap-3 border border-feedback-warning/40 bg-feedback-warning/5 px-4 py-2.5">
           <span
-            className="font-mono text-ui uppercase tracking-[0.1em] text-feedback-warning"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono text-ui uppercase tracking-ui text-feedback-warning"
           >
             Your rank
           </span>
           <span
-            className="inline-flex items-center gap-1 rounded-full border border-feedback-warning px-2 py-0.5"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono inline-flex items-center gap-1 rounded-full border border-feedback-warning px-2 py-0.5"
           >
             <span className="h-1 w-1 rounded-full bg-feedback-warning" />
             <span className="text-label text-feedback-warning tracking-ui">
@@ -130,8 +126,7 @@ export default function LeaderboardTable() {
           {["RANK", "PROJECT / AUTHOR", "CATEGORY", "APPROVAL", "VOTES"].map((col) => (
             <div
               key={col}
-              className="px-4 py-2.5 text-label uppercase tracking-ui text-muted-foreground"
-              style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+              className="font-mono px-4 py-2.5 text-label uppercase tracking-ui text-muted-foreground"
             >
               {col}
             </div>
@@ -173,7 +168,6 @@ export default function LeaderboardTable() {
                       {isMe && (
                         <span
                           className="font-mono text-ui uppercase tracking-[0.08em] text-feedback-warning"
-                          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
                         >
                           · You
                         </span>
@@ -183,8 +177,7 @@ export default function LeaderboardTable() {
                 </div>
                 <div className="hidden items-center sm:flex">
                   <span
-                    className="border border-border bg-secondary px-3 py-1.5 text-label uppercase tracking-ui text-secondary-foreground"
-                    style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+                    className="font-mono border border-border bg-secondary px-3 py-1.5 text-label uppercase tracking-ui text-secondary-foreground"
                   >
                     {entry.category}
                   </span>
@@ -194,8 +187,7 @@ export default function LeaderboardTable() {
                 </div>
                 <div className="flex items-center justify-end px-4">
                   <span
-                    className="text-sm font-medium text-feedback-success tracking-ui"
-                    style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+                    className="font-mono text-sm font-medium text-feedback-success tracking-ui"
                   >
                     {entry.votes}
                   </span>
@@ -208,16 +200,14 @@ export default function LeaderboardTable() {
         {/* Footer */}
         <div className="flex items-center justify-between bg-card px-4 py-3">
           <span
-            className="text-label text-muted-foreground tracking-ui"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono text-label text-muted-foreground tracking-ui"
           >
             Showing {shown.length} of {filtered.length} approved projects
           </span>
           {hasMore && (
             <button
               onClick={() => setVisible((v) => Math.min(v + PAGE_SIZE, filtered.length))}
-              className="border border-border bg-secondary px-4 py-1.5 text-ui text-secondary-foreground transition-colors hover:text-foreground"
-              style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+              className="font-mono border border-border bg-secondary px-4 py-1.5 text-ui text-secondary-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
             >
               Load more →
             </button>

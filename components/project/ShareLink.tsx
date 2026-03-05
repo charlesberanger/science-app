@@ -21,8 +21,7 @@ export default function ShareLink() {
   return (
     <div className="rounded border border-border bg-card p-5">
       <span
-        className="text-label tracking-ui text-muted-foreground uppercase"
-        style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+        className="font-mono text-label tracking-ui text-muted-foreground uppercase"
       >
         Share Project
       </span>
@@ -31,22 +30,20 @@ export default function ShareLink() {
           type="text"
           readOnly
           value={SHARE_URL}
-          className="flex-1 rounded border border-border bg-background px-3 py-2 text-ui text-muted-foreground outline-none focus-visible:border-feedback-success sm:rounded-r-none"
-          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+          className="font-mono flex-1 rounded border border-border bg-background px-3 py-2 text-ui text-muted-foreground outline-none focus-visible:border-feedback-success sm:rounded-r-none"
         />
         <button
           onClick={handleCopy}
-          className={`rounded border px-4 py-2 text-ui transition-colors sm:rounded-l-none sm:border-l-0 ${
+          className={`font-mono rounded border px-4 py-2 text-ui transition-colors sm:rounded-l-none sm:border-l-0 ${
             copied
               ? "border-feedback-success bg-feedback-success/10 text-feedback-success"
               : "border-border bg-secondary text-secondary-foreground hover:bg-secondary hover:text-foreground"
           }`}
-          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           {copied ? "Copied ✓" : "Copy link"}
         </button>
       </div>
-      <p className="mt-2 text-label text-muted-foreground" style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
+      <p className="font-mono mt-2 text-label text-muted-foreground">
         Anyone with this link can view this project submission
       </p>
     </div>

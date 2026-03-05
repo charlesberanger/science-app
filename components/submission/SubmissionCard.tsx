@@ -31,7 +31,7 @@ export default function SubmissionCard({
   const { variant, label } = STATUS_BADGE[status];
 
   return (
-    <div className="flex flex-col gap-[18px] border border-border bg-card py-6">
+    <div className="flex flex-col gap-5 border border-border bg-card py-6">
       {/* Header */}
       <div className="flex items-start justify-between gap-4 px-4">
         <div className="flex flex-col gap-1.5">
@@ -58,7 +58,7 @@ export default function SubmissionCard({
 
       {/* Description */}
       <div className="px-4">
-        <p className="text-sm leading-[1.65] text-muted-foreground">{description}</p>
+        <p className="text-sm leading-relaxed text-muted-foreground">{description}</p>
       </div>
     </div>
   );

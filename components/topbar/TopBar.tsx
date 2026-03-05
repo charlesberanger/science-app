@@ -43,20 +43,24 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
         className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 lg:hidden"
         aria-label="Open menu"
       >
-        <span className="h-px w-4 bg-muted-foreground" />
-        <span className="h-px w-4 bg-muted-foreground" />
-        <span className="h-px w-4 bg-muted-foreground" />
+        <span className="h-px w-4 bg-muted-foreground" aria-hidden="true" />
+        <span className="h-px w-4 bg-muted-foreground" aria-hidden="true" />
+        <span className="h-px w-4 bg-muted-foreground" aria-hidden="true" />
       </button>
 
-      <span className="hidden font-mono text-ui tracking-ui text-muted-foreground lg:block">
-        Science <span className="text-muted-foreground">/</span>{" "}
-        <span className="text-secondary-foreground">{section}</span>
-      </span>
+      <nav aria-label="Breadcrumb" className="hidden lg:block">
+        <span className="font-mono text-ui tracking-ui text-muted-foreground">
+          Science <span className="text-muted-foreground">/</span>{" "}
+          <span className="text-secondary-foreground">{section}</span>
+        </span>
+      </nav>
 
-      <span className="absolute left-1/2 -translate-x-1/2 font-mono text-ui tracking-ui text-muted-foreground lg:hidden">
-        Science <span className="text-muted-foreground">/</span>{" "}
-        <span className="text-secondary-foreground">{section}</span>
-      </span>
+      <nav aria-label="Breadcrumb" className="absolute left-1/2 -translate-x-1/2 lg:hidden">
+        <span className="font-mono text-ui tracking-ui text-muted-foreground">
+          Science <span className="text-muted-foreground">/</span>{" "}
+          <span className="text-secondary-foreground">{section}</span>
+        </span>
+      </nav>
 
       {isAuthenticated ? (
         badgeLabel && <Badge variant="success">{badgeLabel}</Badge>

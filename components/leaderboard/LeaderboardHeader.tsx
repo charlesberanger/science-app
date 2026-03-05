@@ -6,7 +6,7 @@ export default function LeaderboardHeader() {
           Leaderboard
         </h1>
         <p className="text-xs text-muted-foreground">
-          <span style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
+          <span className="font-mono">
             Fluid Dynamics Challenge
           </span>
           {" · "}

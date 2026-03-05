@@ -73,13 +73,12 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
       {/* Portal-like fixed container — bottom-right */}
       <div
         aria-live="polite"
-        className="pointer-events-none fixed bottom-5 right-5 z-50 flex flex-col gap-2"
-        style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+        className="font-mono pointer-events-none fixed bottom-5 right-5 z-50 flex flex-col gap-2"
       >
         {items.map((item) => (
           <div
             key={item.id}
-            className={`pointer-events-auto flex items-center justify-between gap-4 border bg-card px-4 py-3 text-ui uppercase tracking-[0.1em] shadow-lg animate-toast-in ${VARIANT_STYLES[item.variant]}`}
+            className={`pointer-events-auto flex items-center justify-between gap-4 border bg-card px-4 py-3 text-ui uppercase tracking-ui shadow-lg animate-toast-in ${VARIANT_STYLES[item.variant]}`}
           >
             <span>{item.message}</span>
             <button

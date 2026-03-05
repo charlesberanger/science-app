@@ -47,7 +47,7 @@ export default function ProfileSection() {
 
       <button
         onClick={handleSignOut}
-        className="flex w-full items-center gap-2 border-t border-border px-4 py-2.5 font-mono text-label uppercase tracking-ui text-muted-foreground transition-colors hover:bg-secondary hover:text-destructive"
+        className="flex w-full items-center gap-2 border-t border-border px-4 py-2.5 font-mono text-label uppercase tracking-ui text-muted-foreground transition-colors hover:bg-secondary hover:text-destructive focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
       >
         <span aria-hidden="true">→</span>
         Sign out

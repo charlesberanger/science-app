@@ -16,10 +16,9 @@ function LoadingOverlay() {
   return (
     <div className="absolute inset-0 flex items-center justify-center bg-card">
       <div className="flex flex-col items-center gap-3">
-        <div className="h-5 w-5 animate-spin rounded-full border border-border border-t-[#4ade80]" />
+        <div className="h-5 w-5 animate-spin rounded-full border border-border border-t-lime-400" />
         <span
-          className="text-label uppercase tracking-ui text-muted-foreground"
-          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+          className="font-mono text-label uppercase tracking-ui text-muted-foreground"
         >
           Loading model…
         </span>
@@ -150,12 +149,11 @@ function ToolButton({
   return (
     <button
       onClick={onClick}
-      className={`border px-2.5 py-1 text-label uppercase tracking-ui transition-colors ${
+      className={`font-mono border px-2.5 py-1 text-label uppercase tracking-ui transition-colors ${
         active
           ? "border-feedback-success text-feedback-success"
           : "border-border text-muted-foreground hover:border-border hover:text-secondary-foreground"
       }`}
-      style={{ fontFamily: "var(--font-dm-mono), monospace" }}
     >
       {children}
     </button>
@@ -276,8 +274,7 @@ export default function CadViewer({ height = 399 }: { height?: number }) {
             <select
               value={cameraView}
               onChange={(e) => changeView(e.target.value as typeof cameraView)}
-              className="border border-border bg-card px-2 py-1 text-label uppercase tracking-ui text-muted-foreground outline-none focus-visible:border-feedback-success"
-              style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+              className="font-mono border border-border bg-card px-2 py-1 text-label uppercase tracking-ui text-muted-foreground outline-none focus-visible:border-feedback-success"
             >
               {(["isometric", "front", "side", "top"] as const).map((v) => (
                 <option key={v} value={v}>
@@ -290,8 +287,7 @@ export default function CadViewer({ height = 399 }: { height?: number }) {
 
           {/* Bottom-left: file info */}
           <div
-            className="absolute bottom-3 left-3 text-label text-muted-foreground tracking-ui"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono absolute bottom-3 left-3 text-label text-muted-foreground tracking-ui"
           >
             sample.step · 2.3 MB
           </div>

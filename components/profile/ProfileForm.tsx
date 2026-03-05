@@ -7,8 +7,7 @@ function FieldLabel({ htmlFor, children }: { htmlFor: string; children: React.Re
   return (
     <label
       htmlFor={htmlFor}
-      className="text-label uppercase tracking-ui text-secondary-foreground"
-      style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+      className="font-mono text-label uppercase tracking-ui text-secondary-foreground"
     >
       {children}
     </label>
@@ -81,7 +80,7 @@ export default function ProfileForm() {
     <div className="flex flex-col gap-8 sm:flex-row sm:gap-10">
       {/* Avatar column */}
       <div className="flex flex-col items-center gap-3 sm:shrink-0">
-        <div className="flex h-[72px] w-[72px] items-center justify-center border border-[rgba(42,42,42,0.5)] bg-[rgba(28,28,28,0.5)]">
+        <div className="flex h-[72px] w-[72px] items-center justify-center border border-border/50 bg-secondary/50">
           {photo ? (
             <img
               src={photo}
@@ -90,8 +89,7 @@ export default function ProfileForm() {
             />
           ) : (
             <span
-              className="text-2xl text-secondary-foreground"
-              style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+              className="font-mono text-2xl text-secondary-foreground"
             >
               {initials}
             </span>
@@ -171,14 +169,12 @@ export default function ProfileForm() {
         <div className="flex flex-col gap-1.5">
           <div className="flex items-center justify-between">
             <span
-              className="text-label uppercase tracking-ui text-muted-foreground"
-              style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+              className="font-mono text-label uppercase tracking-ui text-muted-foreground"
             >
               Profile completeness
             </span>
             <span
-              className={`text-label tracking-ui ${completedFields === TOTAL_FIELDS ? "text-feedback-success" : "text-muted-foreground"}`}
-              style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+              className={`font-mono text-label tracking-ui ${completedFields === TOTAL_FIELDS ? "text-feedback-success" : "text-muted-foreground"}`}
             >
               {completedFields}/{TOTAL_FIELDS}
             </span>
@@ -194,16 +190,14 @@ export default function ProfileForm() {
         {/* Submit */}
         <div className="flex items-center justify-between border-t border-border pt-5">
           <p
-            className="text-label text-muted-foreground tracking-ui"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono text-label text-muted-foreground tracking-ui"
           >
             * Required to submit a project
           </p>
           <div className="flex items-center gap-3">
             {saved && (
               <span
-                className="text-ui text-feedback-success"
-                style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+                className="font-mono text-ui text-feedback-success"
               >
                 Saved ✓
               </span>

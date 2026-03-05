@@ -87,7 +87,7 @@ export default function BrowseProjectsPage() {
       {/* Grid */}
       {filtered.length === 0 ? (
         <div className="flex flex-col items-center justify-center gap-4 border border-dashed border-border py-20 text-center">
-          <span className="font-mono text-3xl text-muted-foreground">⊘</span>
+          <span className="font-mono text-3xl text-muted-foreground" aria-hidden="true">⊘</span>
           <div className="flex flex-col gap-1">
             <p className="text-sm font-medium text-muted-foreground">No projects found</p>
             <p className="font-mono text-label text-muted-foreground">Try adjusting your filters or check back later.</p>

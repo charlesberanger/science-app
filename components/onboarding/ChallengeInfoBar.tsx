@@ -4,8 +4,7 @@ export default function ChallengeInfoBar() {
       <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col gap-1">
           <span
-            className="text-label uppercase tracking-ui text-muted-foreground"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono text-label uppercase tracking-ui text-muted-foreground"
           >
             Current Challenge
           </span>
@@ -14,8 +13,7 @@ export default function ChallengeInfoBar() {
           </span>
         </div>
         <span
-          className="text-sm text-feedback-success"
-          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+          className="font-mono text-sm text-feedback-success"
         >
           $24,000 prize pool · 312 submissions · 46 days remaining
         </span>

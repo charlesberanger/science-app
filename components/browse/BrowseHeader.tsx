@@ -14,7 +14,7 @@ export default function BrowseHeader({ search, onSearchChange, count }: BrowseHe
         <p className="text-sm text-muted-foreground">
           <span className="text-secondary-foreground">{count} submissions</span>
           {" · "}
-          <span style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
+          <span className="font-mono">
             Fluid Dynamics Challenge
           </span>
         </p>

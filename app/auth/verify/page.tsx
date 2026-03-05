@@ -153,7 +153,7 @@ function VerifyForm() {
           <div className="border-t border-border" />
 
           <form onSubmit={handleVerify} className="flex flex-col gap-5 px-9 py-7">
-            <p className="text-sm font-normal leading-[1.55] text-secondary-foreground">
+            <p className="text-sm font-normal leading-relaxed text-secondary-foreground">
               We sent a 6-digit code to{" "}
               <span className="text-foreground">{email}</span>. Expires in 09:42.
             </p>

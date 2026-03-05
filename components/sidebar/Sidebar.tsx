@@ -28,8 +28,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         <Link href="/get-started" className="flex items-center gap-2.5" onClick={onClose}>
           <ScienceLogo className="h-7 w-7" />
           <span
-            className="text-xs uppercase tracking-ui text-foreground"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono text-xs uppercase tracking-ui text-foreground"
           >
             Science
           </span>
@@ -39,7 +38,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
           className="flex h-6 w-6 items-center justify-center text-muted-foreground transition-colors hover:text-foreground lg:hidden"
           aria-label="Close menu"
         >
-          ✕
+          <span aria-hidden="true">✕</span>
         </button>
       </div>
 
@@ -47,8 +46,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       <div className="flex flex-1 flex-col gap-5 overflow-y-auto py-5">
         <div>
           <span
-            className="mb-1 block px-4 text-label uppercase tracking-ui text-muted-foreground"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono mb-1 block px-4 text-label uppercase tracking-ui text-muted-foreground"
           >
             Navigation
           </span>
@@ -57,8 +55,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
         <div>
           <span
-            className="mb-1 block px-4 text-label uppercase tracking-ui text-muted-foreground"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono mb-1 block px-4 text-label uppercase tracking-ui text-muted-foreground"
           >
             Challenge
           </span>
@@ -72,8 +69,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
         <div>
           <span
-            className="mb-1 block px-4 text-label uppercase tracking-ui text-muted-foreground"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono mb-1 block px-4 text-label uppercase tracking-ui text-muted-foreground"
           >
             Explore
           </span>

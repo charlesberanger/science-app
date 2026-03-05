@@ -52,8 +52,7 @@ export default function CommentsSection() {
     <div id="comments" className="rounded border border-border bg-card">
       <div className="border-b border-border px-5 py-3">
         <span
-          className="text-label tracking-ui text-muted-foreground uppercase"
-          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+          className="font-mono text-label tracking-ui text-muted-foreground uppercase"
         >
           Comments ({comments.length})
         </span>
@@ -87,8 +86,7 @@ export default function CommentsSection() {
             <button
               type="submit"
               disabled={!draft.trim()}
-              className="border border-border bg-secondary px-4 py-2 text-ui text-secondary-foreground transition-colors hover:border-feedback-success hover:text-feedback-success disabled:opacity-30 disabled:pointer-events-none"
-              style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+              className="font-mono border border-border bg-secondary px-4 py-2 text-ui text-secondary-foreground transition-colors hover:border-feedback-success hover:text-feedback-success disabled:opacity-30 disabled:pointer-events-none"
             >
               Post →
             </button>
@@ -96,7 +94,7 @@ export default function CommentsSection() {
         </form>
       ) : (
         <div className="border-t border-border px-5 py-4">
-          <p className="text-ui text-muted-foreground" style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
+          <p className="font-mono text-ui text-muted-foreground">
             <a href="/auth/sign-in" className="text-muted-foreground hover:text-secondary-foreground transition-colors">Sign in</a>
             {" "}to leave a comment
           </p>

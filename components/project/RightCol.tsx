@@ -42,31 +42,25 @@ export default function RightCol() {
       {/* Vote */}
       <div className="p-5">
         <span
-          className="text-label tracking-ui text-muted-foreground uppercase"
-          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+          className="font-mono text-label tracking-ui text-muted-foreground uppercase"
         >
           Community Vote
         </span>
         <button
           onClick={handleVote}
-          className={`mt-3 flex w-full items-center justify-between rounded border px-4 py-2.5 transition-all duration-150 active:scale-[0.97] ${
+          className={`mt-3 flex w-full items-center justify-between rounded border px-4 py-2.5 transition-all duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring ${
             voted
               ? "border-feedback-success bg-feedback-success/10 text-feedback-success"
               : "border-feedback-success bg-feedback-success text-black hover:bg-feedback-success-hover"
           }`}
         >
           <span
-            className="text-ui uppercase tracking-ui"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono text-ui uppercase tracking-ui"
           >
             {voted ? "▲ Voted" : "▲ Vote"}
           </span>
           <span
-            className="text-ui transition-transform duration-150"
-            style={{
-              fontFamily: "var(--font-dm-mono), monospace",
-              transform: bumped ? "scale(1.3)" : "scale(1)",
-            }}
+            className={`font-mono text-ui transition-transform duration-150 ${bumped ? "scale-125" : "scale-100"}`}
           >
             {voteCount}
           </span>
@@ -83,8 +77,7 @@ export default function RightCol() {
       {/* Challenge info */}
       <div className="p-5">
         <span
-          className="text-label tracking-ui text-muted-foreground uppercase"
-          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+          className="font-mono text-label tracking-ui text-muted-foreground uppercase"
         >
           Challenge
         </span>
@@ -96,8 +89,7 @@ export default function RightCol() {
         <div className="mt-4 flex flex-col gap-3">
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-label tracking-ui text-muted-foreground uppercase"
-              style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+              className="font-mono text-label tracking-ui text-muted-foreground uppercase"
             >
               Prize Pool
             </span>
@@ -105,8 +97,7 @@ export default function RightCol() {
           </div>
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-label tracking-ui text-muted-foreground uppercase"
-              style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+              className="font-mono text-label tracking-ui text-muted-foreground uppercase"
             >
               Deadline
             </span>
@@ -114,8 +105,7 @@ export default function RightCol() {
           </div>
           <div className="flex flex-col gap-0.5">
             <span
-              className="text-label tracking-ui text-muted-foreground uppercase"
-              style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+              className="font-mono text-label tracking-ui text-muted-foreground uppercase"
             >
               Submissions
             </span>
@@ -129,8 +119,7 @@ export default function RightCol() {
       {/* Discussion */}
       <div className="p-5">
         <span
-          className="text-label tracking-ui text-muted-foreground uppercase"
-          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+          className="font-mono text-label tracking-ui text-muted-foreground uppercase"
         >
           Discussion (12)
         </span>

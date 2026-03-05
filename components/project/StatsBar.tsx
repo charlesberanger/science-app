@@ -27,15 +27,13 @@ export default function StatsBar({ stats = defaultStats }: { stats?: StatItem[] 
           `}
         >
           <span
-            className="text-label uppercase tracking-ui text-muted-foreground"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono text-label uppercase tracking-ui text-muted-foreground"
           >
             {stat.label}
           </span>
           <span className="text-2xl font-semibold text-foreground">{stat.value}</span>
           <span
-            className={`text-label ${stat.trendMuted ? "text-muted-foreground" : "text-feedback-success"}`}
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className={`font-mono text-label ${stat.trendMuted ? "text-muted-foreground" : "text-feedback-success"}`}
           >
             {stat.trend}
           </span>

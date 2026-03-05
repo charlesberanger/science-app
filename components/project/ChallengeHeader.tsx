@@ -9,7 +9,7 @@ export default function ChallengeHeader() {
           by C. Laurent
         </Link>
         {" · "}
-        <span style={{ fontFamily: "var(--font-dm-mono), monospace" }}>
+        <span className="font-mono">
           Fluid Dynamics Challenge
         </span>
       </p>

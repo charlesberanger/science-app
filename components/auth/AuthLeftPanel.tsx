@@ -41,7 +41,7 @@ export default function AuthLeftPanel({
             SCIENCE
           </span>
         </div>
-        <div className="border border-[rgba(31,92,34,0.5)] bg-[rgba(7,18,9,0.8)] px-3 py-1.5">
+        <div className="border border-feedback-success/30 bg-feedback-status-success/80 px-3 py-1.5">
           <span className="font-mono text-label tracking-ui text-lime-400">
             FLUID DYNAMICS CHALLENGE
           </span>
@@ -58,9 +58,9 @@ export default function AuthLeftPanel({
 
       {/* Headline */}
       <div className="flex flex-col px-14 leading-[0.92] tracking-[-3.6px]">
-        {headline.map((line, i) => (
+        {headline.map((line) => (
           <span
-            key={i}
+            key={line.text}
             className={`text-7xl ${
               line.style === "bold"
                 ? "font-bold text-foreground"

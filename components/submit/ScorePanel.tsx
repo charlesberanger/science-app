@@ -87,16 +87,14 @@ export default function ScorePanel({
       {/* Header */}
       <div className="flex items-center justify-between border-b border-border px-5 py-3">
         <span
-          className="text-sm uppercase tracking-ui text-muted-foreground"
-          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+          className="font-mono text-sm uppercase tracking-ui text-muted-foreground"
         >
           AI Pre-Screen
         </span>
         <span
-          className={`text-label uppercase tracking-ui ${
+          className={`font-mono text-label uppercase tracking-ui ${
             checksRemaining === 0 ? "text-destructive" : "text-muted-foreground"
           }`}
-          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
         >
           {checksRemaining} check{checksRemaining !== 1 ? "s" : ""} left
         </span>
@@ -152,8 +150,7 @@ export default function ScorePanel({
       {!loading && error && (
         <div className="px-5 py-4">
           <p
-            className="text-label text-destructive"
-            style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+            className="font-mono text-label text-destructive"
           >
             ✕ {error}
           </p>
@@ -178,8 +175,7 @@ export default function ScorePanel({
                 {result.composite}
               </span>
               <span
-                className="mb-1 text-label uppercase tracking-ui text-muted-foreground"
-                style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+                className="font-mono mb-1 text-label uppercase tracking-ui text-muted-foreground"
               >
                 / 100
               </span>
@@ -193,8 +189,7 @@ export default function ScorePanel({
                   <div key={key} className="flex flex-col gap-1">
                     <div className="flex items-center justify-between">
                       <span
-                        className="text-xs text-muted-foreground"
-                        style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+                        className="font-mono text-xs text-muted-foreground"
                       >
                         {label}
                       </span>
@@ -220,15 +215,14 @@ export default function ScorePanel({
           {result.flags.length > 0 && (
             <div className="flex flex-col gap-2 px-5 py-4">
               <span
-                className="text-sm uppercase tracking-ui text-muted-foreground"
-                style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+                className="font-mono text-sm uppercase tracking-ui text-muted-foreground"
               >
                 Improve
               </span>
               <div className="flex flex-col gap-2">
-                {result.flags.map((flag, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <span className="mt-0.5 shrink-0 text-label text-feedback-warning">→</span>
+                {result.flags.map((flag) => (
+                  <div key={flag} className="flex items-start gap-2">
+                    <span className="mt-0.5 shrink-0 text-label text-feedback-warning" aria-hidden="true">→</span>
                     <span className="text-sm leading-relaxed text-secondary-foreground">
                       {flag}
                     </span>
@@ -246,7 +240,7 @@ export default function ScorePanel({
           <button
             onClick={handleCheck}
             disabled={!canCheck}
-            className="flex w-full items-center justify-center gap-2 border border-border bg-secondary py-3 font-mono text-label uppercase tracking-ui text-secondary-foreground transition-colors hover:border-foreground/20 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
+            className="flex w-full items-center justify-center gap-2 border border-border bg-secondary py-3 font-mono text-label uppercase tracking-ui text-secondary-foreground transition-colors hover:border-foreground/20 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
           >
             {hasChecked ? "Re-evaluate submission" : "Check my submission"}
           </button>

@@ -16,7 +16,7 @@ const STATS = [
 function StatsFooter() {
   return (
     <div className="mx-14 border border-border bg-background">
-      <div className="grid grid-cols-4 divide-x divide-[#1c1c1c]">
+      <div className="grid grid-cols-4 divide-x divide-border">
         {STATS.map((s) => (
           <div key={s.label} className="flex flex-col gap-1 px-4 py-4">
             <span
@@ -67,9 +67,9 @@ function SignInForm() {
 
       {/* Right — auth card */}
       <div className="flex flex-1 items-center justify-center px-4">
-        <div className="relative w-full max-w-[440px] border border-[rgba(42,42,42,0.4)] bg-card shadow-[0px_20px_56px_0px_rgba(0,0,0,0.5)]">
+        <div className="relative w-full max-w-[440px] border border-border/40 bg-card shadow-2xl">
           {/* Lime top accent */}
-          <div className="absolute left-0 top-0 h-px w-full bg-[rgba(172,255,175,0.4)]" />
+          <div className="absolute left-0 top-0 h-px w-full bg-lime-400/40" />
 
           {signedOut && (
             <div className="border-b border-border bg-feedback-status-success px-9 py-3">
@@ -95,7 +95,7 @@ function SignInForm() {
             onSubmit={handleSubmit}
             className="flex flex-col gap-3 px-9 py-7"
           >
-            <p className="text-sm font-normal leading-[1.55] text-secondary-foreground">
+            <p className="text-sm font-normal leading-relaxed text-secondary-foreground">
               {isRegister
                 ? "Create an account with your organisation email. No password required."
                 : "Sign in with your organisation account via SSO. No password required."}
@@ -103,10 +103,11 @@ function SignInForm() {
 
             {/* Email field */}
             <div className="mt-2 flex flex-col gap-2">
-              <label className="font-mono text-label tracking-ui text-secondary-foreground">
+              <label htmlFor="email" className="font-mono text-label tracking-ui text-secondary-foreground">
                 YOUR EMAIL
               </label>
               <input
+                id="email"
                 type="email"
                 required
                 value={email}
@@ -119,7 +120,7 @@ function SignInForm() {
             {/* Primary CTA */}
             <button
               type="submit"
-              className="mt-1 flex h-12 w-full items-center justify-center bg-feedback-success font-mono text-label font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90"
+              className="mt-1 flex h-12 w-full items-center justify-center bg-feedback-success font-mono text-label font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               Continue with SSO →
             </button>

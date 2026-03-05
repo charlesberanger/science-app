@@ -37,8 +37,7 @@ export default function PathCard({
       <div className="flex flex-col gap-1.5">
         <span className="text-sm font-medium text-foreground">{cta}</span>
         <span
-          className="text-label uppercase tracking-ui text-muted-foreground"
-          style={{ fontFamily: "var(--font-dm-mono), monospace" }}
+          className="font-mono text-label uppercase tracking-ui text-muted-foreground"
         >
           {note}
         </span>
