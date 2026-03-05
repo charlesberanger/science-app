@@ -47,9 +47,10 @@ const USERS: Record<
       status: "approved",
       meta: [
         { label: "Category", value: "Fluid Dynamics" },
-        { label: "AI Score", value: "91 / 100" },
+        { label: "AI Pre-screen", value: "91 / 100" },
         { label: "Submitted", value: "Jan 28, 2026" },
         { label: "Assets", value: "CAD File + Report" },
+        { label: "Reviewer Score", value: "94 / 100" },
       ],
       tubeDesignDifferences:
         "This submission presents a modified 1.5 mL microfuge tube featuring a tapered internal wall geometry with 0.3 mm longitudinal riblets inspired by shark-skin denticles. The wall thickness is reduced from 0.8 mm to 0.55 mm in the lower third to accommodate the surface texturing without exceeding the standard outer envelope.",
@@ -77,9 +78,10 @@ const USERS: Record<
       status: "pending",
       meta: [
         { label: "Category", value: "Fluid Dynamics" },
-        { label: "AI Score", value: "82 / 100" },
+        { label: "AI Pre-screen", value: "82 / 100" },
         { label: "Submitted", value: "Feb 13, 2026" },
         { label: "Assets", value: "CAD File" },
+        { label: "Reviewer Score", value: "—" },
       ],
       tubeDesignDifferences:
         "This submission presents a modified 1.5 mL microfuge tube featuring a tapered internal wall geometry with 0.3 mm longitudinal riblets inspired by shark-skin denticles. The wall thickness is reduced from 0.8 mm to 0.55 mm in the lower third to accommodate the surface texturing without exceeding the standard outer envelope.",

@@ -20,6 +20,7 @@ const schema = z.object({
     .string()
     .min(1500, "Must be at least 1,500 characters"),
   cadFiles: z.array(z.instanceof(File)).min(1, "A CAD file is required"),
+  coverImage: z.array(z.instanceof(File)).optional(),
 });
 
 export type FluidDynamicsFormData = z.infer<typeof schema>;
@@ -40,6 +41,7 @@ export function FluidDynamicsFormProvider({ children }: { children: React.ReactN
       tubeDesignDifferences: "",
       technicalRationale: "",
       cadFiles: [],
+      coverImage: [],
     },
     mode: "onSubmit",
   });

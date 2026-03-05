@@ -271,7 +271,7 @@ export default function LeaderboardTable() {
                 "RANK",
                 "PROJECT / AUTHOR",
                 "CATEGORY",
-                "APPROVAL",
+                "REVIEWER SCORE",
                 "VOTES",
               ].map((col) => (
                 <th

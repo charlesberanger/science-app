@@ -17,7 +17,7 @@ import RightCol from "@/components/project/RightCol";
 const projectStats = [
   { label: "VOTES", value: "512", trend: "↑ +38 this week" },
   { label: "REVIEWER SCORE", value: "87", trend: "/ 100 pts" },
-  { label: "COMMENTS", value: "12", trend: "↑ +3 this week" },
+  { label: "COMMENTS", value: "3", trend: "↑ +1 this week" },
   { label: "DAYS LEFT", value: <CountdownTimer />, trend: "Closes Apr 12", trendMuted: true },
 ];
 

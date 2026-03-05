@@ -60,7 +60,7 @@ export default function SubmissionCard({
       </div>
 
       {/* Meta grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-4">
+      <div className={`grid grid-cols-2 ${meta.length > 4 ? "sm:grid-cols-5" : "sm:grid-cols-4"}`}>
         {meta.map((cell) => (
           <div
             key={cell.label}

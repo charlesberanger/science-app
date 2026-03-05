@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import AppShell from "@/components/layout/AppShell";
 import { useFluidDynamicsForm } from "@/contexts/FluidDynamicsFormContext";
@@ -299,6 +299,12 @@ export default function ReviewSubmissionPage() {
 
   const data = form.watch();
   const files: File[] = data.cadFiles ?? [];
+  const coverFiles: File[] = data.coverImage ?? [];
+
+  const coverPreview = useMemo(() => {
+    if (coverFiles.length === 0) return null;
+    return URL.createObjectURL(coverFiles[0]);
+  }, [coverFiles]);
 
   async function handleSubmit() {
     setSubmitting(true);
@@ -408,6 +414,42 @@ export default function ReviewSubmissionPage() {
           value={data.technicalRationale}
           onSave={(v) => { form.setValue("technicalRationale", v); toast({ message: "Changes saved ✓", variant: "success" }); }}
         />
+
+        {/* Cover image */}
+        <div className="flex flex-col gap-2">
+          <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+            Cover Image
+          </span>
+          {coverFiles.length > 0 && coverPreview ? (
+            <div className="flex items-start gap-4 border border-border bg-background px-3.5 py-3">
+              <img
+                src={coverPreview}
+                alt="Cover preview"
+                className="h-16 w-24 object-cover border border-border"
+              />
+              <div className="flex flex-1 flex-col gap-0.5">
+                <span className="text-sm text-foreground">
+                  {coverFiles[0].name}
+                </span>
+                <span className="font-mono text-label text-muted-foreground">
+                  {formatSize(coverFiles[0].size)}
+                </span>
+              </div>
+              <button
+                onClick={() =>
+                  router.push("/submit/fluid-dynamics/cad-file-upload")
+                }
+                className="font-mono text-label text-muted-foreground transition-colors hover:text-secondary-foreground"
+              >
+                Update →
+              </button>
+            </div>
+          ) : (
+            <p className="font-mono text-label text-muted-foreground">
+              No cover image — a placeholder will be used.
+            </p>
+          )}
+        </div>
 
         {/* CAD file */}
         <div className="flex flex-col gap-2">

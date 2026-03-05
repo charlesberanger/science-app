@@ -16,7 +16,7 @@ export default function RightCol() {
   const { isAuthenticated } = useAuth();
   const { toast } = useToast();
   const [voted, setVoted] = useState(false);
-  const [voteCount, setVoteCount] = useState(284);
+  const [voteCount, setVoteCount] = useState(512);
   const [bumped, setBumped] = useState(false);
 
   function handleVote() {
@@ -93,7 +93,7 @@ export default function RightCol() {
             >
               Prize Pool
             </span>
-            <span className="text-sm font-semibold text-feedback-success">$25,000</span>
+            <span className="text-sm font-semibold text-feedback-success">$24,000</span>
           </div>
           <div className="flex flex-col gap-0.5">
             <span
@@ -121,7 +121,7 @@ export default function RightCol() {
         <span
           className="font-mono text-label tracking-ui text-muted-foreground uppercase"
         >
-          Discussion (12)
+          Discussion (3)
         </span>
         <div className="mt-3 flex flex-col gap-2">
           {DISCUSSION_TOPICS.map((t) => (
