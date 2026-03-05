@@ -1,11 +1,24 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import AppShell from "@/components/layout/AppShell";
 import { useFluidDynamicsForm } from "@/contexts/FluidDynamicsFormContext";
 import SubmitStepBar from "@/components/submit/SubmitStepBar";
 import CharCountTextarea from "@/components/submit/CharCountTextarea";
+
+const WRITING_TIPS = [
+  { field: "Tube Design Differences", tips: [
+    "Focus on specific geometry changes — wall thickness, curvature, tip angle, cap design",
+    "Compare explicitly against a standard 1.5 mL microfuge tube",
+    "Mention materials or manufacturing constraints if relevant",
+  ]},
+  { field: "Technical Rationale", tips: [
+    "Name the physics principles: surface tension, capillary action, fluid inertia, bubble migration",
+    "Explain how each design choice addresses a microgravity challenge",
+    "Reference any simulations, experiments, or literature that informed your decisions",
+  ]},
+];
 
 export default function ExperimentDetailsPage() {
   const router = useRouter();
@@ -16,6 +29,8 @@ export default function ExperimentDetailsPage() {
     trigger,
     formState: { errors },
   } = form;
+
+  const [tipsOpen, setTipsOpen] = useState(false);
 
   // Guard: redirect back if eligibility step was skipped
   useEffect(() => {
@@ -52,6 +67,51 @@ export default function ExperimentDetailsPage() {
 
       <div className="h-px bg-secondary" />
 
+      {/* Writing Tips — collapsible */}
+      <div className="border border-border bg-card">
+        <button
+          onClick={() => setTipsOpen(!tipsOpen)}
+          className="flex w-full items-center justify-between px-5 py-3.5 text-left transition-colors hover:bg-secondary"
+          aria-expanded={tipsOpen}
+        >
+          <div className="flex items-center gap-2.5">
+            <span className="flex h-5 w-5 items-center justify-center border border-feedback-success/40 bg-feedback-success/10 text-feedback-success font-mono text-label" aria-hidden="true">
+              ?
+            </span>
+            <span className="text-sm font-medium text-foreground">
+              Writing Tips
+            </span>
+            <span className="font-mono text-label text-muted-foreground tracking-ui">
+              1500–2000 chars per field (roughly 250–330 words)
+            </span>
+          </div>
+          <span className="font-mono text-label text-muted-foreground" aria-hidden="true">
+            {tipsOpen ? "▲" : "▼"}
+          </span>
+        </button>
+        {tipsOpen ? (
+          <div className="border-t border-border px-5 py-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {WRITING_TIPS.map((section) => (
+                <div key={section.field} className="flex flex-col gap-2">
+                  <span className="font-mono text-label uppercase tracking-ui text-feedback-success">
+                    {section.field}
+                  </span>
+                  <ul className="flex flex-col gap-1.5">
+                    {section.tips.map((tip) => (
+                      <li key={tip} className="flex items-start gap-2 text-sm leading-relaxed text-muted-foreground">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 bg-muted-foreground/50" aria-hidden="true" />
+                        {tip}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+      </div>
+
       <div className="flex flex-col gap-6">
         {/* Tube Design Name */}
         <div className="flex flex-col gap-2">
@@ -67,11 +127,11 @@ export default function ExperimentDetailsPage() {
             placeholder="Enter a name for your tube design"
             className="border border-border bg-background px-3.5 py-3 text-sm text-foreground placeholder:text-muted-foreground outline-none transition-colors focus-visible:border-feedback-success"
           />
-          {errors.title && (
+          {errors.title ? (
             <p className="font-mono text-label text-feedback-error">
               {errors.title.message}
             </p>
-          )}
+          ) : null}
         </div>
 
         {/* Tube Design Differences */}

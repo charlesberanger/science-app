@@ -7,14 +7,19 @@ import { useFluidDynamicsForm } from "@/contexts/FluidDynamicsFormContext";
 import SubmitStepBar from "@/components/submit/SubmitStepBar";
 
 const CRITERIA = [
-  { label: "Innovation", points: 15, description: "Novelty and creative departure from standard tube designs." },
-  { label: "Functionality — Spillage Prevention", points: 15, description: "Effectiveness at preventing liquid spillage under microgravity conditions." },
-  { label: "Functionality — Microgravity Adaptations", points: 10, description: "How well the design addresses the unique challenges of fluid handling in zero-g." },
-  { label: "Practicality — Ease of Use", points: 10, description: "Usability in a pressurised suit or gloves aboard the ISS." },
-  { label: "Practicality — Liquid Level Visibility", points: 10, description: "Clarity of liquid level indication for the crew." },
-  { label: "Compatibility — Size & Volume", points: 15, description: "Adherence to the 1.5 mL microfuge tube size specification." },
-  { label: "Compatibility — Pipette Access", points: 15, description: "Ease of pipette reach to all interior surfaces." },
-  { label: "Feasibility — 3D Printability", points: 10, description: "Manufacturability with standard FDM / SLA 3D printing." },
+  { label: "Innovation", points: 15, description: "Novelty and creative departure from standard tube designs.", color: "bg-lime-400" },
+  { label: "Functionality — Spillage Prevention", points: 15, description: "Effectiveness at preventing liquid spillage under microgravity conditions.", color: "bg-lime-400" },
+  { label: "Functionality — Microgravity Adaptations", points: 10, description: "How well the design addresses the unique challenges of fluid handling in zero-g.", color: "bg-emerald-400" },
+  { label: "Practicality — Ease of Use", points: 10, description: "Usability in a pressurised suit or gloves aboard the ISS.", color: "bg-emerald-400" },
+  { label: "Practicality — Liquid Level Visibility", points: 10, description: "Clarity of liquid level indication for the crew.", color: "bg-emerald-400" },
+  { label: "Compatibility — Size & Volume", points: 15, description: "Adherence to the 1.5 mL microfuge tube size specification.", color: "bg-teal-400" },
+  { label: "Compatibility — Pipette Access", points: 15, description: "Ease of pipette reach to all interior surfaces.", color: "bg-teal-400" },
+  { label: "Feasibility — 3D Printability", points: 10, description: "Manufacturability with standard FDM / SLA 3D printing.", color: "bg-cyan-400" },
+];
+
+const ELIGIBILITY_ITEMS = [
+  { name: "citizenCheckbox" as const, label: "I confirm that I am a citizen and resident of a SERA-selected nation or eligible for the global mission seat.", hint: "Required for ISS experiment eligibility" },
+  { name: "teamCheckbox" as const, label: "I am submitting as an individual or as part of a team of up to three people.", hint: "Maximum 3 members per submission" },
 ];
 
 export default function FluidDynamicsEligibilityPage() {
@@ -42,33 +47,11 @@ export default function FluidDynamicsEligibilityPage() {
 
       <div className="h-px bg-secondary" />
 
-      {/* Eligibility checkboxes */}
-      <div className="flex flex-col gap-3 border border-border bg-card p-5">
-        <p className="font-mono text-sm uppercase tracking-ui text-muted-foreground">Eligibility</p>
-        <div className="h-px bg-secondary" />
-
-        {[
-          { name: "citizenCheckbox" as const, label: "I confirm that I am a citizen and resident of a SERA-selected nation or eligible for the global mission seat." },
-          { name: "teamCheckbox" as const, label: "I am submitting as an individual or as part of a team of up to three people." },
-        ].map(({ name, label }) => (
-          <label key={name} className="flex cursor-pointer items-start gap-3">
-            <input
-              type="checkbox"
-              {...register(name)}
-              className="mt-0.5 h-4 w-4 shrink-0 accent-lime-400"
-            />
-            <span className="text-sm leading-relaxed text-secondary-foreground">{label}</span>
-          </label>
-        ))}
-
-        {(errors.citizenCheckbox || errors.teamCheckbox) && (
-          <p className="font-mono text-label text-feedback-error">Both confirmations are required to proceed.</p>
-        )}
-      </div>
-
-      {/* Judging criteria accordion */}
-      <div className="flex flex-col gap-1">
-        <p className="font-mono text-sm uppercase tracking-ui text-muted-foreground">Judging Criteria — 100 pts total</p>
+      {/* Judging criteria accordion — first, so user reads before confirming */}
+      <div className="flex flex-col gap-3">
+        <p className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+          Judging Criteria — 100 pts total
+        </p>
         <div className="h-px bg-secondary" />
         <div className="flex flex-col divide-y divide-border border border-border">
           {CRITERIA.map((c) => {
@@ -88,15 +71,100 @@ export default function FluidDynamicsEligibilityPage() {
                   </div>
                   <span className="font-mono text-label text-muted-foreground" aria-hidden="true">{isOpen ? "▲" : "▼"}</span>
                 </button>
-                {isOpen && (
+                {isOpen ? (
                   <div id={panelId} role="region" aria-label={c.label} className="bg-background px-4 py-3">
                     <p className="text-sm leading-relaxed text-muted-foreground">{c.description}</p>
                   </div>
-                )}
+                ) : null}
               </div>
             );
           })}
         </div>
+
+        {/* Score breakdown bar */}
+        <div className="flex flex-col gap-2">
+          <div className="flex h-2 w-full overflow-hidden">
+            {CRITERIA.map((c) => (
+              <div
+                key={c.label}
+                className={`${c.color} opacity-70`}
+                style={{ width: `${c.points}%` }}
+                title={`${c.label}: ${c.points} pts`}
+              />
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-x-4 gap-y-1">
+            {[
+              { label: "Innovation & Spillage", pts: 30, color: "bg-lime-400" },
+              { label: "Functionality & Practicality", pts: 30, color: "bg-emerald-400" },
+              { label: "Compatibility", pts: 30, color: "bg-teal-400" },
+              { label: "Feasibility", pts: 10, color: "bg-cyan-400" },
+            ].map((g) => (
+              <div key={g.label} className="flex items-center gap-1.5">
+                <div className={`h-2 w-2 ${g.color} opacity-70`} />
+                <span className="font-mono text-label text-muted-foreground tracking-ui">
+                  {g.label} ({g.pts})
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Eligibility checkboxes — now closer to CTA */}
+      <div className="flex flex-col gap-3">
+        <p className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+          Eligibility Confirmation
+        </p>
+        <div className="h-px bg-secondary" />
+        <div className="flex flex-col gap-2">
+          {ELIGIBILITY_ITEMS.map(({ name, label, hint }) => {
+            const checked = watch(name);
+            return (
+              <label
+                key={name}
+                className={`flex cursor-pointer items-start gap-4 border px-5 py-4 transition-colors ${
+                  checked
+                    ? "border-feedback-success/40 bg-feedback-success/5"
+                    : "border-border bg-card hover:bg-secondary"
+                }`}
+              >
+                <div className="relative mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center">
+                  <input
+                    type="checkbox"
+                    {...register(name)}
+                    className="peer sr-only"
+                  />
+                  <div className={`h-5 w-5 border transition-colors ${
+                    checked
+                      ? "border-feedback-success bg-feedback-success"
+                      : "border-muted-foreground/40 bg-secondary"
+                  }`}>
+                    {checked ? (
+                      <svg viewBox="0 0 20 20" fill="white" className="h-5 w-5" aria-hidden="true">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    ) : null}
+                  </div>
+                </div>
+                <div className="flex flex-col gap-0.5">
+                  <span className="text-sm leading-relaxed text-secondary-foreground">
+                    {label}
+                  </span>
+                  <span className="font-mono text-label text-muted-foreground tracking-ui">
+                    {hint}
+                  </span>
+                </div>
+              </label>
+            );
+          })}
+        </div>
+
+        {(errors.citizenCheckbox || errors.teamCheckbox) ? (
+          <p className="font-mono text-label text-feedback-error">
+            Both confirmations are required to proceed.
+          </p>
+        ) : null}
       </div>
 
       {/* Nav */}
