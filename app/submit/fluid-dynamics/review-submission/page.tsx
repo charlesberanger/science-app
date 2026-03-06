@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import AppShell from "@/components/layout/AppShell";
 import { useFluidDynamicsForm } from "@/contexts/FluidDynamicsFormContext";
@@ -271,6 +271,36 @@ export default function ReviewSubmissionPage() {
   const [submitted, setSubmitted] = useState(false);
   const [lastScore, setLastScore] = useState<number | null>(null);
   const mountedRef = useRef(true);
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  // Focus trap for modal
+  const handleDialogKeyDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Escape" && !submitting) { setConfirmOpen(false); return; }
+    if (e.key !== "Tab") return;
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    const focusable = dialog.querySelectorAll<HTMLElement>(
+      'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last?.focus(); }
+    } else {
+      if (document.activeElement === last) { e.preventDefault(); first?.focus(); }
+    }
+  }, [submitting]);
+
+  // Move focus into modal when it opens
+  useEffect(() => {
+    if (!confirmOpen) return;
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+    const first = dialog.querySelector<HTMLElement>(
+      'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    first?.focus();
+  }, [confirmOpen]);
 
   const [checksUsed, setChecksUsed] = useState<number>(() => {
     if (typeof window === "undefined") return 0;
@@ -519,8 +549,8 @@ export default function ReviewSubmissionPage() {
 
       {/* Confirm modal */}
       {confirmOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" role="dialog" aria-modal="true" aria-labelledby="confirm-dialog-title" onKeyDown={(e) => { if (e.key === "Escape" && !submitting) setConfirmOpen(false); }}>
-          <div className="relative w-full max-w-sm border border-border bg-card">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4" role="dialog" aria-modal="true" aria-labelledby="confirm-dialog-title" onKeyDown={handleDialogKeyDown}>
+          <div ref={dialogRef} className="relative w-full max-w-sm border border-border bg-card">
             <div className="absolute left-0 top-0 h-px w-full bg-feedback-success/40" />
             <div className="px-7 py-6">
               <h2 id="confirm-dialog-title" className="text-lg font-bold text-foreground">

@@ -96,10 +96,14 @@ export default function CadFileUploadPage() {
 
       {/* CAD drop zone */}
       <div
+        role="button"
+        tabIndex={0}
+        aria-label="Upload CAD file — click or drag and drop"
         onDrop={handleDrop}
         onDragOver={(e) => e.preventDefault()}
         onClick={() => cadInputRef.current?.click()}
-        className={`flex min-h-55 cursor-pointer flex-col items-center justify-center gap-4 border-2 border-dashed transition-colors ${
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); cadInputRef.current?.click(); } }}
+        className={`flex min-h-55 cursor-pointer flex-col items-center justify-center gap-4 border-2 border-dashed transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${
           errors.cadFiles
             ? "border-feedback-error/40"
             : "border-border hover:border-border"
@@ -193,10 +197,14 @@ export default function CadFileUploadPage() {
           </div>
         ) : (
           <div
+            role="button"
+            tabIndex={0}
+            aria-label="Upload cover image — click or drag and drop"
             onDrop={handleCoverDrop}
             onDragOver={(e) => e.preventDefault()}
             onClick={() => coverInputRef.current?.click()}
-            className="flex cursor-pointer items-center justify-center gap-3 border border-dashed border-border px-4 py-6 transition-colors hover:border-muted-foreground"
+            onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); coverInputRef.current?.click(); } }}
+            className="flex cursor-pointer items-center justify-center gap-3 border border-dashed border-border px-4 py-6 transition-colors hover:border-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <input
               ref={coverInputRef}

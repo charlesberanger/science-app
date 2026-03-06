@@ -150,7 +150,8 @@ function ToolButton({
   return (
     <button
       onClick={onClick}
-      className={`font-mono border px-2.5 py-1 text-label transition-colors ${
+      aria-pressed={active}
+      className={`font-mono border px-2.5 py-1 text-label transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring ${
         active
           ? "border-feedback-success text-feedback-success"
           : "border-border text-muted-foreground hover:border-border hover:text-secondary-foreground"
@@ -274,8 +275,9 @@ export default function CadViewer({ height = 399 }: { height?: number }) {
             </ToolButton>
             <select
               value={cameraView}
+              aria-label="Camera view"
               onChange={(e) => changeView(e.target.value as typeof cameraView)}
-              className="font-mono border border-border bg-card px-2 py-1 text-label text-muted-foreground outline-none focus-visible:border-feedback-success"
+              className="font-mono border border-border bg-card px-2 py-1 text-label text-muted-foreground outline-none focus-visible:border-feedback-success focus-visible:ring-1 focus-visible:ring-ring"
             >
               {(["isometric", "front", "side", "top"] as const).map((v) => (
                 <option key={v} value={v}>

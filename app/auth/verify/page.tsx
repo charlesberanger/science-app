@@ -69,7 +69,7 @@ function OtpInput({ value, onChange }: { value: string[]; onChange: (v: string[]
   }
 
   return (
-    <div className="flex gap-1.5">
+    <div className="flex gap-1.5" role="group" aria-label="Verification code">
       {value.map((digit, i) => {
         const isCurrent = !value[i] && (i === 0 || value[i - 1] !== "");
         return (
@@ -79,11 +79,13 @@ function OtpInput({ value, onChange }: { value: string[]; onChange: (v: string[]
             type="text"
             inputMode="numeric"
             maxLength={1}
+            autoComplete={i === 0 ? "one-time-code" : "off"}
+            aria-label={`Digit ${i + 1} of 6`}
             value={digit}
             onChange={(e) => handleChange(i, e.target.value)}
             onKeyDown={(e) => handleKeyDown(i, e)}
             onPaste={handlePaste}
-            className={`h-16 w-13.5 border bg-secondary text-center font-mono text-2xl text-lime-400 outline-none focus-visible:ring-1 focus-visible:ring-ring/50 transition-all ${
+            className={`h-16 w-13.5 border bg-secondary text-center font-mono text-2xl text-lime-400 outline-none focus-visible:ring-1 focus-visible:ring-ring/50 transition-colors ${
               isCurrent
                 ? "border-lime-400 shadow-[0_0_0_3px_rgba(172,255,175,0.18)]"
                 : digit
@@ -165,7 +167,7 @@ function VerifyForm() {
               {digits.map((d, i) => (
                 <div
                   key={i}
-                  className={`h-1.5 rounded-full transition-all ${
+                  className={`h-1.5 rounded-full transition-[width,background-color] duration-150 ${
                     d ? (i === digits.filter(Boolean).length - 1 ? "w-4 bg-lime-400" : "w-1.5 bg-feedback-success") : "w-1.5 bg-secondary"
                   }`}
                 />
@@ -206,7 +208,7 @@ function VerifyForm() {
             </Link>
             <span className="font-mono text-label text-muted-foreground">
               Having trouble?{" "}
-              <span className="cursor-pointer hover:text-foreground">Contact support</span>
+              <button type="button" className="cursor-pointer hover:text-foreground">Contact support</button>
             </span>
           </div>
         </div>

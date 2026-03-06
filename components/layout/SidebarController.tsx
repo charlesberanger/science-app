@@ -24,7 +24,8 @@ export default function SidebarController({
       )}
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       <TopBar
-        onMenuClick={() => setSidebarOpen(true)}
+        onMenuClick={() => setSidebarOpen((v) => !v)}
+        menuOpen={sidebarOpen}
         badgeLabel={badgeLabel}
       />
     </>

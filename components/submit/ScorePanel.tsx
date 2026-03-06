@@ -89,7 +89,7 @@ export default function ScorePanel({
     checksRemaining > 0 && !loading && Boolean(title || abstract);
 
   return (
-    <div className="border border-t-2 border-border border-t-feedback-success bg-card">
+    <div className="border border-t-2 border-border border-t-feedback-success bg-card" aria-live="polite" aria-atomic="true">
       {/* Header */}
       <div className="flex items-center justify-between border-b border-border px-5 py-3">
         <span className="font-mono text-sm text-muted-foreground">

@@ -31,9 +31,10 @@ function useSectionLabel() {
 interface TopBarProps {
   onMenuClick: () => void;
   badgeLabel?: string;
+  menuOpen?: boolean;
 }
 
-export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
+export default function TopBar({ onMenuClick, badgeLabel, menuOpen = false }: TopBarProps) {
   const { isAuthenticated } = useAuth();
   const section = useSectionLabel();
 
@@ -42,8 +43,9 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
       {/* Hamburger — mobile only */}
       <button
         onClick={onMenuClick}
-        className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 lg:hidden"
-        aria-label="Open menu"
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={menuOpen}
+        className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         <span className="h-px w-4 bg-muted-foreground" aria-hidden="true" />
         <span className="h-px w-4 bg-muted-foreground" aria-hidden="true" />
@@ -57,15 +59,13 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
         </span>
       </nav>
 
-      <nav
-        aria-label="Breadcrumb"
-        className="absolute left-1/2 -translate-x-1/2 lg:hidden"
+      <span
+        aria-hidden="true"
+        className="absolute left-1/2 -translate-x-1/2 font-mono text-ui text-muted-foreground lg:hidden"
       >
-        <span className="font-mono text-ui text-muted-foreground">
-          Science <span className="text-muted-foreground">/</span>{" "}
-          <span className="text-secondary-foreground">{section}</span>
-        </span>
-      </nav>
+        Science <span className="text-muted-foreground">/</span>{" "}
+        <span className="text-secondary-foreground">{section}</span>
+      </span>
 
       {isAuthenticated ? (
         badgeLabel && <Badge variant="success">{badgeLabel}</Badge>

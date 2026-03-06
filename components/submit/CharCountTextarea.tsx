@@ -56,7 +56,7 @@ export default function CharCountTextarea({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         rows={10}
-        className={`w-full resize-y border bg-background px-3.5 py-3 text-sm leading-relaxed text-foreground placeholder:text-muted-foreground outline-none transition-colors focus-visible:border-feedback-success ${
+        className={`w-full resize-y border bg-background px-3.5 py-3 text-sm leading-relaxed text-foreground placeholder:text-muted-foreground outline-none transition-colors focus-visible:border-feedback-success focus-visible:ring-1 focus-visible:ring-feedback-success/30 ${
           error ? "border-feedback-error/50" : "border-border"
         }`}
       />
@@ -64,7 +64,7 @@ export default function CharCountTextarea({
       <div className="flex items-center justify-between">
         <div className="h-1 flex-1 rounded-full bg-secondary">
           <div
-            className={`h-1 rounded-full transition-all ${
+            className={`h-1 rounded-full transition-[width,background-color] duration-300 ${
               tooLong
                 ? "bg-feedback-error"
                 : inRange

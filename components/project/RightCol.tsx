@@ -48,7 +48,9 @@ export default function RightCol() {
         </span>
         <button
           onClick={handleVote}
-          className={`mt-3 flex w-full items-center justify-between rounded border px-4 py-2.5 transition-all duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring ${
+          aria-pressed={voted}
+          aria-label={voted ? "Remove vote" : "Vote for this project"}
+          className={`mt-3 flex w-full items-center justify-between rounded border px-4 py-2.5 transition-colors duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring ${
             voted
               ? "border-feedback-success bg-feedback-success/10 text-feedback-success"
               : "border-feedback-success bg-feedback-success text-black hover:bg-feedback-success-hover"

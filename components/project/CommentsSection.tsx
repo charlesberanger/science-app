@@ -54,7 +54,7 @@ export default function CommentsSection() {
         </span>
       </div>
 
-      <div className="px-5">
+      <div className="px-5" aria-live="polite" aria-relevant="additions">
         {comments.map((c, i) => (
           <CommentBlock
             key={`${c.author}-${i}`}
@@ -75,7 +75,7 @@ export default function CommentsSection() {
             onChange={(e) => setDraft(e.target.value)}
             placeholder="Add a comment…"
             rows={3}
-            className="w-full resize-none border border-border bg-background px-3.5 py-3 text-sm leading-relaxed text-foreground placeholder:text-muted-foreground outline-none focus-visible:border-feedback-success transition-colors"
+            className="w-full resize-none border border-border bg-background px-3.5 py-3 text-sm leading-relaxed text-foreground placeholder:text-muted-foreground outline-none focus-visible:border-feedback-success focus-visible:ring-1 focus-visible:ring-feedback-success/30 transition-colors"
           />
           <div className="mt-2 flex justify-end">
             <button

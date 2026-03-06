@@ -89,6 +89,11 @@ export default function BrowseProjectsPage() {
       <FilterTabs options={CATEGORIES} value={category} onChange={setCategory} />
 
       {/* Grid */}
+      <div aria-live="polite" aria-atomic="true" className="sr-only">
+        {filtered.length === projects.length
+          ? `Showing all ${filtered.length} projects`
+          : `${filtered.length} project${filtered.length !== 1 ? "s" : ""} found`}
+      </div>
       {filtered.length === 0 ? (
         <div className="flex flex-col items-center justify-center gap-4 border border-dashed border-border py-20 text-center">
           <span className="font-mono text-3xl text-muted-foreground" aria-hidden="true">⊘</span>

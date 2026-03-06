@@ -42,11 +42,8 @@ export default function ProjectCard({
         {/* Hover description overlay */}
         {description && (
           <div className="absolute inset-0 flex items-end bg-linear-to-t from-black/80 via-black/30 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-            <p
-              className="px-3 pb-3 pt-6 text-ui leading-relaxed text-white/90"
-             
-            >
-              {description.length > 90 ? description.slice(0, 90) + "…" : description}
+            <p className="line-clamp-3 px-3 pb-3 pt-6 text-ui leading-relaxed text-white/90">
+              {description}
             </p>
           </div>
         )}
@@ -60,14 +57,6 @@ export default function ProjectCard({
             #{rank}
           </span>
         </div>
-        {/* Votes badge — bottom right, fades on hover */}
-        <div className="absolute bottom-2 right-2 flex items-center gap-1 border border-border bg-card/80 px-2.5 py-0.5 transition-opacity duration-200 group-hover:opacity-0">
-          <span
-            className="font-mono text-label text-secondary-foreground"
-          >
-            ▲ {votes.toLocaleString()}
-          </span>
-        </div>
       </div>
 
       {/* Info */}
@@ -75,9 +64,15 @@ export default function ProjectCard({
         <p className="text-sm font-medium leading-snug text-foreground group-hover:text-secondary-foreground">
           {title}
         </p>
-        <div className="flex items-center gap-1.5">
-          <div className="h-5 w-5 rounded-full bg-secondary shrink-0" />
-          <span className="text-ui text-secondary-foreground">{author}</span>
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5 min-w-0">
+            <div className="h-5 w-5 rounded-full bg-secondary shrink-0" aria-hidden="true" />
+            <span className="truncate text-ui text-secondary-foreground">{author}</span>
+          </div>
+          <div className="flex items-center gap-1 shrink-0 text-feedback-success">
+            <span className="text-xs leading-none">▲</span>
+            <span className="text-sm font-bold tabular-nums leading-none">{votes.toLocaleString()}</span>
+          </div>
         </div>
       </div>
     </Link>
