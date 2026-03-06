@@ -60,7 +60,7 @@ export default function ExperimentDetailsPage() {
         <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Experiment Details
         </h1>
-        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+        <p className="font-mono text-label text-muted-foreground">
           Step 3 of 5 · Fluid Dynamics
         </p>
       </div>
@@ -81,7 +81,7 @@ export default function ExperimentDetailsPage() {
             <span className="text-sm font-medium text-foreground">
               Writing Tips
             </span>
-            <span className="font-mono text-label text-muted-foreground tracking-ui">
+            <span className="font-mono text-label text-muted-foreground">
               1500–2000 chars per field (roughly 250–330 words)
             </span>
           </div>
@@ -94,7 +94,7 @@ export default function ExperimentDetailsPage() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {WRITING_TIPS.map((section) => (
                 <div key={section.field} className="flex flex-col gap-2">
-                  <span className="font-mono text-label uppercase tracking-ui text-feedback-success">
+                  <span className="font-mono text-label text-feedback-success">
                     {section.field}
                   </span>
                   <ul className="flex flex-col gap-1.5">
@@ -117,7 +117,7 @@ export default function ExperimentDetailsPage() {
         <div className="flex flex-col gap-2">
           <label
             htmlFor="tube-design-name"
-            className="font-mono text-sm uppercase tracking-ui text-muted-foreground"
+            className="font-mono text-sm text-muted-foreground"
           >
             Tube Design Name
           </label>
@@ -165,13 +165,13 @@ export default function ExperimentDetailsPage() {
       <div className="flex justify-between">
         <button
           onClick={() => router.push("/submit/fluid-dynamics")}
-          className="border border-border bg-card px-5 py-2.5 font-mono text-ui uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
+          className="border border-border bg-card px-5 py-2.5 font-mono text-ui text-muted-foreground transition-colors hover:text-foreground"
         >
           ← Eligibility
         </button>
         <button
           onClick={handleNext}
-          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
+          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui text-black transition-colors hover:bg-feedback-success-hover"
         >
           Next: CAD Upload →
         </button>

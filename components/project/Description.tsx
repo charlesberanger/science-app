@@ -21,15 +21,12 @@ export default function Description() {
   return (
     <div className="flex flex-col gap-4">
       {SECTIONS.map((section) => (
-        <div
-          key={section.number}
-          className="border border-border bg-card p-5"
-        >
+        <div key={section.number} className="border border-border bg-card p-5">
           <div className="flex items-baseline gap-3">
-            <span className="font-mono text-label text-feedback-success tracking-ui">
+            <span className="font-mono text-label text-feedback-success">
               {section.number}
             </span>
-            <h3 className="font-mono text-sm font-semibold uppercase tracking-ui text-foreground">
+            <h3 className="font-mono text-sm font-semibold text-foreground">
               {section.title}
             </h3>
           </div>

@@ -40,7 +40,7 @@ export default function FluidDynamicsEligibilityPage() {
         <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Eligibility & Criteria
         </h1>
-        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+        <p className="font-mono text-label text-muted-foreground">
           Step 2 of 5 · Fluid Dynamics
         </p>
       </div>
@@ -49,7 +49,7 @@ export default function FluidDynamicsEligibilityPage() {
 
       {/* Judging criteria accordion — first, so user reads before confirming */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+        <p className="font-mono text-sm text-muted-foreground">
           Judging Criteria — 100 pts total
         </p>
         <div className="h-px bg-secondary" />
@@ -102,7 +102,7 @@ export default function FluidDynamicsEligibilityPage() {
             ].map((g) => (
               <div key={g.label} className="flex items-center gap-1.5">
                 <div className={`h-2 w-2 ${g.color} opacity-70`} />
-                <span className="font-mono text-label text-muted-foreground tracking-ui">
+                <span className="font-mono text-label text-muted-foreground">
                   {g.label} ({g.pts})
                 </span>
               </div>
@@ -113,7 +113,7 @@ export default function FluidDynamicsEligibilityPage() {
 
       {/* Eligibility checkboxes — now closer to CTA */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+        <p className="font-mono text-sm text-muted-foreground">
           Eligibility Confirmation
         </p>
         <div className="h-px bg-secondary" />
@@ -151,7 +151,7 @@ export default function FluidDynamicsEligibilityPage() {
                   <span className="text-sm leading-relaxed text-secondary-foreground">
                     {label}
                   </span>
-                  <span className="font-mono text-label text-muted-foreground tracking-ui">
+                  <span className="font-mono text-label text-muted-foreground">
                     {hint}
                   </span>
                 </div>
@@ -171,14 +171,14 @@ export default function FluidDynamicsEligibilityPage() {
       <div className="flex justify-between">
         <button
           onClick={() => router.push("/submit")}
-          className="border border-border bg-card px-5 py-2.5 font-mono text-ui uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
+          className="border border-border bg-card px-5 py-2.5 font-mono text-ui text-muted-foreground transition-colors hover:text-foreground"
         >
           ← Project Type
         </button>
         <button
           disabled={!canProceed}
           onClick={() => router.push("/submit/fluid-dynamics/experiment-details")}
-          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover disabled:cursor-not-allowed disabled:opacity-30"
+          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui text-black transition-colors hover:bg-feedback-success-hover disabled:cursor-not-allowed disabled:opacity-30"
         >
           Next: Experiment Details →
         </button>

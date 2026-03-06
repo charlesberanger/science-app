@@ -92,11 +92,11 @@ export default function ScorePanel({
     <div className="border border-t-2 border-border border-t-feedback-success bg-card">
       {/* Header */}
       <div className="flex items-center justify-between border-b border-border px-5 py-3">
-        <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+        <span className="font-mono text-sm text-muted-foreground">
           AI Pre-Screen
         </span>
         <span
-          className={`font-mono text-label uppercase tracking-ui ${
+          className={`font-mono text-label ${
             checksRemaining === 0 ? "text-destructive" : "text-muted-foreground"
           }`}
         >
@@ -176,7 +176,7 @@ export default function ScorePanel({
               >
                 {result.composite}
               </span>
-              <span className="font-mono mb-1 text-label uppercase tracking-ui text-muted-foreground">
+              <span className="font-mono mb-1 text-label text-muted-foreground">
                 / 100
               </span>
             </div>
@@ -212,7 +212,7 @@ export default function ScorePanel({
           {/* 3. Flags */}
           {result.flags.length > 0 && (
             <div className="flex flex-col gap-2 px-5 py-4">
-              <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+              <span className="font-mono text-sm text-muted-foreground">
                 Improve
               </span>
               <div className="flex flex-col gap-2">
@@ -241,7 +241,7 @@ export default function ScorePanel({
           <button
             onClick={handleCheck}
             disabled={!canCheck}
-            className="flex w-full items-center justify-center gap-2 border border-border bg-secondary py-3 font-mono text-label uppercase tracking-ui text-secondary-foreground transition-colors hover:border-foreground/20 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            className="flex w-full items-center justify-center gap-2 border border-border bg-secondary py-3 font-mono text-label text-secondary-foreground transition-colors hover:border-foreground/20 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
           >
             {hasChecked ? "Re-evaluate submission" : "Check my submission"}
           </button>

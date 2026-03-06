@@ -11,7 +11,7 @@ const badgeVariants = cva(
   [
     "inline-flex items-center gap-1 rounded-full border",
     "px-2 py-px",
-    "font-mono text-ui uppercase tracking-ui",
+    "font-mono text-ui",
     "transition-colors",
   ].join(" "),
   {

@@ -42,7 +42,7 @@ export default function SubmitPage() {
         <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Submit Project
         </h1>
-        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+        <p className="font-mono text-label text-muted-foreground">
           Step 1 of 5 · Select project type
         </p>
       </div>
@@ -75,7 +75,7 @@ export default function SubmitPage() {
             <div className="flex items-start justify-between px-5 pb-4 pt-5">
               <div className="flex flex-col gap-2">
                 <span
-                  className={`inline-flex w-fit border px-2 py-0.5 font-mono text-label uppercase tracking-ui ${
+                  className={`inline-flex w-fit border px-2 py-0.5 font-mono text-label ${
                     t.badgeActive
                       ? "border-feedback-success/30 bg-feedback-success/5 text-feedback-success"
                       : "border-border bg-secondary text-muted-foreground"
@@ -108,7 +108,7 @@ export default function SubmitPage() {
               <div className="flex flex-col gap-2 border-t border-border px-5 py-4">
                 {t.specs.map((spec) => (
                   <div key={spec.key} className="flex gap-4">
-                    <span className="w-16 shrink-0 font-mono text-label uppercase tracking-ui text-muted-foreground">
+                    <span className="w-16 shrink-0 font-mono text-label text-muted-foreground">
                       {spec.key}
                     </span>
                     <span className="text-sm text-foreground">
@@ -126,7 +126,7 @@ export default function SubmitPage() {
         <button
           disabled={!selected}
           onClick={() => router.push(`/submit/${selected}`)}
-          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover disabled:cursor-not-allowed disabled:opacity-30"
+          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui text-black transition-colors hover:bg-feedback-success-hover disabled:cursor-not-allowed disabled:opacity-30"
         >
           Next: Eligibility →
         </button>

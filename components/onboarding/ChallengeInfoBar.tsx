@@ -4,7 +4,7 @@ export default function ChallengeInfoBar() {
       <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col gap-1">
           <span
-            className="font-mono text-label uppercase tracking-ui text-muted-foreground"
+            className="font-mono text-label text-muted-foreground"
           >
             Current Challenge
           </span>

@@ -116,10 +116,10 @@ export default function PublicProfilePage({
           </Avatar>
           <div className="flex flex-col gap-0.5">
             <p className="text-xl font-bold text-foreground">{user.name}</p>
-            <p className="font-mono text-label uppercase tracking-ui text-secondary-foreground">
+            <p className="font-mono text-label text-secondary-foreground">
               {user.role}
             </p>
-            <p className="font-mono text-label tracking-ui text-muted-foreground">
+            <p className="font-mono text-label text-muted-foreground">
               {user.institution}
             </p>
           </div>
@@ -135,7 +135,7 @@ export default function PublicProfilePage({
 
       {/* About */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+        <p className="font-mono text-sm text-muted-foreground">
           About
         </p>
         <div className="h-px bg-secondary" />
@@ -153,7 +153,7 @@ export default function PublicProfilePage({
 
       {/* Submission */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+        <p className="font-mono text-sm text-muted-foreground">
           Submission
         </p>
         <div className="h-px bg-secondary" />

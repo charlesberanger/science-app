@@ -32,7 +32,7 @@ export default function CharCountTextarea({
       <div className="flex items-baseline justify-between">
         <label
           htmlFor={inputId}
-          className="font-mono text-sm uppercase tracking-ui text-muted-foreground"
+          className="font-mono text-sm text-muted-foreground"
         >
           {label}
         </label>

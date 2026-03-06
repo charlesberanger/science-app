@@ -37,7 +37,7 @@ export default function PathCard({
       <div className="flex flex-col gap-1.5">
         <span className="text-sm font-medium text-foreground">{cta}</span>
         <span
-          className="font-mono text-label uppercase tracking-ui text-muted-foreground"
+          className="font-mono text-label text-muted-foreground"
         >
           {note}
         </span>

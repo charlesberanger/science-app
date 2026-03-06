@@ -28,7 +28,7 @@ function SectionCard({
   return (
     <div className="border border-border bg-card">
       <div className="border-b border-border px-6 py-4">
-        <h2 className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+        <h2 className="font-mono text-sm text-muted-foreground">
           {title}
         </h2>
       </div>
@@ -49,7 +49,7 @@ function FieldLabel({
   return (
     <label
       htmlFor={htmlFor}
-      className="font-mono text-label uppercase tracking-ui text-secondary-foreground"
+      className="font-mono text-label text-secondary-foreground"
     >
       {children}
       {required ? <span className="text-feedback-error"> *</span> : null}
@@ -213,7 +213,7 @@ export default function ProfileForm() {
                 onChange={handlePhotoChange}
               />
             </label>
-            <p className="font-mono text-label text-muted-foreground tracking-ui text-center">
+            <p className="font-mono text-label text-muted-foreground text-center">
               JPG, PNG or WebP
               <br />
               max 5 MB
@@ -362,11 +362,11 @@ export default function ProfileForm() {
       {/* ── Completeness indicator ─────────────────────────────────────────── */}
       <div className="flex flex-col gap-1.5">
         <div className="flex items-center justify-between">
-          <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+          <span className="font-mono text-label text-muted-foreground">
             Profile completeness
           </span>
           <span
-            className={`font-mono text-label tracking-ui ${
+            className={`font-mono text-label ${
               completedFields === TOTAL_FIELDS
                 ? "text-feedback-success"
                 : "text-muted-foreground"
@@ -385,7 +385,7 @@ export default function ProfileForm() {
 
       {/* ── Live Preview ───────────────────────────────────────────────────── */}
       <div className="flex flex-col gap-3">
-        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+        <p className="font-mono text-label text-muted-foreground">
           Preview
         </p>
         <div className="border border-border bg-card p-6">
@@ -408,12 +408,12 @@ export default function ProfileForm() {
                 {displayName || "Your Name"}
               </p>
               {title ? (
-                <p className="font-mono text-label uppercase tracking-ui text-secondary-foreground">
+                <p className="font-mono text-label text-secondary-foreground">
                   {title}
                 </p>
               ) : null}
               {institution ? (
-                <p className="font-mono text-label tracking-ui text-muted-foreground">
+                <p className="font-mono text-label text-muted-foreground">
                   {institution}
                 </p>
               ) : null}
@@ -429,7 +429,7 @@ export default function ProfileForm() {
 
       {/* ── Actions ────────────────────────────────────────────────────────── */}
       <div className="flex items-center justify-between border-t border-border pt-5">
-        <p className="font-mono text-label text-muted-foreground tracking-ui">
+        <p className="font-mono text-label text-muted-foreground">
           * Required to submit a project
         </p>
         <div className="flex items-center gap-3">

@@ -158,7 +158,7 @@ function RankBadge({ rank }: { rank: number }) {
         className="h-1 w-1 rounded-full bg-feedback-success"
         aria-hidden="true"
       />
-      <span className="text-label text-feedback-success tracking-ui">
+      <span className="text-label text-feedback-success">
         #{rank}
       </span>
     </span>
@@ -181,7 +181,7 @@ function ApprovalBar({ value }: { value: number }) {
           style={{ width: `${value}%` }}
         />
       </div>
-      <span className="font-mono text-label text-muted-foreground tracking-ui">
+      <span className="font-mono text-label text-muted-foreground">
         {value}%
       </span>
     </div>
@@ -227,7 +227,7 @@ export default function LeaderboardTable() {
       {/* "Your rank" callout — authenticated only */}
       {myEntry ? (
         <div className="flex items-center gap-3 border border-feedback-warning/40 bg-feedback-warning/5 px-4 py-2.5">
-          <span className="font-mono text-ui uppercase tracking-ui text-feedback-warning">
+          <span className="font-mono text-ui text-feedback-warning">
             Your rank
           </span>
           <span className="font-mono inline-flex items-center gap-1 rounded-full border border-feedback-warning px-2 py-0.5">
@@ -235,7 +235,7 @@ export default function LeaderboardTable() {
               className="h-1 w-1 rounded-full bg-feedback-warning"
               aria-hidden="true"
             />
-            <span className="text-label text-feedback-warning tracking-ui">
+            <span className="text-label text-feedback-warning">
               #{myEntry.rank}
             </span>
           </span>
@@ -248,11 +248,11 @@ export default function LeaderboardTable() {
         </div>
       ) : showPendingBanner ? (
         <div className="flex items-center gap-3 border border-muted-foreground/20 bg-secondary px-4 py-2.5">
-          <span className="font-mono text-ui uppercase tracking-ui text-muted-foreground">
+          <span className="font-mono text-ui text-muted-foreground">
             Your project
           </span>
           <span className="font-mono inline-flex items-center gap-1 rounded-full border border-muted-foreground/40 px-2 py-0.5">
-            <span className="text-label text-muted-foreground tracking-ui">
+            <span className="text-label text-muted-foreground">
               Pending
             </span>
           </span>
@@ -277,7 +277,7 @@ export default function LeaderboardTable() {
                 <th
                   key={col}
                   scope="col"
-                  className="font-mono px-4 py-2.5 text-left text-label font-normal uppercase tracking-ui text-muted-foreground"
+                  className="font-mono px-4 py-2.5 text-left text-label font-normal text-muted-foreground"
                 >
                   {col}
                 </th>
@@ -327,7 +327,7 @@ export default function LeaderboardTable() {
                           <span className="flex items-center gap-1.5 text-ui text-muted-foreground">
                             {entry.author}
                             {isMe ? (
-                              <span className="font-mono text-ui uppercase tracking-ui text-feedback-warning">
+                              <span className="font-mono text-ui text-feedback-warning">
                                 · You
                               </span>
                             ) : null}
@@ -336,7 +336,7 @@ export default function LeaderboardTable() {
                       </Link>
                     </td>
                     <td className="hidden sm:table-cell">
-                      <span className="font-mono border border-border bg-secondary px-3 py-1.5 text-label uppercase tracking-ui text-secondary-foreground">
+                      <span className="font-mono border border-border bg-secondary px-3 py-1.5 text-label text-secondary-foreground">
                         {entry.category}
                       </span>
                     </td>
@@ -344,7 +344,7 @@ export default function LeaderboardTable() {
                       <ApprovalBar value={entry.approval} />
                     </td>
                     <td className="px-4 text-right">
-                      <span className="font-mono text-sm font-medium text-feedback-success tracking-ui">
+                      <span className="font-mono text-sm font-medium text-feedback-success">
                         {entry.votes}
                       </span>
                     </td>
@@ -357,7 +357,7 @@ export default function LeaderboardTable() {
 
         {/* Footer */}
         <div className="flex items-center justify-between bg-card px-4 py-3">
-          <span className="font-mono text-label text-muted-foreground tracking-ui">
+          <span className="font-mono text-label text-muted-foreground">
             Showing {shown.length} of {filtered.length} approved projects
           </span>
           {hasMore ? (

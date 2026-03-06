@@ -19,7 +19,7 @@ export default function StatsBar({ stats }: { stats: StatItem[] }) {
             ${i === stats.length - 1 ? "sm:border-r-0" : ""}
           `}
         >
-          <span className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+          <span className="font-mono text-label text-muted-foreground">
             {stat.label}
           </span>
           <span className="text-2xl font-semibold text-foreground">

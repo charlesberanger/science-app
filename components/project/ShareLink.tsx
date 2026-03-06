@@ -8,7 +8,12 @@ export default function ShareLink() {
   const [copied, setCopied] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  useEffect(() => () => { if (timerRef.current) clearTimeout(timerRef.current); }, []);
+  useEffect(
+    () => () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    },
+    [],
+  );
 
   function handleCopy() {
     navigator.clipboard.writeText(SHARE_URL).then(() => {
@@ -20,9 +25,7 @@ export default function ShareLink() {
 
   return (
     <div className="rounded border border-border bg-card p-5">
-      <span
-        className="font-mono text-label tracking-ui text-muted-foreground uppercase"
-      >
+      <span className="font-mono text-label text-muted-foreground">
         Share Project
       </span>
       <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:gap-0">

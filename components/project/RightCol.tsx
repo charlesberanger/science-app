@@ -42,7 +42,7 @@ export default function RightCol() {
       {/* Vote */}
       <div className="p-5">
         <span
-          className="font-mono text-label tracking-ui text-muted-foreground uppercase"
+          className="font-mono text-label text-muted-foreground"
         >
           Community Vote
         </span>
@@ -55,7 +55,7 @@ export default function RightCol() {
           }`}
         >
           <span
-            className="font-mono text-ui uppercase tracking-ui"
+            className="font-mono text-ui"
           >
             {voted ? "▲ Voted" : "▲ Vote"}
           </span>
@@ -77,7 +77,7 @@ export default function RightCol() {
       {/* Challenge info */}
       <div className="p-5">
         <span
-          className="font-mono text-label tracking-ui text-muted-foreground uppercase"
+          className="font-mono text-label text-muted-foreground"
         >
           Challenge
         </span>
@@ -89,7 +89,7 @@ export default function RightCol() {
         <div className="mt-4 flex flex-col gap-3">
           <div className="flex flex-col gap-0.5">
             <span
-              className="font-mono text-label tracking-ui text-muted-foreground uppercase"
+              className="font-mono text-label text-muted-foreground"
             >
               Prize Pool
             </span>
@@ -97,7 +97,7 @@ export default function RightCol() {
           </div>
           <div className="flex flex-col gap-0.5">
             <span
-              className="font-mono text-label tracking-ui text-muted-foreground uppercase"
+              className="font-mono text-label text-muted-foreground"
             >
               Deadline
             </span>
@@ -105,7 +105,7 @@ export default function RightCol() {
           </div>
           <div className="flex flex-col gap-0.5">
             <span
-              className="font-mono text-label tracking-ui text-muted-foreground uppercase"
+              className="font-mono text-label text-muted-foreground"
             >
               Submissions
             </span>
@@ -119,7 +119,7 @@ export default function RightCol() {
       {/* Discussion */}
       <div className="p-5">
         <span
-          className="font-mono text-label tracking-ui text-muted-foreground uppercase"
+          className="font-mono text-label text-muted-foreground"
         >
           Discussion (3)
         </span>

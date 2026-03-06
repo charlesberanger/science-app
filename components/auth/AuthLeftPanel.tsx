@@ -38,12 +38,12 @@ export default function AuthLeftPanel({
           <div className="flex h-8 w-8 items-center justify-center bg-black">
             <ScienceLogo className="h-5 w-5" />
           </div>
-          <span className="font-mono text-ui tracking-ui text-secondary-foreground">
+          <span className="font-mono text-ui text-secondary-foreground">
             SCIENCE
           </span>
         </Link>
         <div className="border border-feedback-success/30 bg-feedback-status-success/80 px-3 py-1.5">
-          <span className="font-mono text-label tracking-ui text-lime-400">
+          <span className="font-mono text-label text-lime-400">
             FLUID DYNAMICS CHALLENGE
           </span>
         </div>
@@ -52,7 +52,7 @@ export default function AuthLeftPanel({
       {/* Eyebrow */}
       <div className="mt-auto flex items-center gap-4 px-14 pb-4">
         <div className="h-px w-6 bg-lime-400" />
-        <span className="font-mono text-label tracking-ui text-muted-foreground">
+        <span className="font-mono text-label text-muted-foreground">
           {eyebrow}
         </span>
       </div>

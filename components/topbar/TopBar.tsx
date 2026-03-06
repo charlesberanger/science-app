@@ -22,7 +22,9 @@ function useSectionLabel() {
   // Exact match first
   if (SECTION_LABELS[pathname]) return SECTION_LABELS[pathname];
   // Prefix match (e.g. /profile/alice-s, /profile/edit)
-  const prefix = Object.keys(SECTION_LABELS).find((key) => pathname.startsWith(key + "/"));
+  const prefix = Object.keys(SECTION_LABELS).find((key) =>
+    pathname.startsWith(key + "/"),
+  );
   return prefix ? SECTION_LABELS[prefix] : "Dashboard";
 }
 
@@ -49,14 +51,17 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
       </button>
 
       <nav aria-label="Breadcrumb" className="hidden lg:block">
-        <span className="font-mono text-ui tracking-ui text-muted-foreground">
+        <span className="font-mono text-ui text-muted-foreground">
           Science <span className="text-muted-foreground">/</span>{" "}
           <span className="text-secondary-foreground">{section}</span>
         </span>
       </nav>
 
-      <nav aria-label="Breadcrumb" className="absolute left-1/2 -translate-x-1/2 lg:hidden">
-        <span className="font-mono text-ui tracking-ui text-muted-foreground">
+      <nav
+        aria-label="Breadcrumb"
+        className="absolute left-1/2 -translate-x-1/2 lg:hidden"
+      >
+        <span className="font-mono text-ui text-muted-foreground">
           Science <span className="text-muted-foreground">/</span>{" "}
           <span className="text-secondary-foreground">{section}</span>
         </span>
@@ -69,7 +74,12 @@ export default function TopBar({ onMenuClick, badgeLabel }: TopBarProps) {
           <Button variant="outline" size="sm" asChild>
             <Link href="/auth/sign-in">Sign In</Link>
           </Button>
-          <Button variant="default" size="sm" asChild className="hidden sm:inline-flex bg-feedback-success text-black hover:bg-feedback-success-hover">
+          <Button
+            variant="default"
+            size="sm"
+            asChild
+            className="hidden sm:inline-flex bg-feedback-success text-black hover:bg-feedback-success-hover"
+          >
             <Link href="/auth/sign-in?mode=register">Create Account</Link>
           </Button>
         </div>

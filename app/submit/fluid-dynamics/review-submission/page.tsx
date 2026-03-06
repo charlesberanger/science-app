@@ -47,7 +47,7 @@ function EditableTextField({
     return (
       <div className="flex flex-col gap-2">
         <div className="flex items-baseline justify-between">
-          <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+          <span className="font-mono text-sm text-muted-foreground">
             {label}
           </span>
           <div className="flex gap-3">
@@ -79,7 +79,7 @@ function EditableTextField({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-baseline justify-between">
-        <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+        <span className="font-mono text-sm text-muted-foreground">
           {label}
         </span>
         <button
@@ -132,7 +132,7 @@ function EditableLongField({
     return (
       <div className="flex flex-col gap-2">
         <div className="flex items-baseline justify-between">
-          <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+          <span className="font-mono text-sm text-muted-foreground">
             {label}
           </span>
           <div className="flex gap-3">
@@ -166,7 +166,7 @@ function EditableLongField({
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-baseline justify-between">
-        <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+        <span className="font-mono text-sm text-muted-foreground">
           {label}
         </span>
         <button
@@ -196,7 +196,7 @@ function SubmitSignal({
       <div className="flex border border-feedback-warning/40 bg-feedback-status-warning">
         <div className="w-1 shrink-0 bg-feedback-warning" />
         <div className="flex flex-col gap-0.5 px-3.5 py-2.5">
-          <span className="font-mono text-label uppercase tracking-ui text-feedback-warning">
+          <span className="font-mono text-label text-feedback-warning">
             Pre-screen required
           </span>
           <p className="font-mono text-label text-feedback-warning/80">
@@ -236,7 +236,7 @@ function SubmitSignal({
       <div className="flex border border-feedback-error/40 bg-feedback-status-error">
         <div className="w-1 shrink-0 bg-feedback-error" />
         <div className="flex flex-col gap-0.5 px-3.5 py-2.5">
-          <span className="font-mono text-label uppercase tracking-ui text-feedback-error">
+          <span className="font-mono text-label text-feedback-error">
             Submission blocked
           </span>
           <p className="font-mono text-label text-feedback-error/80">
@@ -250,7 +250,7 @@ function SubmitSignal({
     <div className="flex border border-feedback-error/40 bg-feedback-status-error">
       <div className="w-1 shrink-0 bg-feedback-error" />
       <div className="flex flex-col gap-0.5 px-3.5 py-2.5">
-        <span className="font-mono text-label uppercase tracking-ui text-feedback-error">
+        <span className="font-mono text-label text-feedback-error">
           Submission blocked
         </span>
         <p className="font-mono text-label text-feedback-error/80">
@@ -335,7 +335,7 @@ export default function ReviewSubmissionPage() {
           </div>
 
           <div className="w-full max-w-sm border border-border bg-card text-left">
-            <p className="border-b border-border px-5 py-3 font-mono text-label uppercase tracking-ui text-muted-foreground">
+            <p className="border-b border-border px-5 py-3 font-mono text-label text-muted-foreground">
               What happens next
             </p>
             {[
@@ -368,7 +368,7 @@ export default function ReviewSubmissionPage() {
 
           <button
             onClick={() => router.push("/submission")}
-            className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover"
+            className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui text-black transition-colors hover:bg-feedback-success-hover"
           >
             View My Submission →
           </button>
@@ -385,7 +385,7 @@ export default function ReviewSubmissionPage() {
         <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Review Submission
         </h1>
-        <p className="font-mono text-label uppercase tracking-ui text-muted-foreground">
+        <p className="font-mono text-label text-muted-foreground">
           Step 5 of 5 · Fluid Dynamics · Check everything before submitting
         </p>
       </div>
@@ -417,7 +417,7 @@ export default function ReviewSubmissionPage() {
 
         {/* Cover image */}
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+          <span className="font-mono text-sm text-muted-foreground">
             Cover Image
           </span>
           {coverFiles.length > 0 && coverPreview ? (
@@ -453,7 +453,7 @@ export default function ReviewSubmissionPage() {
 
         {/* CAD file */}
         <div className="flex flex-col gap-2">
-          <span className="font-mono text-sm uppercase tracking-ui text-muted-foreground">
+          <span className="font-mono text-sm text-muted-foreground">
             CAD File
           </span>
           {files.length > 0 ? (
@@ -503,14 +503,14 @@ export default function ReviewSubmissionPage() {
             onClick={() =>
               router.push("/submit/fluid-dynamics/cad-file-upload")
             }
-            className="border border-border bg-card px-5 py-2.5 font-mono text-ui uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground"
+            className="border border-border bg-card px-5 py-2.5 font-mono text-ui text-muted-foreground transition-colors hover:text-foreground"
           >
             ← CAD Upload
           </button>
           <button
             onClick={() => setConfirmOpen(true)}
             disabled={lastScore === null || lastScore < 50}
-            className="border px-6 py-2.5 font-mono text-ui uppercase tracking-ui transition-colors disabled:cursor-not-allowed disabled:border-border disabled:bg-card disabled:text-muted-foreground border-feedback-success bg-feedback-success text-black hover:bg-feedback-success-hover"
+            className="border px-6 py-2.5 font-mono text-ui transition-colors disabled:cursor-not-allowed disabled:border-border disabled:bg-card disabled:text-muted-foreground border-feedback-success bg-feedback-success text-black hover:bg-feedback-success-hover"
           >
             Submit Project →
           </button>
@@ -534,14 +534,14 @@ export default function ReviewSubmissionPage() {
               <button
                 onClick={handleSubmit}
                 disabled={submitting}
-                className="w-full bg-feedback-success py-2.5 font-mono text-ui uppercase tracking-ui text-black transition-opacity hover:opacity-90 disabled:opacity-50"
+                className="w-full bg-feedback-success py-2.5 font-mono text-ui text-black transition-opacity hover:opacity-90 disabled:opacity-50"
               >
                 {submitting ? "Submitting…" : "Confirm & Submit"}
               </button>
               <button
                 onClick={() => setConfirmOpen(false)}
                 disabled={submitting}
-                className="w-full border border-border py-2.5 font-mono text-ui uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground disabled:opacity-30"
+                className="w-full border border-border py-2.5 font-mono text-ui text-muted-foreground transition-colors hover:text-foreground disabled:opacity-30"
               >
                 Cancel
               </button>

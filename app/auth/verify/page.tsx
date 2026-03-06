@@ -142,7 +142,7 @@ function VerifyForm() {
           <div className="absolute left-0 top-0 h-px w-full bg-[rgba(172,255,175,0.4)]" />
 
           <div className="px-9 pb-6 pt-7">
-            <p className="font-mono text-label tracking-ui text-muted-foreground">
+            <p className="font-mono text-label text-muted-foreground">
               STEP 01 OF 04&nbsp;&nbsp;·&nbsp;&nbsp;CREATE ACCOUNT
             </p>
             <h2 className="mt-2 text-xl font-bold tracking-tight text-foreground">
@@ -175,20 +175,20 @@ function VerifyForm() {
             <button
               type="submit"
               disabled={!filled}
-              className="flex h-12 w-full items-center justify-center bg-lime-400 font-mono text-label font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90 disabled:opacity-30"
+              className="flex h-12 w-full items-center justify-center bg-lime-400 font-mono text-label font-medium text-black transition-opacity hover:opacity-90 disabled:opacity-30"
             >
               Verify Code →
             </button>
 
             <div className="flex items-center justify-between">
-              <span className="font-mono text-label tracking-ui text-muted-foreground">
+              <span className="font-mono text-label text-muted-foreground">
                 {timer > 0 ? `Resend available in 0:${String(timer).padStart(2, "0")}` : "Code expired"}
               </span>
               <button
                 type="button"
                 onClick={() => setTimer(42)}
                 disabled={timer > 0}
-                className="font-mono text-label tracking-ui text-muted-foreground transition-colors hover:text-secondary-foreground disabled:pointer-events-none"
+                className="font-mono text-label text-muted-foreground transition-colors hover:text-secondary-foreground disabled:pointer-events-none"
               >
                 Resend code
               </button>
@@ -200,11 +200,11 @@ function VerifyForm() {
           <div className="flex items-center justify-between px-9 py-4">
             <Link
               href="/auth/sign-in"
-              className="font-mono text-label tracking-ui text-muted-foreground transition-colors hover:text-secondary-foreground"
+              className="font-mono text-label text-muted-foreground transition-colors hover:text-secondary-foreground"
             >
               ← BACK TO SIGN-IN
             </Link>
-            <span className="font-mono text-label tracking-ui text-muted-foreground">
+            <span className="font-mono text-label text-muted-foreground">
               Having trouble?{" "}
               <span className="cursor-pointer hover:text-foreground">Contact support</span>
             </span>

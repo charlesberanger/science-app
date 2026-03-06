@@ -25,10 +25,16 @@ export default function CommentBlock({
         </Avatar>
         <div className="flex flex-1 flex-col gap-1.5">
           <div className="flex items-center gap-2">
-            <span className="text-sm font-medium text-foreground">{author}</span>
-            <span className="font-mono text-label text-muted-foreground">{time}</span>
+            <span className="text-sm font-medium text-foreground">
+              {author}
+            </span>
+            <span className="font-mono text-label text-muted-foreground">
+              {time}
+            </span>
           </div>
-          <p className="text-sm leading-relaxed text-secondary-foreground">{text}</p>
+          <p className="text-sm leading-relaxed text-secondary-foreground">
+            {text}
+          </p>
         </div>
       </div>
       {!isLast && <div className="border-t border-border" />}

@@ -25,7 +25,7 @@ function StatsFooter() {
             >
               {s.value}
             </span>
-            <span className="font-mono text-label tracking-ui text-muted-foreground">
+            <span className="font-mono text-label text-muted-foreground">
               {s.label}
             </span>
           </div>
@@ -86,7 +86,7 @@ function SignInForm() {
 
           {signedOut && (
             <div className="border-b border-border bg-feedback-status-success px-9 py-3">
-              <p className="font-mono text-label tracking-ui text-feedback-success">
+              <p className="font-mono text-label text-feedback-success">
                 ✓ You've been signed out
               </p>
             </div>
@@ -96,7 +96,7 @@ function SignInForm() {
           <div className="grid grid-cols-2 border-b border-border">
             <Link
               href="/auth/sign-in"
-              className={`flex items-center justify-center py-4 font-mono text-label tracking-ui transition-colors ${
+              className={`flex items-center justify-center py-4 font-mono text-label transition-colors ${
                 !isRegister
                   ? "border-b-2 border-lime-400 text-foreground"
                   : "text-muted-foreground hover:text-secondary-foreground"
@@ -106,7 +106,7 @@ function SignInForm() {
             </Link>
             <Link
               href="/auth/sign-in?mode=register"
-              className={`flex items-center justify-center py-4 font-mono text-label tracking-ui transition-colors ${
+              className={`flex items-center justify-center py-4 font-mono text-label transition-colors ${
                 isRegister
                   ? "border-b-2 border-lime-400 text-foreground"
                   : "text-muted-foreground hover:text-secondary-foreground"
@@ -138,7 +138,7 @@ function SignInForm() {
             <div className="mt-2 flex flex-col gap-2">
               <label
                 htmlFor="email"
-                className="font-mono text-label tracking-ui text-secondary-foreground"
+                className="font-mono text-label text-secondary-foreground"
               >
                 YOUR EMAIL
               </label>
@@ -156,7 +156,7 @@ function SignInForm() {
             {/* Primary CTA */}
             <button
               type="submit"
-              className="mt-1 flex h-12 w-full items-center justify-center bg-feedback-success font-mono text-label font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="mt-1 flex h-12 w-full items-center justify-center bg-feedback-success font-mono text-label font-medium text-black transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               {isRegister ? "Create Account →" : "Sign In →"}
             </button>
@@ -164,7 +164,7 @@ function SignInForm() {
             {/* Divider */}
             <div className="flex items-center gap-3">
               <div className="h-px flex-1 bg-secondary" />
-              <span className="font-mono text-label tracking-ui text-muted-foreground">
+              <span className="font-mono text-label text-muted-foreground">
                 OR
               </span>
               <div className="h-px flex-1 bg-secondary" />
@@ -179,7 +179,7 @@ function SignInForm() {
           <div className="border-t border-border" />
 
           <div className="flex flex-col gap-2 px-9 py-4 text-center">
-            <p className="font-mono text-label tracking-ui text-muted-foreground">
+            <p className="font-mono text-label text-muted-foreground">
               {isRegister ? (
                 <>Already have an account?{" "}
                   <Link href="/auth/sign-in" className="text-foreground hover:text-lime-400 transition-colors">
@@ -194,7 +194,7 @@ function SignInForm() {
                 </>
               )}
             </p>
-            <p className="font-mono text-label tracking-ui text-muted-foreground">
+            <p className="font-mono text-label text-muted-foreground">
               By continuing you agree to the Terms of Use and Privacy Policy
             </p>
           </div>

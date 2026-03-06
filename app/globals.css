@@ -201,6 +201,11 @@
     font-size: 12px;
     line-height: 1.4;
   }
+  /* font-mono always renders uppercase with UI letter-spacing */
+  .font-mono {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
 }
 
 /* ── Animations ─────────────────────────────────────────────────────────────── */

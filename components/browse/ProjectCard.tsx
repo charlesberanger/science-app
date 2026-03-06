@@ -61,7 +61,7 @@ export default function ProjectCard({
         <div className="absolute bottom-2 left-2 flex items-center gap-1 rounded-full border border-feedback-success/50 bg-feedback-status-success/70 px-2 py-0.5 transition-opacity duration-200 group-hover:opacity-0">
           <span className="h-1.5 w-1.5 rounded-full bg-feedback-success" />
           <span
-            className="font-mono text-label tracking-ui text-feedback-success"
+            className="font-mono text-label text-feedback-success"
           >
             #{rank}
           </span>

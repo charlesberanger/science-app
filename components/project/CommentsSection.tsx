@@ -52,7 +52,7 @@ export default function CommentsSection() {
     <div id="comments" className="rounded border border-border bg-card">
       <div className="border-b border-border px-5 py-3">
         <span
-          className="font-mono text-label tracking-ui text-muted-foreground uppercase"
+          className="font-mono text-label text-muted-foreground"
         >
           Comments ({comments.length})
         </span>

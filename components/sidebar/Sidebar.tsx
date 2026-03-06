@@ -28,7 +28,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         <Link href="/get-started" className="flex items-center gap-2.5" onClick={onClose}>
           <ScienceLogo className="h-7 w-7" />
           <span
-            className="font-mono text-xs uppercase tracking-ui text-foreground"
+            className="font-mono text-xs text-foreground"
           >
             Science
           </span>
@@ -46,7 +46,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       <div className="flex flex-1 flex-col gap-5 overflow-y-auto py-5">
         <div>
           <span
-            className="font-mono mb-1 block px-4 text-label uppercase tracking-ui text-muted-foreground"
+            className="font-mono mb-1 block px-4 text-label text-muted-foreground"
           >
             Navigation
           </span>
@@ -55,7 +55,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
         <div>
           <span
-            className="font-mono mb-1 block px-4 text-label uppercase tracking-ui text-muted-foreground"
+            className="font-mono mb-1 block px-4 text-label text-muted-foreground"
           >
             Challenge
           </span>
@@ -69,7 +69,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
         <div>
           <span
-            className="font-mono mb-1 block px-4 text-label uppercase tracking-ui text-muted-foreground"
+            className="font-mono mb-1 block px-4 text-label text-muted-foreground"
           >
             Explore
           </span>

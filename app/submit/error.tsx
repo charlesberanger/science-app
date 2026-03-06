@@ -16,7 +16,7 @@ export default function SubmitError({
 
   return (
     <div className="flex flex-col items-center justify-center gap-6 px-4 py-20 text-center">
-      <p className="font-mono text-label uppercase tracking-ui text-destructive">Submission Error</p>
+      <p className="font-mono text-label text-destructive">Submission Error</p>
       <div className="flex flex-col gap-2">
         <h1 className="text-2xl font-bold tracking-tight text-foreground">Something went wrong</h1>
         <p className="text-sm text-muted-foreground">
@@ -26,13 +26,13 @@ export default function SubmitError({
       <div className="flex items-center gap-3">
         <button
           onClick={reset}
-          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-black transition-colors hover:bg-feedback-success-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="border border-feedback-success bg-feedback-success px-6 py-2.5 font-mono text-ui text-black transition-colors hover:bg-feedback-success-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           Try again
         </button>
         <Link
           href="/submit"
-          className="border border-border bg-card px-6 py-2.5 font-mono text-ui uppercase tracking-ui text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="border border-border bg-card px-6 py-2.5 font-mono text-ui text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <span aria-hidden="true">←</span> Start over
         </Link>

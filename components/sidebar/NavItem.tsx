@@ -25,7 +25,7 @@ export default function NavItem({ label, href, icon }: NavItemProps) {
       )}
       {icon && <span className="shrink-0 text-sm opacity-60" aria-hidden="true">{icon}</span>}
       <span
-        className="font-mono text-ui uppercase tracking-ui"
+        className="font-mono text-ui"
       >
         {label}
       </span>

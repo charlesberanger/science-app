@@ -17,7 +17,7 @@ export function FilterTabs({ options, value, onChange }: FilterTabsProps) {
             role="tab"
             aria-selected={active}
             onClick={() => onChange(opt)}
-            className={`font-mono border px-3 py-1.5 text-ui uppercase tracking-ui transition-colors ${
+            className={`font-mono border px-3 py-1.5 text-ui transition-colors ${
               active
                 ? "border-feedback-success bg-feedback-success text-black"
                 : "border-border bg-card text-muted-foreground hover:border-foreground hover:text-foreground"

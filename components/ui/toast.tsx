@@ -78,7 +78,7 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
         {items.map((item) => (
           <div
             key={item.id}
-            className={`pointer-events-auto flex items-center justify-between gap-4 border bg-card px-4 py-3 text-ui uppercase tracking-ui shadow-lg animate-toast-in ${VARIANT_STYLES[item.variant]}`}
+            className={`pointer-events-auto flex items-center justify-between gap-4 border bg-card px-4 py-3 text-ui shadow-lg animate-toast-in ${VARIANT_STYLES[item.variant]}`}
           >
             <span>{item.message}</span>
             <button

@@ -19,7 +19,7 @@ export default function ProfileSection() {
       <div className="border-t border-border">
         <Link
           href="/auth/sign-in"
-          className="flex items-center gap-2 px-4 py-3 font-mono text-label uppercase tracking-ui text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          className="flex items-center gap-2 px-4 py-3 font-mono text-label text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
         >
           <span aria-hidden="true">→</span>
           Sign in
@@ -47,7 +47,7 @@ export default function ProfileSection() {
 
       <button
         onClick={handleSignOut}
-        className="flex w-full items-center gap-2 border-t border-border px-4 py-2.5 font-mono text-label uppercase tracking-ui text-muted-foreground transition-colors hover:bg-secondary hover:text-destructive focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+        className="flex w-full items-center gap-2 border-t border-border px-4 py-2.5 font-mono text-label text-muted-foreground transition-colors hover:bg-secondary hover:text-destructive focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
       >
         <span aria-hidden="true">→</span>
         Sign out

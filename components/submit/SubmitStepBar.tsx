@@ -20,7 +20,7 @@ export default function SubmitStepBar({ current }: { current: number }) {
               }`}
             >
               <span
-                className={`font-mono text-label uppercase tracking-ui ${
+                className={`font-mono text-label ${
                   done
                     ? "text-feedback-success"
                     : active

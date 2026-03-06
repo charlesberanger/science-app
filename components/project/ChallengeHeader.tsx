@@ -6,7 +6,7 @@ export default function ChallengeHeader() {
     <div className="flex flex-col gap-2">
       <div className="flex items-center gap-2">
         <Badge variant="success">Approved</Badge>
-        <span className="font-mono text-label text-muted-foreground tracking-ui">
+        <span className="font-mono text-label text-muted-foreground">
           Submitted Jan 28, 2026
         </span>
       </div>
