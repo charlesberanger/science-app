@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import Link from "next/link";
 import AuthLeftPanel from "@/components/auth/AuthLeftPanel";
 import { Button } from "@/components/ui/button";
 
@@ -55,13 +56,25 @@ function SignInForm() {
   return (
     <div className="flex min-h-screen bg-background">
       <AuthLeftPanel
-        eyebrow="QUICK AUTHENTICATION"
-        headline={[
-          { text: "Sign", style: "bold" },
-          { text: "in to", style: "italic" },
-          { text: "Science", style: "bold" },
-        ]}
-        description="The Science platform brings together researchers, engineers, and innovators to compete and push boundaries."
+        eyebrow={isRegister ? "JOIN THE PLATFORM" : "WELCOME BACK"}
+        headline={
+          isRegister
+            ? [
+                { text: "Create", style: "bold" },
+                { text: "your", style: "italic" },
+                { text: "account", style: "bold" },
+              ]
+            : [
+                { text: "Sign", style: "bold" },
+                { text: "in to", style: "italic" },
+                { text: "Science", style: "bold" },
+              ]
+        }
+        description={
+          isRegister
+            ? "Join the Science platform to submit your research, vote on designs, and compete for the challenge prize."
+            : "The Science platform brings together researchers, engineers, and innovators to compete and push boundaries."
+        }
         footer={<StatsFooter />}
       />
 
@@ -79,13 +92,33 @@ function SignInForm() {
             </div>
           )}
 
-          <div className="px-9 pb-10 pt-7">
-            {/* Step label */}
-            <p className="font-mono text-label tracking-ui text-muted-foreground">
-              STEP 01 OF 04&nbsp;&nbsp;·&nbsp;&nbsp;CREATE ACCOUNT
-            </p>
-            <h2 className="mt-2 text-xl font-bold tracking-tight text-foreground">
-              {isRegister ? "Create your account" : "Quick Authentication"}
+          {/* Mode tabs */}
+          <div className="grid grid-cols-2 border-b border-border">
+            <Link
+              href="/auth/sign-in"
+              className={`flex items-center justify-center py-4 font-mono text-label tracking-ui transition-colors ${
+                !isRegister
+                  ? "border-b-2 border-lime-400 text-foreground"
+                  : "text-muted-foreground hover:text-secondary-foreground"
+              }`}
+            >
+              SIGN IN
+            </Link>
+            <Link
+              href="/auth/sign-in?mode=register"
+              className={`flex items-center justify-center py-4 font-mono text-label tracking-ui transition-colors ${
+                isRegister
+                  ? "border-b-2 border-lime-400 text-foreground"
+                  : "text-muted-foreground hover:text-secondary-foreground"
+              }`}
+            >
+              CREATE ACCOUNT
+            </Link>
+          </div>
+
+          <div className="px-9 pb-6 pt-7">
+            <h2 className="text-xl font-bold tracking-tight text-foreground">
+              {isRegister ? "Create your account" : "Welcome back"}
             </h2>
           </div>
 
@@ -125,7 +158,7 @@ function SignInForm() {
               type="submit"
               className="mt-1 flex h-12 w-full items-center justify-center bg-feedback-success font-mono text-label font-medium uppercase tracking-ui text-black transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
-              Continue with SSO →
+              {isRegister ? "Create Account →" : "Sign In →"}
             </button>
 
             {/* Divider */}
@@ -144,9 +177,27 @@ function SignInForm() {
           </form>
 
           <div className="border-t border-border" />
-          <p className="px-9 py-4 text-center font-mono text-label tracking-ui text-muted-foreground">
-            By continuing you agree to the Terms of Use and Privacy Policy
-          </p>
+
+          <div className="flex flex-col gap-2 px-9 py-4 text-center">
+            <p className="font-mono text-label tracking-ui text-muted-foreground">
+              {isRegister ? (
+                <>Already have an account?{" "}
+                  <Link href="/auth/sign-in" className="text-foreground hover:text-lime-400 transition-colors">
+                    Sign in
+                  </Link>
+                </>
+              ) : (
+                <>Don&apos;t have an account?{" "}
+                  <Link href="/auth/sign-in?mode=register" className="text-foreground hover:text-lime-400 transition-colors">
+                    Create one
+                  </Link>
+                </>
+              )}
+            </p>
+            <p className="font-mono text-label tracking-ui text-muted-foreground">
+              By continuing you agree to the Terms of Use and Privacy Policy
+            </p>
+          </div>
         </div>
       </div>
     </div>

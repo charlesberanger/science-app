@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ScienceLogo from "@/components/icons/ScienceLogo";
 
 interface HeadlineLine {
@@ -33,14 +34,14 @@ export default function AuthLeftPanel({
 
       {/* Brand row */}
       <div className="flex items-center justify-between px-14 pt-12">
-        <div className="flex items-center gap-3">
+        <Link href="/get-started" className="flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center bg-black">
             <ScienceLogo className="h-5 w-5" />
           </div>
           <span className="font-mono text-ui tracking-ui text-secondary-foreground">
             SCIENCE
           </span>
-        </div>
+        </Link>
         <div className="border border-feedback-success/30 bg-feedback-status-success/80 px-3 py-1.5">
           <span className="font-mono text-label tracking-ui text-lime-400">
             FLUID DYNAMICS CHALLENGE
