@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import FlowFieldCover from "@/components/ui/FlowFieldCover";
 
 interface ProjectCardProps {
   title: string;
@@ -36,14 +37,7 @@ export default function ProjectCard({
             sizes="(max-width: 640px) 50vw, (max-width: 1280px) 33vw, 25vw"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center text-border">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-              <rect x="8" y="14" width="16" height="12" rx="0" stroke="currentColor" strokeWidth="1.2" />
-              <path d="M8 14L16 9L24 14" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
-              <path d="M16 9V21" stroke="currentColor" strokeWidth="1.2" />
-              <path d="M8 14L16 19L24 14" stroke="currentColor" strokeOpacity="0.5" strokeWidth="1.2" />
-            </svg>
-          </div>
+          <FlowFieldCover seed={title} className="h-full w-full" />
         )}
         {/* Hover description overlay */}
         {description && (

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import UserAvatar from "@/components/ui/UserAvatar";
 import { useAuth } from "@/contexts/AuthContext";
 
 export default function ProfileSection() {
@@ -34,11 +34,7 @@ export default function ProfileSection() {
         href="/profile"
         className="flex items-center gap-3 px-4 py-3 transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
       >
-        <Avatar className="h-8 w-8 shrink-0 border border-border">
-          <AvatarFallback className="bg-secondary text-label font-medium text-foreground font-mono">
-            {currentUser.initials}
-          </AvatarFallback>
-        </Avatar>
+        <UserAvatar name={currentUser.name} size="sm" />
         <div className="flex min-w-0 flex-col">
           <span className="truncate text-xs font-medium text-foreground">{currentUser.name}</span>
           <span className="truncate font-mono text-label text-muted-foreground">{currentUser.role}</span>

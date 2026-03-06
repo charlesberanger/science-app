@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "View and manage your Science challenge profile and submission.",
 };
 import AppShell from "@/components/layout/AppShell";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import UserAvatar from "@/components/ui/UserAvatar";
 import { Button } from "@/components/ui/button";
 import SubmissionStatusBanner from "@/components/submission/SubmissionStatusBanner";
 import SubmissionCard from "@/components/submission/SubmissionCard";
@@ -60,11 +60,7 @@ export default function ProfilePage() {
       {/* User info card */}
       <div className="flex flex-col gap-4 border border-border bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-5">
-          <Avatar className="h-13 w-13 rounded-none">
-            <AvatarFallback className="rounded-none bg-secondary font-mono text-base text-secondary-foreground">
-              {user.initials}
-            </AvatarFallback>
-          </Avatar>
+          <UserAvatar name={user.name} size="lg" />
           <div className="flex flex-col gap-0.5">
             <p className="text-xl font-bold text-foreground">{user.name}</p>
             <p className="font-mono text-label text-secondary-foreground">

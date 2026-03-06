@@ -16,7 +16,6 @@ const browseStats: StatItem[] = [
   { label: "DAYS REMAINING",    value: <CountdownTimer />, trend: "Closes Apr 12", trendMuted: true },
 ];
 
-const THUMBNAIL = "/placeholder-project.svg";
 
 const CATEGORIES = ["All", "Fluid Dynamics", "Thermodynamics", "Materials"];
 
@@ -109,7 +108,6 @@ export default function BrowseProjectsPage() {
               <ProjectCard
                 {...project}
                 href="/project"
-                imageSrc={THUMBNAIL}
               />
             </div>
           ))}
