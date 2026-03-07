@@ -1,7 +1,4 @@
-import Image from "next/image";
 import SeraLogo from "@/components/icons/SeraLogo";
-import cornellLogo from "@/public/cornell_logo.svg";
-import uatLogo from "@/public/uat.svg";
 
 interface HeadlineLine {
   text: string;
@@ -33,9 +30,11 @@ export default function AuthLeftPanel({
         <div className="flex items-center gap-5">
           <SeraLogo className="h-5 w-auto text-foreground" />
           <div className="h-4 w-px bg-secondary" aria-hidden="true" />
-          <Image src={cornellLogo} alt="Cornell" className="h-6 w-auto" unoptimized />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/cornell_logo.svg" alt="Cornell" className="h-6 w-auto" />
           <div className="h-4 w-px bg-secondary" aria-hidden="true" />
-          <Image src={uatLogo} alt="UAT" className="h-6 w-auto" unoptimized />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/uat.svg" alt="UAT" className="h-6 w-auto" />
         </div>
         <div className="flex items-center gap-4">
           <div className="h-px w-6 bg-lime-400" />
