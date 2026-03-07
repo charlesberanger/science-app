@@ -21,7 +21,7 @@ function StatsFooter() {
         {STATS.map((s) => (
           <div key={s.label} className="flex flex-col gap-1 px-4 py-4">
             <span
-              className={`text-2xl font-bold tracking-tight ${s.highlight ? "text-lime-400" : "text-foreground"}`}
+              className={`font-doto font-bold text-2xl ${s.highlight ? "text-lime-400" : "text-foreground"}`}
             >
               {s.value}
             </span>

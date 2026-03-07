@@ -22,7 +22,7 @@ export default function StatsBar({ stats }: { stats: StatItem[] }) {
           <span className="font-mono text-label text-muted-foreground">
             {stat.label}
           </span>
-          <span className="text-2xl font-semibold text-foreground">
+          <span className="font-doto font-bold text-2xl text-foreground">
             {stat.value}
           </span>
           <span

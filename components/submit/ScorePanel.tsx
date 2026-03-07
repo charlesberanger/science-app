@@ -172,7 +172,7 @@ export default function ScorePanel({
           <div className="flex flex-col gap-5 px-5 py-5">
             <div className="flex items-end gap-2">
               <span
-                className={`font-mono text-5xl font-bold leading-none tabular-nums ${compositeColor(result.composite)}`}
+                className={`font-doto font-bold text-5xl leading-none ${compositeColor(result.composite)}`}
               >
                 {result.composite}
               </span>
