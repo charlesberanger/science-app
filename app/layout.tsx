@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, DM_Mono } from "next/font/google";
+import { DM_Sans, DM_Mono, Doto } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/providers/Providers";
 
@@ -13,6 +13,12 @@ const dmMono = DM_Mono({
   subsets: ["latin"],
   variable: "--font-dm-mono",
   weight: ["400", "500"],
+});
+
+const doto = Doto({
+  subsets: ["latin"],
+  variable: "--font-doto",
+  weight: "700",
 });
 
 export const metadata: Metadata = {
@@ -40,7 +46,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${dmSans.variable} ${dmMono.variable} antialiased bg-background text-foreground`}
+        className={`${dmSans.variable} ${dmMono.variable} ${doto.variable} antialiased bg-background text-foreground`}
        
       >
         <a

@@ -52,6 +52,7 @@
   /* ── Typography ── */
   --font-sans: var(--font-dm-sans), sans-serif;
   --font-mono: var(--font-dm-mono), monospace;
+  --font-doto: var(--font-doto), sans-serif;
 
   /* ── Letter spacing ── */
   --tracking-ui: 0.1em;

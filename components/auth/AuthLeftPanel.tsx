@@ -64,7 +64,7 @@ export default function AuthLeftPanel({
             key={line.text}
             className={`text-7xl ${
               line.style === "bold"
-                ? "font-bold text-foreground"
+                ? "font-doto font-bold text-foreground"
                 : "font-light italic text-muted-foreground"
             }`}
           >
