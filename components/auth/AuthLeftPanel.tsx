@@ -1,4 +1,7 @@
 import Image from "next/image";
+import SeraLogo from "@/components/icons/SeraLogo";
+import cornellLogo from "@/public/cornell_logo.svg";
+import uatLogo from "@/public/uat.svg";
 
 interface HeadlineLine {
   text: string;
@@ -28,11 +31,11 @@ export default function AuthLeftPanel({
       {/* Brand row — logos + eyebrow */}
       <div className="flex items-center justify-between px-14 pt-12">
         <div className="flex items-center gap-5">
-          <Image src="/SERA.svg" alt="SERA" width={135} height={22} className="h-5 w-auto" unoptimized />
+          <SeraLogo className="h-5 w-auto text-foreground" />
           <div className="h-4 w-px bg-secondary" aria-hidden="true" />
-          <Image src="/cornell_logo.svg" alt="Cornell" width={73} height={68} className="h-6 w-auto" unoptimized />
+          <Image src={cornellLogo} alt="Cornell" className="h-6 w-auto" unoptimized />
           <div className="h-4 w-px bg-secondary" aria-hidden="true" />
-          <Image src="/uat.svg" alt="UAT" width={79} height={66} className="h-6 w-auto" unoptimized />
+          <Image src={uatLogo} alt="UAT" className="h-6 w-auto" unoptimized />
         </div>
         <div className="flex items-center gap-4">
           <div className="h-px w-6 bg-lime-400" />
