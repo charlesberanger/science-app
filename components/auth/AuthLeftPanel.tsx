@@ -27,15 +27,7 @@ export default function AuthLeftPanel({
 
       {/* Brand row — logos + eyebrow */}
       <div className="flex items-center justify-between px-14 pt-12">
-        <div className="flex items-center gap-5">
-          <SeraLogo className="h-5 w-auto text-foreground" />
-          <div className="h-4 w-px bg-secondary" aria-hidden="true" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/cornell_logo.svg" alt="Cornell" className="h-6 w-auto" />
-          <div className="h-4 w-px bg-secondary" aria-hidden="true" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/uat.svg" alt="UAT" className="h-6 w-auto" />
-        </div>
+        <SeraLogo className="h-5 w-auto text-foreground" />
         <div className="flex items-center gap-4">
           <div className="h-px w-6 bg-lime-400" />
           <span className="font-mono text-label text-muted-foreground">
