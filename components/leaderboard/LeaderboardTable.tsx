@@ -277,7 +277,7 @@ export default function LeaderboardTable() {
                 <th
                   key={col}
                   scope="col"
-                  className="font-mono px-4 py-2.5 text-left text-label font-normal text-muted-foreground"
+                  className={`font-mono px-4 py-2.5 text-label font-normal text-muted-foreground ${col === "VOTES" ? "text-right" : "text-left"}`}
                 >
                   {col}
                 </th>
@@ -316,10 +316,6 @@ export default function LeaderboardTable() {
                     </td>
                     <td className="px-4 py-3">
                       <Link href="/project" className="flex items-center gap-3">
-                        <div
-                          className="h-7 w-7 shrink-0 rounded-full bg-secondary"
-                          aria-hidden="true"
-                        />
                         <div className="flex min-w-0 flex-col">
                           <span className="truncate text-sm font-medium text-foreground">
                             {entry.project}
