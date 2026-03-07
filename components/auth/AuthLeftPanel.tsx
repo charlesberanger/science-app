@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface HeadlineLine {
   text: string;
   style: "bold" | "italic";
@@ -26,14 +28,11 @@ export default function AuthLeftPanel({
       {/* Brand row — logos + eyebrow */}
       <div className="flex items-center justify-between px-14 pt-12">
         <div className="flex items-center gap-5">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/SERA.svg" alt="SERA" className="h-5 w-auto" />
+          <Image src="/SERA.svg" alt="SERA" width={135} height={22} className="h-5 w-auto" unoptimized />
           <div className="h-4 w-px bg-secondary" aria-hidden="true" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/cornell_logo.svg" alt="Cornell" className="h-6 w-auto" />
+          <Image src="/cornell_logo.svg" alt="Cornell" width={73} height={68} className="h-6 w-auto" unoptimized />
           <div className="h-4 w-px bg-secondary" aria-hidden="true" />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/uat.svg" alt="UAT" className="h-6 w-auto" />
+          <Image src="/uat.svg" alt="UAT" width={79} height={66} className="h-6 w-auto" unoptimized />
         </div>
         <div className="flex items-center gap-4">
           <div className="h-px w-6 bg-lime-400" />
