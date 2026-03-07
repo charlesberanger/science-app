@@ -207,6 +207,11 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
   }
+  /* font-doto always renders uppercase with display letter-spacing */
+  .font-doto {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
 }
 
 /* ── Animations ─────────────────────────────────────────────────────────────── */

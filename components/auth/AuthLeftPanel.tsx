@@ -62,7 +62,7 @@ export default function AuthLeftPanel({
         {headline.map((line) => (
           <span
             key={line.text}
-            className={`font-doto font-bold uppercase tracking-[0.06em] text-7xl ${
+            className={`font-doto font-bold text-7xl ${
               line.style === "bold"
                 ? "text-foreground"
                 : "text-muted-foreground"

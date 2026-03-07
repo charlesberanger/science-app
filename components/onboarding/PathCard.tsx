@@ -27,7 +27,7 @@ export default function PathCard({
           {icon}
         </span>
         <div className="flex flex-col gap-2">
-          <h2 className="text-2xl font-normal leading-snug tracking-tight text-foreground">
+          <h2 className="font-doto font-bold text-2xl text-foreground">
             {title}
           </h2>
           <p className="text-sm leading-relaxed text-secondary-foreground">{description}</p>
