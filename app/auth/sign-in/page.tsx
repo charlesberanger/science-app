@@ -117,7 +117,7 @@ function SignInForm() {
           </div>
 
           <div className="px-9 pb-6 pt-7">
-            <h2 className="text-xl font-bold tracking-tight text-foreground">
+            <h2 className="font-doto font-bold text-xl text-foreground">
               {isRegister ? "Create your account" : "Welcome back"}
             </h2>
           </div>
