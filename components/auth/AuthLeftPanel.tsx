@@ -58,14 +58,14 @@ export default function AuthLeftPanel({
       </div>
 
       {/* Headline */}
-      <div className="flex flex-col px-14 leading-[0.92] tracking-[-3.6px]">
+      <div className="flex flex-col px-14 leading-[0.92]">
         {headline.map((line) => (
           <span
             key={line.text}
-            className={`text-7xl ${
+            className={`font-doto font-bold uppercase tracking-[0.06em] text-7xl ${
               line.style === "bold"
-                ? "font-doto font-bold text-foreground"
-                : "font-light italic text-muted-foreground"
+                ? "text-foreground"
+                : "text-muted-foreground"
             }`}
           >
             {line.text}
