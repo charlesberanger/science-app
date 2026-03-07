@@ -60,14 +60,12 @@ function SignInForm() {
         headline={
           isRegister
             ? [
-                { text: "Create", style: "bold" },
-                { text: "your", style: "italic" },
-                { text: "account", style: "bold" },
+                { text: "Create your", style: "bold" },
+                { text: "account.", style: "bold" },
               ]
             : [
-                { text: "Sign", style: "bold" },
-                { text: "in to", style: "italic" },
-                { text: "Science", style: "bold" },
+                { text: "Sign in to", style: "bold" },
+                { text: "Science.", style: "bold" },
               ]
         }
         description={
