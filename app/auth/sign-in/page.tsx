@@ -85,7 +85,7 @@ function SignInForm() {
           {signedOut && (
             <div className="border-b border-border bg-feedback-status-success px-9 py-3">
               <p className="font-mono text-label text-feedback-success">
-                ✓ You've been signed out
+                <span aria-hidden="true">✓</span> You've been signed out
               </p>
             </div>
           )}
@@ -94,23 +94,23 @@ function SignInForm() {
           <div className="grid grid-cols-2 border-b border-border">
             <Link
               href="/auth/sign-in"
-              className={`flex items-center justify-center py-4 font-doto text-sm transition-colors ${
+              className={`flex items-center justify-center py-4 font-mono text-label transition-colors ${
                 !isRegister
                   ? "border-b-2 border-lime-400 text-foreground"
                   : "text-muted-foreground hover:text-secondary-foreground"
               }`}
             >
-              Sign In
+              SIGN IN
             </Link>
             <Link
               href="/auth/sign-in?mode=register"
-              className={`flex items-center justify-center py-4 font-doto text-sm transition-colors ${
+              className={`flex items-center justify-center py-4 font-mono text-label transition-colors ${
                 isRegister
                   ? "border-b-2 border-lime-400 text-foreground"
                   : "text-muted-foreground hover:text-secondary-foreground"
               }`}
             >
-              Create Account
+              CREATE ACCOUNT
             </Link>
           </div>
 

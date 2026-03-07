@@ -340,7 +340,7 @@ export default function LeaderboardTable() {
                       <ApprovalBar value={entry.approval} />
                     </td>
                     <td className="px-4 text-right">
-                      <span className="font-mono text-sm font-medium text-feedback-success">
+                      <span className="font-mono text-sm font-medium tabular-nums text-feedback-success">
                         {entry.votes}
                       </span>
                     </td>
