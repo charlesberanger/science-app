@@ -23,7 +23,7 @@ export default function ProfileHeader({ isSetup = false }: ProfileHeaderProps) {
         </Link>
       )}
       <div className="flex flex-col gap-1">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h1 className="font-doto font-bold text-3xl text-foreground sm:text-4xl">
           {isSetup ? "Complete your profile" : "Edit Profile"}
         </h1>
         <p className="text-sm text-secondary-foreground">

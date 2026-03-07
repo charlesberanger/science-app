@@ -39,7 +39,7 @@ export default function SubmitPage() {
       <SubmitStepBar current={1} />
 
       <div className="flex flex-col gap-3">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h1 className="font-doto font-bold text-3xl text-foreground sm:text-4xl">
           Submit Project
         </h1>
         <p className="font-mono text-label text-muted-foreground">

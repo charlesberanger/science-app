@@ -52,7 +52,7 @@ export default function ProfilePage() {
     <AppShell badgeLabel="CHALLENGE LIVE">
       {/* Header */}
       <div className="border-b border-border pb-6">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h1 className="font-doto font-bold text-3xl text-foreground sm:text-4xl">
           My Profile
         </h1>
       </div>

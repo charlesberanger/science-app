@@ -2,7 +2,7 @@ export default function LeaderboardHeader() {
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
       <div className="flex flex-col gap-1">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h1 className="font-doto font-bold text-3xl text-foreground sm:text-4xl">
           Leaderboard
         </h1>
         <p className="text-xs text-muted-foreground">

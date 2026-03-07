@@ -19,7 +19,7 @@ export default function Error({
     <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-background px-4 text-center">
       <p className="font-mono text-label text-destructive">Error</p>
       <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground">Something went wrong</h1>
+        <h1 className="font-doto font-bold text-3xl text-foreground">Something went wrong</h1>
         <p className="text-sm text-muted-foreground">An unexpected error occurred. Please try again.</p>
       </div>
       <div className="flex items-center gap-3">

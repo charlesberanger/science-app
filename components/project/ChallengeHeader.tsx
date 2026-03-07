@@ -10,7 +10,7 @@ export default function ChallengeHeader() {
           Submitted Jan 28, 2026
         </span>
       </div>
-      <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+      <h1 className="font-doto font-bold text-3xl text-foreground sm:text-4xl">
         Fluid Dynamics in Microgravity
       </h1>
       <p className="text-sm text-muted-foreground">

@@ -356,7 +356,7 @@ export default function ReviewSubmissionPage() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <h1 className="text-3xl font-bold tracking-tight text-foreground">
+            <h1 className="font-doto font-bold text-3xl text-foreground">
               Submission received
             </h1>
             <p className="text-sm text-muted-foreground">
@@ -412,7 +412,7 @@ export default function ReviewSubmissionPage() {
       <SubmitStepBar current={5} />
 
       <div className="flex flex-col gap-1">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h1 className="font-doto font-bold text-3xl text-foreground sm:text-4xl">
           Review Submission
         </h1>
         <p className="font-mono text-label text-muted-foreground">

@@ -57,7 +57,7 @@ export default function ExperimentDetailsPage() {
       <SubmitStepBar current={3} />
 
       <div className="flex flex-col gap-1">
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        <h1 className="font-doto font-bold text-3xl text-foreground sm:text-4xl">
           Experiment Details
         </h1>
         <p className="font-mono text-label text-muted-foreground">
